@@ -81,7 +81,6 @@ Needed:
   - jsonls
   - rust_analyzer
   - sumneko_lua
-  - taplo
   - tsserver
   - volar
 
