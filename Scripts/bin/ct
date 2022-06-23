@@ -1,0 +1,14 @@
+#!/bin/nu
+
+def main [sheet?: string] {
+    cd ~/Cheat
+
+    bat --paging 'always' (
+        if $sheet != null {
+            $sheet
+        } else {
+            sk --ansi -i -c "fd -c 'always' -I '{}' ." --preview 'bat -pp {}'
+            | str trim -r
+        }
+    )
+}

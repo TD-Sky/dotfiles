@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir -p /mnt/door
+cd /home/door
+rsync -aAXvh --progress 'Desktop' 'Documents' 'Dict' 'Pocket' 'Videos' 'Pictures' 'Music' 'Log' 'Notebook' 'Templates' '.git-credentials' '.ssh' /mnt/door

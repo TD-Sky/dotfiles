@@ -1,0 +1,17 @@
+# wifi设备是wlo1
+
+# 查看网络设备
+nmcli device status
+
+# 确认WIFI连接功能已启动
+nmcli radio wifi
+
+# 查看附近wifi
+nmcli device wifi list
+
+# 以冒号分割，打印附近wifi的列表
+nmcli -terse device wifi
+
+# 连接wifi
+nmcli device wifi connect <network-ssid> password <wifi-password>
+

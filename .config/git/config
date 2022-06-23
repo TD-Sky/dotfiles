@@ -1,0 +1,18 @@
+[user]
+    email = 1752963246@qq.com
+    name = Randal
+[init]
+    defaultBranch = main
+[core]
+    pager = delta
+	quotepath = false
+    editor = lvim
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    side-by-side = true
+    line-numbers-left-format = ""
+    line-numbers-right-format = "│ "
+    syntax-theme = Nord
+[credential]
+    helper = store

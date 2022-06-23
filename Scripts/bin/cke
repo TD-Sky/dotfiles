@@ -1,0 +1,13 @@
+#!/bin/nu
+
+# 检查文件编码
+def main [...items: string] {
+    for fname in $items {
+        if ( ($fname | path type) == 'file' ) {
+            {
+                file: $fname,
+                encoding: (enca -i -L zh $fname),
+            }
+        }
+    }
+}

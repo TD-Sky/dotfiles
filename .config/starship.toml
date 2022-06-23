@@ -1,0 +1,65 @@
+add_newline = false
+command_timeout = 1000
+
+## Replace the "❯" symbol in the prompt with "➜"
+[character]
+success_symbol = "➜"
+
+## Configure the number of directories to truncate in the current path
+[directory]
+truncation_length = 0
+truncate_to_repo = true
+style = "blue"
+
+## Configure the duration of the last command
+[cmd_duration]
+min_time = 100
+disabled = true
+style = "dimmed white"
+
+[battery]
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+
+[jobs]
+symbol = ""
+
+[package]
+symbol = " "
+style = "dimmed white"
+
+[env_var.https_proxy]
+symbol = "🪜"
+format = "[$symbol](blue dimmed)"
+
+# git
+
+[git_branch]
+style = "green"
+
+[git_status]
+conflicted = "  "
+deleted = " 﫧"
+modified = "  "
+stashed = "  "
+staged = "  "
+renamed = "  "
+untracked = "  "
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+
+# language
+
+[rust]
+symbol = " "
+style = "dimmed red"
+
+[nodejs]
+symbol = " "
+style = "dimmed green"
+
+[java]
+symbol = " "
+style = "dimmed purple"

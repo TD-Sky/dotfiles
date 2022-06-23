@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# 文本模糊搜索
+sk --ansi -i -c "rg --color=always --line-number -. '{}' $1"

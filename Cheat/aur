@@ -1,0 +1,43 @@
+# 查询源库 -F
+
+## 查询命令所属包
+pacman -F <command>
+
+## 同步包数据库，并查询命令所属包
+sudo pacman -Fy <command>
+
+##################################################
+
+# 查询本地库 -Q
+
+## 列印文件所属包
+pacman -Qo <file>
+
+## 列印无供养的包
+pacman -Qt
+
+## 查询依赖它的包
+pacman -Qi <package>
+
+##################################################
+
+# 同步 -S
+
+## 更新包管理密钥
+sudo pacman -Sy archlinux-keyring
+
+## 查看包信息
+pacman -Si <package>
+
+## 按清单下载
+sudo pacman -S --needed - <  <list>
+
+##################################################
+
+# 移除 -R
+
+## 清理孤儿依赖
+pacman -Qtdq | sudo pacman -Rs -
+
+## 正则匹配清理
+pacman -Qsq <package> | sudo pacman -Rdd -

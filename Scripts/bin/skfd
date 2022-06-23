@@ -1,0 +1,11 @@
+#!/bin/nu
+
+# 文件模糊搜索
+def main [dest?: string] {
+    let res = (sk --ansi -i -c $"fd -c 'always' -H -I -E '.git' '{}' ($dest)"
+               | str trim -r)
+
+    $res | xclip -sel c
+
+    echo $res
+}

@@ -1,0 +1,21 @@
+#!/bin/nu
+
+def main [...texts: string] {
+    for text in $texts {
+        if ( ($text | path type) == 'file' ) {
+            let platform = (
+                    if ( (file $text ) !~ 'text') {
+                        '???'
+                    } else if (od -bc $text | str contains '\r') {
+                        'dos'
+                    } else {
+                        'unix'
+                    })
+
+            {
+                file: $text,
+                platform: $platform,
+            }
+        }
+    }
+}

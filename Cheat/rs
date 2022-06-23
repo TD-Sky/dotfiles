@@ -1,0 +1,194 @@
+[字符串]
+# 生字符串/含双引号/含井号
+r"" / r#""# / r##""##, r###""###, ...
+# 字节字符串/生串
+b""    {(字节码 ->) 字符 -> UTF-8} / br""
+
+
+
+[迭代函数]
+# 每次迭代时借用元素, 以令集合可复用.
+iter()
+
+# 每次迭代时可变借用元素.
+iter_mut()
+
+# 来自于`IntoIterator`特质，会消耗实例
+# 实例为值，则迭代器返回值
+# 具备`iter`或`iter_mut`方法的结构体T，
+# 会为`&T`或`&mut T`实现`IntoIterator`特质，
+# 生成迭代器时将使用方法`iter`或`iter_mut`。
+into_iter()
+
+
+
+[可推导特征]
+- 比较: Eq, PartialEq, Ord, PartialOrd.
+- Clone: 通过复制从 &T 创建 T .
+- Copy: 把类型的"移动语义"替换成"复制语义".
+- Hash: 从 &T 计算哈希值.
+- Default: 创建具有空值意义的默认值实例.
+- Debug: 用格式化器 {:?} 格式化其值.
+
+
+
+[生命期]
+函数的lifetime标识省略
+1. 各引用类型参数获得互相独立的 lifetime .
+2. 若仅有一个**输入lifetime参数**, 则其 lifetime 成为 输出lifetime .
+3. 参数`&self`或`&mut self`的 lifetime 会成为 输出lifetime .
+
+
+
+[宏]
+
+[宏.指示器]
+- block
+- expr: 表达式.
+- ident: 变量名/函数名.
+- item
+- literal: 字面值常量.
+- pat (pattern)
+- path
+- stmt (statement)
+- tt (token tree)
+- ty (type)
+- vis (visibility qualifier)
+
+[宏.参数通配]
+- `$(parameter), +`: 匹配次数 >= 1.
+- `$(parameter), *`: 匹配次数 >= 0.
+
+
+
+[错误处理]
+错误类型的优秀设计：
+- 用一个类型表示不同的错误.
+- 为用户呈现漂亮的错误提示.
+- 易于和其他类型比较.
+  - 好: Err(EmptyVec)
+  - 烂: Err("Please use a vector with at least one element".to_owned())
+- 内有错误信息.
+  - Good: Err(BadChar(c, position))
+  - Bad: Err("+ cannot be used here".to_owned())
+- 易于和其他错误组合.
+
+
+
+[哈希计算]
+可作为哈希表之键的类型 <T: Eq + Hash>
+- bool .
+- int, uint, 及其所有变体.
+- String 和 &str (你可以用 String 作为键, 调用`.get()`获取 &str).
+- 内部所有类型均实现`Eq + Hash`的复合类型.
+
+
+
+[Unsafe]
+出现的场合：
+- 解引用生指针.
+- 调用 unsafe 函数或方法(包括FFI函数).
+- 访问或修改静态可修改变量.
+- 实现 unsafe 特征.
+
+
+
+[子类型系统]
+--------------------------------------
+|   类型构造器  |  'a  |  T   |  U   |
+|     :-:       | :--: | :--: | :--: |
+| &'a T         | 协变 | 协变 |      |
+| &'a mut T     | 协变 | 不变 |      |
+| Box<T>        |      | 协变 |      |
+| Vec<T>        |      | 协变 |      |
+| UnsafeCell<T> |      | 不变 |      |
+| Cell<T>       |      | 不变 |      |
+| fn(T) -> U    |      | 逆变 | 协变 |
+| *const T      |      | 协变 |      |
+| *mut T        |      | 不变 |      |
+--------------------------------------
+
+
+
+[PhantomData]
+-----------------------------------------------------------------------
+| Phantom type              |    'a     |             T               |
+|           :-:             |    :-:    |             :-:             |
+| PhantomData<T>            | -         | covariant (with drop check) |
+| PhantomData<&'a T>        | covariant | covariant                   |
+| PhantomData<&'a mut T>    | covariant | invariant                   |
+| PhantomData<*const T>     | -         | covariant                   |
+| PhantomData<*mut T>       | -         | invariant                   |
+| PhantomData<fn(T)>        | -         | contravariant               |
+| PhantomData<fn() -> T>    | -         | covariant                   |
+| PhantomData<fn(T) -> T>   | -         | invariant                   |
+| PhantomData<Cell<&'a ()>> | invariant | -                           |
+-----------------------------------------------------------------------
+
+
+
+[对象安全]
+对象安全对于**trait对象**是必须的，因为一旦有了**trait对象**，就不再知晓实现该trait的具体类型是什么了。
+- 如果**trait方法**返回具体的Self类型，但是**trait对象**忘记了其真正的类型，那么方法不可能使用已经忘却的原始具体类型。
+- 同理对于泛型类型参数来说，当使用 trait 时其会放入具体的类型参数：此具体类型变成了实现该 trait 的类型的一部分。当使用 trait 对象时其具体类型被抹去了，故无从得知放入泛型参数类型的类型是什么。
+
+
+
+[工具链]
+
+[工具链.rustup]
+```shell
+# 编译器切换nightly
+$ rustup override set nightly
+```
+
+[工具链.cargo]
+```shell
+# 指定模块的单元测试函数
+$ cargo test -- mod_name::tests::function
+# 测试时显示输出
+$ cargo test -- --nocapture
+# 测试隐藏的函数
+$ cargo test -- --ignored
+```
+
+
+
+[模块]
+- `pub mod foo`：暴露模块foo，让外部可使用其内部公共项.
+
+[模块.文件系统]
+- 按文件系统的方式来组织，控制点是`模块名.rs`(单文件)或`模块名/mod.rs`(多文件).
+- 路径
+  - `self` == `./`
+  - `super` == `../`
+  - `crate` == `/`
+- 命名绑定 `use` == `ln -s`
+- 重导出 `pub use foo` == 将`foo`归于当前命名空间
+
+[模块.项可见性]
+- 项 [函数, 方法, 结构体(字段默认私有), 枚举, 模块, 常量] 默认私有
+- 同一模块内的项彼此透明.
+- 子模块封装并隐藏了内部项的实现，但它能看见内部项定义的上下文，因此子模块的项可以使用父模块的项，反之则不然.
+- **pub**: 创建公共项，使子模块部分暴露.
+  - `pub` 外部可见
+  - `pub(self)` 仅当前`mod`可见
+  - `pub(super)` 仅父`mod`可见
+  - `pub(crate)` 仅当前`crate`可见
+  - `pub(in crate::a_mod)` 此绝对路径可见
+
+
+
+[数组初始化]
+```shell
+# 数组字面值
+let arr: [u8; 3] = [1, 2, 3];
+
+# T: Copy 时 [T; N]
+let arr: [Option<u8>; 3] = [None; 3];
+
+# T: Default 且 N <= 32 时 [T; N]
+let arr: [Option<String>; 3] = Default::default();
+```
+
+> [Methods for Array Initialization in Rust - 2018.12.22](https://www.joshmcguigan.com/blog/array-initialization-rust/)

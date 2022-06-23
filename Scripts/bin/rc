@@ -1,0 +1,9 @@
+#!/bin/nu
+
+def main [...src: path] {
+    $src
+    | each {|it| $it | path expand }
+    | append ''
+    | str collect (char newline)
+    | xclip -sel c
+}

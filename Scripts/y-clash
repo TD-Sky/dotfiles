@@ -1,0 +1,5 @@
+#!/usr/bin/nu
+
+if 'clash' not-in (ps | get name) {
+    clash -d '~/Desktop/clash' &
+}

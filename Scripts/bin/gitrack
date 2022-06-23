@@ -1,0 +1,22 @@
+#!/bin/nu
+
+# 前提：输入'./'起首的相对路径
+def main [src: string] {
+    let src = ($src | str trim -l -c '.')
+    let rp = ($src | str trim -r -c '/')
+
+    for i in 1..<($rp | split chars | where $it == '/' | length) {
+        # 匹配字符串
+        let mstring = (build-string '(.+)(/.+){' $i '}')
+
+        # 本次目标路径
+        let dest = ($rp | str replace $mstring '$1')
+
+        # 跟踪行与忽略行
+        build-string '!' $dest '/' (char newline) $dest '/*' (char newline)
+    }
+    | reverse
+    | append ('!' + $src)
+    | str collect
+}
+

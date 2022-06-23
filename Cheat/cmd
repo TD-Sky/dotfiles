@@ -1,0 +1,35 @@
+# 检查符号信息
+objdump --syms <exe>
+
+# 查看指定PID的????
+cat /proc/<PID>/stat
+
+# 查看调用程序的PCB
+cat /proc/self/status
+
+# 监视命令，逐秒变化
+watch -n1 <cmd>
+
+# 检查端口占用
+lsof -i:<port>
+
+# 查看当前用户所属组
+groups
+
+# 查看多个用户所属组的交集
+groups ...<user>
+
+# 查看所有组
+bat /etc/group
+
+# 查看所有用户
+cat /etc/passwd | choose -f : 0
+
+# 校准时间
+sudo timedatectl set-ntp true
+
+# 查看映射设备
+ls -l /dev/mapper
+
+# 解压分卷压缩包
+7z x <first-archive>

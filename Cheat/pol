@@ -1,0 +1,203 @@
+文档命令 perldoc
+
+# 变量
+perlvar
+
+# 操作符
+perlop
+
+# 函数
+perlfunc
+
+# 命令行工具
+perlrun
+
+##################################################
+
+选项
+
+-e          运行单行代码
+-p          按行遍历输入，输出行处理结果
+-n          按行遍历输入
+-i          使用输出结果覆写输入文件
+-i.bak      备份输入文件到file.bak
+-M<mod>     导入模块mod
+-a          拆分 $_ 至 @F
+-l          删除输入行的换行符，尾附输出行的换行符
+-F<sep>     指定 -a 的分隔符
+-E          引入更多特性的-e
+-00         段落分割模式
+
+##################################################
+
+变量
+
+_   当前行
+.   当前行号
+\   print的行分隔符，默认为undef
+
+##################################################
+
+操作符
+
+.   拼接字符串
+x   重复值多遍
+..  触发器
+
+##################################################
+
+文本操作
+
+# 替换字符串，且全行替换，输出到file.bak
+perl -pi.bak -e 's/<src>/<dest>/g' <file>
+
+# 若行包含指定正则，则替换字符
+perl -pe 's/<src>/<dest>/g if /<regex>/' <file>
+
+# 施用同一替换模式到多个文件
+perl -pe 's/<src>/<dest>/g' <file...>
+
+#----- 以下省略输入参数 -----#
+
+# 所有行拉开一行距离
+perl -pe 'BEGIN { $\ = "\n" }'
+perl -pe 's/$/\n/'
+perl -nE 'say'
+
+# 全部行拉开单行距离，但空行不扩增
+perl -pe '$_ .= "\n" unless /^$/'
+## \S 是非空字符
+perl -pe '$_ .= "\n" if /\S/'
+
+# 全部行拉开times行距离
+perl -pe '$_ .= "\n"x<times>'
+
+# 全部行之前加上一空行
+perl -pe 's/^/\n/'
+
+# 删除所有空行
+perl -ne 'print if /\S/'
+
+# 收敛连续空行
+perl -00 -pe ''
+
+# 打印第一行
+perl -ne 'print; exit'
+
+# 打印前n行
+perl -ne 'print; exit if $. == <n>'
+
+# 打印最后一行
+perl -ne 'print if eof'
+
+# 打印匹配行
+perl -ne 'print if /<regex>/'
+
+# 打印跳过匹配行
+perl -ne 'print if !/<regex>/'
+
+# 打印匹配行的上一行
+perl -ne '/<regex>/ && $last && print $last; $last = $_'
+
+# 打印匹配行的下一行
+perl -ne '$p && print; $p = /<regex>/'
+
+# 多项匹配的打印
+perl -ne '/<regex1>/ && /<regex2>/ && print'
+
+# 多项匹配的不打印
+perl -ne '!/<regex1>/ && !/<regex2>/ && print'
+
+# 打印连续匹配的行
+perl -ne '/<regex1>.*<regex2>.*<regex3>/ && print'
+
+# 打印至少含 n 个字符的行
+perl -ne 'print if length >= <n>'
+## 使用 -l 删除换行符，长度减一
+perl -lne 'print if length >= <n>'
+
+# 打印少于 n 个字符的行
+perl -ne 'print if length < <n>'
+## 使用 -l 删除换行符，长度减一
+perl -lne 'print if length < <n>'
+
+# 打印第 n 行
+print -ne '$. == <n> && print && exit'
+
+# 打印除第 n 行以外的行
+perl -ne 'print if $. != <n>'
+
+# 打印多个指定行
+perl -ne '
+    @lines = (...);
+    print if grep { $_ == $. } @lines
+'
+
+# 打印从 start 到 end 的行
+perl -ne 'print if <start>..<end>'
+
+# 打印匹配的两行之间所有行
+perl -ne 'print if /<regex1>/../<regex2>/'
+
+# 打印最长行
+perl -ne '
+    $l = $_ if length($_) > length($l);
+    END { print $l }
+'
+
+# 打印最短行
+perl -ne '
+    $l = $_ if $. == 1;
+    $l = $_ if length($_) < length($l);
+    END { print $s }
+'
+
+# 打印含数字的行
+perl -ne 'print if /\d/'
+
+# 打印数字行
+perl -lne 'print unless /\D/'
+
+# 打印字母行
+perl -lne 'print if /[[:alpha:]]/'
+
+# 打印奇数行
+perl -ne 'print if $. % 2'
+
+# 打印偶数行
+perl -ne 'print unless $. % 2'
+
+# 打印多次出现的行
+perl -ne 'print if ++$a{$_} == 2'
+
+# 去重
+perl -ne 'print unless $a{$_}++'
+
+##################################################
+
+小程序
+
+# 计算1299天前的日期
+perl -MPOSIX -le '@t = localtime; $t[3] -= 1299; print scalar localtime mktime @t'
+
+# 生成8字符长的小写字母随机码
+perl -le 'print map { ("a".."z")[rand 26] } 1..8'
+
+# 操作 Version-string
+perl -le 'print unpack("N", 127.0.0.1)'
+
+#
+iptables -L -nvx | perl -lane '$pkts += $F[0]; END { print $pkts }'
+
+# 打印密码文件的第5列
+perl -a -F: -lne 'print $F[4]' /etc/passwd
+
+#----- 以下省略输入参数 -----#
+
+# 从 List::Util 模块导入 sum 函数，求和行列表内的数字
+perl -MList::Util=sum -alne 'print sum @F'
+
+# 计算第一列所有数之和
+# END 为程序结束之前的执行任务
+perl -lane '$sum += $F[0]; END {print $sum}'
+

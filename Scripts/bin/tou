@@ -1,0 +1,14 @@
+#!/bin/nu
+
+# 多文件编码转换
+def main [...items: string] {
+    for fname in $items {
+        if ( ($fname | path type) == 'file' ) {
+            let encoding = (enca -i -L zh $fname | str trim -r)
+
+            if $encoding != 'ASCII'  && $encoding != '???' && $encoding !~ '^UTF' {
+                iconv -f $encoding -t UTF-8 $fname -o $fname
+            }
+        }
+    }
+}

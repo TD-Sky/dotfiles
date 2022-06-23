@@ -1,0 +1,23 @@
+#!/bin/nu
+
+def wifi-list [] {
+    nmcli -terse device wifi |
+    lines |
+    each { |it|
+           $it | split column ':'
+    } |
+    flatten |
+    select column1 column8 |
+    rename connected name
+}
+
+for _ in 0.. {
+    let wlist = (wifi-list)
+
+    if ('Mr.Door' in ($wlist | get name) &&
+        '*' in ($wlist | where name == 'Mr.Door' | get connected)) {
+        exit
+    }
+
+    sleep 0.1sec
+}

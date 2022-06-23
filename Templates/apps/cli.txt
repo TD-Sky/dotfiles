@@ -1,0 +1,10 @@
+rsync
+p7zip
+zip
+unzip
+xclip
+acpi
+brightnessctl
+pamixer
+espeak-ng
+jq

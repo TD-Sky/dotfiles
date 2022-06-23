@@ -1,0 +1,42 @@
+---
+template:
+  direction: Horizontal
+  parts:
+    - direction: Vertical
+      borderless: true
+      split_size:
+        Fixed: 1
+      run:
+        plugin:
+          location: "zellij:tab-bar"
+    - direction: Vertical
+      body: true
+    - direction: Vertical
+      borderless: true
+      split_size:
+        Fixed: 2
+      run:
+        plugin:
+          location: "zellij:status-bar"
+tabs:
+- name: "Run"
+  direction: Horizontal
+  parts:
+  - direction: Horizontal     # Run service
+    split_size:
+      Percent: 70
+    run:
+      command: { cmd: zsh, args: ["-c", "cd $project_d/service && zsh"] }
+  - direction: Horizontal     # Run front
+    run:
+      command: { cmd: zsh, args: ["-c", "cd $project_d/front && zsh"] }
+- name: "Front"
+  focus: true
+  run:
+    command: { cmd: zsh, args: ["-c", "cd $project_d/front && zsh"] }
+- name: "Service"
+  run:
+    command: { cmd: zsh, args: ["-c", "cd $project_d/front && zsh"] }
+- name: "SQL"
+  run:
+    command: { cmd: zsh, args: ["-c", "cd $project_d/sql && zsh"] }
