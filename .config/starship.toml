@@ -31,7 +31,7 @@ style = "dimmed white"
 
 [env_var.https_proxy]
 symbol = "🪜"
-format = "[$symbol](blue dimmed)"
+format = "[$symbol]()"
 
 # git
 
@@ -62,4 +62,20 @@ style = "dimmed green"
 
 [java]
 symbol = " "
-style = "dimmed purple"
+style = "bold red"
+
+[c]
+symbol = " "
+style = "dimmed blue"
+
+[golang]
+symbol = "ﳑ "
+style = "blue"
+
+[lua]
+symbol = " "
+style = "bold blue"
+
+[python]
+symbol = " "
+style = "bold yellow"

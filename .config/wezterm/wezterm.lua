@@ -2,9 +2,10 @@ local wezterm = require("wezterm")
 
 return {
     font = wezterm.font_with_fallback({
-        "JetBrains Mono",
-        "NotoSansMonoCJKsc-Regular",
-        "DejaVuSansMono",
+        "JetBrains Mono",               -- 美观代码
+        "FiraCode Nerd Font",           -- 图标
+        "NotoSansMonoCJKsc-Regular",    -- 汉字
+        "DejaVuSansMono",               -- 符号
     }),
     font_size = 16.5,
     color_scheme = "Gruvbox Dark",
