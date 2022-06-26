@@ -31,12 +31,12 @@ tabs:
     run:
       command: { cmd: zsh, args: ["-c", "cd $project_d/front && zsh"] }
 - name: "Front"
-  focus: true
   run:
     command: { cmd: zsh, args: ["-c", "cd $project_d/front && zsh"] }
 - name: "Service"
+  focus: true
   run:
-    command: { cmd: zsh, args: ["-c", "cd $project_d/front && zsh"] }
+    command: { cmd: zsh, args: ["-c", "cd $project_d/service && zsh"] }
 - name: "SQL"
   run:
     command: { cmd: zsh, args: ["-c", "cd $project_d/sql && zsh"] }
