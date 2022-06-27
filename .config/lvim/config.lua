@@ -16,8 +16,10 @@ lvim.colorscheme = "gruvbox"
 
 lvim.leader = "space"
 
-lvim.keys.normal_mode["<S-l>"] = false
-lvim.keys.normal_mode["<S-h>"] = false
+lvim.keys.normal_mode = {
+    ["<S-l>"] = false,
+    ["<S-h>"] = false,
+}
 
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["w"] = { "<cmd>set wrap!<CR>", "Wrap Toggle" }
