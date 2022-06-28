@@ -33,3 +33,6 @@ ls -l /dev/mapper
 
 # 解压分卷压缩包
 7z x <first-archive>
+
+# 预览搜索文件列表
+rg --files
