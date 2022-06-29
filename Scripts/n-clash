@@ -1,5 +1,0 @@
-#!/usr/bin/nu
-
-if 'clash' in (ps | get name) {
-    pkill clash
-}
