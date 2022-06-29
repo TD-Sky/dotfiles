@@ -36,3 +36,6 @@ ls -l /dev/mapper
 
 # 预览搜索文件列表
 rg --files
+
+# jpg 批量转 png
+ls -1 *.jpg | xargs -n 1 bash -c 'convert $0 ${0%.jpg}.png'
