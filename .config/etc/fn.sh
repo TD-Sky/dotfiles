@@ -19,7 +19,7 @@ function to-tzst {
 alias ls-tzst='tar -I unzstd --list -f'
 
 ## 创建7z压缩包，交互式设置密码
-function tp-7z {
+function to-p7z {
 	7za a -tzip -p -mem=AES256 "$1.7z" $1
 }
 
