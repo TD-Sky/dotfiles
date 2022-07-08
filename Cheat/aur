@@ -41,3 +41,14 @@ pacman -Qtdq | sudo pacman -Rs -
 
 ## 正则匹配清理
 pacman -Qsq <package> | sudo pacman -Rdd -
+
+##################################################
+
+# 编译 PKGBUILD
+makepkg --printsrcinfo > .SRCINFO
+
+# 构建软件包
+makepkg
+
+# 从软件包文件安装
+sudo pacman -U <file>

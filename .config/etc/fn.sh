@@ -8,6 +8,8 @@ function to-tgz {
 	tar -zcvf "$1.tar.gz" $1
 }
 
+alias ls-tgz='tar -ztvf'
+
 function from-tzst {
 	echo $1 | choose -f '\.' 0 | tar -I unzstd -xvf $1
 }
@@ -28,6 +30,8 @@ alias from-7z='7za x'
 function to-zip {
 	zip -r "$1.zip" $1
 }
+
+alias ls-txz='tar -Jtvf'
 
 ##################################################
 
