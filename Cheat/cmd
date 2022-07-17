@@ -17,7 +17,7 @@ lsof -i:<port>
 groups
 
 # 查看多个用户所属组的交集
-groups ...<user>
+groups <...user>
 
 # 查看所有组
 bat /etc/group
@@ -39,3 +39,6 @@ rg --files
 
 # jpg 批量转 png
 ls -1 *.jpg | xargs -n 1 bash -c 'convert $0 ${0%.jpg}.png'
+
+# 开启转义字符
+echo -e <...string>
