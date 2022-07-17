@@ -42,3 +42,9 @@ ls -1 *.jpg | xargs -n 1 bash -c 'convert $0 ${0%.jpg}.png'
 
 # 开启转义字符
 echo -e <...string>
+
+# 本地向服务器推送文件
+rsync <src> <user>@<ip>:<dest>
+
+# 抓取服务器文件到本地
+rsync -chvzP --stats <user>@<ip>:<src> <dest>
