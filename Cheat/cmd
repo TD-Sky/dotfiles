@@ -48,3 +48,6 @@ rsync <src> <user>@<ip>:<dest>
 
 # 抓取服务器文件到本地
 rsync -chvzP --stats <user>@<ip>:<src> <dest>
+
+# 解除登录失败三次之锁定
+faillock --reset --user <name>
