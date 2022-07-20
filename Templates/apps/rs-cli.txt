@@ -10,7 +10,6 @@ silicon
 hyperfine
 dust
 bandwhich
-grex
 skim
 starship
 nushell
@@ -21,3 +20,4 @@ mcfly
 pueue
 viu
 jless
+rust-script
