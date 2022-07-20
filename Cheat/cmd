@@ -17,7 +17,7 @@ lsof -i:<port>
 groups
 
 # 查看多个用户所属组的交集
-groups <...user>
+groups <user>...
 
 # 查看所有组
 bat /etc/group
@@ -41,7 +41,7 @@ rg --files
 ls -1 *.jpg | xargs -n 1 bash -c 'convert $0 ${0%.jpg}.png'
 
 # 开启转义字符
-echo -e <...string>
+echo -e <string>...
 
 # 本地向服务器推送文件
 rsync <src> <user>@<ip>:<dest>
