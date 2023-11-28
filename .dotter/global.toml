@@ -17,7 +17,6 @@ zimrc = { target = "~/.zimrc", type = "symbolic" }
 
 [desktop.files]
 xprofile = "~/.xprofile"
-"picom.conf" = "~/.config/picom/picom.conf"
 "rofi.rasi" = "~/.config/rofi/config.rasi"
 "mimeapps.list" = "~/.config/mimeapps.list"
 
