@@ -1,0 +1,13 @@
+% docker
+
+# 查看容器的日志
+docker container logs <name>
+
+# 实例化 image，启用交互式终端在后台运行容器
+docker run -itd --name <container> <image>
+
+# 启用交互式终端让容器运行命令
+docker exec -it <container> <command>
+
+# 显示全部容器的ID
+docker ps -af

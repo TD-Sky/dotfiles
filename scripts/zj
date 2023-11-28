@@ -1,0 +1,22 @@
+#!/usr/bin/env nu
+
+def main [] {
+    zellij delete-all-sessions -y
+    let sessions = (zellij list-sessions)
+    if ($sessions | is-empty) {
+        zellij
+        return
+    }
+
+    let session = $"($sessions)(char nl)new"
+        | fzf --ansi --tac
+        | str trim -r
+        | split row ' '
+        | first
+
+    if $session == 'new' {
+        zellij
+    } else {
+        zellij attach $session
+    }
+}

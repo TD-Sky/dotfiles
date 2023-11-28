@@ -1,0 +1,20 @@
+#!/usr/bin/env nu
+
+def paste [] {
+    if $env.XDG_BACKEND == 'wayland' {
+        wl-paste -n
+    } else {
+        xclip -sel c -o
+    }
+}
+
+# 移动剪贴板内指定文件
+def main [dest: path = './'] {
+    let items = (paste)
+
+    if $items =~ (char newline) {
+        $items | xargs -I '{}' mv -i {} -t $dest
+    } else {
+        ^mv $items $dest
+    }
+}

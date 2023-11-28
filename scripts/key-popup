@@ -1,0 +1,12 @@
+#!/usr/bin/env nu
+
+# 在屏幕上回显按键
+def main [] {
+    let tasks = ps -l | select pid command | where command =~ 'screenkey'
+
+    if ($tasks | is-empty) {
+        screenkey --bg-color white --font-color black --font SauceCodePro --opacity 0.9 -t 0.5
+    } else {
+        kill $tasks.pid.0
+    }
+}

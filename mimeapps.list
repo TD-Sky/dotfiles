@@ -1,0 +1,50 @@
+[Default Applications]
+# edit
+text/plain=lvim.desktop;
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop;
+# image
+image/png=org.gnome.Shotwell.desktop;
+image/jpg=org.gnome.Shotwell.desktop;
+image/webp=org.gnome.Shotwell.desktop;
+# office
+application/msword=wps-office-wps.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=wps-office-wps.desktop;
+application/vnd.ms-excel=wps-office-et.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=wps-office-et.desktop;
+application/vnd.ms-powerpoint=wps-office-wpp.desktop;
+application/vnd.openxmlformats-officedocument.presentationml.presentation=wps-office-wpp.desktop;
+application/wps-office.doc=wps-office-wps.desktop;
+application/wps-office.docx=wps-office-wps.desktop;
+application/wps-office.dot=wps-office-wps.desktop;
+application/wps-office.dotx=wps-office-wps.desktop;
+application/wps-office.dps=wps-office-wpp.desktop;
+application/wps-office.dpso=wps-office-wpp.desktop;
+application/wps-office.dpss=wps-office-wpp.desktop;
+application/wps-office.dpt=wps-office-wpp.desktop;
+application/wps-office.pot=wps-office-wpp.desktop;
+application/wps-office.potx=wps-office-wpp.desktop;
+application/wps-office.ppt=wps-office-wpp.desktop;
+application/wps-office.pptx=wps-office-wpp.desktop;
+application/wps-office.wps=wps-office-wps.desktop;
+application/wps-office.wpso=wps-office-wps.desktop;
+application/wps-office.wpss=wps-office-wps.desktop;
+application/wps-office.wpt=wps-office-wps.desktop;
+# pdf
+application/pdf=org.pwmt.zathura.desktop;
+# browser
+text/html=firefox.desktop;
+application/x-extension-htm=firefox.desktop;
+application/x-extension-html=firefox.desktop;
+application/x-extension-shtml=firefox.desktop;
+application/x-extension-xht=firefox.desktop;
+application/x-extension-xhtml=firefox.desktop;
+x-scheme-handler/about=firefox.desktop;
+x-scheme-handler/chrome=firefox.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/unknown=firefox.desktop;
+# communication
+x-scheme-handler/slack=slack.desktop;
+x-scheme-handler/tg=org.telegram.desktop.desktop;
+# terminal
+x-scheme-handler/terminal=org.wezfurlong.wezterm.desktop;

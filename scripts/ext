@@ -1,0 +1,15 @@
+#!/usr/bin/env nu
+
+def main [
+    src: string,
+    suffix: string,
+    --copy (-c),
+] {
+    let dest = [$src '.' $suffix] | str join
+
+    if $copy {
+        ^cp -r $src $dest
+    } else {
+        ^mv $src $dest
+    }
+}

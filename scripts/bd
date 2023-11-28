@@ -1,0 +1,95 @@
+#!/usr/bin/env nu
+
+# 原地张成布尔选项
+def then [flag: string] {
+    if $in { $flag } else { '' }
+}
+
+# 解压缩瑞士军刀
+def main [] {
+    [
+        [format     archive     extract];
+        ['tar'      '✅'        '✅'   ]
+        ['tar.gz'   '✅'        '✅'   ]
+        ['tar.xz'   '✅'        '✅'   ]
+        ['tar.zst'  '✅'        '✅'   ]
+        ['7z'       '✅'        '✅'   ]
+        ['zip'      '✅'        '✅'   ]
+        ['rar'      '✅'        '✅'   ]
+        ['deb'      '❌'        '✅'   ]
+    ]
+}
+
+## item的类型不能为path，因为会导致当成绝对路径压缩
+
+# 压缩至tar
+def "main tar" [item: string] {
+    let basename = $item | path basename
+    tar -cvf $"($basename).tar" $item
+}
+
+# 压缩至tar.gz
+def "main gz" [item: string] {
+    let basename = $item | path basename
+    tar -zcvf $"($basename).tar.gz" $item
+}
+
+# 压缩至tar.xz
+def "main xz" [item: string] {
+    let basename = $item | path basename
+    tar -Jcvf $"($basename).tar.xz" $item
+}
+
+# 压缩至tar.zst
+def "main zst" [item: string] {
+    let basename = $item | path basename
+    tar -I zstdmt -cvf $"($basename).tar.zst" $item
+}
+
+# 压缩至zip
+def "main zip" [item: string] {
+    let basename = $item | path basename
+    ^zip -r $"($basename).zip" $item
+}
+
+# 压缩至7z
+def "main 7z" [
+    item: string,
+    --password (-p),
+] {
+    let basename = $item | path basename
+    7za a -t7z ($password | then '-p') ($basename + '.7z') $item
+}
+
+# 压缩至rar
+def "main rar" [item: string] {
+    let basename = $item | path basename
+    rar a $"($basename).rar" $item
+}
+
+# 解压
+def "main x" [...archives: string] {
+    for archive in $archives {
+        match ($archive | path parse | get extension) {
+            'zip' | 'tar' | 'gz' | 'xz' => { unar $archive },
+            'zst' => { tar -I unzstd -xvf $archive },
+            '7z' => { 7za x $archive },
+            'rar' => { rar x $archive },
+            'deb' => { ar x $archive },
+        }
+    }
+}
+
+# 窥视
+def "main ls" [archive: string] {
+    match ($archive | path parse | get extension) {
+        'zip' => { lsar $archive },
+        'tar' => { tar -tf $archive | tree --fromfile },
+        'gz' => { tar -ztf $archive | tree --fromfile },
+        'xz' => { tar -Jtf $archive | tree --fromfile },
+        'zst' => { tar -I unzstd --list -f $archive | tree --fromfile },
+        '7z' => { 7za l $archive },
+        'rar' => { rar v $archive | tree --fromfile },
+        'deb' => { ar t $archive },
+    }
+}

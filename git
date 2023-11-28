@@ -1,0 +1,22 @@
+[user]
+    name = TD-Sky
+    email = three-dim-sky@foxmail.com
+[init]
+    defaultBranch = main
+[core]
+    pager = delta
+	quotepath = false
+    editor = lvim
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    side-by-side = true
+    line-numbers-left-format = ""
+    line-numbers-right-format = "│ "
+    syntax-theme = Nord
+[credential]
+    helper = store
+[log]
+	date = iso-strict-local
+[trim]
+	bases = develop,master,main

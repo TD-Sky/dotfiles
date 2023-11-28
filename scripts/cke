@@ -1,0 +1,23 @@
+#!/usr/bin/env nu
+
+# 若参数为空，则设为当前目录下所有文件
+def unwrap-or-default [] {
+    if ($in | is-empty) {
+        ls | get name
+    } else {
+        $in
+    }
+}
+
+# 检查文件编码
+def main [...items: string] {
+    $items
+    | unwrap-or-default
+    | where {|f| ($f | path type) == 'file'}
+    | par-each {|path|
+        {
+            file: $path,
+            encoding: (enca -i -L zh $path | str trim -r),
+        }
+    }
+}

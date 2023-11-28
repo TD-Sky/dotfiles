@@ -1,0 +1,24 @@
+#!/usr/bin/env nu
+
+# 若参数为空，则设为当前目录下所有文件
+def unwrap-or-default [] {
+    if ($in | is-empty) {
+        ls | get name
+    } else {
+        $in
+    }
+}
+
+# 转换文件编码至 UTF-8
+def main [...items: string] {
+    $items
+    | unwrap-or-default
+    | where {|f| ($f | path type) == 'file' }
+    | par-each {|file|
+        let encoding = enca -i -L zh $file | str trim -r
+
+        if $encoding != 'ASCII' and $encoding != '???' and $encoding !~ '^UTF' {
+            iconv -f $encoding -t UTF-8 $file -o $file
+        }
+    }
+}

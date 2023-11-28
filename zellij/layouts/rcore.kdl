@@ -1,0 +1,17 @@
+// 进入项目目录生成
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    tab name="Tutor-os" cwd="./Tutorial/os"
+    tab name="os" cwd="./rCore/os" focus=true
+    tab name="user" cwd="./rCore/user"
+    tab name="Tutor-user" cwd="./Tutorial/user"
+}

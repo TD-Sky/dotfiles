@@ -1,0 +1,13 @@
+% flatpak
+
+# 获取官方仓库的密钥
+curl 'https://flathub.org/repo/flathub.gpg' -O
+
+# 添加官方仓库
+flatpak remote-add --if-not-exists --gpg-import=flathub.gpg -u flathub 'https://flathub.org/repo/flathub.flatpakrepo'
+
+# 本地所添加仓库的详细记录
+flatpak remotes -d
+
+# 卸载多余的依赖
+flatpak uninstall --unused

@@ -1,0 +1,16 @@
+#!/usr/bin/env nu
+
+def copy [] {
+    if $env.XDG_BACKEND == 'wayland' {
+        $in | wl-copy
+    } else {
+        $in | xclip -sel c
+    }
+}
+
+def main [...src: path] {
+    $src
+    | par-each {|it| $it | path expand }
+    | str join (char newline)
+    | copy
+}

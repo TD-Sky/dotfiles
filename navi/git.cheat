@@ -1,0 +1,29 @@
+% git
+
+# 追踪文件之树
+git ls-tree -r main --name-only | tree -Ca --fromfile
+
+# 清理缓存，以便重新建立忽略规则
+git rm -r --cached .
+
+# 深层墓场
+git reflog
+
+# 交互式清理未跟踪文件与忽略文件
+git clean -fxi
+
+# 根据远程仓库清理旧分支
+git remote prune origin
+
+# 历次提交的文件变化
+git log --stat
+
+# 历次提交的详细变化情况
+git log --stat -p -W <path>
+
+# 查看某次提交的内容
+git show <opt-name-only> <commit>
+$ opt-name-only: printf '\n--name-only'
+
+# 历史树
+git log --graph --oneline --decorate --all

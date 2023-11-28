@@ -1,0 +1,18 @@
+#!/usr/bin/env nu
+
+# 具化文件模板
+def main [stem: string] {
+    let in_dir = $env.PWD
+
+    cd '~/Templates/dev'
+    let template = ^ls -1
+        | sk -i --ansi -c 'fd {}' --preview 'bat -pp --color=always {}'
+        | str trim -r
+
+    echo $template
+
+    let extension = $template | path parse | get extension
+    let dest = $in_dir | path join $"($stem).($extension)"
+
+    cp $template $dest
+}

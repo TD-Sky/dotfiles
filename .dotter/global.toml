@@ -1,0 +1,60 @@
+[helpers]
+
+[shell]
+depends = ["zsh"]
+
+[shell.files]
+bashrc = "~/.bashrc"
+shell = "~/.config/shell"
+navi = "~/.local/share/navi/cheats"
+memo = "~/.local/share/memo"
+"starship.toml" = "~/.config/starship.toml"
+
+[zsh.files]
+zshrc = "~/.zshrc"
+zimrc = { target = "~/.zimrc", type = "symbolic" }
+"config.zsh" = { target = "~/.config/shell/config.zsh", type = "symbolic" }
+
+[desktop.files]
+xprofile = "~/.xprofile"
+"picom.conf" = "~/.config/picom/picom.conf"
+"rofi.rasi" = "~/.config/rofi/config.rasi"
+"mimeapps.list" = "~/.config/mimeapps.list"
+
+[awesome.files]
+awesome = { target = "~/.config/awesome", type = "symbolic" }
+
+[wayland.files]
+hypr = "~/.config/hypr"
+"waybar/config.jsonc" = "~/.config/waybar/config"
+"waybar/style.css" = "~/.config/waybar/style.css"
+
+[vim.files]
+LazyVim = { target = "~/.config/LazyVim", type = "symbolic" }
+
+[scripts.files]
+scripts = "~/.local/scripts"
+
+[terminal.files]
+"wezterm.lua" = "~/.config/wezterm/wezterm.lua"
+zellij = "~/.config/zellij"
+yazi = "~/.config/yazi"
+
+[git.files]
+git = "~/.config/git/config"
+git-cliff = { target = "~/.config/git-cliff", type = "symbolic" }
+gitui = "~/.config/gitui"
+
+[media.files]
+zathurarc = "~/.config/zathura/zathurarc"
+mpv = "~/.config/mpv"
+
+[templates.files]
+Templates = { target = "~/Templates", type = "symbolic" }
+
+[PL.files]
+cargo = "~/.cargo"
+"pip.conf" = "~/.config/pip/pip.conf"
+
+[monitor.files]
+macchina = "~/.config/macchina"

@@ -1,0 +1,19 @@
+#!/usr/bin/env nu
+
+def copy [] {
+    if $env.XDG_BACKEND == 'wayland' {
+        $in | wl-copy
+    } else {
+        $in | xclip -sel c
+    }
+}
+
+# 文件模糊搜索
+def main [dest?: string] {
+    let res = sk --ansi -i -c $"fd -c 'always' -H -I -E '.git' '{}' ($dest)"
+        | str trim -r
+
+    $res | copy
+
+    echo $res
+}

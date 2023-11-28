@@ -1,0 +1,33 @@
+% network
+
+# 查看网络设备
+nmcli device status
+
+# 确认WIFI连接功能已启动
+nmcli radio wifi
+
+# 查看附近wifi
+nmcli device wifi list --rescan <N-Y>
+$ N-Y: printf '"no"\n"yes"'
+
+# 以冒号分割，打印附近wifi的列表
+nmcli --terse device wifi
+
+# 连接wifi
+nmcli device wifi connect <ssid> password <password>
+
+# 遗忘网络连接
+nmcli connection delete <local-ssid>
+$ local-ssid: nmcli --get-values 'NAME' connection show
+
+# 检查端口占用
+lsof -i:<port>
+
+# 查看本机IP地址
+ip address
+
+# 统计socket连接信息
+ss --tcp --udp --listening --processes --numeric
+
+# 开通虚拟机的网桥
+sudo virsh net-start default

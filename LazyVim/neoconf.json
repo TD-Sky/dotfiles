@@ -1,0 +1,10 @@
+{
+  "lspconfig": {
+    "lua_ls": {
+      "Lua.completion.callSnippet": "Replace"
+    },
+    "rust_analyzer": {
+      "rust-analyzer.checkOnSave.command": "clippy"
+    }
+  }
+}

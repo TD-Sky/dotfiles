@@ -1,0 +1,15 @@
+includes = []
+packages = [
+  "shell",
+  "vim",
+  "scripts",
+  "git",
+  "media",
+  "terminal",
+  "desktop",
+  "templates",
+  "PL",
+  "monitor",
+  "wayland",
+  "awesome",
+]

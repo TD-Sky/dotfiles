@@ -1,0 +1,22 @@
+#!/usr/bin/env nu
+
+def paste [] {
+    if $env.XDG_BACKEND == 'wayland' {
+        wl-paste -n
+    } else {
+        xclip -sel c -o
+    }
+}
+
+# 复制剪贴板内指定文件
+def main [dest: path = './'] {
+    let items = (paste)
+
+    if $items =~ (char newline) {
+        for src in ($items | split row (char newline)) {
+            ^cp -ri $src -t $dest
+        }
+    } else {
+        ^cp -r $items $dest
+    }
+}

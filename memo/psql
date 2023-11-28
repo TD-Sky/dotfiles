@@ -1,0 +1,17 @@
+# 列印全部数据库
+\l
+
+# 切换数据库
+\c <数据库>
+
+# 列出当前数据库所有表
+\dt
+
+# 创建新数据库
+create database <数据库>;
+
+# 删库
+drop database <数据库>;
+
+# 数据库命名使用连字符
+create database "foo-bar";
