@@ -72,6 +72,7 @@ swww = "壁纸引擎"
 waybar = "状态栏"
 swaylock = "锁屏"
 wl-clipboard = "剪贴板"
+cliphist = "剪贴板历史"
 rofi-lbonn-wayland = { manager = "paru", description = "应用启动器" }
 grim = "截图"
 slurp = "区域截取"
