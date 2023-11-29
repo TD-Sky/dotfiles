@@ -17,7 +17,7 @@ zimrc = { target = "~/.zimrc", type = "symbolic" }
 
 [desktop.files]
 xprofile = "~/.xprofile"
-"rofi.rasi" = "~/.config/rofi/config.rasi"
+rofi = "~/.config/rofi"
 "mimeapps.list" = "~/.config/mimeapps.list"
 
 [awesome.files]
@@ -35,12 +35,12 @@ LazyVim = { target = "~/.config/LazyVim", type = "symbolic" }
 scripts = "~/.local/scripts"
 
 [terminal.files]
-"wezterm.lua" = "~/.config/wezterm/wezterm.lua"
+wezterm = "~/.config/wezterm"
 zellij = "~/.config/zellij"
 yazi = "~/.config/yazi"
 
 [git.files]
-git = "~/.config/git/config"
+git = "~/.config/git"
 git-cliff = { target = "~/.config/git-cliff", type = "symbolic" }
 gitui = "~/.config/gitui"
 

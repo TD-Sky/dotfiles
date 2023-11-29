@@ -8,9 +8,9 @@
   "modules-right": [
     "tray",
     "backlight",
+    "wireplumber",
     "battery",
     "network",
-    "wireplumber",
     "memory",
     "cpu",
     "clock"

@@ -25,11 +25,11 @@ $ dotter deploy -vvv
 
 ### Desktop
 
-- Windows manager: [Awesome WM](https://awesomewm.org)
+- Windows manager: [Hyprland](https://hyprland.org)
 
 - Application launcher: **rofi**
 
-- Compositor: **picom**
+- Status bar: [waybar](https://github.com/Alexays/Waybar)
 
 
 ### Terminal
@@ -37,6 +37,8 @@ $ dotter deploy -vvv
 - Terminal emulator: [wezterm](https://wezfurlong.org/wezterm/)
 
 - Terminal multiplexer: [zellij](https://zellij.dev)
+
+- Terminal file manager: [yazi](https://yazi-rs.github.io)
 
 
 ### Editor
