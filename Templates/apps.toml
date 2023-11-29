@@ -68,12 +68,14 @@ description = "小老鼠文件管理器"
 [wayland]
 hyprland-nvidia = "跟随Nvidia上游补丁的hyprland"
 xdg-desktop-portal-hyprland = "wlroot的hyprland增强版xdg"
-swww = { manager = "paru", description = "壁纸引擎" }
+swww = "壁纸引擎"
 waybar = "状态栏"
 swaylock = "锁屏"
-grimshot = { manager = "paru", description = "截图" }
 wl-clipboard = "剪贴板"
-rofi-lbonn-wayland = "应用启动器"
+rofi-lbonn-wayland = { manager = "paru", description = "应用启动器" }
+grim = "截图"
+slurp = "区域截取"
+satty = { manager = "paru", description = "编辑截图" }
 
 # [X11]
 # arc-icon-theme = "Awesome第三方库的UI"
@@ -139,6 +141,7 @@ pastel = "调色板"
 hyperfine = "竞争测试"
 pueue = "守护大任务"
 parallel-disk-usage = "磁盘空间统计"
+yazi = { packages = ["yazi-git"], description = "终端文件管理器" }
 
 [utility.conceal]
 packages = ["conceal-bin"]

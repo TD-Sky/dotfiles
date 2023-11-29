@@ -61,12 +61,9 @@ alias d4v='mkdir -p $XDG_CACHE_HOME/nvim/{backup,info,swap,undo}'
 # 复制/粘贴
 
 if [[ $XDG_BACKEND == 'wayland' ]]; then
-	alias xs='wl-copy'
-	alias xp='wl-paste'
+    alias xs='wl-copy'
+	alias xp='wl-paste -n'
 else
 	alias xs='xclip -sel c'
 	alias xp='xclip -sel c -o'
-	function xc {
-		echo -n "$*" | xclip -sel c
-	}
 fi
