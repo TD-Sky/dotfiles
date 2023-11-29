@@ -252,3 +252,4 @@ xdg-user-dirs = "规范目录"
 android-tools = "安卓调试桥"
 sea-orm-cli = { manager = "cargo", description = "sea-orm工具" }
 dida365 = "滴答清单"
+genact = "Linux领域大神"
