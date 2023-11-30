@@ -25,7 +25,6 @@ lua-language-server = ""
 stylua = "lua格式化器"
 taplo-cli = "toml语言工具"
 shfmt = "bash/zsh格式化器"
-texlab = "Tex语言服务器"
 gopls = "Go语言服务器"
 yaml-language-server.manager = "npm"
 vscode-json-language-server = { manager = "npm", packages = [
@@ -36,12 +35,12 @@ prettier = { manager = "npm", packages = [
   "prettier",
   "@prettier/plugin-xml",
 ], description = "前端格式化器" }
-typst = "现代标记语言"
-typst-lsp = ""
+typst = { packages = ["typst", "typst-lsp"], description = "现代标记语言" }
 fnm = "管理node工具链"
 bash-language-server.manager = "npm"
 mlc = { manager = "cargo", description = "markdown linter" }
 sccache = "编译缓存"
+# texlab = "Tex语言服务器"
 
 [PL.clang]
 packages = ["clang", "llvm"]
@@ -66,17 +65,23 @@ packages = ["thunar", "tumbler", "webp-pixbuf-loader"]
 description = "小老鼠文件管理器"
 
 [wayland]
-hyprland-nvidia = "跟随Nvidia上游补丁的hyprland"
-xdg-desktop-portal-hyprland = "wlroot的hyprland增强版xdg"
 swww = "壁纸引擎"
 waybar = "状态栏"
 swaylock = "锁屏"
 wl-clipboard = "剪贴板"
 cliphist = "剪贴板历史"
-rofi-lbonn-wayland = { manager = "paru", description = "应用启动器" }
 grim = "截图"
 slurp = "区域截取"
 satty = { manager = "paru", description = "编辑截图" }
+
+[wayland.hyprland]
+packages = ["hyprland-nvidia", "xdg-desktop-portal-hyprland"]
+description = "hyprland的N卡补丁版及专用xdg-portal"
+
+[wayland.rofi]
+manager = "paru"
+packages = ["rofi-lbonn-wayland"]
+description = "应用启动器"
 
 # [X11]
 # arc-icon-theme = "Awesome第三方库的UI"
@@ -172,6 +177,7 @@ pandoc = { packages = ["pandoc-bin"], description = "LaTex渲染器" }
 kid3-qt = "编辑音乐标签"
 krita = "绘画"
 espeak = { packages = ["espeak-ng"], description = "电子朗读" }
+mupdf-tools = "PDF工具箱"
 
 [media.zathura]
 packages = ["zathura", "zathura-pdf-mupdf"]

@@ -123,3 +123,6 @@ xprop
 
 # 今年的日历
 cal -y
+
+# 按范围提取PDF页面
+mutool clean <src> <dest> <ranges>

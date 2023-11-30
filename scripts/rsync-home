@@ -2,7 +2,8 @@
 
 mkdir -p /mnt/door
 cd /home/door
-rsync -aAXvhW --progress \
+rsync -rltgoDAXHWv --progress \
     Desktop Documents Pictures Music Templates \
-    Collections .git-credentials .ssh /usr/local \
+    Collections .git-credentials .ssh \
     /mnt/door
+rsync -rltgoDAXHWv --progress /usr/local /mnt
