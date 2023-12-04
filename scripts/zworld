@@ -4,7 +4,7 @@ def main [] {}
 
 # 截取区域
 def 'main area' [] {
-    grim -g (slurp -d) - | satty -f -
+    grim -g (slurp -d) - | satty -f - --copy-command wl-copy --early-exit
 }
 
 # 截取全屏
@@ -17,5 +17,6 @@ def 'main screen' [
     grim -o (
         hyprctl monitors -j | from json | where focused | first | get name
     ) -
-    | satty -f - --fullscreen --output-filename $saved
+    | (satty -f - --fullscreen --output-filename $saved
+        --init-tool crop --copy-command wl-copy --early-exit)
 }
