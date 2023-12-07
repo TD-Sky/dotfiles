@@ -40,6 +40,7 @@ fnm = "管理node工具链"
 bash-language-server.manager = "npm"
 mlc = { manager = "cargo", description = "markdown linter" }
 sccache = "编译缓存"
+kondo = "扫除编译产物"
 # texlab = "Tex语言服务器"
 
 [PL.clang]
@@ -75,7 +76,7 @@ slurp = "区域截取"
 satty = { manager = "paru", description = "编辑截图" }
 
 [wayland.hyprland]
-packages = ["hyprland-nvidia", "xdg-desktop-portal-hyprland"]
+packages = ["hyprland", "xdg-desktop-portal-hyprland"]
 description = "hyprland的N卡补丁版及专用xdg-portal"
 
 [wayland.rofi]

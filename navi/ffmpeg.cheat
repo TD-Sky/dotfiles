@@ -11,3 +11,6 @@ ffprobe -v quiet -select_streams 'a:0' -show_entries 'stream=bit_rate' -of 'comp
 
 # 提取视频的音频到mp3
 ffmpeg -i <video> -vn -c:a mp3 -q:a 0 -map a <audio>
+
+# 合并音视频
+ffmpeg -i <video>.mp4 -i <audio>.m4a -c copy <output>.mp4
