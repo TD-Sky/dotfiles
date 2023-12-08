@@ -1,4 +1,6 @@
 [Default Applications]
+# directory
+inode/directory=thunar.desktop
 # edit
 text/plain=lvim.desktop;
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop;

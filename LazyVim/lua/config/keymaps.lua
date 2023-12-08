@@ -29,6 +29,15 @@ map.n({
     { "[t", "<cmd>tabNext<cr>", desc = "Prev tab" },
     { "]t", "<cmd>tabnext<cr>", desc = "Next tab" },
     { "<C-s>", "<cmd>SudaWrite<cr>", desc = "sudo write" },
+    -- My commands
+    {
+        "<leader><CR>",
+        function()
+            os.execute("open-wezterm-here")
+        end,
+        desc = "Open Wezterm here",
+    },
+    { "<leader>lc", "<cmd>LspConfig<cr>", desc = "Lsp Config" },
 })
 
 -- emacs keymaps

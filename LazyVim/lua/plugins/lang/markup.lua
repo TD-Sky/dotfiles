@@ -4,7 +4,7 @@ return {
         build = "cd app && npm install",
         ft = "markdown",
         keys = {
-            { "<leader><CR>", "<cmd>MarkdownPreviewToggle<CR>", ft = "markdown", desc = "预览" },
+            { "<leader>cp", "<cmd>MarkdownPreviewToggle<CR>", ft = "markdown", desc = "预览" },
         },
         config = function()
             vim.g.mkdp_auto_start = 1
