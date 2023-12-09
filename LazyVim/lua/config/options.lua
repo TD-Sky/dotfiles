@@ -65,11 +65,13 @@ local options = {
 
     -- platform
     clipboard = "unnamedplus",
+
+    exrc = true,
 }
 
 vim.opt.errorformat:append("[%f:%l] -> %m,[%f:%l]:%m")
 vim.opt.formatoptions:append("mB")
-vim.opt.shortmess:append('s')
+vim.opt.shortmess:append("s")
 
 local cache_dir = vim.fn.stdpath("cache")
 local fs_options = {

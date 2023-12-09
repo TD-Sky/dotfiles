@@ -21,14 +21,14 @@ return {
         },
     },
     {
-        "simrat39/rust-tools.nvim",
-        ft = "rust",
-        dependencies = { "neovim/nvim-lspconfig" },
+        "mrcjkb/rustaceanvim",
+        version = "^3",
+        ft = { "rust" },
         keys = {
-            { "<leader>ce", "<cmd>RustExpandMacro<CR>", ft = "rust", desc = "展开宏" },
-            { "<leader>cr", "<cmd>RustRunnables<CR>", ft = "rust", desc = "运行" },
-            { "<leader>cg", "<cmd>RustOpenCargo<CR>", ft = "rust", desc = "编辑Cargo.toml" },
-            { "gp", "<cmd>RustParentModule<CR>", ft = "rust", desc = "回到父模块" },
+            { "<leader>ce", "<cmd>RustLsp expandMacro<CR>", ft = "rust", desc = "展开宏" },
+            { "<leader>cr", "<cmd>RustLsp runnables<CR>", ft = "rust", desc = "运行" },
+            { "<leader>cg", "<cmd>RustLsp openCargo<CR>", ft = "rust", desc = "编辑Cargo.toml" },
+            { "gp", "<cmd>RustLsp parentModule<CR>", ft = "rust", desc = "回到父模块" },
         },
         opts = {
             tools = {
@@ -36,17 +36,28 @@ return {
                     only_current_line = true,
                 },
             },
+            server = {
+                settings = {
+                    ["rust-analyzer"] = {
+                        checkOnSave = {
+                            command = "clippy",
+                        },
+                    },
+                },
+            },
         },
+        config = function(_, opts)
+            local project_lspconfig = vim.g.project_lspconfig
+            if project_lspconfig ~= nil and project_lspconfig.rust_analyzer ~= nil then
+                opts.server = vim.tbl_deep_extend("force", opts.server, project_lspconfig.rust_analyzer)
+            end
+
+            opts.server.capabilities = vim.tbl_deep_extend(
+                "force",
+                vim.lsp.protocol.make_client_capabilities(),
+                require("cmp_nvim_lsp").default_capabilities() -- 令 cmp-nvim-lsp 连接服务器
+            )
+            vim.g.rustaceanvim = opts
+        end,
     },
-    -- {
-    --     "mrcjkb/rustaceanvim",
-    --     version = "^3",
-    --     ft = { "rust" },
-    --     keys = {
-    --         { "<leader>ce", "<cmd>RustLsp expandMacro<CR>", ft = "rust", desc = "展开宏" },
-    --         { "<leader>cr", "<cmd>RustLsp runnables<CR>", ft = "rust", desc = "运行" },
-    --         { "<leader>cg", "<cmd>RustLsp openCargo<CR>", ft = "rust", desc = "编辑Cargo.toml" },
-    --         { "gp", "<cmd>RustLsp parentModule<CR>", ft = "rust", desc = "回到父模块" },
-    --     },
-    -- },
 }

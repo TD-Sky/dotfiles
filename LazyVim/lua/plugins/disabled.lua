@@ -9,4 +9,5 @@ return {
     { "mfussenegger/nvim-lint", enabled = false },
     { "stevearc/conform.nvim", enabled = false },
     { "echasnovski/mini.comment", enabled = false },
+    { "folke/neoconf.nvim", enabled = false },
 }

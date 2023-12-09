@@ -1,14 +1,7 @@
 return {
     {
         "neovim/nvim-lspconfig",
-        dependencies = {
-            {
-                "folke/neoconf.nvim",
-                cmd = "Neoconf",
-                config = false,
-                dependencies = { "nvim-lspconfig" },
-            },
-        },
+        event = "LazyFile",
         opts = {
             diagnostics = {
                 update_in_insert = true,
@@ -16,7 +9,6 @@ return {
             --@type lspconfig.options
             servers = {
                 lua_ls = {},
-                rust_analyzer = {},
                 texlab = {},
                 taplo = {},
                 gopls = {},
@@ -31,7 +23,9 @@ return {
             },
         },
         config = function(_, opts)
-            require("neoconf").setup({})
+            if vim.g.project_lspconfig ~= nil then
+                opts.servers = vim.tbl_deep_extend("force", opts.servers, vim.g.project_lspconfig)
+            end
 
             -- 指定诊断日志的图标
             for level, icon in pairs(require("lazyvim.config").icons.diagnostics) do
@@ -41,16 +35,15 @@ return {
             -- 配置诊断
             vim.diagnostic.config(opts.diagnostics)
 
-            local servers = opts.servers
-            -- 令 cmp-nvim-lsp 连接服务器
-            local capabilities =
-                require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+            local capabilities = vim.tbl_deep_extend(
+                "force",
+                vim.lsp.protocol.make_client_capabilities(),
+                require("cmp_nvim_lsp").default_capabilities(), -- 令 cmp-nvim-lsp 连接服务器
+                opts.capabilities or {}
+            )
 
-            for server, server_opts in pairs(servers) do
-                server_opts = vim.tbl_deep_extend("force", {
-                    capabilities = vim.deepcopy(capabilities),
-                }, server_opts)
-
+            for server, server_opts in pairs(opts.servers) do
+                server_opts.capabilities = vim.tbl_deep_extend("force", capabilities, server_opts.capabilities or {})
                 -- 如果语言服务器不支持语义化token，高亮就会fallback到treesitter
                 require("lspconfig")[server].setup(server_opts)
             end
