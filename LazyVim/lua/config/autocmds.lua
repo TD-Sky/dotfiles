@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
         local root_dir = require("lazyvim.util").root.get()
         local cwd = vim.loop.cwd()
         local exrc = root_dir .. "/.nvim.lua"
-        if root_dir ~= cwd and vim.loop.fs_stat(exrc) ~= nil then
+        if root_dir ~= cwd and vim.fn.filereadable(exrc) == 1 then
             vim.cmd("luafile " .. exrc)
         end
     end,
