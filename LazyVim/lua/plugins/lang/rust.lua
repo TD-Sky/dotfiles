@@ -47,16 +47,12 @@ return {
             },
         },
         config = function(_, opts)
+            --  project_lspconfig 就是`plugins/lsp.lua`的 nvim-lspconfig 的`opts.servers`
             local project_lspconfig = vim.g.project_lspconfig
             if project_lspconfig ~= nil and project_lspconfig.rust_analyzer ~= nil then
                 opts.server = vim.tbl_deep_extend("force", opts.server, project_lspconfig.rust_analyzer)
             end
 
-            opts.server.capabilities = vim.tbl_deep_extend(
-                "force",
-                vim.lsp.protocol.make_client_capabilities(),
-                require("cmp_nvim_lsp").default_capabilities() -- 令 cmp-nvim-lsp 连接服务器
-            )
             vim.g.rustaceanvim = opts
         end,
     },

@@ -20,7 +20,7 @@ edit = [
   { exec = 'code "%*"', orphan = true, for = "windows" },
 ]
 open = [
-  { exec = 'xdg-open "$@"', desc = "Open", for = "linux" },
+  { exec = 'xdg-open "$@"', orphan = true, desc = "Open", for = "linux" },
   { exec = 'open "$@"', desc = "Open", for = "macos" },
   { exec = 'start "%1"', orphan = true, desc = "Open", for = "windows" },
 ]
@@ -33,12 +33,9 @@ play = [
   { exec = 'mpv "%1"', orphan = true, for = "windows" },
   { exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
 ]
-noop = []
 
 [open]
 rules = [
-  { name = "*/", use = ["noop"] },
-
   { mime = "text/*", use = ["edit"] },
   { mime = "image/*", use = ["open"] },
   { mime = "video/*", use = ["play"] },

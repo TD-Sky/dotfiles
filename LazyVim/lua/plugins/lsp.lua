@@ -6,7 +6,7 @@ return {
             diagnostics = {
                 update_in_insert = true,
             },
-            --@type lspconfig.options
+            -- LSP Server Settings
             servers = {
                 lua_ls = {},
                 texlab = {},
@@ -25,6 +25,7 @@ return {
         config = function(_, opts)
             if vim.g.project_lspconfig ~= nil then
                 opts.servers = vim.tbl_deep_extend("force", opts.servers, vim.g.project_lspconfig)
+                opts.servers.rust_analyzer = nil
             end
 
             -- 指定诊断日志的图标
