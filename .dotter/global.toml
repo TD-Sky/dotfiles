@@ -25,6 +25,7 @@ awesome = { target = "~/.config/awesome", type = "symbolic" }
 
 [wayland.files]
 hypr = "~/.config/hypr"
+swaylock = "~/.config/swaylock"
 "waybar/config.jsonc" = "~/.config/waybar/config"
 "waybar/style.css" = "~/.config/waybar/style.css"
 

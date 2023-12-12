@@ -92,7 +92,7 @@ nvim -d <file1> <file2>
 qemu-system-riscv64 -machine virt,dumpdtb=dump.dtb && dtc dump.dtb -o dump.dts
 
 # 创建引导文件
-sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch
+sudo grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch
 
 # 生成 grub 配置
 sudo grub-mkconfig -o /boot/grub/grub.cfg
