@@ -27,6 +27,7 @@ return {
                             { find = "; after #%d+" },
                             { find = "; before #%d+" },
                             { find = "%d lines? yanked" },
+                            { find = "%d lines? changed" },
                             { find = "1 line less" },
                             { find = "%d fewer lines" },
                             { find = "%d more lines?" },
