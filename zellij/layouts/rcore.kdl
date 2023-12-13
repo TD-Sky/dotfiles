@@ -10,8 +10,7 @@ layout {
         }
     }
 
-    tab name="Tutor-os" cwd="./Tutorial/os"
     tab name="os" cwd="./rCore/os" focus=true
     tab name="user" cwd="./rCore/user"
-    tab name="Tutor-user" cwd="./Tutorial/user"
+    tab name="easy-fs" cwd="./rCore/easy-fs"
 }
