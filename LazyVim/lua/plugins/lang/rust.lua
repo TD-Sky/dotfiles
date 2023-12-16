@@ -26,7 +26,6 @@ return {
         ft = { "rust" },
         keys = {
             { "<leader>ce", "<cmd>RustLsp expandMacro<CR>", ft = "rust", desc = "展开宏" },
-            { "<leader>cr", "<cmd>RustLsp runnables<CR>", ft = "rust", desc = "运行" },
             { "<leader>cg", "<cmd>RustLsp openCargo<CR>", ft = "rust", desc = "编辑Cargo.toml" },
             { "gp", "<cmd>RustLsp parentModule<CR>", ft = "rust", desc = "回到父模块" },
         },
