@@ -149,6 +149,7 @@ hyperfine = "竞争测试"
 pueue = "守护大任务"
 parallel-disk-usage = "磁盘空间统计"
 yazi = { packages = ["yazi-git"], description = "终端文件管理器" }
+hexyl = "hex查看器"
 
 [utility.conceal]
 packages = ["conceal-bin"]
