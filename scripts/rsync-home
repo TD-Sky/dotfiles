@@ -2,7 +2,7 @@
 
 mkdir -p /mnt/door
 cd /home/door
-rsync -rltgoDAXHWv --progress \
+rsync -rltgoDHv --progress \
     Desktop Documents Pictures Music Templates \
     Collections .git-credentials .ssh \
     /mnt/door
