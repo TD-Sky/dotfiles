@@ -13,6 +13,9 @@ return {
                 start = { 7, 0 },
                 ending = { 18, 30 },
             },
+            day = {
+                bg = "dark",
+            },
         },
     },
     {

@@ -46,7 +46,7 @@ git-cliff = { target = "~/.config/git-cliff", type = "symbolic" }
 gitui = "~/.config/gitui"
 
 [media.files]
-zathurarc = "~/.config/zathura/zathurarc"
+zathura = "~/.config/zathura"
 mpv = "~/.config/mpv"
 
 [templates.files]

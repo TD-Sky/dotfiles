@@ -1,0 +1,5 @@
+set selection-clipboard clipboard
+set synctex true
+set synctex-editor-command "nvr --remote-silent %f -c %l"
+map <C-l> feedkeys ":blist <Tab>"
+map <A-m> feedkeys ":bmark "
