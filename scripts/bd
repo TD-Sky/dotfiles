@@ -5,6 +5,10 @@ def then [flag: string] {
     if $in { $flag } else { '' }
 }
 
+def tree-view [] {
+    $in | tree -C --fromfile
+}
+
 # 解压缩瑞士军刀
 def main [] {
     [
@@ -16,6 +20,7 @@ def main [] {
         ['7z'       '✅'        '✅'   ]
         ['zip'      '✅'        '✅'   ]
         ['rar'      '✅'        '✅'   ]
+        ['apk'      '❌'        '✅'   ]
         ['deb'      '❌'        '✅'   ]
     ]
 }
@@ -71,7 +76,7 @@ def "main rar" [item: string] {
 def "main x" [...archives: string] {
     for archive in $archives {
         match ($archive | path parse | get extension) {
-            'zip' | 'tar' | 'gz' | 'xz' => { unar $archive },
+            'zip' | 'tar' | 'gz' | 'xz' | 'apk' => { unar $archive },
             'zst' => { tar -I unzstd -xvf $archive },
             '7z' => { 7za x $archive },
             'rar' => { rar x $archive },
@@ -83,13 +88,13 @@ def "main x" [...archives: string] {
 # 窥视
 def "main ls" [archive: string] {
     match ($archive | path parse | get extension) {
-        'zip' => { lsar $archive },
-        'tar' => { tar -tf $archive | tree --fromfile },
-        'gz' => { tar -ztf $archive | tree --fromfile },
-        'xz' => { tar -Jtf $archive | tree --fromfile },
-        'zst' => { tar -I unzstd --list -f $archive | tree --fromfile },
+        'zip' | 'apk' => { bsdtar --list --file $archive | tree-view },
+        'tar' => { tar -tf $archive | tree-view },
+        'gz' => { tar -ztf $archive | tree-view },
+        'xz' => { tar -Jtf $archive | tree-view },
+        'zst' => { tar -I unzstd --list -f $archive | tree-view },
         '7z' => { 7za l $archive },
-        'rar' => { rar v $archive | tree --fromfile },
+        'rar' => { rar v $archive | tree-view },
         'deb' => { ar t $archive },
     }
 }
