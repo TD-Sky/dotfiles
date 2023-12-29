@@ -221,7 +221,6 @@ erdtree = "体积伴随文件树"
 
 [network]
 gping = "图形化ping"
-dog = "高级dig"
 traceroute = "路由显形"
 lsof = "监测端口"
 v2raya = "飞越长城"

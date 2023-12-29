@@ -20,6 +20,7 @@ return {
                 slint_lsp = {
                     root_dir = require("lspconfig").util.root_pattern(),
                 },
+                nushell = {},
             },
         },
         config = function(_, opts)

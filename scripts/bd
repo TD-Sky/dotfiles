@@ -76,8 +76,9 @@ def "main rar" [item: string] {
 def "main x" [...archives: string] {
     for archive in $archives {
         match ($archive | path parse | get extension) {
-            'zip' | 'tar' | 'gz' | 'xz' | 'apk' => { unar $archive },
-            'zst' => { tar -I unzstd -xvf $archive },
+            'tar' | 'gz' | 'xz' | 'zst' | 'zip' | 'apk' => {
+                bsdtar -xvf $archive
+            },
             '7z' => { 7za x $archive },
             'rar' => { rar x $archive },
             'deb' => { ar x $archive },
@@ -88,13 +89,10 @@ def "main x" [...archives: string] {
 # 窥视
 def "main ls" [archive: string] {
     match ($archive | path parse | get extension) {
-        'zip' | 'apk' => { bsdtar --list --file $archive | tree-view },
-        'tar' => { tar -tf $archive | tree-view },
-        'gz' => { tar -ztf $archive | tree-view },
-        'xz' => { tar -Jtf $archive | tree-view },
-        'zst' => { tar -I unzstd --list -f $archive | tree-view },
-        '7z' => { 7za l $archive },
-        'rar' => { rar v $archive | tree-view },
+        'tar' | 'gz' | 'xz' | 'zst' | 'zip' | 'apk' | '7z'  => {
+            bsdtar -tf $archive | tree-view
+        },
+        'rar' => { bsdtar -tf $archive | tac | tree-view },
         'deb' => { ar t $archive },
     }
 }
