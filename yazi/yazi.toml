@@ -127,4 +127,4 @@ open_origin = "hovered"
 open_offset = [0, 1, 50, 7]
 
 [log]
-enabled = false
+enabled = true
