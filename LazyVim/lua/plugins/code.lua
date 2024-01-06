@@ -25,11 +25,7 @@ return {
                 args = { "--quiet", "-" },
                 stdin = true,
             },
-            toml = {
-                cmd = "taplo",
-                args = { "format", "-" },
-                stdin = true,
-            },
+            toml = "taplo",
             ocaml = {
                 cmd = "ocamlformat",
                 args = {
@@ -40,15 +36,15 @@ return {
                 },
                 stdin = true,
             },
-            sh = {
-                cmd = "shfmt",
+            sh = "shfmt",
+            ["c,cpp"] = {
+                cmd = "clang-format",
                 args = {
-                    "-filename",
-                    utils.vim.current_buffer_name(),
+                    "--style",
+                    "{IndentWidth: 4}",
                 },
                 stdin = true,
             },
-            ["c,cpp"] = "clang-format",
             rust = "rustfmt",
             ["vue,json,jsonc,javascript,typescript,xml,yaml,html,css"] = "prettier",
         },

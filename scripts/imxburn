@@ -138,6 +138,7 @@ b6 6d 0b 63 02 1b 00 14  01 ff 00 db 02 1b 00 18  00 20 17 40 02 1b 00 1c  00 00
 
 def main [
     --ddr-size: string = '512m', # [possible values: 512m, 256m]
+    --cache-dir (-C): path = '',
     bin: path,
     block_dev: path,
 ] {
@@ -164,19 +165,23 @@ def main [
     }
     | bytes collect
 
-    let bin = open $bin
-    let load = bytes build $ivtdcd_table $padding $bin
+    let binary = open $bin
+    let load = bytes build $ivtdcd_table $padding $binary
 
-    if ($load | bytes length) != $BIN_OFFSET + ($bin | bytes length) {
+    if ($load | bytes length) != $BIN_OFFSET + ($binary | bytes length) {
         print -e 'Failed to merge data'
         return
     }
 
-    $load | save -f load.imx
+    let imx = (
+        $cache_dir
+        | path join $"($bin | path parse | get stem).imx"
+    )
+    $load | save -f $imx
 
     let confirm = input $"Are you sure burning to ($block_dev)? [Y/n] "
         | str downcase
     if $confirm == 'y' {
-        sudo dd iflag=dsync oflag=dsync if=load.imx $"of=($block_dev)" bs=512 seek=2
+        sudo dd iflag=dsync oflag=dsync $"if=($imx)" $"of=($block_dev)" bs=512 seek=2
     }
 }

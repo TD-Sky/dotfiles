@@ -21,6 +21,7 @@ return {
                     root_dir = require("lspconfig").util.root_pattern(),
                 },
                 nushell = {},
+                clangd = {},
             },
         },
         config = function(_, opts)
