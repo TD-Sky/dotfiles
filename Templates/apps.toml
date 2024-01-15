@@ -226,7 +226,8 @@ lsof = "监测端口"
 v2raya = "飞越长城"
 
 [network.clash-verge]
-packages = ["clash-verge", "clash-meta"]
+packages = ["clash-verge-rev-bin"]
+# packages = ["clash-verge", "clash-meta"]
 description = "飞越长城"
 
 [show]

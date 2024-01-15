@@ -50,3 +50,4 @@ x-scheme-handler/slack=slack.desktop;
 x-scheme-handler/tg=org.telegram.desktop.desktop;
 # terminal
 x-scheme-handler/terminal=org.wezfurlong.wezterm.desktop;
+x-scheme-handler/clash=clash-verge.desktop
