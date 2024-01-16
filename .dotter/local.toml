@@ -1,6 +1,8 @@
 includes = []
 packages = [
-  "shell",
+  "zsh",
+  "bash",
+  "fish",
   "vim",
   "scripts",
   "git",

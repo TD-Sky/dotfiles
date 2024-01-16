@@ -1,19 +1,26 @@
 [helpers]
 
-[shell]
-depends = ["zsh"]
-
 [shell.files]
-bashrc = "~/.bashrc"
 shell = "~/.config/shell"
 navi = "~/.local/share/navi/cheats"
 memo = "~/.local/share/memo"
 "starship.toml" = "~/.config/starship.toml"
 
+[zsh]
+depends = ["shell"]
+
+[bash]
+depends = ["shell"]
+files = { bashrc = "~/.bashrc" }
+
 [zsh.files]
 zshrc = "~/.zshrc"
 zimrc = { target = "~/.zimrc", type = "symbolic" }
 "config.zsh" = { target = "~/.config/shell/config.zsh", type = "symbolic" }
+
+[fish]
+depends = ["shell"]
+files = { fish = "~/.config/fish" }
 
 [desktop.files]
 xprofile = "~/.xprofile"
