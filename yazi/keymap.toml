@@ -24,8 +24,8 @@ keymap = [
   { on = ["<C-o>"], exec = "back", desc = "Go back to the previous directory" },
   { on = ["<C-i>"], exec = "forward", desc = "Go forward to the next directory" },
 
-  { on = ["<C-k>"], exec = "peek -5", desc = "Peek up 5 units in the preview" },
-  { on = ["<C-j>"], exec = "peek 5", desc = "Peek down 5 units in the preview" },
+  { on = ["<C-k>"], exec = "seek -5", desc = "Peek up 5 units in the preview" },
+  { on = ["<C-j>"], exec = "seek 5", desc = "Peek down 5 units in the preview" },
 
   # Selection
   { on = ["<Space>"], exec = ["select --state=none", "arrow 1"], desc = "Toggle the current selection state" },
