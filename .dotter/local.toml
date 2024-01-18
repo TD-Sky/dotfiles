@@ -8,10 +8,9 @@ packages = [
   "git",
   "media",
   "terminal",
-  "desktop",
   "templates",
   "PL",
   "monitor",
   "wayland",
-  "awesome",
+  "X",
 ]
