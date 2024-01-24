@@ -4,7 +4,8 @@
 [[ -n "$INTER_DONE" ]] && return
 
 source "$SHELL_CONFIG_HOME/fn.sh"
-source "$SHELL_CONFIG_HOME/unsync.sh"
+local LOCAL_CONFIG="$SHELL_CONFIG_HOME/unsync.sh"
+[ -f $LOCAL_CONFIG ] && source $LOCAL_CONFIG
 
 if [ -n "$ZSH_VERSION" ]; then
 	SH='zsh'
@@ -13,11 +14,12 @@ elif [ -n "$BASH_VERSION" ]; then
 	SH='bash'
 fi
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(zoxide init $SH)"
 eval "$(starship init $SH)"
 eval "$(fnm env --use-on-cd)"
 eval "$(mcfly init $SH)"
 eval "$(navi widget $SH)"
-eval "$(opam env)"
+# eval "$(opam env)"
 
 INTER_DONE=1
