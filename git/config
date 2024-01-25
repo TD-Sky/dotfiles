@@ -5,7 +5,7 @@
     defaultBranch = main
 [core]
     pager = delta
-	quotepath = false
+    quotepath = false
     editor = lvim
 [interactive]
     diffFilter = delta --color-only
@@ -17,6 +17,6 @@
 [credential]
     helper = store
 [log]
-	date = iso-strict-local
+    date = iso-strict-local
 [trim]
-	bases = develop,master,main
+    bases = develop,master,main

@@ -72,7 +72,7 @@ if status is-interactive
         dot -Tpng $argv[1] -o "$(echo $argv[1] | choose -f '\.' 0).png"
     end
 
-    alias py='python'
+    alias py='python3'
     alias rsi='rust-script'
 
     ## 创建配套目录

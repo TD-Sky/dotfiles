@@ -1,7 +1,10 @@
 #!/usr/bin/env nu
 
 # 具化文件模板
-def main [stem: string] {
+def main [
+    stem: string,
+    --no-extension (-s),
+] {
     let in_dir = $env.PWD
 
     cd '~/Templates/dev'
@@ -11,8 +14,13 @@ def main [stem: string] {
 
     echo $template
 
-    let extension = $template | path parse | get extension
-    let dest = $in_dir | path join $"($stem).($extension)"
+    let extension = if $no_extension {
+        ''
+    } else {
+        '.' + ($template | path parse | get extension)
+    }
+
+    let dest = $in_dir | path join ($stem + $extension)
 
     cp $template $dest
 }

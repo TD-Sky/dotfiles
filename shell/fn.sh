@@ -41,7 +41,7 @@ function dot-png {
 	dot -Tpng $1 -o "$(echo $1 | choose -f '\.' 0).png"
 }
 
-alias py='python'
+alias py='python3'
 alias rsi='rust-script'
 
 ##################################################
