@@ -52,6 +52,7 @@ manager = "npm"
 packages = ["typescript", "typescript-language-server"]
 
 [desktop]
+xdg-user-dirs = "规范目录"
 qt-theme.packages = ["qt6ct", "qt5ct", "kvantum"]
 wezterm = "现代终端模拟器"
 sddm = "会话管理器"
@@ -74,6 +75,7 @@ cliphist = "剪贴板历史"
 grim = "截图"
 slurp = "区域截取"
 satty = { manager = "paru", description = "编辑截图" }
+dunst = "通知管道"
 
 [wayland.hyprland]
 packages = ["hyprland", "xdg-desktop-portal-hyprland"]
@@ -257,7 +259,6 @@ cross = { manager = "cargo", description = "交叉编译" }
 
 [unknown]
 sof-firmware = "声卡固件"
-xdg-user-dirs = "规范目录"
 android-tools = "安卓调试桥"
 sea-orm-cli = { manager = "cargo", description = "sea-orm工具" }
 dida365 = "滴答清单"
