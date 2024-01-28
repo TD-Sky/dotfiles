@@ -4,7 +4,7 @@
 [[ -n "$INTER_DONE" ]] && return
 
 source "$SHELL_CONFIG_HOME/fn.sh"
-local LOCAL_CONFIG="$SHELL_CONFIG_HOME/unsync.sh"
+LOCAL_CONFIG="$SHELL_CONFIG_HOME/unsync.sh"
 [ -f $LOCAL_CONFIG ] && source $LOCAL_CONFIG
 
 if [ -n "$ZSH_VERSION" ]; then

@@ -11,3 +11,7 @@ docker exec -it <container> <command>
 
 # 显示全部容器的ID
 docker ps -af
+
+# 重启已有的容器
+docker restart <existed-container>
+$ existed-container: docker container ls -a --format 'json' | jaq '.Names'

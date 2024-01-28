@@ -6,7 +6,8 @@ return {
             ensure_installed = {
                 "rust", "slint",
                 "go", "gomod",
-                "python", "bash", "perl", "fish",
+                "python", "ruby", "perl",
+                "bash", "fish",
                 "c","cpp", "cmake",
                 "scheme", "haskell",
                 "html", "vue",
