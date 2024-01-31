@@ -245,7 +245,6 @@ cargo-msrv = "最旧可用rustc版本"
 cargo-expand = "展开宏"
 cargo-edit = "编辑依赖"
 cargo-supply-chain = "依赖元信息"
-cargo-feature = "管理依赖特性"
 cargo-deny = "分析依赖"
 cargo-audit = { packages = [
   "cargo-audit",

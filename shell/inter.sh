@@ -9,7 +9,7 @@ LOCAL_CONFIG="$SHELL_CONFIG_HOME/unsync.sh"
 
 if [ -n "$ZSH_VERSION" ]; then
 	SH='zsh'
-	source "$SHELL_CONFIG_HOME/config.zsh"
+	source "$HOME/.config/zsh/config.zsh"
 elif [ -n "$BASH_VERSION" ]; then
 	SH='bash'
 fi

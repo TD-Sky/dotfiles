@@ -3,7 +3,7 @@ set -gx RUSTUP_DIST_SERVER 'https://mirrors.ustc.edu.cn/rust-static'
 set -gx RUSTUP_UPDATE_ROOT 'https://mirrors.ustc.edu.cn/rust-static/rustup'
 
 # 用户可执行程序目录
-set -gx PATH $PATH $HOME/.local/bin $HOME/.local/scripts $HOME/.cargo/bin  $HOME/.local/share/JetBrains/Toolbox/scripts /usr/lib/jvm/default/bin
+set -gx PATH $HOME/.cargo/bin $PATH $HOME/.local/bin $HOME/.local/scripts $HOME/.local/share/JetBrains/Toolbox/scripts /usr/lib/jvm/default/bin
 
 # fcitx5
 # set -gx GTK_IM_MODULE 'fcitx'
@@ -80,6 +80,7 @@ if status is-interactive
 
     # 快捷键
     bind \co 'edit_command_buffer'
+    bind \cy 'ya'
 
     # 启动
     zoxide init fish | source

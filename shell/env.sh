@@ -9,10 +9,10 @@ export RUSTUP_DIST_SERVER='https://mirrors.ustc.edu.cn/rust-static'
 export RUSTUP_UPDATE_ROOT='https://mirrors.ustc.edu.cn/rust-static/rustup'
 
 # 用户可执行程序目录
-export PATH="$PATH:\
+export PATH="$HOME/.cargo/bin:\
+$PATH:\
 $HOME/.local/bin:\
 $HOME/.local/scripts:\
-$HOME/.cargo/bin:\
 $XDG_DATA_HOME/JetBrains/Toolbox/scripts:\
 /usr/lib/jvm/default/bin"
 

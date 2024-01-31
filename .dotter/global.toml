@@ -11,7 +11,7 @@ depends = ["shell"]
 [zsh.files]
 zshrc = "~/.zshrc"
 zimrc = { target = "~/.zimrc", type = "symbolic" }
-"config.zsh" = { target = "~/.config/shell/config.zsh", type = "symbolic" }
+zsh = { target = "~/.config/zsh", type = "symbolic" }
 
 [bash]
 depends = ["shell"]
