@@ -29,6 +29,7 @@ bindkey -e
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^O" edit-command-line
+bindkey -s "^Y" 'ya^M'
 
 # Prompt for spelling correction of commands.
 #setopt CORRECT
