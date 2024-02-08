@@ -27,3 +27,6 @@ $ opt-name-only: printf '\n--name-only'
 
 # 历史树
 git log --graph --oneline --decorate --all
+
+# 清除已失效的远程分支
+git remote prune origin

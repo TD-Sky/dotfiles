@@ -81,10 +81,10 @@ dunst = "通知管道"
 packages = ["hyprland", "xdg-desktop-portal-hyprland"]
 description = "hyprland的N卡补丁版及专用xdg-portal"
 
-[wayland.rofi]
-manager = "paru"
-packages = ["rofi-lbonn-wayland"]
-description = "应用启动器"
+# [wayland.rofi]
+# manager = "paru"
+# packages = ["rofi-lbonn-wayland"]
+# description = "应用启动器"
 
 # [X11]
 # arc-icon-theme = "Awesome第三方库的UI"
@@ -160,9 +160,12 @@ description = "垃圾回收站"
 
 [git]
 gitui = "git TUI"
-stgit = { manager = "paru", description = "git的栈式补丁管理器" }
+stgit = { manager = "paru", packages = [
+  "stgit",
+  "xmlto",
+], description = "git的栈式补丁管理器" }
 delta = { packages = ["git-delta"], description = "高级diff" }
-cliff = { packages = ["git-cliff"], description = "变更日志生成器" }
+git-cliff = "变更日志生成器"
 
 [data]
 p7zip = "7z"
@@ -230,6 +233,7 @@ v2raya = "飞越长城"
 [network.clash-verge]
 packages = ["clash-verge-rev-bin"]
 # packages = ["clash-verge", "clash-meta"]
+manager = "paru"
 description = "飞越长城"
 
 [show]
@@ -253,7 +257,6 @@ cargo-audit = { packages = [
 cargo-depgraph = "依赖图"
 cargo-update = "更新cargo安装的应用"
 cargo-cache = { manager = "cargo", description = "管理缓存" }
-crm = { manager = "cargo", description = "管理cargo镜像源" }
 cross = { manager = "cargo", description = "交叉编译" }
 
 [unknown]

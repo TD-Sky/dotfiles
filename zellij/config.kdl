@@ -121,6 +121,7 @@ keybinds clear-defaults=true {
             };
             SwitchToMode "Normal"
         }
+        bind "q" { Quit; }
     }
     tmux {
         bind "[" { SwitchToMode "Scroll"; }
