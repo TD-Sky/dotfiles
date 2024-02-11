@@ -14,7 +14,7 @@ elif [ -n "$BASH_VERSION" ]; then
 	SH='bash'
 fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv | rg -v 'export PATH=')"
 eval "$(zoxide init $SH)"
 eval "$(starship init $SH)"
 eval "$(fnm env --use-on-cd)"

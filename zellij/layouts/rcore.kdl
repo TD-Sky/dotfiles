@@ -10,7 +10,7 @@ layout {
         }
     }
 
-    tab name="os" cwd="./rCore/os" focus=true
-    tab name="user" cwd="./rCore/user"
-    tab name="easy-fs" cwd="./rCore/easy-fs"
+    tab name="os" cwd="os" focus=true
+    tab name="user" cwd="user"
+    tab name="easy-fs" cwd="easy-fs"
 }
