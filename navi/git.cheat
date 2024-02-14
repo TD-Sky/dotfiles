@@ -12,9 +12,6 @@ git reflog
 # 交互式清理未跟踪文件与忽略文件
 git clean -fxi
 
-# 根据远程仓库清理旧分支
-git remote prune origin
-
 # 历次提交的文件变化
 git log --stat
 

@@ -10,7 +10,7 @@ docker run -itd --name <container> <image>
 docker exec -it <container> <command>
 
 # 显示全部容器的ID
-docker ps -af
+docker ps -a
 
 # 重启已有的容器
 docker restart <existed-container>

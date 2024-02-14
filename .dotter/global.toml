@@ -64,6 +64,7 @@ Templates = { target = "~/Templates", type = "symbolic" }
 
 [PL.files]
 cargo = "~/.cargo"
+gdb = "~/.config/gdb"
 "pip.conf" = "~/.config/pip/pip.conf"
 
 [monitor.files]
