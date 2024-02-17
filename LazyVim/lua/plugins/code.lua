@@ -46,6 +46,7 @@ return {
                 stdin = true,
             },
             rust = "rustfmt",
+            go = "gofmt",
             ["vue,json,jsonc,javascript,typescript,xml,yaml,html,css"] = "prettier",
         },
         config = function(_, opts)
