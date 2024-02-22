@@ -100,9 +100,6 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 # 查看默认浏览器
 xdg-settings get default-web-browser
 
-# 设置火狐为默认浏览器
-xdg-settings set default-web-browser firefox.desktop
-
 # 查看打开某种格式的GUI软件
 xdg-mime query default <mime>
 
@@ -126,3 +123,10 @@ cal -y
 
 # 按范围提取PDF页面
 mutool clean <src> <dest> <ranges>
+
+# 启动GDB调试服务器
+gdbserver :<port> <program>
+
+# 连接GDB调试服务器
+gdb -q <program> -ex 'target remote <gdb-ip>:<port>'
+$ gdb-ip: printf '\nlocalhost'
