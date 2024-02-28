@@ -1,17 +1,3 @@
-[communication]
-QQ = { packages = ["com.qq.QQ"], manager = "flatpak" }
-telegram = { packages = ["telegram-desktop"], description = "电报" }
-thunderbird = "电子邮件客户端"
-
-[communication.wemeet]
-packages = ["com.tencent.wemeet"]
-manager = "flatpak"
-description = "腾讯会议"
-
-[OS]
-QEMU.packages = ["qemu-full"]
-ventoy = { packages = ["ventoy-bin"], description = "制作镜像盘" }
-
 [PL]
 mold = "现代链接器"
 rust-script = "rust脚本解释器"
@@ -41,7 +27,6 @@ bash-language-server.manager = "npm"
 mlc = { manager = "cargo", description = "markdown linter" }
 sccache = "编译缓存"
 kondo = "扫除编译产物"
-# texlab = "Tex语言服务器"
 
 [PL.clang]
 packages = ["clang", "llvm"]
@@ -53,69 +38,6 @@ packages = ["typescript", "typescript-language-server"]
 
 [desktop]
 xdg-user-dirs = "规范目录"
-qt-theme.packages = ["qt6ct", "qt5ct", "kvantum"]
-wezterm = "现代终端模拟器"
-sddm = "会话管理器"
-lxqt-policykit = "授权面板"
-
-[desktop.fcitx]
-packages = ["fcitx5-im", "fcitx5-chinese-addons", "fcitx5-pinyin-zhwiki"]
-description = "小企鹅输入法"
-
-[desktop.thunar]
-packages = ["thunar", "tumbler", "webp-pixbuf-loader"]
-description = "小老鼠文件管理器"
-
-[wayland]
-swww = "壁纸引擎"
-waybar = "状态栏"
-swaylock = "锁屏"
-wl-clipboard = "剪贴板"
-cliphist = "剪贴板历史"
-grim = "截图"
-slurp = "区域截取"
-satty = { manager = "paru", description = "编辑截图" }
-dunst = "通知管道"
-
-[wayland.hyprland]
-packages = ["hyprland", "xdg-desktop-portal-hyprland"]
-description = "hyprland的N卡补丁版及专用xdg-portal"
-
-# [wayland.rofi]
-# manager = "paru"
-# packages = ["rofi-lbonn-wayland"]
-# description = "应用启动器"
-
-# [X11]
-# arc-icon-theme = "Awesome第三方库的UI"
-# rofi = "应用菜单"
-# flameshot = "截图"
-# slock = "锁屏"
-# xclip = "剪贴板"
-#
-# [X11.awesome]
-# packages = ["awesome-git"]
-# description = "具有组件库的X窗口管理器"
-
-[font.nerd-fonts]
-packages = ["nerd-fonts-complete"]
-description = "书呆子字体"
-
-[font.noto-fonts]
-packages = [
-  "noto-fonts",
-  "noto-fonts-emoji",
-  "noto-fonts-extra",
-  "noto-fonts-cjk",
-]
-description = "零豆腐块字体"
-
-[client]
-firefox = "火狐浏览器"
-chromium = "谷歌裸核浏览器"
-dbeaver = "PostgreSQL客户端"
-sqlitebrowser = "SQLite客户端"
-keepassxc = "keepass客户端"
 
 [shell]
 nushell = "结构化shell"
@@ -125,9 +47,9 @@ zoxide = "瞬移"
 zellij = "终端复用器"
 bash-completion = "bash补全"
 
-[shell.zsh]
-packages = ["zsh", "zsh-completions"]
-description = "zsh及额外补全包"
+# [shell.zsh]
+# packages = ["zsh", "zsh-completions"]
+# description = "zsh及额外补全包"
 
 [utility]
 bat = "高级cat"
@@ -160,10 +82,6 @@ description = "垃圾回收站"
 
 [git]
 gitui = "git TUI"
-stgit = { manager = "paru", packages = [
-  "stgit",
-  "xmlto",
-], description = "git的栈式补丁管理器" }
 delta = { packages = ["git-delta"], description = "高级diff" }
 git-cliff = "变更日志生成器"
 
@@ -171,37 +89,7 @@ git-cliff = "变更日志生成器"
 p7zip = "7z"
 rar = ""
 zip.packages = ["zip", "unzip"]
-qbittorrent = "下载种子"
 unarchiver = "万能解压"
-
-[media]
-imagemagick = "图片瑞士军刀"
-mpv = "看视频"
-viu = "终端看图"
-yt-dlp = "下载Youtube视频"
-dagtoc = { manager = "paru", description = "操作PDF目录" }
-pandoc = { packages = ["pandoc-bin"], description = "LaTex渲染器" }
-kid3-qt = "编辑音乐标签"
-krita = "绘画"
-espeak = { packages = ["espeak-ng"], description = "电子朗读" }
-mupdf-tools = "PDF工具箱"
-
-[media.zathura]
-packages = ["zathura", "zathura-pdf-mupdf"]
-description = "PDF阅读器"
-
-[media.pipewire]
-packages = [
-  "pipewire",
-  "wireplumber",
-  "pipewire-pulse",
-  "pipewire-alsa",
-  "pipewire-jack",
-]
-description = "音频系统"
-
-[language]
-pot-translation = "一站式翻译"
 
 [language.didyoumean]
 packages = ["didyoumean-bin"]
@@ -213,9 +101,7 @@ acpi = "电池信息"
 bandwhich = "监测网络带宽"
 bottom = "高级top"
 light = "调节亮度"
-pamixer = "调节音量"
 procs = "查看进程"
-pulsemixer = "音量面板"
 duf = "统计分区大小"
 erdtree = "体积伴随文件树"
 
@@ -228,18 +114,10 @@ erdtree = "体积伴随文件树"
 gping = "图形化ping"
 traceroute = "路由显形"
 lsof = "监测端口"
-v2raya = "飞越长城"
-
-[network.clash-verge]
-packages = ["clash-verge", "clash-meta"]
-manager = "paru"
-description = "飞越长城"
 
 [show]
 asciinema = "录制命令行视频"
-screenkey = "按键回显"
 silicon = "代码截图"
-simplescreenrecorder = "录制视频"
 
 [cargo]
 cargo-generate = "项目模板"
@@ -259,8 +137,5 @@ cargo-cache = { manager = "cargo", description = "管理缓存" }
 cross = { manager = "cargo", description = "交叉编译" }
 
 [unknown]
-sof-firmware = "声卡固件"
-android-tools = "安卓调试桥"
 sea-orm-cli = { manager = "cargo", description = "sea-orm工具" }
-dida365 = "滴答清单"
 genact = "Linux领域大神"
