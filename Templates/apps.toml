@@ -13,6 +13,7 @@ QEMU.packages = ["qemu-full"]
 ventoy = { packages = ["ventoy-bin"], description = "制作镜像盘" }
 
 [PL]
+gdb = "调试器"
 mold = "现代链接器"
 rust-script = "rust脚本解释器"
 rustup = "管理rust工具链"
@@ -41,7 +42,7 @@ bash-language-server.manager = "npm"
 mlc = { manager = "cargo", description = "markdown linter" }
 sccache = "编译缓存"
 kondo = "扫除编译产物"
-# texlab = "Tex语言服务器"
+cargo-flamegraph = "绘制火焰图及cargo配套插件"
 
 [PL.clang]
 packages = ["clang", "llvm"]
@@ -158,6 +159,11 @@ packages = ["conceal-bin"]
 manager = "paru"
 description = "垃圾回收站"
 
+[utility.dotter]
+packages = ["dotter-rs-bin"]
+manager = "paru"
+description = "配置文件管理"
+
 [git]
 gitui = "git TUI"
 stgit = { manager = "paru", packages = [
@@ -166,6 +172,7 @@ stgit = { manager = "paru", packages = [
 ], description = "git的栈式补丁管理器" }
 delta = { packages = ["git-delta"], description = "高级diff" }
 git-cliff = "变更日志生成器"
+gitoxide = "锈化git"
 
 [data]
 p7zip = "7z"
@@ -175,6 +182,7 @@ qbittorrent = "下载种子"
 unarchiver = "万能解压"
 
 [media]
+sof-firmware = "声卡固件"
 imagemagick = "图片瑞士军刀"
 mpv = "看视频"
 viu = "终端看图"
@@ -229,6 +237,7 @@ gping = "图形化ping"
 traceroute = "路由显形"
 lsof = "监测端口"
 v2raya = "飞越长城"
+openssh = "ssh"
 
 [network.clash-verge]
 packages = ["clash-verge", "clash-meta"]
@@ -259,7 +268,7 @@ cargo-cache = { manager = "cargo", description = "管理缓存" }
 cross = { manager = "cargo", description = "交叉编译" }
 
 [unknown]
-sof-firmware = "声卡固件"
+docker = "容器运行时"
 android-tools = "安卓调试桥"
 sea-orm-cli = { manager = "cargo", description = "sea-orm工具" }
 dida365 = "滴答清单"

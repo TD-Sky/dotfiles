@@ -27,3 +27,9 @@ git log --graph --oneline --decorate --all
 
 # 清除已失效的远程分支
 git remote prune origin
+
+# 开辟一个新的工作树
+git worktree add <path> <branch>
+
+# 拉取项目的git子模块
+git submodule update --init

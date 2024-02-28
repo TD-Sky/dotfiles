@@ -37,6 +37,9 @@ set -gx MCFLY_RESULTS '25'
 set -gx WEBKIT_DISABLE_DMABUF_RENDERER 1
 
 if status is-interactive
+    # 禁掉打招呼
+    set fish_greeting
+
     # git
     ## 快速提交，内容为当前时区的时间戳
     function t-git
