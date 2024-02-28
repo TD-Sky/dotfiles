@@ -1,4 +1,5 @@
 [PL]
+gdb = "调试器"
 mold = "现代链接器"
 rust-script = "rust脚本解释器"
 rustup = "管理rust工具链"
@@ -27,6 +28,7 @@ bash-language-server.manager = "npm"
 mlc = { manager = "cargo", description = "markdown linter" }
 sccache = "编译缓存"
 kondo = "扫除编译产物"
+cargo-flamegraph = "绘制火焰图及cargo配套插件"
 
 [PL.clang]
 packages = ["clang", "llvm"]
@@ -80,10 +82,16 @@ packages = ["conceal-bin"]
 manager = "paru"
 description = "垃圾回收站"
 
+[utility.dotter]
+packages = ["dotter-rs-bin"]
+manager = "paru"
+description = "配置文件管理"
+
 [git]
 gitui = "git TUI"
 delta = { packages = ["git-delta"], description = "高级diff" }
 git-cliff = "变更日志生成器"
+gitoxide = "锈化git"
 
 [data]
 p7zip = "7z"
@@ -114,6 +122,7 @@ erdtree = "体积伴随文件树"
 gping = "图形化ping"
 traceroute = "路由显形"
 lsof = "监测端口"
+openssh = "ssh"
 
 [show]
 asciinema = "录制命令行视频"
@@ -137,5 +146,6 @@ cargo-cache = { manager = "cargo", description = "管理缓存" }
 cross = { manager = "cargo", description = "交叉编译" }
 
 [unknown]
+docker = "容器运行时"
 sea-orm-cli = { manager = "cargo", description = "sea-orm工具" }
 genact = "Linux领域大神"
