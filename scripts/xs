@@ -1,11 +1,7 @@
 #!/usr/bin/env nu
 
 def backend [] {
-    try {
-        $env.XDG_BACKEND
-    } catch {
-        'wsl'
-    }
+    try { $env.XDG_BACKEND } catch { 'wsl' }
 }
 
 # 粘贴剪贴板内容至输出
