@@ -15,7 +15,6 @@ return {
     color_scheme = "Gruvbox Material (Gogh)",
     force_reverse_video_cursor = true, -- 光标反色
     window_background_opacity = 0.8,
-    enable_tab_bar = false,
     line_height = 1.1,
     window_padding = {
         left = 0,
