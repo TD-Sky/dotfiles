@@ -124,7 +124,7 @@ keymap = [
   { on = ["~"], exec = "help", desc = "Open help" },
 
   # Plugin
-  { on = ["i"], exec = "plugin keyjump --sync --args='global once'", desc = "Keyjump" },
+  { on = ["i"], exec = "plugin keyjump --args='global once'", desc = "Keyjump" },
 ]
 
 [tasks]
