@@ -16,7 +16,7 @@ def main [] {
 
     if $session == 'new' {
         zellij
-    } else if not ($session | is-empty) {
+    } else if ($session | is-not-empty) {
         zellij attach $session
     }
 }
