@@ -31,7 +31,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter-context",
         opts = {
-            max_lines = 1,
+            max_lines = 3,
         },
     },
     { "nkrkv/nvim-treesitter-rescript", ft = "rescript" },

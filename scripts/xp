@@ -1,12 +1,8 @@
 #!/usr/bin/env nu
 
-def backend [] {
-    $env.XDG_BACKEND? | default 'wsl'
-}
-
 # 复制输入内容至剪贴板
 def main [] {
-    match (backend) {
+    match $env.XDG_BACKEND? {
         'wayland' => { wl-paste -n },
         'x11' => { xclip -sel c -o },
         _ => {

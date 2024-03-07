@@ -1,12 +1,8 @@
 #!/usr/bin/env nu
 
-def backend [] {
-    $env.XDG_BACKEND? | default 'wsl'
-}
-
 # 粘贴剪贴板内容至输出
 def main [] {
-    $in | match (backend) {
+    $in | match $env.XDG_BACKEND? {
         'wayland' => { wl-copy },
         'x11' => { xclip -sel c },
         _ => { clip.exe },

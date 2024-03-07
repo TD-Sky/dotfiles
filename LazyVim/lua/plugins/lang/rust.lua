@@ -27,6 +27,7 @@ return {
         keys = {
             { "<leader>ce", "<cmd>RustLsp expandMacro<CR>", ft = "rust", desc = "展开宏" },
             { "<leader>cg", "<cmd>RustLsp openCargo<CR>", ft = "rust", desc = "编辑Cargo.toml" },
+            { "<leader>ch", "<cmd>RustLsp hover range<CR>", mode = { "v" }, ft = "rust", desc = "值类型" },
             { "gp", "<cmd>RustLsp parentModule<CR>", ft = "rust", desc = "回到父模块" },
         },
         opts = {
