@@ -14,7 +14,7 @@ return {
                 ending = { 18, 30 },
             },
             day = {
-                bg = "dark",
+                bg = "light",
             },
         },
     },

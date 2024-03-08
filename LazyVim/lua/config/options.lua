@@ -95,3 +95,16 @@ local fs_options = {
 }
 
 require("utils").table.force_extend(vim.opt, options, fs_options)
+
+vim.g.clipboard = {
+    name = "WslClipboard",
+    copy = {
+        ["+"] = "xs",
+        ["*"] = "xs",
+    },
+    paste = {
+        ["+"] = "xp",
+        ["*"] = "xp",
+    },
+    cache_enabled = true,
+}

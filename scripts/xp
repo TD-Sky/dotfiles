@@ -6,9 +6,7 @@ def main [] {
         'wayland' => { wl-paste -n },
         'x11' => { xclip -sel c -o },
         _ => {
-            powershell.exe Get-Clipboard
-            | str trim -r
-            | str replace (char crlf) (char newline)
+            powershell.exe -c '[Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))'
         },
     }
 }
