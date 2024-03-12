@@ -128,6 +128,8 @@ keymap = [
   { on = ["R", "p"], run = "plugin sudo --args='paste'", desc = "sudo paste" },
   { on = ["R", "l"], run = "plugin sudo --args='link'", desc = "sudo link" },
   { on = ["R", "a"], run = "plugin sudo --args='create'", desc = "sudo create" },
+  { on = ["R", "d"], run = "plugin sudo --args='remove'", desc = "sudo trash" },
+  { on = ["R", "D"], run = "plugin sudo --args='remove -P'", desc = "sudo delete" },
 ]
 
 [tasks]
