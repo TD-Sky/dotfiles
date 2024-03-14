@@ -143,7 +143,7 @@ cargo-audit = { packages = [
 cargo-depgraph = "依赖图"
 cargo-update = "更新cargo安装的应用"
 cargo-cache = { manager = "cargo", description = "管理缓存" }
-cross = { manager = "cargo", description = "交叉编译" }
+cross = "交叉编译"
 
 [unknown]
 docker = "容器运行时"
