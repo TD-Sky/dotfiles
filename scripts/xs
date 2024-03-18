@@ -2,7 +2,7 @@
 
 # 粘贴剪贴板内容至输出
 def main [] {
-    $in | match $env.XDG_BACKEND? {
+    $in | match $env.XDG_SESSION_TYPE? {
         'wayland' => { wl-copy },
         'x11' => { xclip -sel c },
         _ => { clip.exe },
