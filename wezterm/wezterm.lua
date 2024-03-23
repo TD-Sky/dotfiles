@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
+    enable_wayland = true,
     enable_scroll_bar = true,
     font = wezterm.font_with_fallback({
         "JetBrains Mono", -- 代码 <内置>
