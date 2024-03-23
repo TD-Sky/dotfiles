@@ -3,6 +3,7 @@ packages = [
   "zsh",
   "bash",
   "fish",
+  "nushell",
   "vim",
   "scripts",
   "git",

@@ -21,6 +21,9 @@ files = { bashrc = "~/.bashrc" }
 depends = ["shell"]
 files = { fish = "~/.config/fish" }
 
+[nushell]
+files = { nushell = "~/.config/nushell" }
+
 [desktop.files]
 rofi = "~/.config/rofi"
 "mimeapps.list" = "~/.config/mimeapps.list"
