@@ -41,12 +41,13 @@ hypr = "~/.config/hypr"
 swaylock = "~/.config/swaylock"
 "waybar/config.jsonc" = "~/.config/waybar/config"
 "waybar/style.css" = "~/.config/waybar/style.css"
+plasma-workspace = "~/.config/plasma-workspace"
 
 [vim.files]
 LazyVim = { target = "~/.config/LazyVim", type = "symbolic" }
 
 [scripts.files]
-scripts = "~/.local/scripts"
+bin = "~/.local/bin"
 
 [terminal.files]
 wezterm = "~/.config/wezterm"

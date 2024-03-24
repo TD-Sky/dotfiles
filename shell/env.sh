@@ -12,7 +12,6 @@ export RUSTUP_UPDATE_ROOT='https://mirrors.ustc.edu.cn/rust-static/rustup'
 export PATH="$HOME/.cargo/bin:\
 $PATH:\
 $HOME/.local/bin:\
-$HOME/.local/scripts:\
 $XDG_DATA_HOME/JetBrains/Toolbox/scripts:\
 /usr/lib/jvm/default/bin"
 
