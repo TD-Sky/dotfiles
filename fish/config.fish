@@ -7,18 +7,8 @@ set -gx PATH \
     $HOME/.cargo/bin \
     $PATH \
     $HOME/.local/bin \
-    $HOME/.local/scripts \
     $HOME/.local/share/JetBrains/Toolbox/scripts \
     /usr/lib/rustup/bin
-
-# fcitx5
-# set -gx GTK_IM_MODULE 'fcitx'
-# set -gx QT_IM_MODULE 'fcitx'
-# set -gx XMODIFIERS '@im=fcitx'
-# set -gx SDL_IM_MODULE 'fcitx'
-
-# vimtex 工作缓存目录
-# set -gx VIMTEX_OUTPUT_DIRECTORY './target/tex'
 
 # 默认编辑器
 set -gx EDITOR 'lvim'

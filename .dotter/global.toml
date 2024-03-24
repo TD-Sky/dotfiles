@@ -43,7 +43,7 @@ swaylock = "~/.config/swaylock"
 LazyVim = { target = "~/.config/LazyVim", type = "symbolic" }
 
 [scripts.files]
-scripts = "~/.local/scripts"
+bin = "~/.local/bin"
 
 [terminal.files]
 wezterm = "~/.config/wezterm"
