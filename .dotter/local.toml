@@ -1,0 +1,12 @@
+includes = []
+packages = [
+  "fish",
+  "zsh",
+  "vim",
+  "scripts",
+  "git",
+  "terminal",
+  "templates",
+  "PL",
+  "monitor",
+]

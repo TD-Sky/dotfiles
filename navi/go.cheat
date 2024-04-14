@@ -1,0 +1,4 @@
+% go
+
+# 编译时去除符号和调试信息
+go build -ldflags "-s -w"

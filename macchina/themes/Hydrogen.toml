@@ -1,0 +1,48 @@
+# Hydrogen
+
+spacing         = 2
+padding         = 0
+separator       = " "
+key_color       = "Yellow"
+
+[custom_ascii]
+color = "#00BFFF"
+path = "~/.config/macchina/ascii/archlinux.ascii"
+
+[palette]
+type = "Full"
+visible = false
+
+[box]
+border          = "round"
+visible         = true
+
+[box.inner_margin]
+x               = 1
+y               = 0
+
+[randomize]
+key_color       = false
+separator_color = false
+
+[keys]
+host            = "Host"
+kernel          = "Kernel"
+battery         = "Battery"
+os              = "OS"
+de              = "DE"
+wm              = "WM"
+distro          = "Distro"
+terminal        = "Terminal"
+shell           = "Shell"
+packages        = "Packages"
+uptime          = "Uptime"
+memory          = "Memory"
+machine         = "Machine"
+local_ip        = "Local IP"
+backlight       = "Brightness"
+resolution      = "Resolution"
+cpu_load        = "CPU Load"
+cpu             = "CPU"
+gpu             = "GPU"
+disk_space      = "Disk Space"

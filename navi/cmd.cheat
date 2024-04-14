@@ -1,0 +1,132 @@
+% cmd
+
+# 查看指定进程的状态
+cat /proc/<PID>/stat
+
+# 查看调用程序的PCB
+cat /proc/self/status
+
+# 监视命令，逐秒变化
+watch -tc -n 1 <cmd>
+
+# 查看当前用户所属组
+groups
+
+# 查看多个用户所属组的交集
+groups <users>
+
+# 查看所有组
+bat /etc/group
+
+# 查看所有用户
+cat /etc/passwd | rg -v 'nologin' | choose -f : 0
+
+# 校准时间
+sudo timedatectl set-ntp true
+
+# 解压分卷压缩包
+7z x <first-archive>
+
+# 预览搜索文件列表
+rg --files
+
+# jpg 批量转 png
+ls -1 *.jpg | xargs -n 1 bash -c 'convert $0 ${0%.jpg}.png'
+
+# 开启转义字符
+echo -e <strings>
+
+# 解除登录失败三次之锁定
+faillock --reset --user <name>
+
+# 列印系统字体
+wezterm ls-fonts --list-system
+
+# 搜寻字符的支持字体
+wezterm ls-fonts --text <string>
+
+# 模糊查词
+dym -y -n 20 <word>
+
+# 用户登陆
+sudo -iu <user>
+
+# 指定模式检索所有文件
+fd -c='always' -H -E='.git' <fd-opt-ignore> <pattern> <path>
+$ fd-opt-ignore: printf '\n-I'
+
+# 模糊搜索文本
+sk --ansi -i -c 'rg --color=always -n -. -g "!.git" <rg-opt-ignore> "{}"'
+$ rg-opt-ignore: printf '\n--no-ignore'
+
+# 本地向服务器推送文件
+rsync <src> <user>@<ip>:<dest>
+
+# 抓取服务器文件到本地
+rsync -chvzP --stats <user>@<ip>:<src> <dest>
+
+# 跨文件系统的显示进度条复制
+rsync -rhv --progress <src> <dest>
+
+# 查阅C标准库函数
+man 3 <function>
+
+# 报时
+date --rfc-3339 seconds
+
+# 根据清单校验
+<hashsum> -c <sum-file>
+$ hashsum: printf 'sha256sum\nmd5sum'
+
+# 强制终结进程
+pkill -9 <process>
+$ process: ps -A --no-headers | choose 3
+
+# zsh下所有的键位绑定
+bindkey
+
+# 对比编辑两个文件
+nvim -d <file1> <file2>
+
+# 读出 qemu 提供的设备树
+qemu-system-riscv64 -machine virt,dumpdtb=dump.dtb && dtc dump.dtb -o dump.dts
+
+# 创建引导文件
+sudo grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Arch
+
+# 生成 grub 配置
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# 查看默认浏览器
+xdg-settings get default-web-browser
+
+# 查看打开某种格式的GUI软件
+xdg-mime query default <mime>
+
+# 查看谁在使用NVIDIA GPU
+nvidia-smi
+
+# MYSQL导出数据库
+mysqldump -u root -p <database> > <sql>
+
+# 列出所有音频输出源
+pactl list short sinks
+
+# 设置默认输出源
+pactl set-default-sink <device>
+
+# 使用鼠标采集窗口的属性
+xprop
+
+# 今年的日历
+cal -y
+
+# 按范围提取PDF页面
+mutool clean <src> <dest> <ranges>
+
+# 启动GDB调试服务器
+gdbserver :<port> <program>
+
+# 连接GDB调试服务器
+gdb -q <program> -ex 'target remote <gdb-ip>:<port>'
+$ gdb-ip: printf '\nlocalhost'

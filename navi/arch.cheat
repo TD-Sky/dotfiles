@@ -1,0 +1,83 @@
+% arch
+
+; 包查询 -Q/F
+
+# 查询命令所属的本地包
+pacman -Qo <command>
+
+# 查询命令所属的包
+pacman -F <command>
+
+# 本地包的文件树
+pacman -Ql <local-package> | choose 1 | tree -C --fromfile
+
+# 本地包的依赖树
+pactree -d 1 <local-package>
+
+# 本地包的供养树
+pactree -d 1 -r <local-package>
+
+$ local-package: pacman -Qq
+
+# 包的文件树
+pacman -Fl <package> | choose 1 | tree -C --fromfile
+
+# 包的依赖树
+pactree -d 1 -s <package>
+
+# 包的供养树
+pactree -d 1 -s -r <package>
+
+# 列印无供养的包
+pacman -Qt
+
+# 查询 AUR 包
+pacman -Qem
+
+# 本地包的元信息
+pacman -Qi <local-package>
+
+
+
+; 同步 -S
+
+# 更新包管理密钥
+sudo pacman -Sy archlinux-keyring
+
+# 查看云端包信息
+pacman -Si <package>
+
+# 按清单下载
+sudo pacman -S --needed - <  <list>
+
+
+
+; 移除 -R
+
+# 清理孤儿依赖
+pacman -Qtdq | sudo pacman -Rs -
+
+# 正则匹配清理
+pacman -Qsq <package> | sudo pacman -Rdd -
+
+# 清理包缓存
+sudo pacman -Sc
+
+
+
+; 打包安装
+
+# 编译 PKGBUILD
+makepkg --printsrcinfo > .SRCINFO
+
+# 构建软件包
+makepkg
+
+# 从软件包文件安装
+sudo pacman -U <file>
+
+# 下载依赖，构建，安装软件包
+makepkg -si
+
+# 抓取包的 PKGBUILD
+paru -G <package>

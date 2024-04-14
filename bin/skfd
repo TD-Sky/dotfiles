@@ -1,0 +1,7 @@
+#!/usr/bin/env nu
+
+# 文件模糊搜索
+def main [dest?: string] {
+    sk --ansi -i -c $"fd -c 'always' -H -I -E '.git' '{}' ($dest)"
+    | tee { str trim -r | xs }
+}

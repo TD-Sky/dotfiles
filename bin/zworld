@@ -1,0 +1,30 @@
+#!/usr/bin/env nu
+
+def main [] {}
+
+# 截取区域
+def 'main area' [
+    --dir (-d): path, # 保存目录
+] {
+    grim -g (slurp -d) -
+    | satty -f - --copy-command wl-copy --early-exit --output-filename ($dir | save-path)
+}
+
+# 截取全屏
+def 'main screen' [
+    --dir (-d): path, # 保存目录
+] {
+    grim -o (
+        hyprctl monitors -j | from json | where focused | first | get name
+    ) -
+    | (satty -f - --fullscreen --output-filename ($dir | save-path)
+        --init-tool crop --copy-command wl-copy --early-exit)
+}
+
+# 保存目录
+def save-path [] {
+    $in
+    | default '~/Pictures/screen-shot'
+    | path join $"satty-(date now | format date '%Y-%m-%d_%H:%M:%S').png"
+    | path expand
+}

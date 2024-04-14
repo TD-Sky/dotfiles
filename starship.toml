@@ -1,0 +1,97 @@
+add_newline = false
+command_timeout = 150
+
+[character]
+success_symbol = '[\$](bold yellow)'
+
+## Configure the number of directories to truncate in the current path
+[directory]
+truncation_length = 0
+truncate_to_repo = true
+style = "blue"
+
+## Configure the duration of the last command
+[cmd_duration]
+min_time = 100
+disabled = true
+style = "dimmed white"
+
+# [custom.stgit]
+# command = 'stg top'
+# when = 'stg top'
+# require_repo = true
+# style = "bold purple"
+# format = "[$symbol ($output )]($style)"
+# symbol = ""
+
+[battery]
+full_symbol = ""
+charging_symbol = "󰂄"
+discharging_symbol = ""
+
+[jobs]
+symbol = ""
+
+[package]
+symbol = "󰏗 "
+style = "dimmed white"
+
+[env_var.http_proxy]
+symbol = "🪜"
+format = "[$symbol]()"
+
+[env_var.all_proxy]
+symbol = "🚂"
+format = "[$symbol]()"
+
+# git
+
+[git_branch]
+style = "green"
+
+[git_status]
+conflicted = "  "
+deleted = " 󰗨 "
+modified = "  "
+stashed = "  "
+staged = "  "
+renamed = "  "
+untracked = "  "
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+ignore_submodules = true
+
+# language
+
+[rust]
+symbol = " "
+style = "dimmed red"
+
+[nodejs]
+symbol = "󰎙 "
+style = "dimmed green"
+
+[java]
+symbol = " "
+style = "bold red"
+
+[c]
+symbol = " "
+style = "dimmed blue"
+
+[golang]
+symbol = " "
+style = "blue"
+
+[lua]
+symbol = " "
+style = "bold blue"
+
+[python]
+symbol = " "
+style = "bold yellow"
+
+[ocaml]
+symbol = " "
+style = "bold yellow"

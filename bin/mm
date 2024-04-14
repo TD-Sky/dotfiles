@@ -1,0 +1,16 @@
+#!/usr/bin/env nu
+
+def main [sheet?: string] {
+    cd $"($env.XDG_DATA_HOME)/memo"
+
+    let sheet = if $sheet != null {
+        $sheet
+    } else {
+        ^ls -1
+        | sk -i --ansi -c 'fd {}' --preview 'bat -pp --color=always {}'
+    }
+
+    if ($sheet | is-not-empty) {
+        bat --paging 'always' $sheet
+    }
+}

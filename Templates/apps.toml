@@ -1,0 +1,148 @@
+[PL]
+gdb = "调试器"
+mold = "现代链接器"
+rust-script = "rust脚本解释器"
+rustup = "管理rust工具链"
+tokei = "统计代码"
+gcc = "GNU的C/C++工具链"
+rescript = { manager = "npm", description = "rescript工具链" }
+nrm = { manager = "npm", description = "管理npm镜像源" }
+cargo-binutils = { manager = "cargo", description = "Rust二进制工具" }
+lua-language-server = ""
+stylua = "lua格式化器"
+taplo-cli = "toml语言工具"
+shfmt = "bash/zsh格式化器"
+gopls = "Go语言服务器"
+yaml-language-server.manager = "npm"
+vscode-json-language-server = { manager = "npm", packages = [
+  "vscode-langservers-extracted",
+] }
+volar = { manager = "npm", packages = ["@vue/language-server"] }
+prettier = { manager = "npm", packages = [
+  "prettier",
+  "@prettier/plugin-xml",
+], description = "前端格式化器" }
+typst = { packages = ["typst", "typst-lsp"], description = "现代标记语言" }
+fnm = "管理node工具链"
+bash-language-server.manager = "npm"
+mlc = { manager = "cargo", description = "markdown linter" }
+sccache = "编译缓存"
+kondo = "扫除编译产物"
+cargo-flamegraph = "绘制火焰图及cargo配套插件"
+clang = { packages = ["clang", "llvm"], description = "C/C++工具链" }
+
+[PL.typescript-language-server]
+manager = "npm"
+packages = ["typescript", "typescript-language-server"]
+
+[desktop]
+xdg-user-dirs = "规范目录"
+
+[shell]
+nushell = "结构化shell"
+mcfly = "历史命令"
+starship = "装饰提示符"
+zoxide = "瞬移"
+zellij = "终端复用器"
+bash-completion = "bash补全"
+
+[shell.zsh]
+packages = ["zsh", "zsh-completions"]
+description = "zsh及额外补全包"
+
+[utility]
+bat = "高级cat"
+choose = "高级cut"
+dos2unix = "改变文本的平台"
+enca = "检查文件编码"
+eza = "高级ls"
+fd = "搜索文件"
+jaq = "高级jq"
+jless = "json阅读器"
+ripgrep = "正则匹配行"
+rsync = "超级复制"
+sd = "高级sed"
+skim = "模糊搜索.rs"
+fzf = "模糊搜索.go"
+tree = "树视图"
+protobuf = "ProtocolBuffers"
+navi = "命令速查"
+pastel = "调色板"
+hyperfine = "竞争测试"
+pueue = "守护大任务"
+parallel-disk-usage = "磁盘空间统计"
+yazi = { packages = ["yazi-git"], description = "终端文件管理器" }
+hexyl = "hex查看器"
+
+[utility.conceal]
+packages = ["conceal-bin"]
+manager = "paru"
+description = "垃圾回收站"
+
+[utility.dotter]
+packages = ["dotter-rs-bin"]
+manager = "paru"
+description = "配置文件管理"
+
+[git]
+gitui = "git TUI"
+git-cliff = "变更日志生成器"
+gitoxide = "锈化git"
+
+[data]
+p7zip = "7z"
+rar = ""
+zip.packages = ["zip", "unzip"]
+unarchiver = "万能解压"
+
+[language.didyoumean]
+packages = ["didyoumean-bin"]
+manager = "paru"
+description = "纠正英文单词"
+
+[monitor]
+acpi = "电池信息"
+bandwhich = "监测网络带宽"
+bottom = "高级top"
+procs = "查看进程"
+duf = "统计分区大小"
+erdtree = "体积伴随文件树"
+
+# [monitor.macchina]
+# packages = ["macchina-bin"]
+# manager = "paru"
+# description = "系统信息"
+
+[network]
+gping = "图形化ping"
+traceroute = "路由显形"
+lsof = "监测端口"
+openssh = "ssh"
+
+[show]
+asciinema = "录制命令行视频"
+silicon = "代码截图"
+
+[cargo]
+cargo-generate = "项目模板"
+cargo-machete = "检查无用依赖"
+cargo-msrv = "最旧可用rustc版本"
+cargo-expand = "展开宏"
+cargo-edit = "编辑依赖"
+cargo-supply-chain = "依赖元信息"
+cargo-deny = "分析依赖"
+cargo-audit = { packages = [
+  "cargo-audit",
+  "cargo-auditable",
+], description = "审计" }
+cargo-depgraph = "依赖图"
+cargo-update = "更新cargo安装的应用"
+cargo-cache = { manager = "cargo", description = "管理缓存" }
+cross = { manager = "cargo", description = "交叉编译" }
+cargo-zigbuild = "无痛链接指定版本glibc"
+cargo-wizard = { manager = "cargo", description = "编译配置" }
+
+[unknown]
+docker = "容器运行时"
+sea-orm-cli = { manager = "cargo", description = "sea-orm工具" }
+genact = "Linux领域大神"

@@ -1,0 +1,16 @@
+% ffmpeg
+
+# 查看音频元信息
+ffprobe -v quiet -show_format -of json <audio>
+
+# 查看视频元信息
+ffprobe -v quiet -select_streams v -show_entries 'format=duration,size,bit_rate,filename' -show_streams -of json <video>
+
+# 查看音频比特率
+ffprobe -v quiet -select_streams 'a:0' -show_entries 'stream=bit_rate' -of 'compact=p=0:nk=1' <audio>
+
+# 提取视频的音频到mp3
+ffmpeg -i <video> -vn -c:a mp3 -q:a 0 -map a <audio>
+
+# 合并音视频
+ffmpeg -i <video>.mp4 -i <audio>.m4a -c copy <output>.mp4

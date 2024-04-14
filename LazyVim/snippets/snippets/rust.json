@@ -1,0 +1,112 @@
+{
+  "build-field": {
+    "prefix": "build-field",
+    "body": [
+      "#[inline]",
+      "pub fn ${1:field}(self, $1: ${2:Type}) -> Self {",
+      "    Self {",
+      "        $1: Some($1),",
+      "        ..self",
+      "    }",
+      "}"
+    ],
+    "description": "Self { feild: Some(_), ..self }"
+  },
+  "getter": {
+    "prefix": "getter",
+    "body": [
+      "#[inline]",
+      "pub fn ${1:field}(&self) -> &${2:type} {",
+      "    &self.$1",
+      "}"
+    ],
+    "description": "get_field"
+  },
+  "setter": {
+    "prefix": "setter",
+    "body": [
+      "#[inline]",
+      "pub fn set_${1:field}(&mut self, $1: ${2:Type}) {",
+      "    self.$1 = Some($1);",
+      "}"
+    ],
+    "description": "set_field"
+  },
+  "if-set": {
+    "prefix": "if-set",
+    "body": [
+      "let ${1:field} = if $1.is_some() {",
+      "    Set($1)",
+      "} else {",
+      "    NotSet",
+      "}"
+    ],
+    "description": "Set/NotSet"
+  },
+  "no_main": {
+    "prefix": "no_main",
+    "body": ["#![no_main]"],
+    "description": "#![no_main]"
+  },
+  "no_mangle": {
+    "prefix": "no_mangle",
+    "body": ["#[no_mangle]"],
+    "description": "#[no_mangle]"
+  },
+  "lifetime": {
+    "prefix": "lifetime",
+    "body": ["'${1:static}"],
+    "description": "'…"
+  },
+  "lazy-static": {
+    "prefix": "lazy-static",
+    "body": ["static ref $1: $2 = $3;"],
+    "description": "lazy static item"
+  },
+  "tests": {
+    "prefix": "tests",
+    "body": ["#[cfg(test)]", "mod tests {", "    $1", "}"],
+    "description": "tests module"
+  },
+  "poem-handler": {
+    "prefix": "poem-handler",
+    "body": ["#[handler]", "pub async fn $1() -> $2 {", "    $3", "}"],
+    "description": "poem handler"
+  },
+  "rustfmt-skip": {
+    "prefix": "rustfmt-skip",
+    "body": ["#[rustfmt::skip]"],
+    "description": "skip formatting"
+  },
+  "assert-matches": {
+    "prefix": "assert-matches",
+    "body": ["assert!(matches!($1,$2));"],
+    "description": "assert the given expression matches the parttern"
+  },
+  "table-column": {
+    "prefix": ".newcol",
+    "body": [".col(ColumnDef::new(Self::$1).$2)"],
+    "description": "define a new column in database table"
+  },
+  "create-foreign-key": {
+    "prefix": ".newfor",
+    "body": [
+      ".foreign_key(",
+      "    ForeignKey::create()",
+      "        .from(Self::Table, Self::$1)",
+      "        .to($2::Table, $2::$3),",
+      ")"
+    ],
+    "description": "create a new foreign key"
+  },
+  "let-else": {
+    "prefix": "let-else",
+    "body": ["let Some($1) = $2 else {", "    return $3;", "};"],
+    "description": "let-else"
+  },
+  "attribute": {
+    "prefix": "attr",
+    "body": ["#[$1]"],
+    "description": "attribute"
+  }
+}

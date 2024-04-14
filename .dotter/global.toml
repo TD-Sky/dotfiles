@@ -1,0 +1,70 @@
+[helpers]
+
+[shell.files]
+shell = "~/.config/shell"
+navi = "~/.local/share/navi/cheats"
+memo = "~/.local/share/memo"
+"starship.toml" = "~/.config/starship.toml"
+
+[zsh]
+depends = ["shell"]
+[zsh.files]
+zshrc = "~/.zshrc"
+zimrc = { target = "~/.zimrc", type = "symbolic" }
+zsh = { target = "~/.config/zsh", type = "symbolic" }
+
+[bash]
+depends = ["shell"]
+files = { bashrc = "~/.bashrc" }
+
+[fish]
+depends = ["shell"]
+files = { fish = "~/.config/fish" }
+
+[desktop.files]
+rofi = "~/.config/rofi"
+"mimeapps.list" = "~/.config/mimeapps.list"
+
+[X]
+depends = ["desktop"]
+[X.files]
+xprofile = "~/.xprofile"
+awesome = { target = "~/.config/awesome", type = "symbolic" }
+
+[wayland]
+depends = ["desktop"]
+[wayland.files]
+hypr = "~/.config/hypr"
+swaylock = "~/.config/swaylock"
+"waybar/config.jsonc" = "~/.config/waybar/config"
+"waybar/style.css" = "~/.config/waybar/style.css"
+
+[vim.files]
+LazyVim = { target = "~/.config/LazyVim", type = "symbolic" }
+
+[scripts.files]
+bin = "~/.local/bin"
+
+[terminal.files]
+wezterm = "~/.config/wezterm"
+zellij = "~/.config/zellij"
+yazi = "~/.config/yazi"
+
+[git.files]
+git-cliff = { target = "~/.config/git-cliff", type = "symbolic" }
+gitui = "~/.config/gitui"
+
+[media.files]
+zathura = "~/.config/zathura"
+mpv = "~/.config/mpv"
+
+[templates.files]
+Templates = { target = "~/Templates", type = "symbolic" }
+
+[PL.files]
+cargo = "~/.cargo"
+gdb = "~/.config/gdb"
+"pip.conf" = "~/.config/pip/pip.conf"
+
+[monitor.files]
+macchina = "~/.config/macchina"

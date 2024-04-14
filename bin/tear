@@ -1,0 +1,7 @@
+#!/usr/bin/env nu
+
+# 撕裂一个目录
+def main [dir: path] {
+    fd -d 1 -H -I . $dir -X mv -i {} ./
+    rmdir $dir
+}

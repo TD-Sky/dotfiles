@@ -1,0 +1,64 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 20,
+  "spacing": 10,
+  "modules-left": ["hyprland/submap", "hyprland/workspaces", "hyprland/window"],
+  "modules-center": [],
+  "modules-right": [
+    "tray",
+    "backlight",
+    "wireplumber",
+    "battery",
+    "network",
+    "memory",
+    "cpu",
+    "clock"
+  ],
+  // module 各自的配置等
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "active": ""
+    }
+  },
+  "hyprland/submap": {
+    "format": "⌨ {}",
+    "max-length": 10
+  },
+  "tray": {
+    "icon-size": 20
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["", ""]
+  },
+  "battery": {
+    "bat": "BAT0",
+    "interval": 5,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}   {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%F %A %R}"
+  },
+  "wireplumber": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "format-icons": ["", ""]
+  }
+}
