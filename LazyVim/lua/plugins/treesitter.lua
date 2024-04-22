@@ -1,13 +1,14 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        dependencies = { "nushell/tree-sitter-nu" },
         opts = {
             -- stylua: ignore
             ensure_installed = {
                 "rust", "slint",
                 "go", "gomod",
                 "python", "ruby", "perl",
-                "bash", "fish",
+                "bash", "fish", "nu",
                 "c","cpp", "cmake",
                 "scheme", "haskell",
                 "html", "vue",
@@ -34,5 +35,15 @@ return {
             max_lines = 3,
         },
     },
-    { "nkrkv/nvim-treesitter-rescript", ft = "rescript" },
+    {
+        "nkrkv/nvim-treesitter-rescript",
+        ft = "rescript",
+    },
+    {
+        "rayliwell/tree-sitter-rstml",
+        ft = "rust",
+        dependencies = { "nvim-treesitter" },
+        build = ":TSUpdate",
+        config = true,
+    },
 }

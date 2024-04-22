@@ -14,6 +14,11 @@ local map = {
             vim.keymap.set("i", key, op)
         end
     end,
+    v = function(mapping)
+        for key, op in pairs(mapping) do
+            vim.keymap.set("v", key, op)
+        end
+    end,
 }
 
 -- 删除LazyVim映射的键位
@@ -52,3 +57,10 @@ map.i({
     ["<C-d>"] = "<C-o>dl",
     ["<C-u>"] = "<ESC>^C",
 })
+
+-- line text object
+map.v({
+    ["ik"] = "0o$h", -- exclude end
+    ["ak"] = "0o$", -- include end
+})
+vim.keymap.set("o", "ik", "<cmd>normal vik<cr>")

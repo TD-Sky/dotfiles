@@ -1,5 +1,9 @@
 return {
-    { "elkowar/yuck.vim", ft = "yuck" },
+    {
+        "elkowar/yuck.vim",
+        enabled = false,
+        ft = "yuck",
+    },
     {
         "eraserhd/parinfer-rust",
         enabled = false,

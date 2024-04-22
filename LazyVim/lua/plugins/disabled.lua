@@ -10,4 +10,5 @@ return {
     { "stevearc/conform.nvim", enabled = false },
     { "echasnovski/mini.comment", enabled = false },
     { "folke/neoconf.nvim", enabled = false },
+    { "nvim-neo-tree/neo-tree.nvim", enabled = false },
 }
