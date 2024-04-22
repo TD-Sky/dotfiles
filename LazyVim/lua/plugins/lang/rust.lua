@@ -40,12 +40,12 @@ return {
                 settings = {
                     ["rust-analyzer"] = {
                         check = {
-                            overrideCommand = {
-                                "cargo",
-                                "clippy",
+                            command = "clippy",
+                            extraArgs = {
+                                "--",
                                 "--no-deps",
-                                "--message-format=json-diagnostic-rendered-ansi",
                             },
+                            workspace = false,
                         },
                         checkOnSave = true,
                     },
