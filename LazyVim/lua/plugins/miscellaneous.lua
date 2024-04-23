@@ -22,7 +22,7 @@ return {
             require("Trans").install()
         end,
         keys = {
-            { "gl", "<cmd>Translate<cr>", mode = { "n", "x" }, desc = " Translate" },
+            { "gl", "<cmd>Translate<cr>", mode = { "n", "x" }, desc = "翻译" },
         },
         opts = {
             frontend = {
