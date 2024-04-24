@@ -9,7 +9,7 @@ pacman -Qo <command>
 pacman -F <command>
 
 # 本地包的文件树
-pacman -Ql <local-package> | choose 1 | tree -C --fromfile
+pacman -Ql <local-package> | choose 1 | tree -C --fromfile | bat
 
 # 本地包的依赖树
 pactree -d 1 <local-package>
@@ -20,7 +20,7 @@ pactree -d 1 -r <local-package>
 $ local-package: pacman -Qq
 
 # 包的文件树
-pacman -Fl <package> | choose 1 | tree -C --fromfile
+pacman -Fl <package> | choose 1 | tree -C --fromfile | bat
 
 # 包的依赖树
 pactree -d 1 -s <package>
