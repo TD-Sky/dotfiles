@@ -59,17 +59,17 @@ return {
         },
         config = true,
     },
-    {
-        "NeogitOrg/neogit",
-        cmd = "Neogit",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
-            "sindrets/diffview.nvim",
-        },
-        keys = {
-            { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit" },
-        },
-        config = true,
-    },
+    -- {
+    --     "NeogitOrg/neogit",
+    --     cmd = "Neogit",
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-telescope/telescope.nvim",
+    --         "sindrets/diffview.nvim",
+    --     },
+    --     keys = {
+    --         { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit" },
+    --     },
+    --     config = true,
+    -- },
 }
