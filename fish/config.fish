@@ -42,7 +42,7 @@ if status is-interactive
         git commit -m (date --rfc-3339 seconds)
     end
 
-    function ya
+    function yazi-nav
         set tmp (mktemp -t "yazi-cwd.XXXXX")
         yazi $argv --cwd-file="$tmp"
         if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
@@ -79,7 +79,7 @@ if status is-interactive
 
     # 快捷键
     bind \co 'edit_command_buffer'
-    bind \cy 'ya'
+    bind \cy 'yazi-nav'
 
     # 启动
     zoxide init fish | source
