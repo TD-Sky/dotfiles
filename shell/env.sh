@@ -39,3 +39,5 @@ export GOPROXY='https://goproxy.cn'
 # mcfly
 export MCFLY_FUZZY=2
 export MCFLY_RESULTS=25
+
+export LD_LIBRARY_PATH="/usr/lib/wsl/lib:$LD_LIBRARY_PATH"
