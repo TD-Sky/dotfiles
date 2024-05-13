@@ -12,8 +12,8 @@ scrolloff = 5
 
 [preview]
 tab_size = 2
-max_width = 800
-max_height = 900
+max_width = 3200
+max_height = 2000
 cache_dir = ""
 
 [opener]
