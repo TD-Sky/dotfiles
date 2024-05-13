@@ -48,7 +48,7 @@ bin = "~/.local/bin"
 [terminal.files]
 wezterm = "~/.config/wezterm"
 zellij = "~/.config/zellij"
-yazi = "~/.config/yazi"
+yazi = { target = "~/.config/yazi", type = "symbolic" }
 
 [git.files]
 git-cliff = { target = "~/.config/git-cliff", type = "symbolic" }
