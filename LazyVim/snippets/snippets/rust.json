@@ -1,4 +1,15 @@
 {
+  "proxy-field": {
+    "prefix": "proxy-field",
+    "body": [
+      "#[inline]",
+      "pub fn ${1:field}(&mut self, $1: ${2:Type}) -> &mut Self {",
+      "    self.$1 = $1;",
+      "    self",
+      "}"
+    ],
+    "description": "self.field = val"
+  },
   "build-field": {
     "prefix": "build-field",
     "body": [

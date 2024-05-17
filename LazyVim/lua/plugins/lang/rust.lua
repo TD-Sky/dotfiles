@@ -2,7 +2,7 @@ return {
     {
         "saecki/crates.nvim",
         event = "BufRead Cargo.toml",
-        tag = "v0.4.0",
+        tag = "stable",
         dependencies = { "nvim-lua/plenary.nvim" },
         keys = function()
             local crates = require("crates")
