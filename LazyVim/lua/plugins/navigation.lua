@@ -70,15 +70,13 @@ return {
         event = "VeryLazy",
         keys = {
             {
-                -- 👇 choose your own keymapping
                 "<leader>e",
                 function()
                     require("yazi").yazi()
                 end,
-                { desc = "Open the file manager" },
+                desc = "Open the file manager",
             },
         },
-        ---@type YaziConfig
         opts = {
             open_for_directories = false,
         },

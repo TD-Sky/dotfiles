@@ -11,8 +11,10 @@ vim.api.nvim_create_autocmd("BufReadPre", {
             vim.cmd("luafile " .. exrc)
         end
     end,
+    desc = "所在目录非项目根时，读取当前目录下的`.nvim.lua`",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  command = "setlocal nospell",
+    command = "setlocal nospell",
+    desc = "关闭破烂语法检查",
 })

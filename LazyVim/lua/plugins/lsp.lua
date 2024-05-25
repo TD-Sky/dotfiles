@@ -6,6 +6,9 @@ return {
             diagnostics = {
                 update_in_insert = true,
             },
+            inlay_hints = {
+                enabled = false,
+            },
             -- LSP Server Settings
             servers = {
                 lua_ls = {},
@@ -25,6 +28,8 @@ return {
             },
         },
         config = function(_, opts)
+            vim.lsp.inlay_hint.enable(opts.inlay_hints.enabled)
+
             if vim.g.project_lspconfig ~= nil then
                 opts.servers = vim.tbl_deep_extend("force", opts.servers, vim.g.project_lspconfig)
                 opts.servers.rust_analyzer = nil
@@ -63,8 +68,8 @@ return {
             -- 跳转
             { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition" },
             { "gI", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation" },
-            { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-            { "gR", "<cmd>Lspsaga finder ref<cr>", desc = "Saga References" },
+            { "gR", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+            { "gr", "<cmd>Lspsaga finder ref<cr>", desc = "Saga References" },
             { "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Prev Diagnostic" },
             { "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Next Diagnostic" },
             {

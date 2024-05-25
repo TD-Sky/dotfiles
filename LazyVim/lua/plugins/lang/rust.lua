@@ -22,7 +22,7 @@ return {
     },
     {
         "mrcjkb/rustaceanvim",
-        version = "^3",
+        version = "^4",
         ft = { "rust" },
         keys = {
             { "<leader>ce", "<cmd>RustLsp expandMacro<CR>", ft = "rust", desc = "展开宏" },

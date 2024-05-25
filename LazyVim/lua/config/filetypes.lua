@@ -7,9 +7,9 @@ vim.filetype.add({
     pattern = {
         [".*"] = {
             priority = -math.huge,
-            function(path, bufnr)
-                local shebang = vim.filetype.getlines(bufnr, 1)
-                if vim.filetype.matchregex(shebang, [[^#!.*\<nu\>]]) then
+            function(_, bufnr)
+                local shebang = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1]
+                if vim.regex([[^#!.*\<nu\>]]):match_str(shebang) then
                     return "nu"
                 end
             end,

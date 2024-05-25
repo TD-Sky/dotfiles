@@ -104,4 +104,10 @@ return {
             }
         end,
     },
+    {
+        "nvimdev/indentmini.nvim",
+        opts = {
+            char = "┆",
+        },
+    },
 }
