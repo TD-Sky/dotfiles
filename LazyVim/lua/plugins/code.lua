@@ -48,6 +48,10 @@ return {
             rust = "rustfmt",
             go = "gofmt",
             ["vue,json,jsonc,javascript,typescript,xml,yaml,html,css"] = "prettier",
+            typst = {
+                cmd = "typstyle",
+                stdin = true,
+            },
         },
         config = function(_, opts)
             local ft = require("guard.filetype")

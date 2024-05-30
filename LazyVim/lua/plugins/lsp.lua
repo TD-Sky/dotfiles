@@ -17,7 +17,7 @@ return {
                 gopls = {},
                 tsserver = {},
                 volar = {},
-                typst_lsp = {},
+                tinymist = {},
                 bashls = {},
                 jsonls = {},
                 slint_lsp = {
