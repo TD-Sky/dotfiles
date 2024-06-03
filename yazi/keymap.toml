@@ -124,7 +124,7 @@ keymap = [
   { on = ["~"], run = "help", desc = "Open help" },
 
   # Plugin
-  { on = ["i"], run = "plugin keyjump --args='global once'", desc = "Keyjump" },
+  { on = ["i"], run = "plugin searchjump", desc = "Search Jump" },
   { on = ["T"], run = "plugin --sync max-preview", desc = "Max preview" },
   { on = ["R", "p"], run = "plugin sudo --args='paste'", desc = "sudo paste" },
   { on = ["R", "l"], run = "plugin sudo --args='link'", desc = "sudo link" },
