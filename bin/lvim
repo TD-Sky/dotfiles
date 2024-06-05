@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# LazyVim
+NVIM_APPNAME=LazyVim nvim "$@"

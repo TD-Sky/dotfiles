@@ -1,0 +1,10 @@
+% file system
+
+# 分配一段空间
+fallocate -l <size> <stem>.img
+
+# 映射文件为带分区的回环设备
+sudo losetup -P -f --show <file>
+
+# 查看映射设备
+ls -l /dev/mapper

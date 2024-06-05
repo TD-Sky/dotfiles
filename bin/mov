@@ -1,0 +1,12 @@
+#!/usr/bin/env nu
+
+# 移动剪贴板内指定文件
+def main [dest: path = './'] {
+    let items = (xp)
+
+    if $items =~ (char newline) {
+        $items | xargs -I '{}' mv -i {} -t $dest
+    } else {
+        ^mv $items $dest
+    }
+}

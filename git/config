@@ -1,0 +1,16 @@
+[user]
+    name = TD-Sky
+    email = three-dim-sky@foxmail.com
+[init]
+    defaultBranch = main
+[diff]
+    external = difft
+[core]
+    quotepath = false
+    editor = lvim
+[credential]
+    helper = store
+[log]
+    date = iso-strict-local
+[trim]
+    bases = develop,master,main

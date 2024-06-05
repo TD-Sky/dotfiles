@@ -1,0 +1,23 @@
+# 运行程序，直到遇见第一个断点或程序结束
+r | run
+
+# 会陷入函数内部的单步执行
+s | step
+
+# 不陷入函数内部的单步执行
+n | next
+
+# 运行函数至结束
+f | finish
+
+# 查看当前的函数调用栈
+bt | backtrace
+
+# 查看所有线程
+info threads
+
+# 切换到指定线程
+thread <TID>
+
+# 打印变量
+p | print

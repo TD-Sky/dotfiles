@@ -1,0 +1,17 @@
+includes = []
+packages = [
+  "zsh",
+  "bash",
+  "fish",
+  "nushell",
+  "vim",
+  "scripts",
+  "git",
+  "media",
+  "terminal",
+  "templates",
+  "PL",
+  "monitor",
+  "wayland",
+  "X",
+]

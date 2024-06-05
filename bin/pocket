@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+xdg-open "file:///$HOME/Collections/pocket"

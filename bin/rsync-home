@@ -1,0 +1,13 @@
+#!/usr/bin/env nu
+
+def main [dev: path] {
+    let dir = $dev | path join 'door'
+    mkdir $dir
+
+    cd /home/door
+    (rsync -ahv --progress
+        Desktop Documents Pictures Music Templates
+        Collections .git-credentials .ssh
+        $dir)
+    rsync -ahv --progress /usr/local $dev
+}

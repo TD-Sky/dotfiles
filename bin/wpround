@@ -1,0 +1,14 @@
+#!/usr/bin/env nu
+
+def main [wallpapers: path = "~/Pictures/wallpaper"] {
+    sleep 1sec
+    cd $wallpapers
+    let wallpapers = ls | get name | shuffle
+    loop {
+        let iterator = $wallpapers
+        for wp in $iterator {
+            swww img --transition-type=none $wp
+            sleep 1min
+        }
+    }
+}

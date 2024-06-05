@@ -1,0 +1,33 @@
+#!/usr/bin/env nu
+
+# 若参数为空，则设为当前目录下所有文件
+def unwrap-or-default [] {
+    if ($in | is-empty) {
+        ls | get name
+    } else {
+        $in
+    }
+}
+
+# 查看文件的平台
+def main [...texts: string] {
+    $texts
+    | unwrap-or-default
+    | where {|t| ($t | path type) == 'file' }
+    | par-each {|text|
+        let platform = (
+            if (file $text) !~ 'text' {
+                '???'
+            } else if (open -r $text) =~ (char crlf) {
+                'dos'
+            } else {
+                'unix'
+            }
+        )
+
+        {
+            file: $text,
+            platform: $platform,
+        }
+    }
+}

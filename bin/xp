@@ -1,0 +1,12 @@
+#!/usr/bin/env nu
+
+# 复制输入内容至剪贴板
+def main [] {
+    match $env.XDG_SESSION_TYPE? {
+        'wayland' => { wl-paste -n },
+        'x11' => { xclip -sel c -o },
+        _ => {
+            powershell.exe -c '[Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))'
+        },
+    }
+}

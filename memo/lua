@@ -1,0 +1,616 @@
+# 标准库
+
+标准库中接口可直接使用不需要`require`。
+
+--------------------------------------------------
+
+## 数组操作：table
+
+- 用分隔符连接数组元素
+
+```
+table.concat(
+    list,
+    sep = "",
+    i = 1,
+    j = #list,
+) -> string
+```
+
+
+- 插入元素到数组指定位置
+
+```
+table.insert(
+    list,
+    pos = #list + 1,
+    value,
+)
+```
+
+
+- 将数组 a1 从 f 到 e 的元素移动至 a2 ，新位置起始于 t
+
+```
+table.move(
+    a1,
+    f,
+    e,
+    t,
+    a2 = a1,
+) -> a2
+```
+
+
+- 创建数组
+
+```
+table.pack(···) -> table
+```
+
+
+- 删除数组元素
+
+```
+table.remove(
+    list,
+    pos = #list,
+) -> value
+```
+
+
+- 数组排序
+
+```
+table.sort(
+    list,
+    comp = <,
+)
+```
+
+
+- 解构数组副本切片
+
+```
+table.unpack(
+    list,
+    i = 1,
+    j = #list,
+) -> ...value
+```
+
+--------------------------------------------------
+
+## 文件系统：file & io
+
+- 设置缓冲区模式
+
+模式有三种：
+    - "no"      不缓冲
+    - "full"    满缓冲
+    - "line"    行缓冲
+
+```
+file:setvbuf(
+    mode,
+    size = 预设数值,
+)
+```
+
+
+- 读取文件
+
+```
+-- 默认，仅限文本模式
+file:read('l') -> string        -- 读取下一行，切除换行符
+
+-- 仅限文本模式
+file:read('L') -> string        -- 读取下一行，保留换行符
+
+file:read('n') -> number        -- 读取数字
+
+file:read('a') -> string        -- 从当前位置起读完整个文件
+```
+
+
+- 文件读取迭代器
+
+```
+-- 默认，仅限文本模式
+file:lines('l') -> function     -- 逐行读取，切除换行符
+
+-- 仅限文本模式
+file:lines('L') -> function     -- 逐行读取，保留换行符
+
+file:lines('a') -> function     -- 从当前位置起一次读完整个文件
+
+file:lines('n') -> function     -- 逐个数字读取
+
+file:lines(1) -> function       -- 逐字符读取
+```
+
+
+- 写入数据
+
+```
+file:write(···<string|number>)
+```
+
+
+- 保存写入数据到文件
+
+```
+file:flush()
+```
+
+
+- 随机访问文件，返回访问位置
+
+whence 有三种情况，分别是
+    - "set"     文件开头
+    - "cur"     当前位置
+    - "end"     文件尾部
+
+```
+file:seek(
+    whence,
+    offset = 0,
+) -> number
+```
+
+
+- 关闭文件
+
+```
+file:close()
+```
+
+
+- 打开文件，模式有
+    - r         只读
+    - w         只写
+    - a         尾附
+    - r+        增量更新
+    - w+        截断更新
+    - a+        尾附保留更新
+    - *b        二进制模式(*即任何模式)
+
+```
+io.open(
+    filename,
+    mode = "r",
+) -> file
+```
+
+
+- 关闭文件
+
+```
+io.close(
+    file = 默认输出文件,
+)
+```
+
+
+- 设置默认输入文件
+
+```
+io.input(filename)      -- 设置名称指定的文件为默认输入
+
+io.input(file)          -- 设置文件权柄为默认输入
+
+io.input() -> 默认输入文件
+```
+
+
+- 读取默认文件
+
+```
+io.read(···)            -- 等价于 io.input():read(···)
+```
+
+
+- (默认)文件读取迭代器
+
+```
+io.lines(filename, ...) -> function, nil, nil, file     --[[ 返回名称所指定文件的内容迭代器，
+                                                             用于循环可保证RAII ]]
+io.lines()               -- 等价于 io.input():lines('l')
+```
+
+
+- 设置默认输出文件
+
+```
+io.output(filename)      -- 设置名称指定的文件为默认输出
+
+io.output(file)          -- 设置文件权柄为默认输出
+
+io.output() -> 默认输出文件
+```
+
+
+- 保存写入数据至默认输出文件
+
+```
+io.flush()              -- 等价于 io.output():flush()
+```
+
+
+- 以`r+`模式创建临时文件，程序结束时销毁
+
+```
+io.tmpfile() -> file
+```
+
+
+- 识别文件权柄的状态
+
+```
+io.type(file) -> "file" | "closed file"
+```
+
+
+- 写入数据到默认输出文件
+
+```
+io.write(···)       -- 等价于 io.output():write(···)
+```
+
+- 执行命令，返回包含输出结果的文件权柄
+
+```
+os.popen(
+    prog,
+    mode = "r",     -- r 为读，w 为写
+)
+```
+
+
+--------------------------------------------------
+
+## 字符串：string
+
+- 求长度
+
+```
+string.len(s) -> number
+
+string:len() -> number
+```
+
+
+- 获取小写形式
+
+```
+string.lower(s) -> string
+
+string:lower() -> string
+```
+
+
+- 获取大写形式
+
+```
+string.lower(s) -> string
+
+string:lower() -> string
+```
+
+
+- 获取字符串之逆转
+
+```
+string.reverse(s) -> string
+
+string:reverse() -> string
+```
+
+
+- 重复字符串
+
+```
+string.rep(
+    s,
+    n,
+    sep = "",
+) -> string
+
+string:rep(
+    n,
+    sep = "",
+) -> string
+```
+
+
+- 切片
+
+```
+string.sub(
+    s,
+    i,
+    j = #s,
+) -> string
+
+string:sub(
+    i,
+    j = #s,
+) -> string
+```
+
+
+- 格式化构建字符串
+
+```
+string.format(formatstring, ...)
+```
+
+
+- 获取首个匹配子字符串的头尾索引
+
+```
+string.find(
+    s,
+    pattern,            -- 若含有捕捉，则返回捕获的子字符串
+    init = 1,           -- 起始搜索位置
+    plain = false,      -- 若为真，则视 pattern 为生字符串
+) -> number, number, ...string
+
+string:find(
+    pattern,
+    init = 1,
+    plain = false,
+) -> number, number, ...string
+```
+
+
+- 返回首个匹配的字符串
+
+```
+string.match(
+    s,
+    pattern,            -- 若含有捕捉，则返回捕获的子字符串
+    init = 1,
+) -> <string|...string>
+
+string:match(
+    pattern,
+    init = 1,
+) -> <string|...string>
+```
+
+
+- 多次匹配，返回所匹配子字符串的迭代器
+
+```
+string.gmatch(
+    s,
+    pattern,
+    init = 1,
+)
+
+string:gmatch(
+    pattern,
+    init = 1,
+)
+```
+
+
+- 获取正则替换的副本
+
+    - repl 可传入多种类型，产生不同效果：
+        - table         逐次按顺序取出值作为替换
+        - function      传入匹配字符串，计算替换值
+        - string        直接作为替换值；
+                        %0 指代整个匹配字符串，%1 ~ %9 就是按序号指定
+
+```
+string.gsub(
+    s,
+    pattern,
+    repl,
+    n = #s,
+) -> string
+
+string:gsub(
+    pattern,
+    repl,
+    n = #s,
+) -> string
+```
+
+
+- 将函数序列化成字符串
+
+```
+string.dump(
+    function,
+    strip = false,      -- 是否切除debug信息
+) -> string
+```
+
+
+- 获取切片内字符的ASCII码。
+
+```
+string.byte(
+    s,
+    i = 1,
+    j = i,
+) -> ...number
+
+string:byte(
+    i = 1,
+    j = i,
+) -> ...number
+```
+
+
+- 用ASCII码拼凑出字符串
+
+```
+string.char(...number) -> string
+```
+
+
+- 转换字符串至指定格式的ASCII码串
+
+```
+string.pack(fmt, ...) -> string
+```
+
+
+- 求指定格式ASCII码串的长度，
+  格式字符串中不可以有变长选项's'或'z'
+
+```
+string.packsize(fmt) -> number
+```
+
+
+- 转换ASCII码串至字符串
+
+```
+string.unpack(
+    fmt,
+    s,
+    pos = 1,
+) -> string
+```
+
+--------------------------------------------------
+
+## 操作系统：os
+
+- 求程序直到目前为止所用的cpu时间
+
+```
+os.clock() -> number
+```
+
+
+- 求时间
+
+```
+os.time() -> number         -- 返回当前时间
+
+os.time({
+    year,
+    month,
+    day,
+    hour = 12,
+    min = 0,
+    sec = 0,
+    isdst = nil,
+}) -> number
+```
+
+
+- 求时间差
+
+```
+os.difftime(t2, t1) -> number
+```
+
+
+- 格式化日期时间
+
+若 format 参数前附'!'，则使用协调通用时间。
+
+```
+-- 默认
+os.date(
+    format = "%c",
+    time = 当前时间,
+) -> string
+
+os.date(
+    format = "*t",
+    time = 当前时间,
+) -> {
+        year: number,
+        month: number,
+        day: number,
+        hour: number,
+        min: number,
+        sec: number,
+        wday: number,
+        yday: number,
+        isdst: boolean,
+     }
+```
+
+
+- 执行系统命令
+
+    - 第一个返回值反映是否成功终止。
+    - "exit"指由退出终止，后随退出状态码。
+    - "signal"指由信号终止，后随信号。
+
+```
+os.execute() -> boolean     -- shell是否可用
+
+os.execute(command) -> boolean, "exit", number
+
+os.execute(command) -> boolean, "signal", number
+```
+
+
+- 退出宿主程序
+
+    code 取值：
+        - true => EXIT_SUCCESS
+        - false => EXIT_FAILURE
+        - number => 状态码
+
+```
+os.exit(
+    code = true,
+    close = false,          -- 若为真，则退出前关闭lua状态
+)
+```
+
+
+- 读取环境变量
+
+```
+os.getenv(varname) -> string
+```
+
+
+- 删除文件或空目录
+
+```
+os.remove(filename) -> true                     -- 成功
+
+os.remove(filename) -> nil, string, number     --[[ 失败，返回
+                                                    错误信息、错误码 ]]
+```
+
+
+- 重命名文件或目录
+
+```
+os.rename(oldname, newname) -> true
+
+os.rename(oldname, newname) -> nil, string, number     --[[ 失败，返回
+                                                            错误信息、错误码 ]]
+```
+
+
+- 求一个能用的临时文件名
+
+```
+os.tmpname() -> string
+```
+
+
+- 设置程序的区域
+
+```
+os.setlocale(
+    locale,
+    category,
+)
+```
+

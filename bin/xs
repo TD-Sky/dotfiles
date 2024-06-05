@@ -1,0 +1,10 @@
+#!/usr/bin/env nu
+
+# 粘贴剪贴板内容至输出
+def main [] {
+    match $env.XDG_SESSION_TYPE? {
+        'wayland' => { wl-copy },
+        'x11' => { xclip -sel c },
+        _ => { clip.exe },
+    }
+}

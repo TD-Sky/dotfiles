@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+curl -F 'c=@-' 'https://fars.ee/'

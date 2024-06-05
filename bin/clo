@@ -1,0 +1,14 @@
+#!/usr/bin/env nu
+
+# 复制剪贴板内指定文件
+def main [dest: path = './'] {
+    let items = (xp)
+
+    if $items =~ (char newline) {
+        for src in ($items | split row (char newline)) {
+            ^cp -ri $src -t $dest
+        }
+    } else {
+        ^cp -r $items $dest
+    }
+}

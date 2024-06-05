@@ -1,0 +1,8 @@
+#!/usr/bin/env nu
+
+def main [...src: path] {
+    $src
+    | par-each {|it| $it | path expand }
+    | str join (char newline)
+    | xs
+}

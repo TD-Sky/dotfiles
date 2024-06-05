@@ -1,0 +1,20 @@
+# 弹窗交互
+
+## 告示
+alert(message: T)
+
+## 输入
+prompt(title: string, default: T = "") -> T
+
+## 核定
+confirm(question: string) -> boolean
+
+
+
+# 忽略类型检查
+
+## 忽略单行；置于目标行上方
+// @ts-ignore
+
+## 忽略文件；置于文件之首
+// @ts-nocheck

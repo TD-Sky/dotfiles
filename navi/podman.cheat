@@ -1,0 +1,17 @@
+% podman
+
+# 查看容器的日志
+podman container logs <name>
+
+# 实例化 image，启用交互式终端在后台运行容器
+podman run -itd --name <container> <image>
+
+# 启用交互式终端让容器运行命令
+podman exec -it <container> <command>
+
+# 显示全部容器的ID
+podman ps -a
+
+# 重启已有的容器
+podman restart <existed-container>
+$ existed-container: podman container ls -a --format 'json' | jaq '.Names'
