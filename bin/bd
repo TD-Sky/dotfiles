@@ -5,10 +5,6 @@ def then [flag: string] {
     if $in { $flag } else { '' }
 }
 
-def tree-view [] {
-    $in | tree -C --fromfile
-}
-
 # 解压缩瑞士军刀
 def main [] {
     [
@@ -90,9 +86,9 @@ def "main x" [...archives: string] {
 def "main ls" [archive: string] {
     match ($archive | path parse | get extension) {
         'tar' | 'gz' | 'xz' | 'zst' | 'zip' | 'apk' | '7z'  => {
-            bsdtar -tf $archive | tree-view
+            bsdtar -tf $archive | tree -C --fromfile
         },
-        'rar' => { bsdtar -tf $archive | tac | tree-view },
+        'rar' => { bsdtar -tf $archive | tac | tree -C --fromfile },
         'deb' => { ar t $archive },
     }
 }
