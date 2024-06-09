@@ -131,6 +131,7 @@ keymap = [
   { on = ["R", "a"], run = "plugin sudo --args='create'", desc = "sudo create" },
   { on = ["R", "d"], run = "plugin sudo --args='remove'", desc = "sudo trash" },
   { on = ["R", "D"], run = "plugin sudo --args='remove -P'", desc = "sudo delete" },
+  { on = ["R", "r"], run = "plugin sudo --args='rename'", desc = "sudo rename" },
 ]
 
 [tasks]
