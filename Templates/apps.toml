@@ -57,21 +57,22 @@ qt-theme.packages = ["qt6ct", "qt5ct", "kvantum"]
 wezterm = "现代终端模拟器"
 sddm = "会话管理器"
 lxqt-policykit = "授权面板"
-thunar = { packages = ["thunar", "tumbler", "webp-pixbuf-loader"], desc = "小老鼠文件管理器" }
+dolphin = { packages = ["dolphin", "ffmpegthumbs", " kdegraphics-thumbnailers"], desc = "KDE文件管理器" }
+# thunar = { packages = ["thunar", "tumbler"], desc = "小老鼠文件管理器" }
 [desktop.fcitx]
 packages = ["fcitx5-im", "fcitx5-chinese-addons", "fcitx5-pinyin-zhwiki"]
 desc = "小企鹅输入法"
 
 [wayland]
-swww = "壁纸引擎"
-waybar = "状态栏"
-swaylock = "锁屏"
 wl-clipboard = "剪贴板"
 cliphist = "剪贴板历史"
-grim = "截图"
-slurp = "区域截取"
-satty = "编辑截图"
-dunst = "通知管道"
+# swww = "壁纸引擎"
+# waybar = "状态栏"
+# swaylock = "锁屏"
+# grim = "截图"
+# slurp = "区域截取"
+# satty = "编辑截图"
+# dunst = "通知管道"
 
 # [wayland.hyprland]
 # packages = ["hyprland", "xdg-desktop-portal-hyprland"]
@@ -175,6 +176,7 @@ espeak = { packages = ["espeak-ng"], desc = "电子朗读" }
 mupdf-tools = "PDF工具箱"
 gwenview = "看图"
 zathura = { packages = ["zathura", "zathura-pdf-mupdf"], desc = "PDF阅读器" }
+webp-pixbuf-loader = "GDK的webp支持"
 
 [language]
 pot-translation = "一站式翻译"
