@@ -6,13 +6,15 @@ QQ = { packages = ["com.qq.QQ"], manager = "flatpak" }
 telegram = { packages = ["telegram-desktop"], desc = "电报" }
 thunderbird = "电子邮件客户端"
 wechat = { packages = ["com.tencent.WeChat"], manager = "flatpak", desc = "微信" }
-wemeet = { packages = ["com.tencent.wemeet"], manager = "flatpak", desc = "腾讯会议" }
+wemeet = { packages = ["wemeet-bin"], manager = "paru", desc = "腾讯会议(沙盒)" }
+feishu = { packages = ["feishu-bin"], manager = "paru", desc = "飞书" }
 
 [OS]
 QEMU.packages = ["qemu-full"]
 ventoy = { manager = "paru", packages = ["ventoy-bin"], desc = "制作镜像盘" }
 distrobox = "轻松部署容器Linux"
 podman = "容器运行时"
+firejail = "沙盒"
 
 [kernel]
 linux-headers = "内核头文件"

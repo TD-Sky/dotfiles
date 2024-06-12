@@ -133,3 +133,6 @@ gdbserver :<port> <program>
 # 连接GDB调试服务器
 gdb -q <program> -ex 'target remote <gdb-ip>:<port>'
 $ gdb-ip: printf '\nlocalhost'
+
+# 查看X和wayland应用的情况
+qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole
