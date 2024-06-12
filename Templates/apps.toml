@@ -1,8 +1,9 @@
 [-]
 cargo = "bin"
 
+# 商业应用配合 firejail 使用
 [communication]
-QQ = { packages = ["com.qq.QQ"], manager = "flatpak" }
+QQ = { packages = ["linuxqq"], manager = "paru" }
 telegram = { packages = ["telegram-desktop"], desc = "电报" }
 thunderbird = "电子邮件客户端"
 wechat = { packages = ["com.tencent.WeChat"], manager = "flatpak", desc = "微信" }

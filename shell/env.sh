@@ -10,20 +10,9 @@ export RUSTUP_UPDATE_ROOT='https://mirrors.ustc.edu.cn/rust-static/rustup'
 
 # 用户可执行程序目录
 export PATH="$HOME/.cargo/bin:\
-$PATH:\
 $HOME/.local/bin:\
-$XDG_DATA_HOME/JetBrains/Toolbox/scripts:\
+$PATH:\
 /usr/lib/jvm/default/bin"
-
-# fcitx5
-# export XMODIFIERS='@im=fcitx'
-# export GTK_IM_MODULE='fcitx'
-# export QT_IM_MODULE='fcitx'
-# export SDL_IM_MODULE='fcitx'
-# export QT_QPA_PLATFORMTHEME='qt5ct'
-
-# vimtex 工作缓存目录
-# export VIMTEX_OUTPUT_DIRECTORY='./target/tex'
 
 # 默认编辑器
 export EDITOR='lvim'
