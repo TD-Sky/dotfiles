@@ -6,7 +6,7 @@ cargo = "bin"
 QQ = { packages = ["linuxqq"], manager = "paru" }
 telegram = { packages = ["telegram-desktop"], desc = "电报" }
 thunderbird = "电子邮件客户端"
-wechat = { packages = ["com.tencent.WeChat"], manager = "flatpak", desc = "微信" }
+wechat = { packages = ["wechat-universal-bwrap"], manager = "paru", desc = "微信(沙盒)" }
 wemeet = { packages = ["wemeet-bin"], manager = "paru", desc = "腾讯会议(沙盒)" }
 feishu = { packages = ["feishu-bin"], manager = "paru", desc = "飞书" }
 
