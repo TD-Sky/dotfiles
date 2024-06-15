@@ -18,8 +18,8 @@ keymap = [
   { on = ["h"], run = ["escape --visual", "leave"], desc = "Go back to the parent directory" },
   { on = ["l"], run = ["escape --visual", "enter"], desc = "Enter the child directory" },
 
-  { on = ["<C-o>"], run = "back", desc = "Go back to the previous directory" },
-  { on = ["<C-i>"], run = "forward", desc = "Go forward to the next directory" },
+  { on = ["H"], run = "back", desc = "Go back to the previous directory" },
+  { on = ["L"], run = "forward", desc = "Go forward to the next directory" },
 
   { on = ["<A-k>"], run = "seek -5", desc = "Seek up 5 units in the preview" },
   { on = ["<A-j>"], run = "seek 5", desc = "Seek down 5 units in the preview" },
@@ -124,7 +124,7 @@ keymap = [
   { on = ["~"], run = "help", desc = "Open help" },
 
   # Plugin
-  { on = ["i"], run = "plugin searchjump", desc = "Search Jump" },
+  { on = ["U"], run = "plugin searchjump --args='autocd'", desc = "Search Jump" },
   { on = ["T"], run = "plugin --sync max-preview", desc = "Max preview" },
   { on = ["R", "p"], run = "plugin sudo --args='paste'", desc = "sudo paste" },
   { on = ["R", "l"], run = "plugin sudo --args='link'", desc = "sudo link" },
