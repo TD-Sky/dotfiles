@@ -244,6 +244,7 @@ packages = [
   "ttf-wps-fonts",
   "wps-office-fonts",
   "freetype2-wps",
+  "libtiff5",
 ]
 manager = "paru"
-desc = "WPS本体+中文语言包+符号字体+中文常用字体+字体修复"
+desc = "WPS本体+中文语言包+符号字体+中文常用字体+字体修复+PDF补丁"
