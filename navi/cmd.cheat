@@ -65,8 +65,11 @@ rsync <src> <user>@<ip>:<dest>
 # 抓取服务器文件到本地
 rsync -chvzP --stats <user>@<ip>:<src> <dest>
 
-# 跨文件系统的显示进度条复制
-rsync -rhv --progress <src> <dest>
+# 保留时间戳（以便未来增量同步）的复制
+rsync -rthv --progress <src> <dest>
+
+# 保留所有元信息的复制
+rsync -ahv --progress <src> <dest>
 
 # 查阅C标准库函数
 man 3 <function>
@@ -130,3 +133,6 @@ gdbserver :<port> <program>
 # 连接GDB调试服务器
 gdb -q <program> -ex 'target remote <gdb-ip>:<port>'
 $ gdb-ip: printf '\nlocalhost'
+
+# 查看X和wayland应用的情况
+qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole

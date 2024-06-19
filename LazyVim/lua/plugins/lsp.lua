@@ -9,6 +9,9 @@ return {
             inlay_hints = {
                 enabled = false,
             },
+            codelens = {
+                enabled = true,
+            },
             -- LSP Server Settings
             servers = {
                 lua_ls = {},
@@ -28,7 +31,19 @@ return {
             },
         },
         config = function(_, opts)
+            LazyVim.lsp.setup()
+
             vim.lsp.inlay_hint.enable(opts.inlay_hints.enabled)
+
+            if opts.codelens.enabled then
+                LazyVim.lsp.on_supports_method("textDocument/codeLens", function(_, buffer)
+                    vim.lsp.codelens.refresh()
+                    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
+                        buffer = buffer,
+                        callback = vim.lsp.codelens.refresh,
+                    })
+                end)
+            end
 
             if vim.g.project_lspconfig ~= nil then
                 opts.servers = vim.tbl_deep_extend("force", opts.servers, vim.g.project_lspconfig)

@@ -15,6 +15,7 @@ nmcli --terse device wifi
 
 # 连接wifi
 nmcli device wifi connect <ssid> password <password>
+$ ssid: nu -c 'nmcli --get-values SSID device wifi | split row (char nl) | where {|it| $it | is-not-empty} | str join (char nl)'
 
 # 遗忘网络连接
 nmcli connection delete <local-ssid>

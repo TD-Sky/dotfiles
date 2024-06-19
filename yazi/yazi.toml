@@ -8,11 +8,12 @@ sort_by = "alphabetical"
 sort_sensitive = true
 sort_reverse = false
 sort_dir_first = true
+sort_translit = false
 linemode = "size"
 show_hidden = true
 show_symlink = true
 scrolloff = 5
-
+mouse_events = ["click", "scroll"]
 
 [preview]
 tab_size = 2
@@ -22,6 +23,8 @@ cache_dir = ""
 image_filter = "triangle"
 image_quality = 90
 sixel_fraction = 15
+ueberzug_scale = 1
+ueberzug_offset = [0, 0, 0, 0]
 
 [opener]
 edit = [
@@ -78,7 +81,6 @@ rules = [
     "edit",
     "reveal",
   ] },
-
   { mime = "application/{,g}zip", use = [
     "extract",
     "reveal",
@@ -87,7 +89,6 @@ rules = [
     "extract",
     "reveal",
   ] },
-
   { mime = "application/json", use = [
     "edit",
     "reveal",
@@ -96,11 +97,6 @@ rules = [
     "edit",
     "reveal",
   ] },
-
-  { mime = "application/*", use = [
-    "open",
-  ] },
-
   { mime = "*", use = [
     "open",
     "reveal",
@@ -118,13 +114,11 @@ suppress_preload = false
 [plugin]
 fetchers = [
   # Mimetype
-  { name = "*", cond = "!mime", run = "mime", prio = "high" },
+  { id = "mime", name = "*", cond = "!mime", run = "mime", prio = "high" },
 ]
 preloaders = [
   # Image
-  { mime = "image/svg+xml", run = "magick" },
-  { mime = "image/heic", run = "magick" },
-  { mime = "image/jxl", run = "magick" },
+  { mime = "image/{heic,jxl,svg+xml}", run = "magick" },
   { mime = "image/*", run = "image" },
   # Video
   { mime = "video/*", run = "video" },
@@ -142,9 +136,7 @@ previewers = [
   # JSON
   { mime = "application/json", run = "json" },
   # Image
-  { mime = "image/svg+xml", run = "magick" },
-  { mime = "image/heic", run = "magick" },
-  { mime = "image/jxl", run = "magick" },
+  { mime = "image/{heic,jxl,svg+xml}", run = "magick" },
   { mime = "image/*", run = "image" },
   # Video
   { mime = "video/*", run = "video" },
@@ -161,6 +153,8 @@ previewers = [
 ]
 
 [input]
+cursor_blink = true
+
 # cd
 cd_title = "Change directory:"
 cd_origin = "top-center"

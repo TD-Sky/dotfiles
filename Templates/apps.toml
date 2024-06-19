@@ -1,26 +1,29 @@
 [-]
 cargo = "bin"
 
-# [communication]
-# QQ = { packages = ["com.qq.QQ"], manager = "flatpak" }
-# telegram = { packages = ["telegram-desktop"], desc = "电报" }
-# thunderbird = "电子邮件客户端"
-# wechat = { packages = ["wechat-universal-bwrap"], manager = "paru", desc = "微信" }
-# wemeet = { packages = ["com.tencent.wemeet"], manager = "flatpak", desc = "腾讯会议" }
-#
-# [OS]
-# QEMU.packages = ["qemu-full"]
-# ventoy = { manager = "paru", packages = ["ventoy-bin"], desc = "制作镜像盘" }
-# distrobox = "轻松部署容器Linux"
-# podman = "容器运行时"
-#
-# [kernel]
-# linux-headers = "内核头文件"
-# vulkan-intel = "vulkan的intel驱动"
-# sof-firmware = "声卡固件"
-# [kernel.pipewire]
-# packages = ["pipewire", "wireplumber", "pipewire-pulse", "pipewire-alsa", "pipewire-jack"]
-# desc = "音频系统"
+# 商业应用配合 firejail 使用
+[communication]
+QQ = { packages = ["linuxqq"], manager = "paru" }
+telegram = { packages = ["telegram-desktop"], desc = "电报" }
+thunderbird = "电子邮件客户端"
+wechat = { packages = ["wechat-universal-bwrap"], manager = "paru", desc = "微信(沙盒)" }
+wemeet = { packages = ["wemeet-bin"], manager = "paru", desc = "腾讯会议(沙盒)" }
+feishu = { packages = ["feishu-bin"], manager = "paru", desc = "飞书" }
+
+[OS]
+QEMU.packages = ["qemu-full"]
+ventoy = { manager = "paru", packages = ["ventoy-bin"], desc = "制作镜像盘" }
+distrobox = "轻松部署容器Linux"
+podman = "容器运行时"
+firejail = "沙盒"
+
+[kernel]
+linux-headers = "内核头文件"
+vulkan-intel = "vulkan的intel驱动"
+sof-firmware = "声卡固件"
+[kernel.pipewire]
+packages = ["pipewire", "wireplumber", "pipewire-pulse", "pipewire-alsa", "pipewire-jack"]
+desc = "音频系统"
 
 [PL]
 gdb = "调试器"
@@ -41,9 +44,6 @@ yaml-language-server.manager = "npm"
 vscode-json-language-server = { manager = "npm", packages = ["vscode-langservers-extracted"] }
 volar = { manager = "npm", packages = ["@vue/language-server"] }
 prettier = { manager = "npm", packages = ["prettier", "@prettier/plugin-xml"], desc = "前端格式化器" }
-typst = "现代标记语言"
-tinymist = { packages = ["tinymist-bin"], manager = "paru", desc = "typst的语言服务器" }
-typstyle = { packages = ["typstyle-bin"], manager = "paru", desc = "typst的格式化器" }
 fnm = "管理node工具链"
 bash-language-server.manager = "npm"
 mlc = { manager = "cargo", desc = "markdown linter" }
@@ -51,27 +51,27 @@ sccache = "编译缓存"
 kondo = "扫除编译产物"
 cargo-flamegraph = "绘制火焰图及cargo配套插件"
 clang = { packages = ["clang", "llvm"], desc = "C/C++工具链" }
-[PL.typescript-language-server]
-manager = "npm"
-packages = ["typescript", "typescript-language-server"]
+typescript = { manager = "npm", packages = ["typescript", "typescript-language-server"] }
+typst = { packages = ["typst", "tinymist-bin", "typstyle-bin"], manager = "paru" }
 
 [desktop]
 xdg-user-dirs = "规范目录"
-# qt-theme.packages = ["qt6ct", "qt5ct", "kvantum"]
-# wezterm = "现代终端模拟器"
-# sddm = "会话管理器"
-# lxqt-policykit = "授权面板"
-# thunar = { packages = ["thunar", "tumbler", "webp-pixbuf-loader"], desc = "小老鼠文件管理器" }
-# [desktop.fcitx]
-# packages = ["fcitx5-im", "fcitx5-chinese-addons", "fcitx5-pinyin-zhwiki"]
-# desc = "小企鹅输入法"
-#
-# [wayland]
+qt-theme.packages = ["qt6ct", "qt5ct", "kvantum"]
+wezterm = "现代终端模拟器"
+sddm = "会话管理器"
+lxqt-policykit = "授权面板"
+dolphin = { packages = ["dolphin", "ffmpegthumbs", " kdegraphics-thumbnailers"], desc = "KDE文件管理器" }
+# thunar = { packages = ["thunar", "tumbler"], desc = "小老鼠文件管理器" }
+[desktop.fcitx]
+packages = ["fcitx5-im", "fcitx5-chinese-addons", "fcitx5-pinyin-zhwiki"]
+desc = "小企鹅输入法"
+
+[wayland]
+wl-clipboard = "剪贴板"
+cliphist = "剪贴板历史"
 # swww = "壁纸引擎"
 # waybar = "状态栏"
 # swaylock = "锁屏"
-# wl-clipboard = "剪贴板"
-# cliphist = "剪贴板历史"
 # grim = "截图"
 # slurp = "区域截取"
 # satty = "编辑截图"
@@ -94,19 +94,19 @@ xdg-user-dirs = "规范目录"
 # [X11.awesome]
 # packages = ["awesome-git"]
 # desc = "具有组件库的X窗口管理器"
-#
-# [font]
-# nerd-fonts = "书呆子字体"
-# [font.noto-fonts]
-# packages = ["noto-fonts", "noto-fonts-emoji", "noto-fonts-extra", "noto-fonts-cjk"]
-# desc = "零豆腐块字体"
-#
-# [client]
-# firefox = "火狐浏览器"
-# chromium = "谷歌裸核浏览器"
-# dbeaver = "PostgreSQL客户端"
-# sqlitebrowser = "SQLite客户端"
-# keepassxc = "keepass客户端"
+
+[font]
+nerd-fonts = "书呆子字体"
+[font.noto-fonts]
+packages = ["noto-fonts", "noto-fonts-emoji", "noto-fonts-extra", "noto-fonts-cjk"]
+desc = "零豆腐块字体"
+
+[client]
+firefox = "火狐浏览器"
+chromium = "谷歌裸核浏览器"
+dbeaver = "PostgreSQL客户端"
+sqlitebrowser = "SQLite客户端"
+keepassxc = "keepass客户端"
 
 [shell]
 nushell = "结构化shell"
@@ -151,11 +151,7 @@ pastel = "调色板"
 hyperfine = "竞争测试"
 pueue = "守护大任务"
 hexyl = "hex查看器"
-
-[utility.dotter]
-packages = ["dotter-rs-bin"]
-manager = "paru"
-desc = "配置文件管理"
+dotter = { packages = ["dotter-rs-bin"], manager = "paru", desc = "配置文件管理" }
 
 [git]
 gitui = "git TUI"
@@ -168,25 +164,26 @@ gitoxide = "锈化git"
 p7zip = "7z"
 rar = ""
 zip.packages = ["zip", "unzip"]
-# qbittorrent = "下载种子"
+qbittorrent = "下载种子"
 
-# [media]
-# imagemagick = "图片瑞士军刀"
-# mpv = "看视频"
-# viu = "终端看图"
-# yt-dlp = "下载Youtube视频"
-# dagtoc = { manager = "paru", desc = "操作PDF目录" }
-# pandoc = { packages = ["pandoc-bin"], desc = "LaTex渲染器" }
-# kid3-qt = "编辑音乐标签"
-# krita = "绘画"
-# espeak = { packages = ["espeak-ng"], desc = "电子朗读" }
-# mupdf-tools = "PDF工具箱"
-# gwenview = "看图"
-# zathura = { packages = ["zathura", "zathura-pdf-mupdf"], desc = "PDF阅读器" }
-#
-# [language]
-# pot-translation = "一站式翻译"
-# didyoumean = { packages = ["didyoumean-bin"], manager = "paru", desc = "纠正英文单词" }
+[media]
+imagemagick = "图片瑞士军刀"
+mpv = "看视频"
+viu = "终端看图"
+yt-dlp = "下载Youtube视频"
+dagtoc = { manager = "paru", desc = "操作PDF目录" }
+pandoc = { packages = ["pandoc-bin"], desc = "LaTex渲染器" }
+kid3-qt = "编辑音乐标签"
+krita = "绘画"
+espeak = { packages = ["espeak-ng"], desc = "电子朗读" }
+mupdf-tools = "PDF工具箱"
+gwenview = "看图"
+zathura = { packages = ["zathura", "zathura-pdf-mupdf"], desc = "PDF阅读器" }
+webp-pixbuf-loader = "GDK的webp支持"
+
+[language]
+pot-translation = "一站式翻译"
+didyoumean = { packages = ["didyoumean-bin"], manager = "paru", desc = "纠正英文单词" }
 
 [monitor]
 acpi = "电池信息"
@@ -198,24 +195,21 @@ procs = "查看进程"
 pulsemixer = "音量面板"
 duf = "统计分区大小"
 erdtree = "体积伴随文件树"
-
-[monitor.macchina]
-packages = ["Macchina-CLI/macchina"]
-manager = "cargo"
-desc = "系统信息"
+macchina = { packages = ["Macchina-CLI/macchina"], manager = "cargo", desc = "系统信息" }
 
 [network]
 gping = "图形化ping"
 traceroute = "路由显形"
 lsof = "监测端口"
-# v2raya = "飞越长城"
-# clash-verge = "飞越长城"
+v2raya = "飞越长城"
+clash-verge = "飞越长城"
 openssh = "ssh"
 
 [show]
 asciinema = "录制命令行视频"
-# screenkey = "按键回显"
+screenkey = "按键回显"
 silicon = "代码截图"
+obs-studio = "流录制"
 # simplescreenrecorder = "录制视频"
 
 [cargo]
@@ -235,12 +229,23 @@ cargo-zigbuild = "无痛链接指定版本glibc"
 cargo-wizard = { manager = "cargo", desc = "编译配置" }
 cargo-binstall = "下载crate的二进制"
 
-# [arch]
-# nvchecker = "检查包版本"
-# pacman-contrib = "打包工具箱"
-# aurpublish = "打包钩子"
+[arch]
+nvchecker = "检查包版本"
+pacman-contrib = "打包工具箱"
+aurpublish = "打包钩子"
 
 [unknown]
-# android-tools = "安卓调试桥"
-# sea-orm-cli = { manager = "cargo:src", desc = "sea-orm工具" }
+android-tools = "安卓调试桥"
+sea-orm-cli = { manager = "cargo:src", desc = "sea-orm工具" }
 genact = "Linux领域大神"
+[unknown.wps]
+packages = [
+  "wps-office-cn",
+  "wps-office-mui-zh-cn",
+  "ttf-wps-fonts",
+  "wps-office-fonts",
+  "freetype2-wps",
+  "libtiff5",
+]
+manager = "paru"
+desc = "WPS本体+中文语言包+符号字体+中文常用字体+字体修复+PDF补丁"

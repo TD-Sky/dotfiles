@@ -41,6 +41,9 @@ pacman -Qi <local-package>
 
 ; 同步 -S
 
+# 下载
+sudo pacman -S <package>
+
 # 更新包管理密钥
 sudo pacman -Sy archlinux-keyring
 
@@ -53,6 +56,9 @@ sudo pacman -S --needed - <  <list>
 
 
 ; 移除 -R
+
+# 卸载
+sudo pacman -Rs <local-package>
 
 # 清理孤儿依赖
 pacman -Qtdq | sudo pacman -Rs -

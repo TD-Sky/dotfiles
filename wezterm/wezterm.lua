@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
+    enable_wayland = true,
     enable_scroll_bar = true,
     font = wezterm.font_with_fallback({
         "JetBrains Mono", -- 代码 <内置>
@@ -15,7 +16,6 @@ return {
     color_scheme = "Gruvbox Material (Gogh)",
     force_reverse_video_cursor = true, -- 光标反色
     window_background_opacity = 0.8,
-    enable_tab_bar = false,
     line_height = 1.1,
     window_padding = {
         left = 0,
@@ -25,4 +25,16 @@ return {
     },
     default_prog = { "/bin/zsh", "-l" },
     exit_behavior = "Close",
+    keys = {
+        {
+            key = "{",
+            mods = "SHIFT|ALT",
+            action = wezterm.action.MoveTabRelative(-1),
+        },
+        {
+            key = "}",
+            mods = "SHIFT|ALT",
+            action = wezterm.action.MoveTabRelative(1),
+        },
+    },
 }

@@ -25,18 +25,12 @@ $ dotter deploy -vvv
 
 ### Desktop
 
-- Windows manager: [Hyprland](https://hyprland.org)
-
-- Application launcher: **rofi**
-
-- Status bar: [waybar](https://github.com/Alexays/Waybar)
+- Desktop environment: [KDE](https://kde.org)
 
 
 ### Terminal
 
 - Terminal emulator: [wezterm](https://wezfurlong.org/wezterm/)
-
-- Terminal multiplexer: [zellij](https://zellij.dev)
 
 - Terminal file manager: [yazi](https://yazi-rs.github.io)
 
@@ -46,28 +40,19 @@ $ dotter deploy -vvv
 - If not coding Java: **neovim** (actually [LazyVim](https://www.lazyvim.org))
 
 
-### Media
-
-- PDF reader: **zathura**
-
-- Player: **mpv**
-
-
-
 ## Introduction To Some Directories
 
 [*shell*](./shell) - Holds the common configuration of **bash** and **zsh**.
 
 [*navi*](./navi) - The self-made cheat sheets of [navi](https://github.com/denisidoro/navi).
 
-[*scripts*](./scripts) - The shell scripts. Most of them are written in [nushell](https://www.nushell.sh).
+[*bin*](./bin) - The shell scripts. Most of them are written in [nushell](https://www.nushell.sh).
 
-[*memo*](./memo) - The memos of my memo tool `scripts/mm`.
-
+[*memo*](./memo) - The memos of my memo tool `bin/mm`.
 
 
 ## Favorite Applications
 
-I record my favorite applications in [apps.toml](./apps.toml).
+I record my favorite applications in [apps.toml](./Templates/apps.toml).
 
 Install some or all of them via [iwant](https://github.com/TD-Sky/iwant).
