@@ -1,7 +1,7 @@
 [plugin]
 deps = [
-  { use = "DreamMaoMao/searchjump" , commit = "f7f783a" },
-  { use = "TD-Sky/sudo", commit = "e963f1e" },
+  { use = "DreamMaoMao/searchjump" , commit = "7c7d73c" },
+  { use = "TD-Sky/sudo", commit = "198d471" },
 ]
 
 [flavor]

@@ -14,3 +14,6 @@ ffmpeg -i <video> -vn -c:a mp3 -q:a 0 -map a <audio>
 
 # 合并音视频
 ffmpeg -i <video>.mp4 -i <audio>.m4a -c copy <output>.mp4
+
+# 以最小损失压缩视频
+ffmpeg -i <video> -c:v libx264 -crf 18 -preset slow -c:a copy <output>
