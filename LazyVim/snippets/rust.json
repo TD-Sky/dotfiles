@@ -21,7 +21,7 @@
       "    }",
       "}"
     ],
-    "description": "Self { feild: Some(_), ..self }"
+    "description": "Self { field: Some(_), ..self }"
   },
   "getter": {
     "prefix": "getter",
