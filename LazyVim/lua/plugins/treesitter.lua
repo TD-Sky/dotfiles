@@ -38,10 +38,12 @@ return {
     },
     {
         "nkrkv/nvim-treesitter-rescript",
+        enabled = false,
         ft = "rescript",
     },
     {
         "rayliwell/tree-sitter-rstml",
+        enabled = false,
         ft = "rust",
         dependencies = { "nvim-treesitter" },
         build = ":TSUpdate",
