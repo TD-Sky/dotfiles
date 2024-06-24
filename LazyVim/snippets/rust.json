@@ -119,5 +119,10 @@
     "prefix": "attr",
     "body": ["#[$1]"],
     "description": "attribute"
+  },
+  "impl-asref": {
+    "prefix": "impl-asref",
+    "body": ["impl AsRef<$1>"],
+    "description": "impl AsRef"
   }
 }
