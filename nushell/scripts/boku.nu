@@ -25,7 +25,7 @@ export def agg [] {
 export def rec [
     --toc: string = "./boku.json", # Book indices
     --author (-a): string,
-    --name (-e): string,
+    --name (-n): string,
     --series (-s): string,
     --chars (-c): list<string>,
     --tags (-t): list<string>,
