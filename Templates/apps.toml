@@ -59,8 +59,9 @@ xdg-user-dirs = "规范目录"
 qt-theme.packages = ["qt6ct", "qt5ct", "kvantum"]
 wezterm = "现代终端模拟器"
 sddm = "会话管理器"
-lxqt-policykit = "授权面板"
-dolphin = { packages = ["dolphin", "ffmpegthumbs", " kdegraphics-thumbnailers"], desc = "KDE文件管理器" }
+dolphin = { packages = ["dolphin", "ffmpegthumbs", "kdegraphics-thumbnailers"], desc = "KDE文件管理器" }
+spectacle = "KDE截图"
+# lxqt-policykit = "授权面板"
 # thunar = { packages = ["thunar", "tumbler"], desc = "小老鼠文件管理器" }
 [desktop.fcitx]
 packages = ["fcitx5-im", "fcitx5-chinese-addons", "fcitx5-pinyin-zhwiki"]
@@ -76,23 +77,18 @@ cliphist = "剪贴板历史"
 # slurp = "区域截取"
 # satty = "编辑截图"
 # dunst = "通知管道"
-
+# rofi = { manager = "paru", packages = ["rofi-lbonn-wayland"], desc = "应用启动器" }
 # [wayland.hyprland]
 # packages = ["hyprland", "xdg-desktop-portal-hyprland"]
 # desc = "hyprland及专用xdg-portal"
-# [wayland.rofi]
-# manager = "paru"
-# packages = ["rofi-lbonn-wayland"]
-# desc = "应用启动器"
 
 # [X11]
-# arc-icon-theme = "Awesome第三方库的UI"
-# rofi = "应用菜单"
+# rofi = "应用启动器"
 # flameshot = "截图"
 # slock = "锁屏"
 # xclip = "剪贴板"
 # [X11.awesome]
-# packages = ["awesome-git"]
+# packages = ["awesome-git", "arc-icon-theme"]
 # desc = "具有组件库的X窗口管理器"
 
 [font]
