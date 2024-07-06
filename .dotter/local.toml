@@ -15,4 +15,5 @@ packages = [
   "wayland",
   "X",
   "kde",
+  "font",
 ]

@@ -80,3 +80,6 @@ gdb = "~/.config/gdb"
 
 [monitor.files]
 macchina = "~/.config/macchina"
+
+[font.files]
+fontconfig = "~/.config/fontconfig"
