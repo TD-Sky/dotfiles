@@ -42,7 +42,12 @@ hypr = "~/.config/hypr"
 swaylock = "~/.config/swaylock"
 "waybar/config.jsonc" = "~/.config/waybar/config"
 "waybar/style.css" = "~/.config/waybar/style.css"
+
+[kde]
+depends = ["desktop"]
+[kde.files]
 plasma-workspace = "~/.config/plasma-workspace"
+kde = "~/.config"
 
 [vim.files]
 LazyVim = { target = "~/.config/LazyVim", type = "symbolic" }
