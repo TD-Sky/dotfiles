@@ -261,7 +261,7 @@ switch to previous activity=none,,切换到上一个活动
 toggle do not disturb=none,,切换勿扰模式
 
 [services][curl.desktop]
-_launch=Ctrl+Alt+O
+_launch=Ctrl+Shift+W
 
 [services][org.kde.plasma-systemmonitor.desktop]
 _launch=none
