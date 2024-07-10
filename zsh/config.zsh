@@ -48,6 +48,10 @@ compinit
 _comp_options+=(globdots)
 # End of lines added by compinstall
 
+zstyle ':completion:*' sort         false                          # preserve inherent orders
+zstyle ':completion:*' list-colors  ${(s.:.)LS_COLORS}             # colorize files & folders
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'l:|=* r:|=*'  # auto-cap, substr
+
 # -----------------
 # Zim configuration
 # -----------------
