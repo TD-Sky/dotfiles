@@ -29,8 +29,17 @@ git log --graph --oneline --decorate --all
 # 清除已失效的远程分支
 git remote prune origin
 
-# 开辟一个新的工作树
-git worktree add <path> <branch>
-
 # 拉取项目的git子模块
 git submodule update --init
+
+# 开辟一个新的工作树
+git worktree add <path> <opt-b> <branch>
+$ opt-b: printf '\n-b'
+
+# 移除工作树
+git worktree remove <opt-f> <worktree-path>
+$ opt-f: printf '\n--force'
+$ worktree-path: git worktree list --- --column 1
+
+# 修改最新的提交消息
+git commit --amend
