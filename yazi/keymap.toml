@@ -58,6 +58,11 @@ keymap = [
   { on = ["y", "d"], run = ["escape --visual", "copy dirname"], desc = "Copy the path of the parent directory" },
   { on = ["y", "f"], run = ["escape --visual", "copy filename"], desc = "Copy the name of the file" },
   { on = ["y", "n"], run = ["escape --visual", "copy name_without_ext"], desc = "Copy the name of the file without the extension" },
+  { on = ["y", "w"], run = ["escape --visual", """
+        shell '
+        if [[ -f $1 ]]; then
+            xs < $1
+        fi' --confirm"""], desc = "Copy file content" },
   { on = "x", run = "yank --cut", desc = "Cut the selected files" },
   { on = "X", run = "unyank", desc = "Cancel the yank status of files" },
   { on = ["p", "p"], run = "paste", desc = "Paste the files" },
