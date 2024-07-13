@@ -98,7 +98,7 @@ packages = ["noto-fonts", "noto-fonts-emoji", "noto-fonts-extra", "noto-fonts-cj
 desc = "零豆腐块字体"
 
 [client]
-firefox = "火狐浏览器"
+firefox.packages = ["firefox", "firefox-i18n-zh-cn"]
 chromium = "谷歌裸核浏览器"
 dbeaver = "PostgreSQL客户端"
 sqlitebrowser = "SQLite客户端"
