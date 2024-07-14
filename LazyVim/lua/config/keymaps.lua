@@ -27,7 +27,7 @@ vim.keymap.del("n", "<Leader>gG")
 vim.keymap.del("n", "<Leader>cd")
 vim.keymap.del({ "n", "i", "v" }, "<C-s>")
 
-wk.register({ l = { name = "language" } }, { prefix = "<leader>" })
+wk.add({ "<leader>l", group = "language" })
 
 -- 切换标签页
 map.n({
