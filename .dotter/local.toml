@@ -1,7 +1,6 @@
 includes = []
 packages = [
   "zsh",
-  "bash",
   "fish",
   "nushell",
   "vim",

@@ -1,7 +1,6 @@
 [helpers]
 
 [shell.files]
-shell = "~/.config/shell"
 navi = "~/.local/share/navi/cheats"
 memo = "~/.local/share/memo"
 "starship.toml" = "~/.config/starship.toml"
@@ -9,13 +8,9 @@ memo = "~/.local/share/memo"
 [zsh]
 depends = ["shell"]
 [zsh.files]
-zshrc = "~/.zshrc"
-zimrc = { target = "~/.zimrc", type = "symbolic" }
-zsh = { target = "~/.config/zsh", type = "symbolic" }
-
-[bash]
-depends = ["shell"]
-files = { bashrc = "~/.bashrc" }
+"zsh/zshenv" = "~/.zshenv"
+"zsh/zshrc" = "~/.config/zsh/.zshrc"
+"zsh/p10k.zsh" = "~/.config/zsh/p10k.zsh"
 
 [fish]
 depends = ["shell"]
@@ -32,7 +27,6 @@ applications = "~/.local/share/applications"
 [X]
 depends = ["desktop"]
 [X.files]
-xprofile = "~/.xprofile"
 awesome = { target = "~/.config/awesome", type = "symbolic" }
 
 [wayland]
