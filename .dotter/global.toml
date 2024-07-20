@@ -64,16 +64,15 @@ gitui = "~/.config/gitui"
 zathura = "~/.config/zathura"
 mpv = "~/.config/mpv"
 
-[templates.files]
-Templates = { target = "~/Templates", type = "symbolic" }
-
 [PL.files]
 cargo = "~/.cargo"
 gdb = "~/.config/gdb"
 "pip.conf" = "~/.config/pip/pip.conf"
 
-[monitor.files]
-macchina = "~/.config/macchina"
-
 [font.files]
 fontconfig = "~/.config/fontconfig"
+
+[misc.files]
+macchina = "~/.config/macchina"
+paru = "~/.config/paru"
+Templates = { target = "~/Templates", type = "symbolic" }
