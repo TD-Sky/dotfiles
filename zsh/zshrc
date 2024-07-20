@@ -69,7 +69,6 @@ zcomet fpath zsh-users/zsh-completions src
 zcomet fpath nix-community/nix-zsh-completions
 
 zcomet load tj/git-extras etc/git-extras-completion.zsh
-zcomet load trapd00r/LS_COLORS lscolors.sh
 zcomet load QuarticCat/zsh-smartcache
 zcomet load chisui/zsh-nix-shell
 zcomet load romkatv/zsh-no-ps2

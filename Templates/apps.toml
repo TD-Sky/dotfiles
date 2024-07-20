@@ -158,7 +158,7 @@ gitoxide = "锈化git"
 
 [data]
 p7zip = "7z"
-rar = ""
+unrar.packages = ["unrar-free"]
 zip.packages = ["zip", "unzip"]
 qbittorrent = "下载种子"
 
@@ -176,6 +176,7 @@ mupdf-tools = "PDF工具箱"
 gwenview = "看图"
 zathura = { packages = ["zathura", "zathura-pdf-mupdf"], desc = "PDF阅读器" }
 webp-pixbuf-loader = "GDK的webp支持"
+inkscape = "操作矢量图"
 
 [language]
 pot-translation = "一站式翻译"
