@@ -257,7 +257,7 @@ setopt hist_save_no_dups     # no duplicates in history file
 setopt hist_ignore_space     # ignore commands starting with a space
 setopt hist_reduce_blanks    # remove all unnecessary spaces
 setopt hist_fcntl_lock       # use fcntl to improve locking performance
-HISTFILE=~zdot/.zsh_history
+HISTFILE=~zdot/history.txt
 HISTSIZE=1000000  # number of commands that are loaded
 SAVEHIST=1000000  # number of commands that are stored
 
@@ -302,5 +302,7 @@ _cache-eval starship init zsh
 _cache-eval mcfly init zsh
 _cache-eval navi widget zsh
 eval "$(fnm env --node-dist-mirror 'https://npmmirror.com/mirrors/node' --use-on-cd)" # Different everytime
+
+_source-existent ~zdot/local.zsh
 
 _source-existent ~zdot/p10k.zsh
