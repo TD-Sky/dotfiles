@@ -56,7 +56,6 @@ zellij = "~/.config/zellij"
 yazi = { target = "~/.config/yazi", type = "symbolic" }
 
 [git.files]
-git = "~/.config/git"
 git-cliff = { target = "~/.config/git-cliff", type = "symbolic" }
 gitui = "~/.config/gitui"
 
