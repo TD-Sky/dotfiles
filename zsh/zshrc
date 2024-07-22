@@ -155,7 +155,6 @@ bindkey '\C-W'    qc-kill-sub-l    # [Ctrl+Backspace] (VSCode)
 bindkey '\E[3;5~' qc-kill-sub-r    # [Ctrl+Delete]
 bindkey '\E^?'    qc-kill-shell-l  # [Alt+Backspace]
 bindkey '\E[3;3~' qc-kill-shell-r  # [Alt+Delete]
-# WORDCHARS=${WORDCHARS//[\/]}
 WORDCHARS='*?[]~&;!#$%^(){}<>'
 
 # Edit command buffer
@@ -173,8 +172,8 @@ yazi-nav() {
     }
 	rm -f -- "$tmp"
 }
-zle -N yazi-nav
-bindkey '^V' yazi-nav
+# Stash the current line and then yazi-nav, the space trigger `hist_ignore_space`
+bindkey -s '^V' '^Q yazi-nav\n'
 
 # Trim trailing spaces from pasted text to trigger no running
 # Ref: https://unix.stackexchange.com/questions/693118

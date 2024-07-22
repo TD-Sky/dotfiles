@@ -1,12 +1,13 @@
 [ActivityManager]
 _k_friendly_name=活动管理器
+switch-to-activity-30012e03-3241-4dca-b6d2-fd971d94c338=none,none,切换到活动“Default”
 switch-to-activity-88ead194-0ec2-4992-89e0-d2c4879cb42f=none,none,切换到活动“Default”
 
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch keyboard layout to 英语（美国）=none,none,切换键盘布局为 英语（美国）
-Switch to Last-Used Keyboard Layout=Meta+Alt+L,Meta+Alt+L,切换到上次使用过的键盘布局
-Switch to Next Keyboard Layout=Meta+Alt+K,Meta+Alt+K,切换到下一个键盘布局
+Switch to Last-Used Keyboard Layout=Meta+Alt+L,Meta+Alt+L,
+Switch to Next Keyboard Layout=Meta+Alt+K,Meta+Alt+K,
 _k_friendly_name=键盘布局切换器
 
 [kaccess]
@@ -14,9 +15,9 @@ Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,切换屏幕阅读器开�
 _k_friendly_name=无障碍辅助
 
 [kcm_touchpad]
-Disable Touchpad=Touchpad Off,Touchpad Off,禁用触摸板
-Enable Touchpad=Touchpad On,Touchpad On,启用触摸板
-Toggle Touchpad=Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,切换触摸板开关
+Disable Touchpad=Touchpad Off,Touchpad Off,
+Enable Touchpad=Touchpad On,Touchpad On,
+Toggle Touchpad=Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,
 _k_friendly_name=触摸板
 
 [kmix]
@@ -32,7 +33,7 @@ mute=Volume Mute,Volume Mute,静音
 
 [ksmserver]
 Halt Without Confirmation=none,,关机 (无需确认)
-Lock Session=Meta+Esc\tScreensaver,Meta+L\tScreensaver,锁定会话
+Lock Session=Screensaver\tMeta+Esc,Meta+L\tScreensaver,锁定会话
 Log Out=Ctrl+Alt+Del,Ctrl+Alt+Del,显示注销屏幕
 Log Out Without Confirmation=none,,注销 (无需确认)
 LogOut=none,,注销
@@ -226,7 +227,7 @@ powerProfile=Battery\tMeta+B,Battery\tMeta+B,切换电源管理方案
 
 [plasmashell]
 _k_friendly_name=plasmashell
-activate application launcher=Meta,Meta\tAlt+F1,激活应用程序启动器
+activate application launcher=Meta\tAlt+F1,Meta\tAlt+F1,激活应用程序启动器
 activate task manager entry 1=none,Meta+1,激活任务管理器条目 1
 activate task manager entry 10=none,Meta+0,激活任务管理器条目 10
 activate task manager entry 2=none,Meta+2,激活任务管理器条目 2
@@ -249,8 +250,8 @@ cycle-panels=Meta+Alt+P,Meta+Alt+P,在面板之间移动键盘焦点
 cycleNextAction=none,,下一条历史记录
 cyclePrevAction=none,,上一条历史记录
 manage activities=Meta+Q,Meta+Q,显示活动切换器
-next activity=Meta+A,none,遍历活动
-previous activity=Meta+Shift+A,none,遍历活动 (反向)
+next activity=none,none,遍历活动
+previous activity=none,none,遍历活动 (反向)
 repeat_action=Meta+Ctrl+R,Meta+Ctrl+R,在当前剪贴板上手动执行操作
 show dashboard=Ctrl+F12,Ctrl+F12,显示桌面
 show-barcode=none,,显示条形码(S)…
@@ -262,6 +263,9 @@ toggle do not disturb=none,,切换勿扰模式
 
 [services][curl.desktop]
 _launch=Ctrl+Shift+W
+
+[services][kitty.desktop]
+_launch=Meta+Return
 
 [services][org.kde.plasma-systemmonitor.desktop]
 _launch=none
