@@ -241,7 +241,7 @@ activate task manager entry 9=none,Meta+9,激活任务管理器条目 9
 activate widget 108=none,none,激活 应用程序启动器 挂件
 activate widget 133=none,none,激活 应用程序启动器 挂件
 activate widget 29=none,none,激活 应用程序启动器 挂件
-activate widget 3=,none,激活 应用程序启动器 挂件
+activate widget 3=none,none,激活 应用程序启动器 挂件
 activate widget 55=none,none,激活 应用程序启动器 挂件
 activate widget 82=none,none,激活 应用程序启动器 挂件
 clear-history=none,,清除剪贴板历史(L)
@@ -272,9 +272,6 @@ _launch=none
 
 [services][org.kde.spectacle.desktop]
 RecordWindow=none
-
-[services][org.wezfurlong.wezterm.desktop]
-_launch=
 
 [strawberry]
 _k_friendly_name=strawberry
