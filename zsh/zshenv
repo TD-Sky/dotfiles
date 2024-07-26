@@ -22,5 +22,6 @@ path=(
     ~/.cargo/bin
     ~/.local/bin
     $path
+    ~/.ghcup/bin
     /usr/lib/jvm/default/bin
 )
