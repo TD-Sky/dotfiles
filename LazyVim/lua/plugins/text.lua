@@ -51,6 +51,13 @@ return {
                     \    'action': ['add', 'delete','replace'],
                     \    'input': ['（', '）']
                     \  },
+                    \  {
+                    \    'buns': ['【', '】'],
+                    \    'nesting': 1, 'match_syntax': 1,
+                    \    'kind': ['add', 'delete', 'replace'],
+                    \    'action': ['add', 'delete','replace'],
+                    \    'input': ['【', '】']
+                    \  },
                     \ ]
                 ]],
                 {}

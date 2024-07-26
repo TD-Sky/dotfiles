@@ -103,7 +103,6 @@ alias -g :h='--help 2>&1 | bat -pl help'
 setopt menu_complete  # list choices when ambiguous
 
 zstyle ':completion:*' sort         false                          # preserve inherent orders
-zstyle ':completion:*' list-colors  ${(s.:.)LS_COLORS}             # colorize files & folders
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'l:|=* r:|=*'  # auto-cap, substr
 
 zstyle ':completion:*' use-cache    true
@@ -297,7 +296,6 @@ _cache-eval () {
     (( ${+commands[$1]} )) && smartcache eval $@
 }
 _cache-eval zoxide init zsh
-_cache-eval starship init zsh
 _cache-eval mcfly init zsh
 _cache-eval navi widget zsh
 eval "$(fnm env --node-dist-mirror 'https://npmmirror.com/mirrors/node' --use-on-cd)" # Different everytime
