@@ -155,6 +155,7 @@ stgit = { manager = "paru", packages = ["stgit", "xmlto"], desc = "git的栈式�
 difftastic = "语言diff"
 git-cliff = "变更日志生成器"
 gitoxide = "锈化git"
+git-filter-repo = "过滤git项目"
 
 [data]
 p7zip = "7z"
