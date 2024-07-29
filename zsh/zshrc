@@ -273,7 +273,7 @@ export VISUAL='lvim'
 
 export LESS='--quit-if-one-screen --RAW-CONTROL-CHARS --chop-long-lines'
 
-export FZF_DEFAULT_OPTS='--ansi --height=60% --reverse --cycle --bind=tab:accept'
+export FZF_DEFAULT_OPTS='--ansi --height=60% --reverse --cycle'
 
 export MANPAGER='sh -c "col -bx | bat -pl man --theme=Monokai\ Extended"'
 export MANROFFOPT='-c'
