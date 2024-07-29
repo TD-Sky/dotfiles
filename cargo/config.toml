@@ -26,3 +26,9 @@ rustflags = ["-C", "link-arg=--ld-path=/usr/bin/mold"]
 
 [build]
 rustc-wrapper = "/usr/bin/sccache"
+
+# Applied through `cargo build --profile=product`
+[profile.product]
+inherits = "release"
+lto = "fat"
+codegen-units = 1
