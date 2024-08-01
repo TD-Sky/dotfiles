@@ -124,5 +124,15 @@
     "prefix": "impl-asref",
     "body": ["impl AsRef<$1>"],
     "description": "impl AsRef"
+  },
+  "r-string": {
+    "prefix": "r-string",
+    "body": ["r\"$1\""],
+    "description": "raw string"
+  },
+  "raw-string": {
+    "prefix": "raw-string",
+    "body": ["r#\"$1\"#"],
+    "description": "raw string (`\"` included)"
   }
 }
