@@ -100,18 +100,25 @@ keymap = [
   { on = "N", run = "find_arrow --previous", desc = "Go to the previous found" },
 
   # Sorting
-  { on = [",", "m"], run = "sort modified --reverse=no", desc = "Sort by modified time" },
-  { on = [",", "M"], run = "sort modified --reverse", desc = "Sort by modified time (reverse)" },
-  { on = [",", "c"], run = "sort created --reverse=no", desc = "Sort by created time" },
-  { on = [",", "C"], run = "sort created  --reverse", desc = "Sort by created time (reverse)" },
+  { on = [",", "m"], run = ["sort modified --reverse=no", "linemode mtime"], desc = "Sort by modified time" },
+  { on = [",", "M"], run = ["sort modified --reverse", "linemode mtime"], desc = "Sort by modified time (reverse)" },
+  { on = [",", "c"], run = ["sort created --reverse=no", "linemode ctime"], desc = "Sort by created time" },
+  { on = [",", "C"], run = ["sort created --reverse", "linemode ctime"], desc = "Sort by created time (reverse)" },
   { on = [",", "e"], run = "sort extension --reverse=no", desc = "Sort by extension" },
   { on = [",", "E"], run = "sort extension --reverse", desc = "Sort by extension (reverse)" },
   { on = [",", "a"], run = "sort alphabetical --reverse=no", desc = "Sort alphabetically" },
   { on = [",", "A"], run = "sort alphabetical --reverse", desc = "Sort alphabetically (reverse)" },
   { on = [",", "n"], run = "sort natural --reverse=no", desc = "Sort naturally" },
   { on = [",", "N"], run = "sort natural --reverse", desc = "Sort naturally (reverse)" },
-  { on = [",", "s"], run = "sort size --reverse=no", desc = "Sort by size" },
-  { on = [",", "S"], run = "sort size --reverse", desc = "Sort by size (reverse)" },
+  { on = [",", "s"], run = ["sort size --reverse=no", "linemode size"], desc = "Sort by size" },
+  { on = [",", "S"], run = ["sort size --reverse", "linemode size"], desc = "Sort by size (reverse)" },
+  { on = [",", "r"], run = "sort random --reverse=no", desc = "Sort randomly" },
+
+  # Goto
+  { on = ["g", "h"], run = "cd ~", desc = "Go to the home directory" },
+  { on = ["g", "c"], run = "cd ~/.config", desc = "Go to the config directory" },
+  { on = ["g", "d"], run = "cd ~/Downloads", desc = "Go to the downloads directory" },
+  { on = ["g", "<Space>"], run = "cd --interactive", desc = "Go to a directory interactively" },
 
   # Tabs
   { on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
@@ -135,14 +142,9 @@ keymap = [
   # Tasks
   { on = "w", run = "tasks_show", desc = "Show task manager" },
 
-  # Goto
-  { on = ["g", "h"], run = "cd ~", desc = "Go to the home directory" },
-  { on = ["g", "c"], run = "cd ~/.config", desc = "Go to the config directory" },
-  { on = ["g", "d"], run = "cd ~/Downloads", desc = "Go to the downloads directory" },
-  { on = ["g", "<Space>"], run = "cd --interactive", desc = "Go to a directory interactively" },
-
   # Help
   { on = "~", run = "help", desc = "Open help" },
+  { on = "<F1>", run = "help", desc = "Open help" },
 
   # Plugin
   # { on = "U", run = "plugin searchjump --args='autocd'", desc = "Search Jump" },
@@ -169,6 +171,7 @@ keymap = [
   { on = "<Enter>", run = "inspect", desc = "Inspect the task" },
   { on = "x", run = "cancel", desc = "Cancel the task" },
   { on = "~", run = "help", desc = "Open help" },
+  { on = "<F1>", run = "help", desc = "Open help" },
 ]
 
 [select]
@@ -254,16 +257,14 @@ keymap = [
 
   # Help
   { on = "~", run = "help", desc = "Open help" },
+  { on = "<F1>", run = "help", desc = "Open help" },
 ]
 
 [completion]
 keymap = [
   { on = "<C-c>", run = "close", desc = "Cancel completion" },
   { on = "<Tab>", run = "close --submit", desc = "Submit the completion" },
-  { on = "<Enter>", run = [
-    "close --submit",
-    "close_input --submit",
-  ], desc = "Submit the completion and input" },
+  { on = "<Enter>", run = ["close --submit", "close_input --submit"], desc = "Submit the completion and input" },
   { on = "<A-k>", run = "arrow -1", desc = "Move cursor up" },
   { on = "<A-j>", run = "arrow 1", desc = "Move cursor down" },
   { on = "<Up>", run = "arrow -1", desc = "Move cursor up" },
@@ -271,6 +272,7 @@ keymap = [
   { on = "<C-p>", run = "arrow -1", desc = "Move cursor up" },
   { on = "<C-n>", run = "arrow 1", desc = "Move cursor down" },
   { on = "~", run = "help", desc = "Open help" },
+  { on = "<F1>", run = "help", desc = "Open help" },
 ]
 
 [help]
