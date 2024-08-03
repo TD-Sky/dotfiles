@@ -1,7 +1,7 @@
 [helpers]
 
 [shell.files]
-navi = "~/.local/share/navi/cheats"
+navi = { target = "~/.local/share/navi/cheats", type = "symbolic" }
 memo = "~/.local/share/memo"
 "starship.toml" = "~/.config/starship.toml"
 
@@ -68,6 +68,7 @@ mpv = "~/.config/mpv"
 cargo = "~/.cargo"
 gdb = "~/.config/gdb"
 "pip.conf" = "~/.config/pip/pip.conf"
+ghc = "~/.config/ghc"
 
 [font.files]
 fontconfig = "~/.config/fontconfig"
