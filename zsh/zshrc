@@ -42,12 +42,6 @@ function vr {
 	cat "${1:-/dev/stdin}" | lvim -R
 }
 
-#=====================#
-# P10k Instant Prompt #
-#=====================#
-
-_source-existent ~cache/p10k-instant-prompt-${(%):-%n}.zsh
-
 #==================#
 # Plugins (Part 1) #
 #==================#
@@ -56,13 +50,16 @@ _source-existent ~cache/p10k-instant-prompt-${(%):-%n}.zsh
 
 source ~zdot/.zcomet/bin/zcomet.zsh
 
-# update every 7 days
+# Update every 7 days.
+# Start p10k instant prompt only when no update, otherwise update logs might not be displayed.
 _qc_last_update=(~zdot/.zcomet/update(Nm-7))
 if [[ -z $_qc_last_update ]] {
     touch ~zdot/.zcomet/update
     zcomet self-update
     zcomet update
     zcomet compile ~zdot/*.zsh  # NOTE: https://github.com/romkatv/zsh-bench#cutting-corners
+} else {
+    _source-existent ~cache/p10k-instant-prompt-${(%):-%n}.zsh
 }
 
 zcomet fpath zsh-users/zsh-completions src
