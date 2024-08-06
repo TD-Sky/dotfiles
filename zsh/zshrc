@@ -81,12 +81,13 @@ zcomet load hlissner/zsh-autopair
 
 alias ll='eza -laHhg --color=always -s=type --time-style=long-iso'
 alias mcpp='clang++ -std=c++2a -Wall -Werror'
-alias py='python3'
-alias rsi='rust-script'
 alias d4v='mkdir -p $XDG_CACHE_HOME/nvim/{backup,info,swap,undo}'
 alias sudo='sudo ' # 尾随空格以递归展开余下的别名
 alias l='eza -a --color=auto -s=type'
 alias pb='curl -F "c=@-" "http://fars.ee/?u=1"'
+alias py='python3'
+alias rsi='rust-script'
+alias v='lvim'
 
 alias -g :n='>/dev/null'
 alias -g :nn='&>/dev/null'
