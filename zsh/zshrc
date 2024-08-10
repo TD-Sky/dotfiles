@@ -42,12 +42,6 @@ function vr {
 	cat "${1:-/dev/stdin}" | lvim -R
 }
 
-#=====================#
-# P10k Instant Prompt #
-#=====================#
-
-_source-existent ~cache/p10k-instant-prompt-${(%):-%n}.zsh
-
 #==================#
 # Plugins (Part 1) #
 #==================#
@@ -56,13 +50,16 @@ _source-existent ~cache/p10k-instant-prompt-${(%):-%n}.zsh
 
 source ~zdot/.zcomet/bin/zcomet.zsh
 
-# update every 7 days
+# Update every 7 days.
+# Start p10k instant prompt only when no update, otherwise update logs might not be displayed.
 _qc_last_update=(~zdot/.zcomet/update(Nm-7))
 if [[ -z $_qc_last_update ]] {
     touch ~zdot/.zcomet/update
     zcomet self-update
     zcomet update
     zcomet compile ~zdot/*.zsh  # NOTE: https://github.com/romkatv/zsh-bench#cutting-corners
+} else {
+    _source-existent ~cache/p10k-instant-prompt-${(%):-%n}.zsh
 }
 
 zcomet fpath zsh-users/zsh-completions src
@@ -84,12 +81,13 @@ zcomet load hlissner/zsh-autopair
 
 alias ll='eza -laHhg --color=always -s=type --time-style=long-iso'
 alias mcpp='clang++ -std=c++2a -Wall -Werror'
-alias py='python3'
-alias rsi='rust-script'
 alias d4v='mkdir -p $XDG_CACHE_HOME/nvim/{backup,info,swap,undo}'
 alias sudo='sudo ' # 尾随空格以递归展开余下的别名
 alias l='eza -a --color=auto -s=type'
 alias pb='curl -F "c=@-" "http://fars.ee/?u=1"'
+alias py='python3'
+alias rsi='rust-script'
+alias v='lvim'
 
 alias -g :n='>/dev/null'
 alias -g :nn='&>/dev/null'

@@ -1,6 +1,6 @@
 % podman
 
-$ container: podman container list -a --- --column 2 --header-lines 1 --delimiter '\s+'
+$ container: podman container list -a --- --column 1 --header-lines 1 --delimiter '\s+'
 $ image: podman images --format '{{.Repository}}:{{.Tag}}'
 
 # 查看容器的日志
