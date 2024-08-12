@@ -53,6 +53,7 @@ cargo-flamegraph = "绘制火焰图及cargo配套插件"
 clang = { packages = ["clang", "llvm"], desc = "C/C++工具链" }
 typescript = { manager = "npm", packages = ["typescript", "typescript-language-server"] }
 typst = { packages = ["typst", "tinymist-bin", "typstyle-bin"], manager = "paru" }
+tree-sitter-cli = "安装tree-sitter解析器"
 
 [desktop]
 xdg-user-dirs = "规范目录"
@@ -155,6 +156,8 @@ stgit = { manager = "paru", packages = ["stgit", "xmlto"], desc = "git的栈式�
 difftastic = "语言diff"
 git-cliff = "变更日志生成器"
 gitoxide = "锈化git"
+git-filter-repo = "过滤git项目"
+serie = "分支树"
 
 [data]
 p7zip = "7z"
@@ -233,7 +236,7 @@ aurpublish = "打包钩子"
 
 [unknown]
 android-tools = "安卓调试桥"
-# sea-orm-cli = { manager = "cargo:src", desc = "sea-orm工具" }
+sea-orm-cli = { manager = "cargo:src", desc = "sea-orm工具" }
 genact = "Linux领域大神"
 [unknown.wps]
 packages = [

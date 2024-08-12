@@ -75,6 +75,12 @@ AUTOPAIR_BKSPC_WIDGET=backward-delete-char
 AUTOPAIR_DELWORD_WIDGET=backward-delete-word
 zcomet load hlissner/zsh-autopair
 
+#=======================#
+# Generated Completions #
+#=======================#
+
+# smartcache comp <command>
+
 #=========#
 # Aliases #
 #=========#
@@ -230,6 +236,7 @@ ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(qc-{sub,shell}-r)
 
 zcomet load zdharma-continuum/fast-syntax-highlighting
 unset 'FAST_HIGHLIGHT[chroma-man]'  # chroma-man will stuck history browsing
+unset 'FAST_HIGHLIGHT[chroma-ssh]'  # 旧版 ssh 不支持参数后置，高亮有误
 
 zcomet load romkatv/powerlevel10k
 
