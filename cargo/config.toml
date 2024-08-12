@@ -20,10 +20,6 @@ index = "sparse+https://rsproxy.cn/index/"
 [net]
 git-fetch-with-cli = true
 
-[target.x86_64-unknown-linux-gnu]
-linker = "/usr/bin/clang"
-rustflags = ["-C", "link-arg=--ld-path=/usr/bin/mold"]
-
 [build]
 rustc-wrapper = "/usr/bin/sccache"
 
