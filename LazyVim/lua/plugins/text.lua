@@ -114,4 +114,12 @@ return {
             char = "┆",
         },
     },
+    {
+        "chrisgrieser/nvim-recorder",
+        event = "RecordingEnter",
+        keys = {
+            { "q", desc = "Start Recording" },
+            { "Q", desc = "Play Recording" },
+        },
+    },
 }

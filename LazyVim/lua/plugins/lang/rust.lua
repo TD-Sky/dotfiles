@@ -62,4 +62,16 @@ return {
             vim.g.rustaceanvim = opts
         end,
     },
+    {
+        "vxpm/ferris.nvim",
+        keys = function()
+            return {
+                {
+                    "<leader>cm",
+                    require("ferris.methods.view_memory_layout"),
+                    desc = "View memory layout",
+                },
+            }
+        end,
+    },
 }
