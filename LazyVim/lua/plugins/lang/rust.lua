@@ -27,7 +27,16 @@ return {
         keys = {
             { "<leader>ce", "<cmd>RustLsp expandMacro<CR>", ft = "rust", desc = "展开宏" },
             { "<leader>cg", "<cmd>RustLsp openCargo<CR>", ft = "rust", desc = "编辑Cargo.toml" },
-            { "<leader>ch", "<cmd>RustLsp hover range<CR>", mode = { "v" }, ft = "rust", desc = "值类型" },
+            { "<leader>ct", "<cmd>RustLsp hover range<CR>", mode = { "v" }, ft = "rust", desc = "值类型" },
+            {
+                "<leader>ch",
+                function()
+                    vim.cmd.RustLsp({ "hover", "actions" })
+                    vim.cmd.RustLsp({ "hover", "actions" })
+                end,
+                ft = "rust",
+                desc = "代码动作",
+            },
             { "gp", "<cmd>RustLsp parentModule<CR>", ft = "rust", desc = "回到父模块" },
         },
         opts = {
@@ -60,6 +69,18 @@ return {
             end
 
             vim.g.rustaceanvim = opts
+        end,
+    },
+    {
+        "vxpm/ferris.nvim",
+        keys = function()
+            return {
+                {
+                    "<leader>cm",
+                    require("ferris.methods.view_memory_layout"),
+                    desc = "View memory layout",
+                },
+            }
         end,
     },
 }

@@ -136,3 +136,6 @@ $ gdb-ip: printf '\nlocalhost'
 
 # 查看X和wayland应用的情况
 qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole
+
+# 追踪命令底层的 execve 系统调用
+strace -fze execve -s 9999 <command>

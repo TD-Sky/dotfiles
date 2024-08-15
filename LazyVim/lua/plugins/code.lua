@@ -19,6 +19,7 @@ return {
             lua = {
                 cmd = "stylua",
                 args = { "--indent-type", "Spaces", "-" },
+                stdin = true,
             },
             python = {
                 cmd = "black",
