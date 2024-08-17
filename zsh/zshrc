@@ -79,8 +79,7 @@ zcomet load hlissner/zsh-autopair
 # Generated Completions #
 #=======================#
 
-smartcache comp gix completions -s zsh
-smartcache comp ein completions -s zsh
+# smartcache comp <command>
 
 #=========#
 # Aliases #
