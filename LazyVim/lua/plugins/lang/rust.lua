@@ -22,20 +22,21 @@ return {
     },
     {
         "mrcjkb/rustaceanvim",
-        version = "^4",
         ft = { "rust" },
         keys = {
             { "<leader>ce", "<cmd>RustLsp expandMacro<CR>", ft = "rust", desc = "展开宏" },
             { "<leader>cg", "<cmd>RustLsp openCargo<CR>", ft = "rust", desc = "编辑Cargo.toml" },
-            { "<leader>ct", "<cmd>RustLsp hover range<CR>", mode = { "v" }, ft = "rust", desc = "值类型" },
             {
                 "<leader>ch",
-                function()
-                    vim.cmd.RustLsp({ "hover", "actions" })
-                    vim.cmd.RustLsp({ "hover", "actions" })
-                end,
+                "<cmd>RustLsp hover actions<CR>",
                 ft = "rust",
                 desc = "代码动作",
+            },
+            {
+                "<leader>ld",
+                "<cmd>RustLsp renderDiagnostic current<CR>",
+                ft = "rust",
+                desc = "诊断",
             },
             { "gp", "<cmd>RustLsp parentModule<CR>", ft = "rust", desc = "回到父模块" },
         },
@@ -44,6 +45,20 @@ return {
                 inlay_hints = {
                     only_current_line = true,
                 },
+
+                float_win_config = {
+                    -- the border that is used for the hover window or explain_error window
+                    ---@see vim.api.nvim_open_win()
+                    ---@type string[][] | string
+                    border = "rounded",
+                    max_width = math.floor(vim.api.nvim_win_get_width(0) * 0.7),
+                    max_height = math.floor(vim.api.nvim_win_get_height(0) * 0.7),
+
+                    --- whether the floating window gets automatically focused
+                    --- default: false
+                    ---@type boolean
+                    auto_focus = true,
+                },
             },
             server = {
                 settings = {
@@ -51,8 +66,8 @@ return {
                         check = {
                             command = "clippy",
                             extraArgs = {
-                                "--",
                                 "--no-deps",
+                                "--message-format=json-diagnostic-rendered-ansi",
                             },
                             workspace = false,
                         },
