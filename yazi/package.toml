@@ -1,10 +1,10 @@
 [plugin]
 deps = [
   # { use = "DreamMaoMao/searchjump", commit = "adb0a74" },
-  { use = "TD-Sky/sudo", commit = "198d471" },
-  { use = "yazi-rs/plugins#max-preview", commit = "2dc65ab" },
-  { use = "yazi-rs/plugins#hide-preview", commit = "2dc65ab" },
-  { use = "Rolv-Apneseth/starship" , commit = "dc9989c" },
+  { use = "TD-Sky/sudo", rev = "198d471" },
+  { use = "yazi-rs/plugins:max-preview", rev = "b659791" },
+  { use = "yazi-rs/plugins:hide-preview", rev = "b659791" },
+  { use = "Rolv-Apneseth/starship" , rev = "20d5a4d" },
 ]
 
 [flavor]

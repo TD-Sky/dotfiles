@@ -25,7 +25,7 @@ return {
             highlight = {
                 enable = true,
                 disable = function(_, buf)
-                    return vim.api.nvim_buf_line_count(buf) > 5000 or vim.g.vscode
+                    return vim.bo[buf].filetype == "bigfile" or vim.g.vscode
                 end,
             },
         },
