@@ -68,6 +68,14 @@ return {
                             workspace = false,
                         },
                         checkOnSave = true,
+                        inlayHints = {
+                            typeHints = {
+                                enable = false,
+                            },
+                            parameterHints = {
+                                enable = false,
+                            },
+                        },
                     },
                 },
             },
