@@ -110,6 +110,7 @@ return {
     },
     {
         "nvimdev/indentmini.nvim",
+        enabled = false,
         opts = {
             char = "┆",
         },
