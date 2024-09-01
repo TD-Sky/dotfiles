@@ -170,7 +170,7 @@ imagemagick = "图片瑞士军刀"
 mpv = "看视频"
 viu = "终端看图"
 yt-dlp = "下载Youtube视频"
-dagtoc = { manager = "paru", desc = "操作PDF目录" }
+dagtoc = { packages = ["dagtoc-bin"], manager = "paru", desc = "操作PDF目录" }
 pandoc = { packages = ["pandoc-bin"], desc = "LaTex渲染器" }
 kid3-qt = "编辑音乐标签"
 krita = "绘画"
