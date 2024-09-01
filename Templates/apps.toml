@@ -149,6 +149,7 @@ hyperfine = "竞争测试"
 pueue = "守护大任务"
 hexyl = "hex查看器"
 dotter = { packages = ["dotter-rs-bin"], manager = "paru", desc = "配置文件管理" }
+tomlq = { manager = "cargo", desc = "toml提取器" }
 
 [git]
 gitui = "git TUI"
