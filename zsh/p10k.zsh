@@ -1782,8 +1782,14 @@
 
   function prompt_rust_package_version() {
     if [[ -r Cargo.toml ]]; then
-        local version=$(tq -f Cargo.toml 'package.version' 2>/dev/null)
-        if [[ -n ${version} ]]; then
+        local version_pack=$(tq -f Cargo.toml 'package.version' 2>/dev/null)
+        if [[ $version_pack == \{* ]]; then
+            version_pack=''
+        else
+            local version_wk=$(tq -f Cargo.toml 'workspace.package.version' 2>/dev/null)
+        fi
+        local version=${version_pack:-$version_wk}
+        if [[ -n $version ]]; then
             p10k segment -b 'yellow' -i '󰏗' -t ${version}
         fi
     fi
