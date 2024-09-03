@@ -149,7 +149,6 @@ hyperfine = "竞争测试"
 pueue = "守护大任务"
 hexyl = "hex查看器"
 dotter = { packages = ["dotter-rs-bin"], manager = "paru", desc = "配置文件管理" }
-tomlq = { manager = "cargo", desc = "toml提取器" }
 
 [git]
 gitui = "git TUI"
@@ -229,6 +228,7 @@ cross = { manager = "cargo", desc = "交叉编译" }
 cargo-zigbuild = "无痛链接指定版本glibc"
 cargo-wizard = { manager = "cargo", desc = "编译配置" }
 cargo-binstall = "下载crate的二进制"
+cargo-get = { manager = "cargo", desc = "读取Cargo.toml信息" }
 
 [arch]
 nvchecker = "检查包版本"
