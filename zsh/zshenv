@@ -23,5 +23,4 @@ path=(
     ~/.local/bin
     $path
     ~/.ghcup/bin
-    /usr/lib/jvm/default/bin
 )
