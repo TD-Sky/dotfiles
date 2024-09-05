@@ -264,14 +264,14 @@ toggle do not disturb=none,,切换勿扰模式
 [services][curl.desktop]
 _launch=Ctrl+Shift+W
 
-[services][kitty.desktop]
-_launch=Meta+Return
-
 [services][org.kde.plasma-systemmonitor.desktop]
 _launch=none
 
 [services][org.kde.spectacle.desktop]
 RecordWindow=none
+
+[services][org.wezfurlong.wezterm.desktop]
+_launch=Meta+Return
 
 [strawberry]
 _k_friendly_name=strawberry

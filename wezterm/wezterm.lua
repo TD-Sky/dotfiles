@@ -1,8 +1,8 @@
 local wezterm = require("wezterm")
 
 return {
-    enable_wayland = true,
     enable_scroll_bar = true,
+    hide_tab_bar_if_only_one_tab = true,
     font = wezterm.font_with_fallback({
         "JetBrains Mono", -- 代码 <内置>
         "FiraCode Nerd Font", -- 炫酷图标
@@ -23,7 +23,6 @@ return {
         top = 0,
         bottom = 0,
     },
-    window_decorations = "NONE",
     default_prog = { "/bin/zsh", "-l" },
     exit_behavior = "Close",
     keys = {
