@@ -38,7 +38,8 @@ map.n({
     {
         "<leader><CR>",
         function()
-            os.execute("open-wezterm-here")
+            local cmd = string.format("wezterm start --always-new-process --cwd=%s", vim.fn.getcwd())
+            os.execute(cmd)
         end,
         desc = "Open Wezterm here",
     },

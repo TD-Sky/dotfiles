@@ -58,7 +58,7 @@ tree-sitter-cli = "安装tree-sitter解析器"
 [desktop]
 xdg-user-dirs = "规范目录"
 qt-theme.packages = ["qt6ct", "qt5ct", "kvantum"]
-wezterm = "现代终端模拟器"
+wezterm = { packages = ["wezterm-git"], desc = "现代终端模拟器" }
 sddm = "会话管理器"
 dolphin = { packages = ["dolphin", "ffmpegthumbs", "kdegraphics-thumbnailers"], desc = "KDE文件管理器" }
 spectacle = "KDE截图"
