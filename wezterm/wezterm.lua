@@ -3,6 +3,7 @@ local wezterm = require("wezterm")
 return {
     enable_scroll_bar = true,
     hide_tab_bar_if_only_one_tab = true,
+    tab_bar_at_bottom = true,
     font = wezterm.font_with_fallback({
         "JetBrains Mono", -- 代码 <内置>
         "FiraCode Nerd Font", -- 炫酷图标
