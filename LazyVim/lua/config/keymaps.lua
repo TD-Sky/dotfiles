@@ -38,11 +38,12 @@ map.n({
     {
         "<leader><CR>",
         function()
-            os.execute("open-wezterm-here")
+            vim.system({ "open-wezterm-here" })
         end,
         desc = "Open Wezterm here",
     },
     { "<leader>lc", "<cmd>LspConfig<cr>", desc = "Lsp Config" },
+    { "<C-a>", "ggVG", desc = "Select all" },
 })
 
 -- emacs keymaps
