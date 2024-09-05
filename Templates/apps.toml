@@ -104,6 +104,7 @@ chromium = "谷歌裸核浏览器"
 dbeaver = "PostgreSQL客户端"
 sqlitebrowser = "SQLite客户端"
 keepassxc = "keepass客户端"
+neovide = "丝滑neovim"
 
 [shell]
 nushell = "结构化shell"
