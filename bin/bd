@@ -76,7 +76,7 @@ def "main x" [...archives: string] {
                 bsdtar -xvf $archive
             },
             '7z' => { 7za x $archive },
-            'rar' => { unrar-free $archive },
+            'rar' => { unrar x $archive },
             'deb' => { ar x $archive },
         }
     }
