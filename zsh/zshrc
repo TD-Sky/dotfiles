@@ -305,6 +305,8 @@ _cache-eval mcfly init zsh
 _cache-eval navi widget zsh
 eval "$(fnm env --node-dist-mirror 'https://npmmirror.com/mirrors/node' --use-on-cd)" # Different everytime
 
+_source-existent "$SDKMAN_DIR/bin/sdkman-init.sh"
+
 _source-existent ~zdot/local.zsh
 
 _source-existent ~zdot/p10k.zsh

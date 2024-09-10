@@ -14,6 +14,8 @@ if [[ $XDG_SESSION_TYPE == x11 ]] {
     export SDL_IM_MODULE='fcitx'
 }
 
+export SDKMAN_DIR=~/.sdkman
+
 ZDOTDIR=$XDG_CONFIG_HOME/zsh
 
 # 可执行程序目录
