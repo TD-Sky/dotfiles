@@ -150,6 +150,7 @@ hyperfine = "竞争测试"
 pueue = "守护大任务"
 hexyl = "hex查看器"
 dotter = { packages = ["dotter-rs-bin"], manager = "paru", desc = "配置文件管理" }
+libtree = "程序的库依赖树视图"
 
 [git]
 gitui = "git TUI"
