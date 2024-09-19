@@ -1,6 +1,7 @@
 #!/usr/bin/env nu
 
 use std log
+use std iter
 
 def main [] {
     []
@@ -43,10 +44,7 @@ def pf [
     }
 }
 
-def pfs [
-    srcs: list<string>,
-    dest: string,
-] {
+def pfs [srcs: list<string>, dest: string] {
     let self = $in
 
     $srcs
@@ -74,17 +72,15 @@ def deploy-file [
     dest: path,
     place: bool,
 ] {
-    let src = $src | path expand
-
-    if $place {
+    let dest = if $place {
         mkdir -v $dest
-        log info $"($src) -> ($dest)"
-        ln -s $src -t $dest
+        $dest | path join ($src | path basename)
     } else {
-        mkdir -v ($dest | path parse | get parent)
-        log info $"($src) => ($dest)"
-        ln -s $src $dest
+        mkdir -v ($dest | path dirname)
+        $dest
     }
+
+    link $src $dest
 }
 
 def deploy-dir [
@@ -92,33 +88,66 @@ def deploy-dir [
     dest: path,
     place: bool,
 ] {
-    let strip_prefix = if $place {
-        {|p|
-            $p
-            | path relative-to (
-                $src | path expand | path parse | get parent
-        )}
+    let strip_prefix = {|p|
+        $p | path relative-to (pwd)
+    }
+
+    let join_suffix = if $place {
+        {|p| $dest | path join $p }
     } else {
-        {|p| $p | path relative-to ($src | path expand) }
+        {|p|
+            $dest
+            | path join ($p | str split-once).1
+        }
     }
 
     let dirs = glob $"($src)/**/*" --no-file
         | each $strip_prefix
 
-    mkdir -v ...(
-        $dirs
-        | each {|dir| $dest | path join $dir }
-    )
+    try {
+        mkdir -v ...($dirs | each $join_suffix)
+    }
 
     let files = glob $"($src)/**/*" --no-dir
         | each $strip_prefix
 
     $files
     | each {|file|
-        let src = $file | path expand
-        let dest = $dest | path join $file
+        let dest = do $join_suffix $file
+        link $file $dest
+    }
+}
 
+def link [src: string, dest: path] {
+    let srcp = pwd | path join $src
+
+    if not (is-linked $srcp $dest) {
         log info $"($src) => ($dest)"
-        ln -s $src $dest
+        ln -s $srcp $dest
+    }
+}
+
+def is-linked [src: path, dest: path] {
+    try {
+        $src == (realpath $dest)
+    } catch {
+        false
+    }
+}
+
+def 'str split-once' [] -> list {
+    let s = $in
+
+    let i = $s
+    | split chars
+    | iter find-index {|c| $c == '/' }
+
+    if $i >= 0 {
+        [
+            ($s | str substring ..<$i),
+            ($s | str substring ($i + 1)..),
+        ]
+    } else {
+        null
     }
 }
