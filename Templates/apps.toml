@@ -198,7 +198,7 @@ procs = "查看进程"
 pulsemixer = "音量面板"
 duf = "统计分区大小"
 erdtree = "体积伴随文件树"
-macchina = { packages = ["Macchina-CLI/macchina"], manager = "cargo", desc = "系统信息" }
+macchina = "系统信息"
 
 [network]
 gping = "图形化ping"
