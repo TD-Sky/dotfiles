@@ -54,6 +54,8 @@ clang = { packages = ["clang", "llvm"], desc = "C/C++工具链" }
 typescript = { manager = "npm", packages = ["typescript", "typescript-language-server"] }
 typst = { packages = ["typst", "tinymist-bin", "typstyle-bin"], manager = "paru" }
 tree-sitter-cli = "安装tree-sitter解析器"
+uv = "python项目管理"
+ruff = "python格式化器"
 
 [desktop]
 xdg-user-dirs = "规范目录"
