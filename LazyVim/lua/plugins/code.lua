@@ -21,11 +21,7 @@ return {
                 args = { "--indent-type", "Spaces", "-" },
                 stdin = true,
             },
-            python = {
-                cmd = "black",
-                args = { "--quiet", "-" },
-                stdin = true,
-            },
+            python = "ruff",
             toml = "taplo",
             ocaml = {
                 cmd = "ocamlformat",

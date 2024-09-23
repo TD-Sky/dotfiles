@@ -3,17 +3,11 @@ cargo = "bin"
 
 # 商业应用配合 firejail 使用
 [communication]
-QQ = { packages = ["linuxqq"], manager = "paru" }
-telegram = { packages = ["telegram-desktop"], desc = "电报" }
-thunderbird = "电子邮件客户端"
-wechat = { packages = ["wechat-universal-bwrap"], manager = "paru", desc = "微信(沙盒)" }
 wemeet = { packages = ["wemeet-bin"], manager = "paru", desc = "腾讯会议(沙盒)" }
 feishu = { packages = ["feishu-bin"], manager = "paru", desc = "飞书" }
 
 [OS]
-QEMU.packages = ["qemu-full"]
 ventoy = { manager = "paru", packages = ["ventoy-bin"], desc = "制作镜像盘" }
-distrobox = "轻松部署容器Linux"
 podman = "容器运行时"
 firejail = "沙盒"
 
@@ -54,6 +48,8 @@ clang = { packages = ["clang", "llvm"], desc = "C/C++工具链" }
 typescript = { manager = "npm", packages = ["typescript", "typescript-language-server"] }
 typst = { packages = ["typst", "tinymist-bin", "typstyle-bin"], manager = "paru" }
 tree-sitter-cli = "安装tree-sitter解析器"
+uv = "python项目管理"
+ruff = "python格式化器"
 
 [desktop]
 xdg-user-dirs = "规范目录"
@@ -68,9 +64,9 @@ spectacle = "KDE截图"
 packages = ["fcitx5-im", "fcitx5-chinese-addons", "fcitx5-pinyin-zhwiki"]
 desc = "小企鹅输入法"
 
-[wayland]
-wl-clipboard = "剪贴板"
-cliphist = "剪贴板历史"
+# [wayland]
+# wl-clipboard = "剪贴板"
+# cliphist = "剪贴板历史"
 # swww = "壁纸引擎"
 # waybar = "状态栏"
 # swaylock = "锁屏"
@@ -103,7 +99,6 @@ firefox.packages = ["firefox", "firefox-i18n-zh-cn"]
 chromium = "谷歌裸核浏览器"
 dbeaver = "PostgreSQL客户端"
 sqlitebrowser = "SQLite客户端"
-keepassxc = "keepass客户端"
 neovide = "丝滑neovim"
 
 [shell]
@@ -139,6 +134,7 @@ fd = "搜索文件"
 jaq = "高级jq"
 jless = "json阅读器"
 ripgrep = "正则匹配行"
+ripgrep-all = "万能正则匹配行"
 sd = "高级sed"
 skim = "模糊搜索.rs"
 fzf = "模糊搜索.go"
@@ -196,7 +192,7 @@ procs = "查看进程"
 pulsemixer = "音量面板"
 duf = "统计分区大小"
 erdtree = "体积伴随文件树"
-macchina = { packages = ["Macchina-CLI/macchina"], manager = "cargo", desc = "系统信息" }
+macchina = "系统信息"
 
 [network]
 gping = "图形化ping"
@@ -210,7 +206,6 @@ openssh = "ssh"
 asciinema = "录制命令行视频"
 screenkey = "按键回显"
 silicon = "代码截图"
-obs-studio = "流录制"
 # simplescreenrecorder = "录制视频"
 
 [cargo]

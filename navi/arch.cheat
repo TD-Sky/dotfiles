@@ -53,6 +53,9 @@ pacman -Si <package>
 # 按清单下载
 sudo pacman -S --needed - <  <list>
 
+# 将包下载到 /var/cache/pacman/pkg
+sudo pacman -Sw <package>
+
 
 
 ; 移除 -R
