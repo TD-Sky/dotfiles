@@ -122,4 +122,11 @@ return {
             { "Q", desc = "Play Recording" },
         },
     },
+    {
+        "tzachar/highlight-undo.nvim",
+        event = "VeryLazy",
+        opts = {
+            duration = 100,
+        },
+    },
 }
