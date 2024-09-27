@@ -14,7 +14,6 @@ dingtalk = { packages = ["dingtalk-bin"], manager = "paru", desc = "钉钉" }
 [OS]
 QEMU.packages = ["qemu-full"]
 ventoy = { manager = "paru", packages = ["ventoy-bin"], desc = "制作镜像盘" }
-distrobox = "轻松部署容器Linux"
 podman = "容器运行时"
 firejail = "沙盒"
 
