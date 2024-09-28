@@ -28,6 +28,12 @@ def main [] {
     return
 }
 
+def 'main root' [] {
+    for src in (ls root | get name) {
+        cp -r $src  /
+    }
+}
+
 # prepare
 def pf [
     src: string,
