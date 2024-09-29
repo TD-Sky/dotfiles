@@ -11,12 +11,22 @@ export def tags [...tags: string] {
 }
 
 # Aggregates books into human-readable table
-export def agg [] {
+export def agg [
+    --share (-s),
+] {
     $in
-    | each {|it| {
-        id: $it.id,
-        book: (book fmt $it),
-    }}
+    | each {|it|
+        let book = if $share {
+            $"[($it.author)] ($it.name)"
+        } else {
+            book fmt $it
+        }
+
+        {
+            id: $it.id,
+            book: $book,
+        }
+    }
     | table --theme basic
     | bat -p
 }
@@ -45,11 +55,11 @@ export def rec [
         info: (book fmt $info),
     }
 
+    mv -i $book $id
+
     open $toc
     | append $info
     | collect { save -f $toc }
-
-    mv -i $book $id
 }
 
 def 'option map' [f: closure] {
