@@ -1,0 +1,7 @@
+#!/usr/bin/env nu
+
+def main [] {
+    let win = efibootmgr | parse -r 'Boot([[:xdigit:]]+)\* Windows' | get capture0.0
+    sudo efibootmgr --bootnext $win
+    reboot
+}
