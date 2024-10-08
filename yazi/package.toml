@@ -4,7 +4,8 @@ deps = [
   # { use = "TD-Sky/sudo", rev = "1581cb7" },
   { use = "yazi-rs/plugins:max-preview", rev = "b659791" },
   { use = "yazi-rs/plugins:hide-preview", rev = "b659791" },
-  { use = "Rolv-Apneseth/starship" , rev = "20d5a4d" },
+  { use = "Rolv-Apneseth/starship", rev = "20d5a4d" },
+  { use = "ndtoan96/ouch", rev = "251da69" },
 ]
 
 [flavor]

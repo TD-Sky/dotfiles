@@ -101,8 +101,9 @@ previewers = [
   # PDF
   { mime = "application/pdf", run = "pdf" },
   # Archive
-  { mime = "application/{,g}zip", run = "archive" },
-  { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar,iso9660-image}", run = "archive" },
+  { mime = "application/{gzip,x-bzip*,xz,zstd}", run = "ouch" },
+  { mime = "application/zip", run = "archive" },
+  { mime = "application/x-{tar,7z-compressed,rar,iso9660-image}", run = "archive" },
   # Font
   { mime = "font/*", run = "font" },
   { mime = "application/vnd.ms-opentype", run = "font" },

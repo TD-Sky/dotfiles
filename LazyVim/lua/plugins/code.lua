@@ -13,7 +13,7 @@ return {
             "nvimdev/guard-collection",
         },
         keys = {
-            { "<leader>lf", "<cmd>GuardFmt<cr>", desc = "异步格式化" },
+            { "<leader>lf", "<cmd>Guard fmt<cr>", desc = "异步格式化" },
         },
         opts = {
             lua = {
@@ -23,16 +23,16 @@ return {
             },
             python = "ruff",
             toml = "taplo",
-            ocaml = {
-                cmd = "ocamlformat",
-                args = {
-                    "--enable-outside-detected-project",
-                    "--name",
-                    utils.vim.current_buffer_name(),
-                    "-",
-                },
-                stdin = true,
-            },
+            -- ocaml = {
+            --     cmd = "ocamlformat",
+            --     args = {
+            --         "--enable-outside-detected-project",
+            --         "--name",
+            --         utils.vim.current_buffer_name(),
+            --         "-",
+            --     },
+            --     stdin = true,
+            -- },
             sh = "shfmt",
             ["c,cpp"] = {
                 cmd = "clang-format",
@@ -57,7 +57,9 @@ return {
                 ft(lang):fmt(opt)
             end
 
-            require("guard").setup({ fmt_on_save = false })
+            vim.g.guard_config = {
+                fmt_on_save = false,
+            }
         end,
     },
     {
