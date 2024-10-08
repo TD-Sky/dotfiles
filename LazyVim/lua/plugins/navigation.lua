@@ -83,6 +83,7 @@ return {
     },
     {
         "coffebar/neovim-project",
+        enabled = false,
         opts = {
             projects = {},
             last_session_on_startup = false,
