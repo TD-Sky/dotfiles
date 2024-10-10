@@ -127,6 +127,14 @@ return {
         event = "VeryLazy",
         opts = {
             duration = 100,
+            keymaps = {
+                paste = {
+                    disabled = true,
+                },
+                Paste = {
+                    disabled = true,
+                },
+            },
         },
     },
 }
