@@ -79,6 +79,13 @@ return {
         },
         opts = {
             open_for_directories = true,
+            hooks = {
+                yazi_opened_multiple_files = function(chosen_files, _, _)
+                    for _, file in ipairs(chosen_files) do
+                        vim.cmd("edit " .. file)
+                    end
+                end,
+            },
         },
     },
     {
