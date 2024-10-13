@@ -15,7 +15,7 @@ return {
                 texlab = {},
                 taplo = {},
                 gopls = {},
-                tsserver = {},
+                ts_ls = {},
                 volar = {},
                 tinymist = {},
                 bashls = {},
@@ -25,6 +25,7 @@ return {
                 },
                 nushell = {},
                 clangd = {},
+                basedpyright = {},
             },
         },
         config = function(_, opts)

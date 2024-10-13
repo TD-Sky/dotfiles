@@ -221,7 +221,7 @@ PowerOff=Power Off,Power Off,关机
 Sleep=Sleep,Sleep,挂起
 Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,开关键盘背光
 Turn Off Screen=none,none,关闭屏幕
-_k_friendly_name=KDE 电源管理系统
+_k_friendly_name=电源管理
 powerProfile=Battery\tMeta+B,Battery\tMeta+B,切换电源管理方案
 
 [plasmashell]
