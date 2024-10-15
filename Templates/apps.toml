@@ -236,13 +236,6 @@ android-tools = "安卓调试桥"
 sea-orm-cli = { manager = "cargo:src", desc = "sea-orm工具" }
 genact = "Linux领域大神"
 [unknown.wps]
-packages = [
-  "wps-office-cn",
-  "wps-office-mui-zh-cn",
-  "ttf-wps-fonts",
-  "wps-office-fonts",
-  "freetype2-wps",
-  "libtiff5",
-]
+packages = ["wps-office-cn", "wps-office-mui-zh-cn", "ttf-wps-fonts", "wps-office-fonts"]
 manager = "paru"
-desc = "WPS本体+中文语言包+符号字体+中文常用字体+字体修复+PDF补丁"
+desc = "WPS本体+中文语言包+符号字体+中文常用字体"
