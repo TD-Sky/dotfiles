@@ -1,7 +1,7 @@
 #!/usr/bin/env nu
 
-use std log
-use std iter
+use std/log
+use std/iter
 
 def main [] {
     []
