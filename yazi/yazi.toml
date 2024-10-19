@@ -14,12 +14,15 @@ show_hidden = true
 show_symlink = true
 scrolloff = 5
 mouse_events = ["click", "scroll"]
+title_format = "Yazi: {cwd}"
 
 [preview]
+wrap = "no"
 tab_size = 2
 max_width = 3200
 max_height = 2000
 cache_dir = ""
+image_delay = 30
 image_filter = "triangle"
 image_quality = 90
 sixel_fraction = 15
@@ -174,7 +177,7 @@ quit_content = "The following task is still running, are you sure you want to qu
 quit_origin = "center"
 quit_offset = [0, 0, 50, 15]
 
-[select]
+[pick]
 open_title = "Open with:"
 open_origin = "hovered"
 open_offset = [0, 1, 50, 7]
