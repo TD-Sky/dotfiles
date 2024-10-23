@@ -76,6 +76,15 @@ return {
             table.insert(opts.config.center, 3, projects)
         end,
     },
+    {
+        "sindrets/diffview.nvim",
+        config = true,
+        keys = {
+            { "gdo", "<cmd>DiffviewOpen<cr>", desc = "diff" },
+            { "gdc", "<cmd>DiffviewClose<cr>", desc = "close diff" },
+            { "gdh", "<cmd>DiffviewFileHistory<cr>", desc = "文件历史" },
+        },
+    },
     -- {
     --     "NeogitOrg/neogit",
     --     cmd = "Neogit",
