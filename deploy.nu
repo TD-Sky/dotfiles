@@ -109,10 +109,11 @@ def deploy-dir [
     }
 
     let dirs = glob $"($src)/**/*" --no-file
+        | skip 1
         | each $strip_prefix
 
     try {
-        mkdir -v ...($dirs | each $join_suffix)
+        mkdir -v $dest ...($dirs | each $join_suffix)
     }
 
     let files = glob $"($src)/**/*" --no-dir
