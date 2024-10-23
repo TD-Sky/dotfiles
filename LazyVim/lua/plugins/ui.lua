@@ -80,9 +80,8 @@ return {
         "sindrets/diffview.nvim",
         config = true,
         keys = {
-            { "<leader>gdo", "<cmd>DiffviewOpen<cr>", desc = "diff" },
-            { "<leader>gdc", "<cmd>DiffviewClose<cr>", desc = "close diff" },
-            { "<leader>gdh", "<cmd>DiffviewFileHistory<cr>", desc = "文件历史" },
+            { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "diff" },
+            { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "文件历史" },
         },
     },
     -- {
