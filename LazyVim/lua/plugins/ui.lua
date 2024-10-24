@@ -82,6 +82,7 @@ return {
         keys = {
             { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "diff" },
             { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "文件历史" },
+            { "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", desc = "当前文件历史" },
         },
     },
     -- {
