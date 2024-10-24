@@ -241,6 +241,7 @@ aurpublish = "打包钩子"
 
 [unknown]
 android-tools = "安卓调试桥"
+android-studio = { manager = "paru", desc = "安卓IDE" }
 sea-orm-cli = { manager = "cargo:src", desc = "sea-orm工具" }
 genact = "Linux领域大神"
 [unknown.wps]
