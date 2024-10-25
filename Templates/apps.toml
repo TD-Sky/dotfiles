@@ -206,6 +206,7 @@ openssh = "ssh"
 asciinema = "录制命令行视频"
 screenkey = "按键回显"
 silicon = "代码截图"
+obs-studio = "流录制"
 # simplescreenrecorder = "录制视频"
 
 [cargo]
