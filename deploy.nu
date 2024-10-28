@@ -109,7 +109,7 @@ def deploy-dir [
     }
 
     let dirs = glob $"($src)/**/*" --no-file
-        | skip 1
+        | if $place { $in } else { skip 1 }
         | each $strip_prefix
 
     try {
