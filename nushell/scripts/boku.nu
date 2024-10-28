@@ -86,11 +86,13 @@ def 'book fmt' [bk: record] {
 def 'list contains' [list: list<string>] {
     let self = $in | default []
 
-    for $elt in $list {
-        if $elt not-in $self {
-            return false
+    for dest in $list {
+        for elt in $self {
+            if $elt =~ $dest {
+                return true
+            }
         }
     }
 
-    true
+    false
 }
