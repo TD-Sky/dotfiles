@@ -70,7 +70,8 @@ def deploy-item [it: record] {
 
     match ($it.src | path type) {
         file => { deploy-file $it.src $dest $it.place },
-        dir => { deploy-dir $it.src $dest $it.place },
+        dir if $it.place => { place-dir $it.src $dest },
+        dir => { deploy-dir $it.src $dest },
     }
 }
 
@@ -93,31 +94,42 @@ def deploy-file [
 def deploy-dir [
     src: string,
     dest: path,
-    place: bool,
 ] {
-    let strip_prefix = {|p|
-        $p | path relative-to (pwd)
-    }
-
-    let join_suffix = if $place {
-        {|p| $dest | path join $p }
-    } else {
-        {|p|
-            $dest
-            | path join ($p | str split-once).1
-        }
+    let join_suffix = {|p|
+        $dest
+        | path join ($p | str split-once).1
     }
 
     let dirs = glob $"($src)/**/*" --no-file
-        | if $place { $in } else { skip 1 }
-        | each $strip_prefix
+        | skip 1
+        | each { path strip-cwd }
 
     try {
         mkdir -v $dest ...($dirs | each $join_suffix)
     }
 
     let files = glob $"($src)/**/*" --no-dir
-        | each $strip_prefix
+        | each { path strip-cwd }
+
+    $files
+    | each {|file|
+        let dest = do $join_suffix $file
+        link $file $dest
+    }
+}
+
+def place-dir [src: string, dest: path] {
+    let join_suffix = {|p| $dest | path join $p }
+
+    let dirs = glob $"($src)/**/*" --no-file
+        | each { path strip-cwd }
+
+    try {
+        mkdir -v ...($dirs | each $join_suffix)
+    }
+
+    let files = glob $"($src)/**/*" --no-dir
+        | each { path strip-cwd }
 
     $files
     | each {|file|
@@ -158,4 +170,8 @@ def 'str split-once' [] -> list {
     } else {
         null
     }
+}
+
+def 'path strip-cwd' [] -> path {
+    $in | path relative-to (pwd)
 }
