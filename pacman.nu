@@ -126,6 +126,10 @@ const MANIFEST = {
     tree-sitter-cli: "安装tree-sitter解析器",
     uv: "python项目管理",
     ruff: "python格式化器",
+    basedpyright: {
+        manager: "uv",
+        desc: "python语言服务器",
+    }
 
     # desktop
     xdg-user-dirs: "规范目录",
@@ -371,4 +375,44 @@ const MANIFEST = {
     }
 }
 
-def main [] {}
+def main [] {
+    let manifest = $MANIFEST
+        | items {|k, v|
+            if ($v | describe) == 'string' {
+                {
+                    name: $k,
+                    desc: $v,
+                }
+            } else {
+                {
+                    name: $k,
+                    ...$v
+                }
+            }
+        }
+
+    let paru = try { which paru | get 0 | get path }
+    let cargo = try { which cargo | get 0 | get path }
+    let cargo_bin = try { which cargo-binstall | get 0 | get path }
+    let npm = try { which npm | get 0 | get path }
+    let uv = try { which uv | get 0 | get path }
+
+    mut tbl = {
+        pacman: [],
+        paru: [],
+        'cargo': [],
+        'cargo:src': [],
+        npm: [],
+        uv: [],
+    }
+    for it in $manifest {
+        $it | inspect
+        let packages = try { $it.packages } | default [$it.name]
+        let mgr = try { $it.manager } | default 'pacman'
+
+        let subtbl = $tbl | get $mgr | append $packages
+        $tbl = $tbl | upsert $mgr $subtbl
+    }
+
+    $tbl
+}
