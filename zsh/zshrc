@@ -301,7 +301,7 @@ _cache-eval () {
     (( ${+commands[$1]} )) && smartcache eval $@
 }
 _cache-eval zoxide init zsh
-_cache-eval mcfly init zsh
+_cache-eval atuin init zsh
 _cache-eval navi widget zsh
 _cache-eval mise activate zsh
 # eval "$(fnm env --node-dist-mirror 'https://npmmirror.com/mirrors/node' --use-on-cd)" # Different everytime
