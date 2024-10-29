@@ -104,9 +104,7 @@ def deploy-dir [
         | skip 1
         | each { path strip-cwd }
 
-    try {
-        mkdir -v $dest ...($dirs | each $join_suffix)
-    }
+    mkdir -v $dest ...($dirs | each $join_suffix)
 
     let files = glob $"($src)/**/*" --no-dir
         | each { path strip-cwd }
@@ -124,9 +122,7 @@ def place-dir [src: string, dest: path] {
     let dirs = glob $"($src)/**/*" --no-file
         | each { path strip-cwd }
 
-    try {
-        mkdir -v ...($dirs | each $join_suffix)
-    }
+    mkdir -v ...($dirs | each $join_suffix)
 
     let files = glob $"($src)/**/*" --no-dir
         | each { path strip-cwd }
