@@ -17,7 +17,7 @@ def main [] {
     | pf Templates -t ~
     | pfs [
         starship.toml fish nushell rofi mimeapps.list
-        awesome hypr swaylock plasma-workspace LazyVim
+        awesome swaylock plasma-workspace LazyVim
         neovide wezterm zellij yazi git
         git-cliff gitui zathura mpv gdb
         pip.conf ghc fontconfig macchina paru
