@@ -75,12 +75,6 @@ AUTOPAIR_BKSPC_WIDGET=backward-delete-char
 AUTOPAIR_DELWORD_WIDGET=backward-delete-word
 zcomet load hlissner/zsh-autopair
 
-#=======================#
-# Generated Completions #
-#=======================#
-
-# smartcache comp <command>
-
 #=========#
 # Aliases #
 #=========#
@@ -125,6 +119,13 @@ zstyle ':completion:*:manuals.*' insert-sections   true  # `man strstr` -> `man 
 zstyle ':completion:*:processes'       command 'ps xwwo pid,user,comm,cmd'  # for kill
 zstyle ':completion:*:processes-names' command 'ps xwwo comm'               # for killall
 zstyle ':completion:*:process-groups'  hidden  all                          # no `0`
+
+#=======================#
+# Generated Completions #
+#=======================#
+
+# smartcache comp <command>
+smartcache comp mise completion zsh
 
 #==============#
 # Key Bindings #
