@@ -1,5 +1,6 @@
 [ActivityManager]
 _k_friendly_name=活动管理器
+switch-to-activity-1696f95d-1bae-411f-8f00-11e1153640bc=none,none,切换到活动“默认”
 switch-to-activity-88ead194-0ec2-4992-89e0-d2c4879cb42f=none,none,切换到活动“Default”
 
 [KDE Keyboard Layout Switcher]
@@ -47,10 +48,6 @@ Cycle Overview=none,none,循环显示桌面概览和网格视图
 Cycle Overview Opposite=none,none,循环显示网格视图和桌面概览
 Decrease Opacity=none,,降低活动窗口不透明度 5%
 Edit Tiles=Meta+T,Meta+T,磁贴编辑器开关
-Expose=Ctrl+F9,Ctrl+F9,显示/隐藏窗口平铺 (当前桌面)
-ExposeAll=Ctrl+F10\tLaunch (C),Ctrl+F10\tLaunch (C),显示/隐藏窗口平铺 (全部桌面)
-ExposeClass=Ctrl+F7,Ctrl+F7,显示/隐藏窗口平铺 (窗口类)
-ExposeClassCurrentDesktop=none,none,显示/隐藏窗口平铺 (当前桌面的窗口类)
 Grid View=Meta+G,Meta+G,切换网格视图
 Increase Opacity=none,,提高活动窗口不透明度 5%
 Kill Window=Meta+Ctrl+Esc,Meta+Ctrl+Esc,强制终止窗口
@@ -249,8 +246,6 @@ cycle-panels=Meta+Alt+P,Meta+Alt+P,在面板之间移动键盘焦点
 cycleNextAction=none,,下一条历史记录
 cyclePrevAction=none,,上一条历史记录
 manage activities=Meta+Q,Meta+Q,显示活动切换器
-next activity=Meta+A,none,遍历活动
-previous activity=Meta+Shift+A,none,遍历活动 (反向)
 repeat_action=Meta+Ctrl+R,Meta+Ctrl+R,在当前剪贴板上手动执行操作
 show dashboard=Ctrl+F12,Ctrl+F12,显示桌面
 show-barcode=none,,显示条形码(S)…
