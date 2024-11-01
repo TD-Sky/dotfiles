@@ -76,6 +76,9 @@ return {
                             parameterHints = {
                                 enable = false,
                             },
+                            discriminantHints = {
+                                enable = "always",
+                            },
                         },
                     },
                 },
