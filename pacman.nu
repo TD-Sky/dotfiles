@@ -3,7 +3,7 @@
 const MANIFEST = {
     # 社交
     QQ: {
-        packages: ["linuxqq"],
+        packages: ["linuxqq-nt-bwrap"],
         manager: "paru"
     },
     telegram: {
@@ -400,13 +400,12 @@ def main [] {
     mut tbl = {
         pacman: [],
         paru: [],
-        'cargo': [],
+        cargo: [],
         'cargo:src': [],
         npm: [],
         uv: [],
     }
     for it in $manifest {
-        $it | inspect
         let packages = try { $it.packages } | default [$it.name]
         let mgr = try { $it.manager } | default 'pacman'
 
@@ -414,5 +413,35 @@ def main [] {
         $tbl = $tbl | upsert $mgr $subtbl
     }
 
-    $tbl
+    try {
+        if $paru != null {
+            paru -Sy --needed ...$tbl.paru
+        } else {
+            pacman -Sy --needed ...$tbl.pacman
+        }
+    }
+
+    try {
+        if $npm != null {
+            npm install -g ...$tbl.npm
+        }
+    }
+
+    try {
+        if $cargo_bin != null {
+            cargo binstall ...$tbl.cargo
+        }
+    }
+
+    try {
+        if $cargo != null {
+            cargo install ...$tbl.'cargo:src'
+        }
+    }
+
+    try {
+        if $uv != null {
+            uv tool install ...$tbl.uv
+        }
+    }
 }
