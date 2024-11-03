@@ -100,7 +100,11 @@ const MANIFEST = {
         packages: ["prettier", "@prettier/plugin-xml"],
         desc: "前端格式化器"
     },
-    mise: "管理语言工具链",
+    mise: {
+        manager: "paru",
+        packages: ["mise-bin"],
+        desc: "管理语言工具链"
+    },
     bash-language-server: {
         manager: "npm"
     },
@@ -232,11 +236,11 @@ const MANIFEST = {
 
     # git
     gitui: "git TUI",
-    stgit: {
-        manager: "paru",
-        packages: ["stgit", "xmlto"],
-        desc: "git的栈式补丁管理器"
-    },
+    # stgit: {
+    #     manager: "paru",
+    #     packages: ["stgit", "xmlto"],
+    #     desc: "git的栈式补丁管理器"
+    # },
     difftastic: "语言diff",
     git-cliff: "变更日志生成器",
     gitoxide: "锈化git",
@@ -266,7 +270,7 @@ const MANIFEST = {
         desc: "LaTex渲染器"
     },
     kid3-qt: "编辑音乐标签",
-    krita: "绘画",
+    # krita: "绘画",
     espeak: {
         packages: ["espeak-ng"],
         desc: "电子朗读"
@@ -358,10 +362,10 @@ const MANIFEST = {
         manager: "paru",
         desc: "安卓IDE"
     },
-    sea-orm-cli: {
-        manager: "cargo:src",
-        desc: "sea-orm工具"
-    },
+    # sea-orm-cli: {
+    #     manager: "cargo:src",
+    #     desc: "sea-orm工具"
+    # },
     genact: "Linux领域大神",
     wps: {
         packages: [
@@ -401,7 +405,7 @@ def main [] {
         pacman: [],
         paru: [],
         cargo: [],
-        'cargo:src': [],
+        # 'cargo:src': [],
         npm: [],
         uv: [],
     }
@@ -433,11 +437,11 @@ def main [] {
         }
     }
 
-    try {
-        if $cargo != null {
-            cargo install ...$tbl.'cargo:src'
-        }
-    }
+    # try {
+    #     if $cargo != null {
+    #         cargo install ...$tbl.'cargo:src'
+    #     }
+    # }
 
     try {
         if $uv != null {

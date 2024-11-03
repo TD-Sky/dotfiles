@@ -25,7 +25,6 @@ return {
         top = 0,
         bottom = 0,
     },
-    default_prog = { "/bin/zsh", "-l" },
     exit_behavior = "Close",
     keys = {
         {
