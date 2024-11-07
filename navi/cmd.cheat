@@ -139,3 +139,6 @@ qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole
 
 # 追踪命令底层的 execve 系统调用
 strace -fze execve -s 9999 <command>
+
+# 查看所有系统链接路径
+ld --verbose | rg SEARCH_DIR | tr -s ' ;' \\012
