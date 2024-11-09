@@ -44,22 +44,6 @@ return {
         },
     },
     {
-        "lewis6991/gitsigns.nvim",
-        keys = {
-            { "gb", "<cmd>Gitsigns blame_line<cr>", desc = "git blame" },
-        },
-    },
-    {
-        "akinsho/toggleterm.nvim",
-        enabled = false,
-        keys = {
-            { "<M-1>", "<cmd>ToggleTerm size=11 direction=horizontal<cr>", desc = "水平终端" },
-            { "<M-2>", "<cmd>ToggleTerm size=50 direction=vertical<cr>", desc = "垂直终端" },
-            { "<M-3>", "<cmd>ToggleTerm direction=float<cr>", desc = "浮动终端" },
-        },
-        config = true,
-    },
-    {
         "nvimdev/dashboard-nvim",
         optional = true,
         opts = function(_, opts)
@@ -76,26 +60,4 @@ return {
             table.insert(opts.config.center, 3, projects)
         end,
     },
-    {
-        "sindrets/diffview.nvim",
-        config = true,
-        keys = {
-            { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "diff" },
-            { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "文件历史" },
-            { "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", desc = "当前文件历史" },
-        },
-    },
-    -- {
-    --     "NeogitOrg/neogit",
-    --     cmd = "Neogit",
-    --     dependencies = {
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-telescope/telescope.nvim",
-    --         "sindrets/diffview.nvim",
-    --     },
-    --     keys = {
-    --         { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit" },
-    --     },
-    --     config = true,
-    -- },
 }

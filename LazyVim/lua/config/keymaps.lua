@@ -23,7 +23,6 @@ local map = {
 
 -- 删除LazyVim映射的键位
 vim.keymap.del("n", "<Leader>l")
-vim.keymap.del("n", "<Leader>gG")
 vim.keymap.del("n", "<Leader>cd")
 vim.keymap.del({ "n", "i", "v" }, "<C-s>")
 
