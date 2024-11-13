@@ -25,4 +25,5 @@ path=(
     ~/.local/bin
     $path
     ~/.ghcup/bin
+    ~/.java/jextract-22/bin
 )
