@@ -22,6 +22,7 @@ return {
     },
     {
         "mrcjkb/rustaceanvim",
+        lazy = false, -- This plugin is already lazy
         ft = { "rust" },
         keys = {
             { "<leader>ce", "<cmd>RustLsp expandMacro<CR>", ft = "rust", desc = "展开宏" },
