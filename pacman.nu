@@ -341,6 +341,10 @@ const MANIFEST = {
         manager: "cargo",
         desc: "交叉编译"
     },
+    cargo-xwin: {
+        manager: "cargo",
+        desc: "交叉编译到Windows"
+    },
     cargo-zigbuild: "无痛链接指定版本glibc",
     cargo-wizard: {
         manager: "cargo",
