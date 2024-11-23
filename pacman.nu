@@ -181,7 +181,8 @@ const MANIFEST = {
 
     # shell
     nushell: "结构化shell",
-    mcfly: "历史命令",
+    # mcfly: "历史命令",
+    atuin: "历史命令",
     starship: "装饰提示符",
     zoxide: "瞬移",
     zellij: "终端复用器",
