@@ -181,7 +181,8 @@ const MANIFEST = {
 
     # shell
     nushell: "结构化shell",
-    mcfly: "历史命令",
+    # mcfly: "历史命令",
+    atuin: "历史命令",
     starship: "装饰提示符",
     zoxide: "瞬移",
     zellij: "终端复用器",
@@ -339,6 +340,10 @@ const MANIFEST = {
     cross: {
         manager: "cargo",
         desc: "交叉编译"
+    },
+    cargo-xwin: {
+        manager: "cargo",
+        desc: "交叉编译到Windows"
     },
     cargo-zigbuild: "无痛链接指定版本glibc",
     cargo-wizard: {

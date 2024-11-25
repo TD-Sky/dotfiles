@@ -291,8 +291,8 @@ export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive  # see https://nixos.wiki/w
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"         # affect `rustup update`
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"  # affect `rustup self-update`
 
-export MCFLY_FUZZY=2
-export MCFLY_RESULTS=25
+# export MCFLY_FUZZY=2
+# export MCFLY_RESULTS=25
 
 #=========#
 # Scripts #
@@ -302,7 +302,8 @@ _cache-eval () {
     (( ${+commands[$1]} )) && smartcache eval $@
 }
 _cache-eval zoxide init zsh
-_cache-eval mcfly init zsh
+_cache-eval atuin init zsh
+# _cache-eval mcfly init zsh
 _cache-eval navi widget zsh
 _cache-eval mise activate zsh
 # eval "$(fnm env --node-dist-mirror 'https://npmmirror.com/mirrors/node' --use-on-cd)" # Different everytime
