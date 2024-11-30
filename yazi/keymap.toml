@@ -55,6 +55,9 @@ keymap = [
   { on = "v", run = "visual_mode", desc = "Enter visual mode (selection mode)" },
   { on = "V", run = "visual_mode --unset", desc = "Enter visual mode (unset mode)" },
 
+	# Spotting
+  { on = "<Tab>", run = "spot", desc = "Spot hovered file" },
+
   # Operation
   { on = "o", run = "open", desc = "Open selected files" },
   { on = "O", run = "open --interactive", desc = "Open selected files interactively" },
@@ -180,6 +183,31 @@ keymap = [
   { on = "x", run = "cancel", desc = "Cancel the task" },
   { on = "~", run = "help", desc = "Open help" },
   { on = "<F1>", run = "help", desc = "Open help" },
+]
+
+[spot]
+keymap = [
+	{ on = "<Esc>", run = "close", desc = "Close the spot" },
+	{ on = "<C-[>", run = "close", desc = "Close the spot" },
+	{ on = "<C-c>", run = "close", desc = "Close the spot" },
+	{ on = "<Tab>", run = "close", desc = "Close the spot" },
+
+	{ on = "k", run = "arrow -1", desc = "Move cursor up" },
+	{ on = "j", run = "arrow 1",  desc = "Move cursor down" },
+	{ on = "h", run = "swipe -1", desc = "Swipe to the next file" },
+	{ on = "l", run = "swipe 1",  desc = "Swipe to the previous file" },
+
+	{ on = "<Up>",    run = "arrow -1", desc = "Move cursor up" },
+	{ on = "<Down>",  run = "arrow 1",  desc = "Move cursor down" },
+	{ on = "<Left>",  run = "swipe -1", desc = "Swipe to the next file" },
+	{ on = "<Right>", run = "swipe 1",  desc = "Swipe to the previous file" },
+
+	# Copy
+	{ on = [ "c", "c" ], run = "copy cell", desc = "Copy selected cell" },
+
+	# Help
+	{ on = "~",    run = "help", desc = "Open help" },
+	{ on = "<F1>", run = "help", desc = "Open help" },
 ]
 
 [pick]
