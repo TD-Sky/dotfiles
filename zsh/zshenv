@@ -15,6 +15,7 @@ if [[ $XDG_SESSION_TYPE == x11 ]] {
 }
 
 export SDKMAN_DIR=~/.sdkman
+export ORT_LIB_LOCATION=/usr/local/lib
 
 ZDOTDIR=$XDG_CONFIG_HOME/zsh
 
