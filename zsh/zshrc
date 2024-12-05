@@ -52,7 +52,7 @@ source ~zdot/.zcomet/bin/zcomet.zsh
 
 # Update every 7 days.
 # Start p10k instant prompt only when no update, otherwise update logs might not be displayed.
-_qc_last_update=(~zdot/.zcomet/update(Nm-7))
+_qc_last_update=(~zdot/.zcomet/update(Nm-31))
 if [[ -z $_qc_last_update ]] {
     touch ~zdot/.zcomet/update
     zcomet self-update
@@ -88,6 +88,7 @@ alias pb='curl -F "c=@-" "http://fars.ee/?u=1"'
 alias py='python3'
 alias rsi='rust-script'
 alias v='lvim'
+alias gitui='gitui -d "$(git rev-parse --show-toplevel)"'
 
 alias -g :n='>/dev/null'
 alias -g :nn='&>/dev/null'
