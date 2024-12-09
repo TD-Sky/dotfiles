@@ -95,45 +95,50 @@ def deploy-dir [
     src: string,
     dest: path,
 ] {
-    let join_suffix = {|p|
+    let dest_path = {|p|
         $dest
-        | path join ($p | str split-once).1
+        | path join (
+            $p
+            | path strip (pwd) $src
+        )
     }
 
     let dirs = glob $"($src)/**/*" --no-file
         | skip 1
-        | each { path strip-cwd }
+        | each $dest_path
 
-    try {
-        mkdir -v $dest ...($dirs | each $join_suffix)
-    }
+    # 确保dirs为空时也创建dest
+    mkdir -v $dest ...$dirs
 
-    let files = glob $"($src)/**/*" --no-dir
-        | each { path strip-cwd }
-
-    $files
+    glob $"($src)/**/*" --no-dir
     | each {|file|
-        let dest = do $join_suffix $file
+        let dest = (do $dest_path $file)
+        let file = $file | path strip (pwd)
         link $file $dest
     }
 }
 
 def place-dir [src: string, dest: path] {
-    let join_suffix = {|p| $dest | path join $p }
-
-    let dirs = glob $"($src)/**/*" --no-file
-        | each { path strip-cwd }
-
-    try {
-        mkdir -v ...($dirs | each $join_suffix)
+    let dest_path = {|p|
+        $dest
+        | path join (
+            $p
+            | path strip (pwd) ($src | path dirname)
+        )
     }
 
-    let files = glob $"($src)/**/*" --no-dir
-        | each { path strip-cwd }
+    let dirs = glob $"($src)/**/*" --no-file
+        | each $dest_path
 
-    $files
+    # 防止因dirs为空而终止进程
+    try {
+        mkdir -v ...$dirs
+    }
+
+    glob $"($src)/**/*" --no-dir
     | each {|file|
-        let dest = do $join_suffix $file
+        let dest = (do $dest_path $file)
+        let file = $file | path strip (pwd)
         link $file $dest
     }
 }
@@ -147,7 +152,7 @@ def link [src: string, dest: path] {
     }
 }
 
-def is-linked [src: path, dest: path] {
+def is-linked [src: path, dest: path] -> bool {
     try {
         $src == (realpath $dest)
     } catch {
@@ -155,23 +160,6 @@ def is-linked [src: path, dest: path] {
     }
 }
 
-def 'str split-once' [] -> list {
-    let s = $in
-
-    let i = $s
-    | split chars
-    | iter find-index {|c| $c == '/' }
-
-    if $i >= 0 {
-        [
-            ($s | str substring ..<$i),
-            ($s | str substring ($i + 1)..),
-        ]
-    } else {
-        null
-    }
-}
-
-def 'path strip-cwd' [] -> path {
-    $in | path relative-to (pwd)
+def 'path strip' [...prefix: string] -> path {
+    $in | path relative-to ($prefix | path join)
 }
