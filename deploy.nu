@@ -130,10 +130,7 @@ def place-dir [src: string, dest: path] {
     let dirs = glob $"($src)/**/*" --no-file
         | each $dest_path
 
-    # 防止因dirs为空而终止进程
-    try {
-        mkdir -v ...$dirs
-    }
+    mkdir -v ...$dirs
 
     glob $"($src)/**/*" --no-dir
     | each {|file|
