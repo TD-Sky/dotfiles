@@ -21,7 +21,7 @@ def main [] {
         neovide wezterm zellij yazi
         git-cliff gitui zathura mpv gdb
         pip.conf ghc fontconfig macchina paru
-        uv
+        uv mise
     ] ~/.config
     | pfs [memo applications] ~/.local/share
     | each {|it| deploy-item $it }
@@ -104,7 +104,9 @@ def deploy-dir [
         | skip 1
         | each { path strip-cwd }
 
-    mkdir -v $dest ...($dirs | each $join_suffix)
+    try {
+        mkdir -v $dest ...($dirs | each $join_suffix)
+    }
 
     let files = glob $"($src)/**/*" --no-dir
         | each { path strip-cwd }
@@ -122,7 +124,9 @@ def place-dir [src: string, dest: path] {
     let dirs = glob $"($src)/**/*" --no-file
         | each { path strip-cwd }
 
-    mkdir -v ...($dirs | each $join_suffix)
+    try {
+        mkdir -v ...($dirs | each $join_suffix)
+    }
 
     let files = glob $"($src)/**/*" --no-dir
         | each { path strip-cwd }
