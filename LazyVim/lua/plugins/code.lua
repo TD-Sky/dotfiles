@@ -33,7 +33,11 @@ return {
             --     },
             --     stdin = true,
             -- },
-            sh = "shfmt",
+            sh = {
+                cmd = "shfmt",
+                args = { "-i", "4" },
+                stdin = true,
+            },
             ["c,cpp"] = {
                 cmd = "clang-format",
                 args = {
