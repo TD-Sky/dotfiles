@@ -1,9 +1,9 @@
 [plugin]
 deps = [
   { use = "DreamMaoMao/searchjump", rev = "e0739c9" },
-  { use = "yazi-rs/plugins:max-preview", rev = "ec97f88" },
-  { use = "yazi-rs/plugins:hide-preview", rev = "ec97f88" },
-  { use = "yazi-rs/plugins:git", rev = "ec97f88" },
+  { use = "yazi-rs/plugins:max-preview", rev = "62f0789" },
+  { use = "yazi-rs/plugins:hide-preview", rev = "62f0789" },
+  { use = "yazi-rs/plugins:git", rev = "62f0789" },
   { use = "Rolv-Apneseth/starship", rev = "247f49d" },
   { use = "ndtoan96/ouch", rev = "b869886" },
   { use = "TD-Sky/sudo", rev = "a8287ea" },
