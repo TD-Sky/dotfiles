@@ -1,4 +1,4 @@
 [tools]
 usage = "latest"
-node = "23"
+node = "23.4"
 flutter = "3.24"
