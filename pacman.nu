@@ -100,11 +100,7 @@ const MANIFEST = {
         packages: ["prettier", "@prettier/plugin-xml"],
         desc: "前端格式化器"
     },
-    mise: {
-        manager: "paru",
-        packages: ["mise-bin"],
-        desc: "管理语言工具链"
-    },
+    mise: "管理语言工具链",
     bash-language-server: {
         manager: "npm"
     },
