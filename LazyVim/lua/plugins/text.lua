@@ -75,31 +75,6 @@ return {
     },
     {
         "folke/flash.nvim",
-        vscode = true,
-        opts = {
-            modes = {
-                search = {
-                    enabled = false,
-                },
-                char = {
-                    enabled = false,
-                },
-            },
-        },
-        keys = {
-            {
-                "U",
-                mode = { "n", "x", "o" },
-                function()
-                    require("flash").jump()
-                end,
-                desc = "Flash Jump",
-            },
-        },
-    },
-    {
-        -- retake keymap for flash.nvim
-        "folke/flash.nvim",
         dependencies = {
             {
                 "ibhagwan/fzf-lua",
@@ -116,6 +91,29 @@ return {
                 },
             },
         },
+        vscode = true,
+        opts = {
+            modes = {
+                search = {
+                    enabled = false,
+                },
+                char = {
+                    enabled = false,
+                },
+            },
+        },
+        keys = function()
+            return {
+                {
+                    "U",
+                    mode = { "n", "x", "o" },
+                    function()
+                        require("flash").jump()
+                    end,
+                    desc = "Flash Jump",
+                },
+            }
+        end,
     },
     {
         "nvimdev/indentmini.nvim",
