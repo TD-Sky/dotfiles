@@ -77,6 +77,9 @@ return {
         event = "InsertEnter",
         opts = {
             completion = {
+                trigger = {
+                    show_on_x_blocked_trigger_characters = { "'", '"', "(", "{", "=" },
+                },
                 menu = {
                     border = "rounded",
                 },
