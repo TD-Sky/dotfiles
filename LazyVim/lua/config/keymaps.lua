@@ -63,3 +63,9 @@ map.v({
     ["ak"] = "0o$", -- include end
 })
 vim.keymap.set("o", "ik", "<cmd>normal vik<cr>")
+
+--#plugins
+
+vim.keymap.set({ "n", "x", "o" }, "<leader><space>", function()
+    require("utils").treesitter.try_exec(require("flash").treesitter)
+end, { desc = "Flash Treesitter" })

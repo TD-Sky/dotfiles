@@ -97,14 +97,6 @@ return {
                     end,
                     desc = "Flash Jump",
                 },
-                {
-                    "<leader><space>",
-                    mode = { "n", "x", "o" },
-                    function()
-                        utils.treesitter.try_exec(flash.treesitter)
-                    end,
-                    desc = "Flash Treesitter",
-                },
             }
         end,
     },
