@@ -86,19 +86,36 @@ return {
                 },
             },
         },
-        keys = function()
-            local flash = require("flash")
-            return {
-                {
-                    "U",
-                    mode = { "n", "x", "o" },
-                    function()
-                        flash.jump()
-                    end,
-                    desc = "Flash Jump",
+        keys = {
+            {
+                "U",
+                mode = { "n", "x", "o" },
+                function()
+                    require("flash").jump()
+                end,
+                desc = "Flash Jump",
+            },
+        },
+    },
+    {
+        -- retake keymap for flash.nvim
+        "folke/flash.nvim",
+        dependencies = {
+            {
+                "ibhagwan/fzf-lua",
+                cmd = "FzfLua",
+                keys = {
+                    {
+                        "<leader><space>",
+                        mode = { "n", "x", "o" },
+                        function()
+                            require("utils").treesitter.try_exec(require("flash").treesitter)
+                        end,
+                        desc = "Flash Treesitter",
+                    },
                 },
-            }
-        end,
+            },
+        },
     },
     {
         "nvimdev/indentmini.nvim",
