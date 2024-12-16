@@ -95,6 +95,9 @@ return {
                     border = "rounded",
                 },
             },
+            keymap = {
+                ["<Tab>"] = { "select_and_accept" },
+            },
         },
     },
 }
