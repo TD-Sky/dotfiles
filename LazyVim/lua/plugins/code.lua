@@ -88,6 +88,9 @@ return {
                         border = "rounded",
                     },
                 },
+                list = {
+                    selection = "auto_insert",
+                },
             },
             signature = {
                 enabled = true,
