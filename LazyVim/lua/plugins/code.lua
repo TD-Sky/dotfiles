@@ -71,7 +71,6 @@ return {
         "numToStr/Comment.nvim",
         config = true,
     },
-
     {
         "saghen/blink.cmp",
         event = "InsertEnter",
@@ -84,9 +83,13 @@ return {
                     border = "rounded",
                 },
                 documentation = {
+                    auto_show_delay_ms = 0,
                     window = {
                         border = "rounded",
                     },
+                },
+                list = {
+                    selection = "auto_insert",
                 },
             },
             signature = {
@@ -96,7 +99,8 @@ return {
                 },
             },
             keymap = {
-                ["<Tab>"] = { "select_and_accept" },
+                ["<Tab>"] = { "select_next", "fallback" },
+                ["<S-Tab>"] = { "select_prev", "fallback" },
             },
         },
     },
