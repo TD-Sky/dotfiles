@@ -2,12 +2,6 @@ local utils = require("utils")
 
 return {
     {
-        "garymjr/nvim-snippets",
-        opts = {
-            search_paths = { vim.fn.stdpath("config") .. "/snippets" },
-        },
-    },
-    {
         "nvimdev/guard.nvim",
         dependencies = {
             "nvimdev/guard-collection",
@@ -76,5 +70,31 @@ return {
     {
         "numToStr/Comment.nvim",
         config = true,
+    },
+
+    {
+        "saghen/blink.cmp",
+        event = "InsertEnter",
+        opts = {
+            completion = {
+                trigger = {
+                    show_on_x_blocked_trigger_characters = { "'", '"', "(", "{", "=" },
+                },
+                menu = {
+                    border = "rounded",
+                },
+                documentation = {
+                    window = {
+                        border = "rounded",
+                    },
+                },
+            },
+            signature = {
+                enabled = true,
+                window = {
+                    border = "rounded",
+                },
+            },
+        },
     },
 }

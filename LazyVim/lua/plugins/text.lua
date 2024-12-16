@@ -75,6 +75,22 @@ return {
     },
     {
         "folke/flash.nvim",
+        dependencies = {
+            {
+                "ibhagwan/fzf-lua",
+                cmd = "FzfLua",
+                keys = {
+                    {
+                        "<leader><space>",
+                        mode = { "n", "x", "o" },
+                        function()
+                            require("utils").treesitter.try_exec(require("flash").treesitter)
+                        end,
+                        desc = "Flash Treesitter",
+                    },
+                },
+            },
+        },
         vscode = true,
         opts = {
             modes = {
@@ -87,23 +103,14 @@ return {
             },
         },
         keys = function()
-            local flash = require("flash")
             return {
                 {
                     "U",
                     mode = { "n", "x", "o" },
                     function()
-                        flash.jump()
+                        require("flash").jump()
                     end,
                     desc = "Flash Jump",
-                },
-                {
-                    "<leader><space>",
-                    mode = { "n", "x", "o" },
-                    function()
-                        utils.treesitter.try_exec(flash.treesitter)
-                    end,
-                    desc = "Flash Treesitter",
                 },
             }
         end,
