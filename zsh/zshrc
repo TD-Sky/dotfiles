@@ -32,11 +32,6 @@ function swap {
 	mv "$1.swapping" $2
 }
 
-# 编译graphviz图
-function dot-png {
-	dot -Tpng $1 -o "$(echo $1 | choose -f '\.' 0).png"
-}
-
 # 只读
 function vr {
 	cat "${1:-/dev/stdin}" | lvim -R

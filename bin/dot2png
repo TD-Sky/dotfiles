@@ -1,0 +1,7 @@
+#!/usr/bin/env nu
+
+# 编译graphviz图
+def main [src: path] {
+    let dest = $src | path parse | get stem
+    dot -Tpng $src -o $"($dest).png"
+}
