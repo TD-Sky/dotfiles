@@ -25,6 +25,7 @@ body = """
     {%- for commit in commits %}
         {%- if commit.scope -%}
         {% else -%}
+            {% raw %}\n{% endraw %}\
             - *(no category)* {{ commit.message | upper_first }}
             {% if commit.breaking -%}
             {% raw %}  {% endraw %}- **BREAKING**: {{commit.breaking_description}}
@@ -72,7 +73,7 @@ commit_parsers = [
 # protect breaking changes from being skipped due to matching a skipping commit_parser
 protect_breaking_commits = false
 # filter out the commits that are not matched by commit parsers
-filter_commits = false
+filter_commits = true
 # glob pattern for matching git tags
 tag_pattern = "v[0-9]*"
 # regex for skipping tags
