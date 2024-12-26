@@ -92,8 +92,18 @@ return {
             { "gI", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation" },
             { "gR", "<cmd>Telescope lsp_references<cr>", desc = "References" },
             { "gr", "<cmd>Lspsaga finder ref<cr>", desc = "Saga References" },
-            { "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Prev Diagnostic" },
-            { "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Next Diagnostic" },
+            {
+                "[d",
+                "<cmd>Lspsaga diagnostic_jump_prev<cr>",
+                mode = { "n", "v" },
+                desc = "Prev Diagnostic",
+            },
+            {
+                "]d",
+                "<cmd>Lspsaga diagnostic_jump_next<cr>",
+                mode = { "n", "v" },
+                desc = "Next Diagnostic",
+            },
             {
                 "[e",
                 function()
@@ -101,6 +111,7 @@ return {
                         severity = vim.diagnostic.severity.ERROR,
                     })
                 end,
+                mode = { "n", "v" },
                 desc = "Prev Error",
             },
             {
@@ -110,6 +121,7 @@ return {
                         severity = vim.diagnostic.severity.ERROR,
                     })
                 end,
+                mode = { "n", "v" },
                 desc = "Next Error",
             },
             -- 审视
@@ -121,8 +133,8 @@ return {
             {
                 "<leader>la",
                 "<cmd>Lspsaga code_action<cr>",
-                desc = "Code Action",
                 mode = { "n", "v" },
+                desc = "Code Action",
             },
             {
                 "<leader>lA",
