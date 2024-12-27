@@ -149,7 +149,7 @@ def link [src: string, dest: path] {
     }
 }
 
-def is-linked [src: path, dest: path] -> bool {
+def is-linked [src: path, dest: path]: nothing -> bool {
     try {
         $src == (realpath $dest)
     } catch {
@@ -157,6 +157,6 @@ def is-linked [src: path, dest: path] -> bool {
     }
 }
 
-def 'path strip' [...prefix: string] -> path {
+def 'path strip' [...prefix: string]: string -> path {
     $in | path relative-to ($prefix | path join)
 }

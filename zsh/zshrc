@@ -207,6 +207,15 @@ clear-screen() {
 zle -N clear-screen
 bindkey '^L' clear-screen
 
+zd() {
+    local p=$(sk --ansi -i -c "fd -c 'always' -H -I -E '.git' {}")
+    if [ -f "$p" ]; then
+        cd "$(dirname "$p")"
+    elif [ -d "$p" ]; then
+        cd "$p"
+    fi
+}
+
 #==================#
 # Plugins (Part 2) #
 #==================#
