@@ -1,4 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
 def main [wallpapers: path = "~/Pictures/wallpaper"] {
     sleep 1sec

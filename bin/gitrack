@@ -1,4 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
 # 前提：输入'./'起首的相对路径
 def main [src: string] {
