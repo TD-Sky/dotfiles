@@ -120,8 +120,7 @@ const MANIFEST = {
         packages: ["typescript", "typescript-language-server"]
     },
     typst: {
-        packages: ["typst", "tinymist", "typstyle-bin"],
-        manager: "paru"
+        packages: ["typst", "tinymist", "typstyle"],
     },
     tree-sitter-cli: "安装tree-sitter解析器",
     uv: "python项目管理",
