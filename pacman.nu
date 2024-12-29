@@ -129,7 +129,12 @@ const MANIFEST = {
     basedpyright: {
         manager: "uv",
         desc: "python语言服务器",
-    }
+    },
+    astro-ls: {
+        manager: "npm",
+        packages: ["@astrojs/language-server"]
+        desc: "AstroJS的语言服务器",
+    },
 
     # desktop
     xdg-user-dirs: "规范目录",
