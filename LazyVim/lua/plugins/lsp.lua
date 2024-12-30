@@ -23,6 +23,7 @@ return {
                 nushell = {},
                 clangd = {},
                 basedpyright = {},
+                astro = {},
             },
         },
         config = function(_, opts)

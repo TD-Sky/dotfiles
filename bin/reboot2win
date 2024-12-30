@@ -1,4 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
 def main [] {
     let win = efibootmgr | parse -r 'Boot([[:xdigit:]]+)\* Windows' | get capture0.0

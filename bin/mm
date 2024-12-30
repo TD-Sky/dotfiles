@@ -1,4 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
 def main [sheet?: string] {
     cd $"($env.XDG_DATA_HOME)/memo"

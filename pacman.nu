@@ -1,4 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
 const MANIFEST = {
     # 社交
@@ -120,8 +120,7 @@ const MANIFEST = {
         packages: ["typescript", "typescript-language-server"]
     },
     typst: {
-        packages: ["typst", "tinymist", "typstyle-bin"],
-        manager: "paru"
+        packages: ["typst", "tinymist", "typstyle"],
     },
     tree-sitter-cli: "安装tree-sitter解析器",
     uv: "python项目管理",
@@ -129,7 +128,12 @@ const MANIFEST = {
     basedpyright: {
         manager: "uv",
         desc: "python语言服务器",
-    }
+    },
+    astro-ls: {
+        manager: "npm",
+        packages: ["@astrojs/language-server"]
+        desc: "AstroJS的语言服务器",
+    },
 
     # desktop
     xdg-user-dirs: "规范目录",
@@ -230,6 +234,10 @@ const MANIFEST = {
     pueue: "守护大任务",
     hexyl: "hex查看器",
     libtree: "程序的库依赖树视图",
+    halp: "命令行选项标准化检验",
+
+    # AI
+    aichat: "LLM CLI",
 
     # git
     gitui: "git TUI",

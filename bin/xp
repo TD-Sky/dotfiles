@@ -1,4 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
 # 复制输入内容至剪贴板
 def main [] {

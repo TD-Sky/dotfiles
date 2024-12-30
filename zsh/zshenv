@@ -14,9 +14,7 @@ if [[ $XDG_SESSION_TYPE == x11 ]] {
     export SDL_IM_MODULE='fcitx'
 }
 
-export SDKMAN_DIR=~/.sdkman
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-
 ZDOTDIR=$XDG_CONFIG_HOME/zsh
 
 # 可执行程序目录
@@ -26,5 +24,4 @@ path=(
     ~/.local/bin
     $path
     ~/.ghcup/bin
-    ~/.java/jextract-22/bin
 )

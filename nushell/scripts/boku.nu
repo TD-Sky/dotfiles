@@ -1,4 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
 # Filters by `characters`
 export def chars [...chars: string] {

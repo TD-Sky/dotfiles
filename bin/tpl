@@ -1,13 +1,13 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
 # 具化文件模板
 def main [
     stem: string,
-    --no-extension (-s),
+    --no-extension (-t),
 ] {
     let in_dir = $env.PWD
 
-    cd '~/Templates/dev'
+    cd ~/Templates/dev
     let template = ^ls -1
         | sk -i --ansi -c 'fd {}' --preview 'bat -pp --color=always {}'
 
@@ -22,4 +22,6 @@ def main [
     let dest = $in_dir | path join ($stem + $extension)
 
     cp $template $dest
+
+    run-external $env.EDITOR $dest
 }

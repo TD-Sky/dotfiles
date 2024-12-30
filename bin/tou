@@ -1,4 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
 # 若参数为空，则设为当前目录下所有文件
 def unwrap-or-default [] {

@@ -1,4 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
 def main [dev: path] {
     let dir = $dev | path join 'door'

@@ -1,4 +1,4 @@
-#!/usr/bin/env nu
+#!/usr/bin/env -S nu --stdin
 
 # 复制剪贴板内指定文件
 def main [dest: path = './'] {

@@ -42,7 +42,7 @@ return {
             },
             rust = "rustfmt",
             go = "gofmt",
-            ["vue,json,jsonc,javascript,typescript,xml,yaml,html,css"] = "prettier",
+            ["vue,json,jsonc,javascript,typescript,xml,yaml,html,css,astro"] = "prettier",
             typst = {
                 cmd = "typstyle",
                 stdin = true,

@@ -3,10 +3,16 @@ cargo = "bin"
 
 # 商业应用配合 firejail 使用
 [communication]
+QQ = { packages = ["linuxqq"], manager = "paru" }
+telegram = { packages = ["telegram-desktop"], desc = "电报" }
+thunderbird = "电子邮件客户端"
+wechat = { packages = ["wechat-universal-bwrap"], manager = "paru", desc = "微信(沙盒)" }
 wemeet = { packages = ["wemeet-bin"], manager = "paru", desc = "腾讯会议(沙盒)" }
 feishu = { packages = ["feishu-bin"], manager = "paru", desc = "飞书" }
+dingtalk = { packages = ["dingtalk-bin"], manager = "paru", desc = "钉钉" }
 
 [OS]
+QEMU.packages = ["qemu-full"]
 ventoy = { manager = "paru", packages = ["ventoy-bin"], desc = "制作镜像盘" }
 podman = "容器运行时"
 firejail = "沙盒"
@@ -64,9 +70,9 @@ spectacle = "KDE截图"
 packages = ["fcitx5-im", "fcitx5-chinese-addons", "fcitx5-pinyin-zhwiki"]
 desc = "小企鹅输入法"
 
-# [wayland]
-# wl-clipboard = "剪贴板"
-# cliphist = "剪贴板历史"
+[wayland]
+wl-clipboard = "剪贴板"
+cliphist = "剪贴板历史"
 # swww = "壁纸引擎"
 # waybar = "状态栏"
 # swaylock = "锁屏"
@@ -99,6 +105,7 @@ firefox.packages = ["firefox", "firefox-i18n-zh-cn"]
 chromium = "谷歌裸核浏览器"
 dbeaver = "PostgreSQL客户端"
 sqlitebrowser = "SQLite客户端"
+keepassxc = "keepass客户端"
 neovide = "丝滑neovim"
 
 [shell]
@@ -234,6 +241,7 @@ aurpublish = "打包钩子"
 
 [unknown]
 android-tools = "安卓调试桥"
+android-studio = { manager = "paru", desc = "安卓IDE" }
 sea-orm-cli = { manager = "cargo:src", desc = "sea-orm工具" }
 genact = "Linux领域大神"
 [unknown.wps]
