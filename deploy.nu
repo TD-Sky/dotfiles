@@ -18,7 +18,7 @@ def main [] {
     | pfs [
         starship.toml fish nushell rofi mimeapps.list
         awesome swaylock plasma-workspace LazyVim
-        neovide wezterm zellij yazi
+        neovide wezterm zellij yazi git
         git-cliff gitui zathura mpv gdb
         pip.conf ghc fontconfig macchina paru
         uv mise
