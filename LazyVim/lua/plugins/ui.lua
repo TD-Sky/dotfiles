@@ -43,6 +43,10 @@ return {
             },
         },
     },
+    {
+        "nvim-focus/focus.nvim",
+        config = true,
+    },
     -- {
     --     "nvimdev/dashboard-nvim",
     --     optional = true,
