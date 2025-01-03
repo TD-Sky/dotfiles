@@ -16,7 +16,9 @@ return {
                 volar = {},
                 tinymist = {},
                 bashls = {},
-                jsonls = {},
+                jsonls = {
+                    filetypes = { "json", "jsonc", "json5" },
+                },
                 slint_lsp = {
                     root_dir = require("lspconfig").util.root_pattern(),
                 },
