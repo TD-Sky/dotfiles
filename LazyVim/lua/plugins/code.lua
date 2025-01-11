@@ -79,6 +79,7 @@ return {
     },
     {
         "saghen/blink.cmp",
+        version = "0.9.3",
         event = "InsertEnter",
         opts = {
             completion = {
@@ -103,10 +104,6 @@ return {
                 window = {
                     border = "rounded",
                 },
-            },
-            keymap = {
-                ["<Tab>"] = { "select_next", "fallback" },
-                ["<S-Tab>"] = { "select_prev", "fallback" },
             },
         },
     },
