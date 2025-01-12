@@ -1,13 +1,37 @@
-[plugin]
-deps = [
-  { use = "DreamMaoMao/searchjump", rev = "e0739c9" },
-  { use = "yazi-rs/plugins:max-preview", rev = "62f0789" },
-  { use = "yazi-rs/plugins:hide-preview", rev = "62f0789" },
-  { use = "yazi-rs/plugins:git", rev = "62f0789" },
-  { use = "Rolv-Apneseth/starship", rev = "247f49d" },
-  { use = "ndtoan96/ouch", rev = "b869886" },
-  { use = "TD-Sky/sudo", rev = "a8287ea" },
-]
+[[plugin.deps]]
+use = "DreamMaoMao/searchjump"
+rev = "bb6607a"
+hash = "bce362d5257b57fe1cef0e0c411716b2"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:max-preview"
+rev = "600614a"
+hash = "9bc26d10d2f6e2aa93b10905b1b76979"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:hide-preview"
+rev = "600614a"
+hash = "5be5885898ca9df783bdec0d402bf4b0"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "600614a"
+hash = "e9cf1bfc03de7fee0f1d4260da0d1dfd"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "4053c8c"
+hash = "3e56b7665569519e3fc54b02868627c4"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "083d564"
+hash = "1e4c0ac1fca31a23412324710193358a"
+
+[[plugin.deps]]
+use = "TD-Sky/sudo"
+rev = "f403008"
+hash = "bd78d2296020f9b410e2c47bc7eb6375"
 
 [flavor]
 deps = []
