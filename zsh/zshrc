@@ -21,19 +21,19 @@ hash -d zdot=$ZDOTDIR
 hash -d downloads=~/Downloads
 
 # 快速提交，内容为当前时区的时间戳
-function t-git {
+t-git() {
 	git commit -m "$(date --rfc-3339 seconds)"
 }
 
 # 交换文件名
-function swap {
+swap() {
 	mv $1 "$1.swapping"
 	mv $2 $1
 	mv "$1.swapping" $2
 }
 
 # 只读
-function vr {
+vr() {
 	cat "${1:-/dev/stdin}" | lvim -R
 }
 
@@ -208,7 +208,7 @@ zle -N clear-screen
 bindkey '^L' clear-screen
 
 zd() {
-    local p=$(sk --ansi -i -c "fd -c 'always' -H -I -E '.git' {}")
+    local p=$(fd -c 'always' -H -I -E '.git' . | fzf --ansi --cycle)
     if [ -f "$p" ]; then
         cd "$(dirname "$p")"
     elif [ -d "$p" ]; then
