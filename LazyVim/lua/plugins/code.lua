@@ -79,7 +79,6 @@ return {
     },
     {
         "saghen/blink.cmp",
-        version = "0.9.3",
         event = "InsertEnter",
         opts = {
             completion = {
@@ -90,13 +89,17 @@ return {
                     border = "rounded",
                 },
                 documentation = {
+                    update_delay_ms = 0,
                     auto_show_delay_ms = 0,
                     window = {
                         border = "rounded",
                     },
                 },
                 list = {
-                    selection = "auto_insert",
+                    selection = {
+                        preselect = true,
+                        auto_insert = true,
+                    },
                 },
             },
             signature = {
