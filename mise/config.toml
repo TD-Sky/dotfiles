@@ -1,3 +1,6 @@
 [tools]
 usage = "latest"
 node = "23.4"
+
+[settings]
+disable_tools = ["python"]
