@@ -1,17 +1,11 @@
 return {
     {
         "TD-Sky/fcitx.nvim",
-        ft = { "markdown", "typst" },
         keys = {
             {
                 "<leader>ux",
-                "<cmd>FcitxEnableSwitch<CR>",
-                desc = "开启输入法自动切换",
-            },
-            {
-                "<leader>uX",
-                "<cmd>FcitxDisableSwitch<CR>",
-                desc = "关闭输入法自动切换",
+                "<cmd>FcitxToggleSwitch<CR>",
+                desc = "开关输入法自动切换",
             },
         },
     },
