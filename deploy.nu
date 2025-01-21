@@ -20,7 +20,7 @@ def main [] {
         awesome swaylock plasma-workspace LazyVim
         neovide wezterm zellij yazi git
         git-cliff gitui zathura mpv gdb
-        pip.conf ghc fontconfig macchina paru
+        pip ghc fontconfig macchina paru
         uv mise atuin
     ] ~/.config
     | pfs [memo applications] ~/.local/share
