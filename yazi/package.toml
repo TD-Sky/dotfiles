@@ -1,26 +1,26 @@
 [[plugin.deps]]
 use = "DreamMaoMao/searchjump"
-rev = "bb6607a"
-hash = "bce362d5257b57fe1cef0e0c411716b2"
+rev = "b88b072"
+hash = "1d317496fa4dd40eba65196227b1167e"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:max-preview"
-rev = "600614a"
+rev = "f202fa8"
 hash = "9bc26d10d2f6e2aa93b10905b1b76979"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:hide-preview"
-rev = "600614a"
+rev = "f202fa8"
 hash = "5be5885898ca9df783bdec0d402bf4b0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "600614a"
-hash = "e9cf1bfc03de7fee0f1d4260da0d1dfd"
+rev = "f202fa8"
+hash = "4d6a07559118975e2dee983d27474d70"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "4053c8c"
+rev = "af8bf6f"
 hash = "3e56b7665569519e3fc54b02868627c4"
 
 [[plugin.deps]]
