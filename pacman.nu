@@ -320,7 +320,6 @@ const MANIFEST = {
     # show
     asciinema: "录制命令行视频",
     screenkey: "按键回显",
-    silicon: "代码截图",
     obs-studio: "流录制",
 
     # cargo
