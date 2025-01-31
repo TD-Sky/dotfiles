@@ -46,3 +46,7 @@ git commit --amend
 
 # 获取仓库的版本戳
 git describe --long --abbrev=7
+
+# 从<commit>到HEAD需要经历几次提交
+git rev-list --count <commit>..HEAD
+$ commit: git log --pretty=format:"%h %s" --- --column 1 --delimiter ' '
