@@ -43,3 +43,6 @@ $ worktree-path: git worktree list --- --column 1
 
 # 修改最新的提交消息
 git commit --amend
+
+# 获取仓库的版本戳
+git describe --long --abbrev=7
