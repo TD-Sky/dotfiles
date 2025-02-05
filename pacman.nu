@@ -170,8 +170,8 @@ const MANIFEST = {
     },
 
     # client
-    firefox: {
-        packages: ["firefox", "firefox-i18n-zh-cn"]
+    zen-browser: {
+        packages: ["zen-browser", "zen-browser-i18n-zh-cn"]
     },
     chromium: "谷歌裸核浏览器",
     dbeaver: "PostgreSQL客户端",
@@ -320,7 +320,6 @@ const MANIFEST = {
     # show
     asciinema: "录制命令行视频",
     screenkey: "按键回显",
-    silicon: "代码截图",
     obs-studio: "流录制",
 
     # cargo
