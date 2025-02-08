@@ -5,23 +5,23 @@ hash = "f8654905a120588786f06b0e3446103"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:max-preview"
-rev = "02d18be"
-hash = "9bc26d10d2f6e2aa93b10905b1b76979"
+rev = "0725851"
+hash = "15b2ff7f6563c14d5b2e93b3e9da35de"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:hide-preview"
-rev = "02d18be"
-hash = "5be5885898ca9df783bdec0d402bf4b0"
+rev = "0725851"
+hash = "55904f17e1053cfb91dacd9015a99f9d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "02d18be"
-hash = "4d6a07559118975e2dee983d27474d70"
+rev = "0725851"
+hash = "771f18427fb75fb19990ce602bb322f4"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "af8bf6f"
-hash = "3e56b7665569519e3fc54b02868627c4"
+rev = "d1cd0a3"
+hash = "d1fee6d0f74cb52d4e031dc6b9207f31"
 
 [[plugin.deps]]
 use = "ndtoan96/ouch"
@@ -30,8 +30,8 @@ hash = "ed6c185514109d7c5463f609282b220c"
 
 [[plugin.deps]]
 use = "TD-Sky/sudo"
-rev = "f403008"
-hash = "bd78d2296020f9b410e2c47bc7eb6375"
+rev = "af70636"
+hash = "a94dcbe9266512806c677138e8591ddb"
 
 [flavor]
 deps = []
