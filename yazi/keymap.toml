@@ -156,7 +156,7 @@ keymap = [
   { on = "<F1>", run = "help", desc = "Open help" },
 
   # Plugin
-  { on = "U", run = "plugin searchjump -- --autocd", desc = "Search Jump" },
+  { on = "U", run = "plugin searchjump -- autocd", desc = "Search Jump" },
   { on = "<A-h>", run = "plugin hide-preview", desc = "Hide/show preview" },
   { on = "<A-m>", run = "plugin max-preview", desc = "Max/minimize preview" },
   { on = ["R", "p", "p"], run = "plugin sudo -- paste", desc = "sudo paste" },

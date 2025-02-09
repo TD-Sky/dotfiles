@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "DreamMaoMao/searchjump"
-rev = "26d3687"
-hash = "f8654905a120588786f06b0e3446103"
+rev = "df6ee75"
+hash = "b82022e48c23a2c8d0879b7bc46990a0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:max-preview"

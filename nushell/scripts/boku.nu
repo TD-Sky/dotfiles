@@ -76,8 +76,8 @@ def 'book fmt' [bk: record] {
         $bk.name,
         ("作者：" + $bk.author),
         ($bk.series | option map {|it| '系列：' + $it }),
-        ($bk.characters | str join ', ' | option map {|it| '角色：' + $it }),
-        ($bk.tags | str join ',' | option map {|it| '要素：' + $it }),
+        ($bk.characters | default [] | str join ', ' | option map {|it| '角色：' + $it }),
+        ($bk.tags | default [] | str join ',' | option map {|it| '要素：' + $it }),
     ]
     | filter {|it| $it != null }
     | str join (char newline)
