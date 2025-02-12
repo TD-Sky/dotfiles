@@ -5,3 +5,6 @@ flutter = "3.24"
 
 [settings]
 disable_tools = ["python"]
+
+[settings.node]
+mirror_url = "https://mirrors.aliyun.com/nodejs-release/"
