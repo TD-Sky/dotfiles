@@ -145,3 +145,4 @@ ld --verbose | rg SEARCH_DIR | tr -s ' ;' \\012
 
 # 获取文件校验码
 sha256sum <file> | choose 0 | xs
+$ file: ls -a1
