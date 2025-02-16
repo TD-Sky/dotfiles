@@ -46,6 +46,9 @@ return {
             -- scroll
             opts.scroll = { enabled = false }
 
+            -- image
+            opts.image = { enabled = true }
+
             -- dashboard
             local projects = {
                 icon = " ",
