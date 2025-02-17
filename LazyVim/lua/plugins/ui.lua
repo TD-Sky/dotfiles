@@ -1,12 +1,5 @@
 return {
     {
-        "rcarriga/nvim-notify",
-        opts = {
-            timeout = 500,
-            stages = "fade",
-        },
-    },
-    {
         "TD-Sky/neo-rhythm",
         opts = {
             range = {
@@ -47,21 +40,24 @@ return {
         "nvim-focus/focus.nvim",
         config = true,
     },
-    -- {
-    --     "nvimdev/dashboard-nvim",
-    --     optional = true,
-    --     opts = function(_, opts)
-    --         local projects = {
-    --             action = "Telescope neovim-project history",
-    --             desc = " Projects",
-    --             icon = " ",
-    --             key = "p",
-    --         }
-    --
-    --         projects.desc = projects.desc .. string.rep(" ", 43 - #projects.desc)
-    --         projects.key_format = "  %s"
-    --
-    --         table.insert(opts.config.center, 3, projects)
-    --     end,
-    -- },
+    {
+        "folke/snacks.nvim",
+        opts = function(_, opts)
+            -- scroll
+            opts.scroll = { enabled = false }
+
+            -- image
+            opts.image = { enabled = true }
+
+            -- dashboard
+            local projects = {
+                icon = " ",
+                key = "p",
+                desc = " Projects",
+                action = "<cmd>Telescope neovim-project history<CR>",
+            }
+
+            table.insert(opts.dashboard.preset.keys, 3, projects)
+        end,
+    },
 }
