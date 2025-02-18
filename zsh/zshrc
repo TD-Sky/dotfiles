@@ -208,7 +208,7 @@ zle -N clear-screen
 bindkey '^L' clear-screen
 
 zd() {
-    local p=$(fd -c 'always' -H -I -E '.git' "$1" . | fzf --ansi --cycle)
+    local p=$(fd -c 'always' -H -I -E '.git' . | fzf --ansi --cycle)
     if [ -f "$p" ]; then
         cd "$(dirname "$p")"
     elif [ -d "$p" ]; then
