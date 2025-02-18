@@ -418,8 +418,8 @@ def main [] {
         uv: [],
     }
     for it in $manifest {
-        let packages = try { $it.packages } | default [$it.name]
-        let mgr = try { $it.manager } | default 'pacman'
+        let packages = $it.packages? | default [$it.name]
+        let mgr = $it.manager? | default 'pacman'
 
         let subtbl = $tbl | get $mgr | append $packages
         $tbl = $tbl | upsert $mgr $subtbl
@@ -427,7 +427,7 @@ def main [] {
 
     try {
         if $paru != null {
-            paru -Sy --needed ...$tbl.paru
+            paru -Sy --needed ...$tbl.pacman ...$tbl.paru
         } else {
             pacman -Sy --needed ...$tbl.pacman
         }
