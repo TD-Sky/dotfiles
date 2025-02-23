@@ -36,11 +36,7 @@ const MANIFEST = {
     QEMU: {
         packages: ["qemu-full"]
     },
-    ventoy: {
-        manager: "paru",
-        packages: ["ventoy-bin"],
-        desc: "制作镜像盘"
-    },
+    ventoy: "制作镜像盘",
     podman: "容器运行时",
     firejail: "沙盒",
 
