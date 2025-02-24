@@ -40,7 +40,11 @@ return {
                 },
                 stdin = true,
             },
-            rust = "rustfmt",
+            rust = {
+                cmd = "rustfmt",
+                args = { "--edition", "2021", "--emit", "stdout" },
+                stdin = true,
+            },
             go = "gofmt",
             ["vue,json,javascript,typescript,xml,yaml,html,css,astro"] = "prettier",
             ["jsonc,json5"] = {
