@@ -42,7 +42,7 @@ return {
             },
             rust = {
                 cmd = "rustfmt",
-                args = { "--edition", "2021", "--emit", "stdout" },
+                args = { "--edition", "2024", "--emit", "stdout" },
                 stdin = true,
             },
             go = "gofmt",
