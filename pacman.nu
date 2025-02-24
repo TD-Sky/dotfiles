@@ -2,20 +2,6 @@
 
 const MANIFEST = {
     # 社交
-    QQ: {
-        packages: ["linuxqq-nt-bwrap"],
-        manager: "paru"
-    },
-    telegram: {
-        packages: ["telegram-desktop"],
-        desc: "电报"
-    },
-    thunderbird: "电子邮件客户端",
-    wechat: {
-        packages: ["wechat-universal-bwrap"],
-        manager: "paru",
-        desc: "微信(沙盒)"
-    },
     wemeet: {
         packages: ["wemeet-bin"],
         manager: "paru",
@@ -172,7 +158,6 @@ const MANIFEST = {
     chromium: "谷歌裸核浏览器",
     dbeaver: "PostgreSQL客户端",
     sqlitebrowser: "SQLite客户端",
-    keepassxc: "keepass客户端",
     neovide: "丝滑neovim",
 
     # shell
