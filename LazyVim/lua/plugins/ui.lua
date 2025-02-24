@@ -42,6 +42,16 @@ return {
     },
     {
         "folke/snacks.nvim",
+        keys = {
+            -- git
+            { "<leader>gb", false },
+            { "<leader>gl", false },
+            { "<leader>gL", false },
+            { "<leader>gs", false },
+            { "<leader>gS", false },
+            { "<leader>gd", false },
+            { "<leader>gf", false },
+        },
         opts = function(_, opts)
             -- scroll
             opts.scroll = { enabled = false }
