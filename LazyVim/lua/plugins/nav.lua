@@ -17,7 +17,6 @@ return {
         keys = {
             { "<leader><space>", false },
             { "<leader>fF", false },
-            { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Find git" },
         },
         opts = {
             pickers = {
