@@ -344,6 +344,7 @@ const MANIFEST = {
         manager: "cargo:src",
         desc: "检查工作空间未使用的pub项",
     },
+    cargo-insta: "懒人测试",
 
     # arch
     nvchecker: "检查包版本",
