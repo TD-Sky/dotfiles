@@ -50,7 +50,6 @@ return {
             { "<leader>gs", false },
             { "<leader>gS", false },
             { "<leader>gd", false },
-            { "<leader>gf", false },
         },
         opts = function(_, opts)
             -- scroll
