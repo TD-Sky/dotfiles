@@ -50,3 +50,9 @@ git describe --long --abbrev=7
 # 从<commit>到HEAD需要经历几次提交
 git rev-list --count <commit>..HEAD
 $ commit: git log --pretty=format:"%h %s" --- --column 1 --delimiter ' '
+
+# 使用mailmap文件替换邮箱
+#
+# 格式：
+# <name> <新邮箱> <旧邮箱>
+git filter-repo --mailmap <mailmap>
