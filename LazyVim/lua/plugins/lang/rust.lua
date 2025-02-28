@@ -80,6 +80,12 @@ return {
                                 enable = "always",
                             },
                         },
+                        procMacro = {
+                            ignored = {
+                                "async_trait::async_trait",
+                                "tokio::test",
+                            },
+                        },
                     },
                 },
             },
