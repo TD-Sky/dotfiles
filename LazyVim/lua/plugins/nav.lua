@@ -14,10 +14,6 @@ return {
     },
     {
         "nvim-telescope/telescope.nvim",
-        keys = {
-            { "<leader><space>", false },
-            { "<leader>fF", false },
-        },
         opts = {
             pickers = {
                 find_files = {
