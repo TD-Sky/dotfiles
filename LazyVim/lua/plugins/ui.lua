@@ -59,14 +59,18 @@ return {
             opts.image = { enabled = true }
 
             -- dashboard
-            local projects = {
+            opts.dashboard.preset.keys[3] = {
                 icon = " ",
                 key = "p",
-                desc = " Projects",
+                desc = "Projects",
                 action = "<cmd>Telescope neovim-project history<CR>",
             }
-
-            table.insert(opts.dashboard.preset.keys, 3, projects)
+            table.insert(opts.dashboard.preset.keys, 2, {
+                icon = "",
+                key = "F",
+                desc = "Find Files (cwd)",
+                action = "<leader>fF",
+            })
         end,
     },
 }
