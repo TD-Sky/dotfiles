@@ -345,6 +345,10 @@ const MANIFEST = {
         desc: "检查工作空间未使用的pub项",
     },
     cargo-insta: "懒人测试",
+    cargo-autoinherit: {
+        manager: "cargo",
+        desc: "一键收束工作空间下的依赖",
+    },
 
     # arch
     nvchecker: "检查包版本",
