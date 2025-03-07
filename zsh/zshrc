@@ -83,7 +83,7 @@ alias pb='curl -F "c=@-" "http://fars.ee/?u=1"'
 alias py='python3'
 alias rsi='rust-script'
 alias v='lvim'
-alias gitui='gitui -d "$(git rev-parse --show-toplevel)"'
+# alias gitui='gitui -d "$(git rev-parse --show-toplevel)"'
 
 alias -g :n='>/dev/null'
 alias -g :nn='&>/dev/null'
