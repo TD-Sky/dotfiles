@@ -221,7 +221,7 @@ const MANIFEST = {
     aichat: "LLM CLI",
 
     # git
-    gitui: "git TUI",
+    lazygit: "git TUI",
     # stgit: {
     #     manager: "paru",
     #     packages: ["stgit", "xmlto"],
