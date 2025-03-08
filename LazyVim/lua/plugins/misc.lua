@@ -38,10 +38,16 @@ return {
         build = "make build_generator",
         keys = {
             {
-                "<leader>us",
+                "<leader>cs",
                 "<cmd>CodeSnap<cr>",
                 mode = { "x" },
                 desc = "Save selected code snapshot into clipboard",
+            },
+            {
+                "<leader>ca",
+                "<cmd>CodeSnapASCII<cr>",
+                mode = { "x" },
+                desc = "Save selected code ASCII snapshot into clipboard",
             },
         },
         opts = {
