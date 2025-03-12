@@ -17,7 +17,7 @@ _k_friendly_name=无障碍辅助
 [kcm_touchpad]
 Disable Touchpad=Touchpad Off,Touchpad Off,
 Enable Touchpad=Touchpad On,Touchpad On,
-Toggle Touchpad=Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,
+Toggle Touchpad=Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,Touchpad Toggle\tTouchpad Toggle\tMeta+Ctrl+Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,
 _k_friendly_name=触摸板
 
 [kmix]
@@ -267,6 +267,9 @@ switch to previous activity=none,,切换到上一个活动
 toggle do not disturb=none,,切换勿扰模式
 
 [services][curl.desktop]
+_launch=Ctrl+Shift+W
+
+[services][net.local.curl.desktop]
 _launch=Ctrl+Shift+W
 
 [services][org.kde.plasma-systemmonitor.desktop]
