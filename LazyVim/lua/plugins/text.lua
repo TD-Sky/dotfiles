@@ -136,4 +136,8 @@ return {
             },
         },
     },
+    {
+        "nvimdev/cwordmini.nvim",
+        config = true,
+    },
 }
