@@ -370,12 +370,18 @@ const MANIFEST = {
     pacman-contrib: "打包工具箱",
     aurpublish: "打包钩子",
 
-    # unknown
+    # android
     android-tools: "安卓调试桥",
     android-studio: {
         manager: "paru",
         desc: "安卓IDE"
     },
+    uiautodev: {
+        manager: "uv",
+        desc: "控件树查看器",
+    },
+
+    # unknown
     # sea-orm-cli: {
     #     manager: "cargo:src",
     #     desc: "sea-orm工具"

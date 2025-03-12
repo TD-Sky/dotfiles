@@ -59,6 +59,7 @@ return {
             opts.image = { enabled = true }
 
             -- dashboard
+            opts.dashboard.preset.keys[1].action = "<leader>ff"
             opts.dashboard.preset.keys[3] = {
                 icon = " ",
                 key = "p",
@@ -68,7 +69,7 @@ return {
             table.insert(opts.dashboard.preset.keys, 2, {
                 icon = "",
                 key = "F",
-                desc = "Find Files (cwd)",
+                desc = "Find Files (Root dir)",
                 action = "<leader>fF",
             })
         end,
