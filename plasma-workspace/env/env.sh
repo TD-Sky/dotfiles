@@ -1,2 +1,3 @@
 export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
+export WEBKIT_DISABLE_DMABUF_RENDERER=1
