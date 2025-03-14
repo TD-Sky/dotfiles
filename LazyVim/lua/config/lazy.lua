@@ -61,5 +61,3 @@ require("lazy").setup({
         },
     },
 })
-
-vim.cmd.highlight("CursorWord guifg=#FF2400")
