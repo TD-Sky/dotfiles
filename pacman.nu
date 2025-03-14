@@ -91,6 +91,7 @@ const MANIFEST = {
         manager: "npm",
         packages: ["@vue/language-server"]
     },
+    biome: "前端格式化器",
     prettier: {
         manager: "npm",
         packages: ["prettier", "@prettier/plugin-xml"],
