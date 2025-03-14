@@ -12,7 +12,6 @@ return {
             vim.cmd.highlight("IndentLine guifg=#808080")
             -- Current indent line highlight
             vim.cmd.highlight("IndentLineCurrent guifg=#FF6347")
-            vim.cmd.highlight("CursorWord guifg=#ffd700 guibg=#000000")
         end,
     },
 }
