@@ -122,7 +122,6 @@ zstyle ':completion:*:process-groups'  hidden  all                          # no
 
 # smartcache comp <command>
 smartcache comp mise completion zsh
-smartcache comp cargo tauri completions -s zsh 2> /dev/null
 
 #==============#
 # Key Bindings #
