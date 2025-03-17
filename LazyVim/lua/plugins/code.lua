@@ -46,13 +46,13 @@ return {
                 stdin = true,
             },
             go = "gofmt",
-            ["vue,json,javascript,typescript,xml,yaml,html,css,astro"] = "prettier",
-            ["jsonc,json5"] = {
-                cmd = "prettier",
-                args = { "--trailing-comma", "none", "--stdin-filepath" },
+            ["json,jsonc,json5,javascript,typescript,css"] = {
+                cmd = "biome",
+                args = { "format", "--write", "--indent-style=space" },
                 fname = true,
-                stdin = true,
+                stdin = false,
             },
+            ["vue,xml,yaml,html,astro"] = "prettier",
             typst = {
                 cmd = "typstyle",
                 stdin = true,
