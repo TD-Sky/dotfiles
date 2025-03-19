@@ -87,11 +87,17 @@ return {
         event = "InsertEnter",
         opts = {
             completion = {
+                accept = {
+                    auto_brackets = {
+                        enabled = false,
+                    },
+                },
                 trigger = {
                     show_on_x_blocked_trigger_characters = { "'", '"', "(", "{", "=" },
                 },
                 menu = {
                     border = "rounded",
+                    winblend = 10,
                     draw = {
                         columns = {
                             { "kind_icon" },
