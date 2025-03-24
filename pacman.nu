@@ -188,6 +188,7 @@ const MANIFEST = {
         manager: "paru",
         desc: "垃圾回收站"
     },
+    kdiff3: "比较文件/目录",
 
     # utility
     man: {

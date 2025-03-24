@@ -119,7 +119,7 @@ return {
                     },
                 },
                 documentation = {
-                    update_delay_ms = 0,
+                    update_delay_ms = 50,
                     auto_show_delay_ms = 0,
                     window = {
                         border = "rounded",
