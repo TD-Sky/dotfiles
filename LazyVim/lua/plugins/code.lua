@@ -86,6 +86,16 @@ return {
         dependencies = { "xzbdmw/colorful-menu.nvim" },
         event = "InsertEnter",
         opts = {
+            sources = {
+                providers = {
+                    buffer = {
+                        opts = {
+                            -- get all buffers, even ones like neo-tree
+                            get_bufnrs = vim.api.nvim_list_bufs,
+                        },
+                    },
+                },
+            },
             completion = {
                 accept = {
                     auto_brackets = {
