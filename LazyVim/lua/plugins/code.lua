@@ -57,6 +57,11 @@ return {
                 cmd = "typstyle",
                 stdin = true,
             },
+            kotlin = {
+                cmd = "ktfmt",
+                args = { "--kotlinlang-style", "-" },
+                stdin = true,
+            },
         },
         config = function(_, opts)
             local ft = require("guard.filetype")
