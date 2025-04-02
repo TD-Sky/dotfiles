@@ -122,6 +122,7 @@ def rec-impl [
         series: $series,
         characters: $chars,
         tags: $tags,
+        pages: (ls $book | length),
     }
     print {
         id: $id,
@@ -161,6 +162,7 @@ def 'book fmt' [bk: record] {
         ($bk.series | option map {|it| '系列：' + $it }),
         ($bk.characters | default [] | str join ', ' | option map {|it| '角色：' + $it }),
         ($bk.tags | default [] | str join ',' | option map {|it| '要素：' + $it }),
+        ("页数：" + $bk.pages),
     ]
     | filter {|it| $it != null }
     | str join (char newline)
