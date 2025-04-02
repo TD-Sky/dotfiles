@@ -306,7 +306,10 @@ const MANIFEST = {
 
     # cargo
     cargo-generate: "项目模板",
-    cargo-machete: "检查无用依赖",
+    cargo-shear: {
+        manager: "cargo",
+        desc: "检查无用依赖",
+    },
     cargo-msrv: "最旧可用rustc版本",
     cargo-expand: "展开宏",
     cargo-edit: "编辑依赖",
