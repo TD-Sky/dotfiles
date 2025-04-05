@@ -48,7 +48,7 @@ return {
             go = "gofmt",
             ["json,jsonc,json5,javascript,typescript,css"] = {
                 cmd = "biome",
-                args = { "format", "--write", "--indent-style=space", "--stdin-file-path" },
+                args = { "format", "--indent-style=space", "--stdin-file-path" },
                 fname = true,
                 stdin = true,
             },
