@@ -90,7 +90,7 @@ suppress_preload = false
 [plugin]
 fetchers = [
   # Mimetype
-  { id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
+  { id = "mime", name = "*", run = "mime", prio = "high" },
   { id = "git", name = "*", run = "git" },
   { id = "git", name = "*/", run = "git" },
 ]
@@ -98,9 +98,10 @@ spotters = [
   { name = "*/", run = "folder" },
   # Code
   { mime = "text/*", run = "code" },
-  { mime = "*/{xml,javascript,wine-extension-ini}", run = "code" },
+  { mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
   # Image
-  { mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
+  { mime = "image/{avif,hei?,jxl}", run = "magick" },
+  { mime = "image/svg+xml", run = "svg" },
   { mime = "image/*", run = "image" },
   # Video
   { mime = "video/*", run = "video" },
@@ -109,7 +110,8 @@ spotters = [
 ]
 preloaders = [
   # Image
-  { mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
+  { mime = "image/{avif,hei?,jxl}", run = "magick" },
+  { mime = "image/svg+xml", run = "svg" },
   { mime = "image/*", run = "image" },
   # Video
   { mime = "video/*", run = "video" },
@@ -117,17 +119,18 @@ preloaders = [
   { mime = "application/pdf", run = "pdf" },
   # Font
   { mime = "font/*", run = "font" },
-  { mime = "application/vnd.ms-opentype", run = "font" },
+  { mime = "application/ms-opentype", run = "font" },
 ]
 previewers = [
-  { name = "*/", run = "folder", sync = true },
+  { name = "*/", run = "folder" },
   # Code
   { mime = "text/*", run = "code" },
-  { mime = "*/{xml,javascript,wine-extension-ini}", run = "code" },
+  { mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
   # JSON
   { mime = "application/{json,ndjson}", run = "json" },
   # Image
-  { mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
+  { mime = "image/{avif,hei?,jxl}", run = "magick" },
+  { mime = "image/svg+xml", run = "svg" },
   { mime = "image/*", run = "image" },
   # Video
   { mime = "video/*", run = "video" },
@@ -136,9 +139,15 @@ previewers = [
   # Archive
   { mime = "application/{gzip,x-bzip*,xz,zstd}", run = "ouch" },
   { mime = "application/{tar,7z-compressed,rar,iso9660-image,zip}", run = "archive" },
+  { mime = "application/{debian*-package,redhat-package-manager,rpm,android.package-archive}", run = "archive" },
+  { name = "*.{AppImage,appimage}", run = "archive" },
+  # Virtual Disk / Disk Image
+  { mime = "application/{iso9660-image,qemu-disk,ms-wim,apple-diskimage}", run = "archive" },
+  { mime = "application/virtualbox-{vhd,vhdx}", run = "archive" },
+  { name = "*.{img,fat,ext,ext2,ext3,ext4,squashfs,ntfs,hfs,hfsx}", run = "archive" },
   # Font
   { mime = "font/*", run = "font" },
-  { mime = "application/vnd.ms-opentype", run = "font" },
+  { mime = "application/ms-opentype", run = "font" },
   # Empty file
   { mime = "inode/empty", run = "empty" },
   # Fallback
@@ -202,7 +211,7 @@ overwrite_offset = [0, 0, 50, 15]
 
 # quit
 quit_title = "Quit?"
-quit_content = "The following task is still running, are you sure you want to quit?"
+quit_content = "The following tasks are still running, are you sure you want to quit?"
 quit_origin = "center"
 quit_offset = [0, 0, 50, 15]
 
