@@ -46,7 +46,7 @@ return {
                 stdin = true,
             },
             go = "gofmt",
-            ["json,jsonc,json5,javascript,typescript,css"] = {
+            ["json,jsonc,json5,javascript,typescript,javascriptreact,typescriptreact,css"] = {
                 cmd = "biome",
                 args = { "format", "--indent-style=space", "--stdin-file-path" },
                 fname = true,
