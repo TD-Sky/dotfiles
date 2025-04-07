@@ -46,11 +46,11 @@ return {
                 stdin = true,
             },
             go = "gofmt",
-            ["json,jsonc,json5,javascript,typescript,css"] = {
+            ["json,jsonc,json5,javascript,typescript,javascriptreact,typescriptreact,css"] = {
                 cmd = "biome",
-                args = { "format", "--write", "--indent-style=space" },
+                args = { "format", "--indent-style=space", "--stdin-file-path" },
                 fname = true,
-                stdin = false,
+                stdin = true,
             },
             ["vue,xml,yaml,html,astro"] = "prettier",
             typst = {
