@@ -13,7 +13,7 @@ return {
                 "html", "vue",
                 "css", "scss",
                 "javascript", "typescript",
-                "java", "kotlin",
+                "java", "kotlin", "groovy",
                 "json", "json5", "jsonc",
                 "latex", "bibtex",
                 "markdown", "markdown_inline",
