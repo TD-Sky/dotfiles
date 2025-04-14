@@ -1,22 +1,22 @@
 [[plugin.deps]]
 use = "DreamMaoMao/searchjump"
-rev = "df6ee75"
-hash = "b82022e48c23a2c8d0879b7bc46990a0"
+rev = "de54414"
+hash = "23e063e40a8dcded2a37c5433a627846"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "9a09505"
+rev = "b12a9ab"
 hash = "e0ada736ea676c2bbb3ec705a49526ef"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "6c639b4"
-hash = "5614c46d5de76623c283d415bfac8025"
+rev = "c070754"
+hash = "ebe49da58741aa3bf06c49ee394e0a5a"
 
 [[plugin.deps]]
 use = "ndtoan96/ouch"
-rev = "558188d"
-hash = "2d0afef7b50747c543c4304004a72cec"
+rev = "2496cd9"
+hash = "5b9dea47776a30946cfbf83232d18fb1"
 
 [[plugin.deps]]
 use = "TD-Sky/sudo"
@@ -25,8 +25,13 @@ hash = "a94dcbe9266512806c677138e8591ddb"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "9a09505"
+rev = "b12a9ab"
 hash = "5c9dda1a587b8f5b6f63e3d5375bda88"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:piper"
+rev = "b12a9ab"
+hash = "a8e41f245a689dabee8e4ff06483a4eb"
 
 [flavor]
 deps = []
