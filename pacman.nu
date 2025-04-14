@@ -371,7 +371,11 @@ const MANIFEST = {
     },
 
     # arch
-    nvchecker: "检查包版本",
+    nvrs: {
+        manager: "paru",
+        packages: ["nvrs-bin"],
+        desc: "检查包版本",
+    },
     pacman-contrib: "打包工具箱",
     aurpublish: "打包钩子",
 
@@ -383,7 +387,7 @@ const MANIFEST = {
     },
     uiautodev: {
         manager: "uv",
-        desc: "控件树查看器",
+        desc: "安卓控件树查看器",
     },
 
     # unknown
