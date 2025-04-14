@@ -314,6 +314,7 @@ const MANIFEST = {
     clash-verge: "飞越长城",
     openssh: "ssh",
     xh: "人类友好的http客户端",
+    rustscan: "扫描端口",
 
     # show
     asciinema: "录制命令行视频",
