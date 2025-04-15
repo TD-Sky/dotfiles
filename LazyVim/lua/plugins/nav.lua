@@ -118,6 +118,20 @@ return {
                 end,
                 desc = "Find Files (Root Dir)",
             },
+            {
+                "<leader>sg",
+                function()
+                    Snacks.picker.grep()
+                end,
+                desc = "Grep (cwd)",
+            },
+            {
+                "<leader>sG",
+                function()
+                    Snacks.picker.grep({ cwd = require("lazyvim.util").root.get() })
+                end,
+                desc = "Grep (Root Dir)",
+            },
         },
     },
 }
