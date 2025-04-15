@@ -24,7 +24,6 @@ const MANIFEST = {
     },
     ventoy: "制作镜像盘",
     podman: "容器运行时",
-    firejail: "沙盒",
 
     # kernel
     linux-headers: "内核头文件",
@@ -77,6 +76,7 @@ const MANIFEST = {
         manager: "npm",
         packages: ["@vue/language-server"]
     },
+    biome: "前端格式化器",
     prettier: {
         manager: "npm",
         packages: ["prettier", "@prettier/plugin-xml"],
@@ -299,6 +299,7 @@ const MANIFEST = {
     clash-verge: "飞越长城",
     openssh: "ssh",
     xh: "人类友好的http客户端",
+    rustscan: "扫描端口",
 
     # show
     asciinema: "录制命令行视频",
@@ -356,7 +357,11 @@ const MANIFEST = {
     },
 
     # arch
-    nvchecker: "检查包版本",
+    nvrs: {
+        manager: "paru",
+        packages: ["nvrs-bin"],
+        desc: "检查包版本",
+    },
     pacman-contrib: "打包工具箱",
     aurpublish: "打包钩子",
 
@@ -368,7 +373,7 @@ const MANIFEST = {
     },
     uiautodev: {
         manager: "uv",
-        desc: "控件树查看器",
+        desc: "安卓控件树查看器",
     },
 
     # unknown

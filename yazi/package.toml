@@ -14,11 +14,6 @@ rev = "c070754"
 hash = "ebe49da58741aa3bf06c49ee394e0a5a"
 
 [[plugin.deps]]
-use = "ndtoan96/ouch"
-rev = "2496cd9"
-hash = "5b9dea47776a30946cfbf83232d18fb1"
-
-[[plugin.deps]]
 use = "TD-Sky/sudo"
 rev = "af70636"
 hash = "a94dcbe9266512806c677138e8591ddb"
