@@ -278,6 +278,10 @@ const MANIFEST = {
         manager: "paru",
         desc: "纠正英文单词"
     },
+    pdf2zh: {
+        manager: "uv",
+        desc: "智能布局留存翻译PDF",
+    },
 
     # monitor
     acpi: "电池信息",

@@ -1,7 +1,7 @@
 if vim.g.neovide then
     vim.g.neovide_input_ime = true
     vim.g.neovide_scale_factor = 1.3
-    vim.g.neovide_cursor_animation_length = 0.080
+    vim.g.neovide_cursor_animation_length = 0.050
     vim.g.neovide_cursor_trail_size = 0.3
     vim.g.neovide_scroll_animation_length = 0.3
     vim.g.neovide_scroll_animation_far_lines = 1
