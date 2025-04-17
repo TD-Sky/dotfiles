@@ -28,5 +28,10 @@ use = "yazi-rs/plugins:piper"
 rev = "b12a9ab"
 hash = "a8e41f245a689dabee8e4ff06483a4eb"
 
+[[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "7a08a09"
+hash = "a1fa2b3e1826c3a34804ea8c548e9f80"
+
 [flavor]
 deps = []
