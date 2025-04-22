@@ -35,8 +35,8 @@ keymap = [
   { on = "<Left>", run = "leave", desc = "Back to the parent directory" },
   { on = "<Right>", run = "enter", desc = "Enter the child directory" },
 
-  { on = "H", run = "back", desc = "Back to previous directory" },
-  { on = "L", run = "forward", desc = "Forward to next directory" },
+  { on = "<C-o>", run = "back", desc = "Back to previous directory" },
+  { on = "<C-i>", run = "forward", desc = "Forward to next directory" },
 
   # Toggle
   { on = "<Space>", run = ["toggle", "arrow next"], desc = "Toggle the current selection state" },
@@ -142,8 +142,8 @@ keymap = [
   { on = "8", run = "tab_switch 7", desc = "Switch to eighth tab" },
   { on = "9", run = "tab_switch 8", desc = "Switch to ninth tab" },
 
-  { on = "[", run = "tab_switch -1 --relative", desc = "Switch to previous tab" },
-  { on = "]", run = "tab_switch 1 --relative", desc = "Switch to next tab" },
+  { on = "H", run = "tab_switch -1 --relative", desc = "Switch to previous tab" },
+  { on = "L", run = "tab_switch 1 --relative", desc = "Switch to next tab" },
 
   { on = "{", run = "tab_swap -1", desc = "Swap current tab with previous tab" },
   { on = "}", run = "tab_swap 1", desc = "Swap current tab with next tab" },
