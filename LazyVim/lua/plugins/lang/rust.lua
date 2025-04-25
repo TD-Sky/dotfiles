@@ -24,6 +24,7 @@ return {
         "mrcjkb/rustaceanvim",
         ft = { "rust" },
         keys = {
+            { "<leader>cc", "<cmd>RustLsp flyCheck<CR>", ft = "rust", desc = "主动检查" },
             { "<leader>ce", "<cmd>RustLsp expandMacro<CR>", ft = "rust", desc = "展开宏" },
             { "<leader>cg", "<cmd>RustLsp openCargo<CR>", ft = "rust", desc = "编辑Cargo.toml" },
             { "<leader>cd", "<cmd>RustLsp openDocs<CR>", ft = "rust", desc = "打开文档" },
@@ -68,7 +69,7 @@ return {
                             },
                             workspace = false,
                         },
-                        checkOnSave = true,
+                        checkOnSave = false,
                         inlayHints = {
                             typeHints = {
                                 enable = false,
