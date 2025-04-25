@@ -285,6 +285,7 @@ const MANIFEST = {
     },
     webp-pixbuf-loader: "GDK的webp支持",
     inkscape: "操作矢量图",
+    poppler: "`pdftoppm -png`将PDF转成图片",
 
     # language
     pot-translation: "一站式翻译",
