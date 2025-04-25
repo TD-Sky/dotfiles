@@ -67,7 +67,7 @@ return {
             local ft = require("guard.filetype")
 
             for lang, opt in pairs(opts) do
-                ft(lang):fmt(opt)
+                ft(lang):fmt(opt):lint("typos")
             end
 
             vim.g.guard_config = {
