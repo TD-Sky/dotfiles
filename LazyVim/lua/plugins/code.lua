@@ -10,64 +10,73 @@ return {
             { "<leader>lf", "<cmd>Guard fmt<cr>", desc = "异步格式化" },
         },
         opts = {
-            lua = {
-                cmd = "stylua",
-                args = { "--indent-type", "Spaces", "-" },
-                stdin = true,
-            },
-            python = "ruff",
-            toml = "taplo",
-            -- ocaml = {
-            --     cmd = "ocamlformat",
-            --     args = {
-            --         "--enable-outside-detected-project",
-            --         "--name",
-            --         utils.vim.current_buffer_name(),
-            --         "-",
-            --     },
-            --     stdin = true,
-            -- },
-            sh = {
-                cmd = "shfmt",
-                args = { "-i", "4" },
-                stdin = true,
-            },
-            ["c,cpp"] = {
-                cmd = "clang-format",
-                args = {
-                    "--style",
-                    "{IndentWidth: 4}",
+            fmt = {
+                lua = {
+                    cmd = "stylua",
+                    args = { "--indent-type", "Spaces", "-" },
+                    stdin = true,
                 },
-                stdin = true,
+                python = "ruff",
+                toml = "taplo",
+                -- ocaml = {
+                --     cmd = "ocamlformat",
+                --     args = {
+                --         "--enable-outside-detected-project",
+                --         "--name",
+                --         utils.vim.current_buffer_name(),
+                --         "-",
+                --     },
+                --     stdin = true,
+                -- },
+                sh = {
+                    cmd = "shfmt",
+                    args = { "-i", "4" },
+                    stdin = true,
+                },
+                ["c,cpp"] = {
+                    cmd = "clang-format",
+                    args = {
+                        "--style",
+                        "{IndentWidth: 4}",
+                    },
+                    stdin = true,
+                },
+                rust = {
+                    cmd = "rustfmt",
+                    args = { "--edition", "2024", "--emit", "stdout" },
+                    stdin = true,
+                },
+                go = "gofmt",
+                ["json,jsonc,json5,javascript,typescript,javascriptreact,typescriptreact,css"] = {
+                    cmd = "biome",
+                    args = { "format", "--indent-style=space", "--stdin-file-path" },
+                    fname = true,
+                    stdin = true,
+                },
+                ["vue,xml,yaml,html,astro"] = "prettier",
+                typst = {
+                    cmd = "typstyle",
+                    stdin = true,
+                },
+                kotlin = {
+                    cmd = "ktfmt",
+                    args = { "--kotlinlang-style", "-" },
+                    stdin = true,
+                },
             },
-            rust = {
-                cmd = "rustfmt",
-                args = { "--edition", "2024", "--emit", "stdout" },
-                stdin = true,
-            },
-            go = "gofmt",
-            ["json,jsonc,json5,javascript,typescript,javascriptreact,typescriptreact,css"] = {
-                cmd = "biome",
-                args = { "format", "--indent-style=space", "--stdin-file-path" },
-                fname = true,
-                stdin = true,
-            },
-            ["vue,xml,yaml,html,astro"] = "prettier",
-            typst = {
-                cmd = "typstyle",
-                stdin = true,
-            },
-            kotlin = {
-                cmd = "ktfmt",
-                args = { "--kotlinlang-style", "-" },
-                stdin = true,
+            lint = {
+                ["c,cpp,rust,go,python"] = "typos",
             },
         },
         config = function(_, opts)
             local ft = require("guard.filetype")
 
-            for lang, opt in pairs(opts) do
-                ft(lang):fmt(opt):lint("typos")
+            for lang, opt in pairs(opts.fmt) do
+                ft(lang):fmt(opt)
+            end
+
+            for lang, opt in pairs(opts.lint) do
+                ft(lang):lint(opt)
             end
 
             vim.g.guard_config = {
