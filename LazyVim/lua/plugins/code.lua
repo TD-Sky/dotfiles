@@ -65,18 +65,18 @@ return {
                 },
             },
             lint = {
-                ["c,cpp,rust,go,python"] = "typos",
+                typos = "c,cpp,rust,go,python,lua",
             },
         },
         config = function(_, opts)
             local ft = require("guard.filetype")
 
             for lang, opt in pairs(opts.fmt) do
-                ft(lang):fmt(opt)
-            end
+                local f = ft(lang):fmt(opt)
 
-            for lang, opt in pairs(opts.lint) do
-                ft(lang):lint(opt)
+                if opts.lint.typos:find(lang) then
+                    f:lint("typos")
+                end
             end
 
             vim.g.guard_config = {
