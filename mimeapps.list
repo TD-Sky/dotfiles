@@ -40,7 +40,7 @@ text/plain=lvide.desktop;
 text/x-cmake=lvide.desktop;
 x-scheme-handler/about=zen-browser.desktop;
 x-scheme-handler/chrome=zen-browser.desktop
-x-scheme-handler/clash=clash-verge.desktop
+x-scheme-handler/clash=clash-nyanpasu-handler.desktop
 x-scheme-handler/http=zen-browser.desktop
 x-scheme-handler/https=zen-browser.desktop
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop;
@@ -49,6 +49,7 @@ x-scheme-handler/terminal=org.wezfurlong.wezterm.desktop;
 x-scheme-handler/tg=org.telegram.desktop.desktop;
 x-scheme-handler/unknown=zen-browser.desktop;
 application/xhtml+xml=zen-browser.desktop
+x-scheme-handler/clash-nyanpasu=clash-nyanpasu-handler.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen-browser.desktop;
