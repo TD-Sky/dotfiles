@@ -10,6 +10,7 @@ def main [
     cd ~/Templates/dev
     let template = ^ls -1
         | sk -i --ansi -c 'fd {}' --preview 'bat -pp --color=always {}'
+    cd -
 
     print $template
 
@@ -21,7 +22,7 @@ def main [
 
     let dest = $in_dir | path join ($stem + $extension)
 
-    cp $template $dest
+    cp $"($env.HOME)/Templates/dev/($template)" $dest
 
     run-external $env.EDITOR $dest
 }

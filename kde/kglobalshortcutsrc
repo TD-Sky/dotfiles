@@ -9,6 +9,13 @@ Switch to Last-Used Keyboard Layout=Meta+Alt+L,Meta+Alt+L,切换到上次使用�
 Switch to Next Keyboard Layout=Meta+Alt+K,Meta+Alt+K,切换到下一个键盘布局
 _k_friendly_name=键盘布局切换器
 
+[Strawberry]
+_k_friendly_name=Strawberry
+next_track=none,none,Next track
+play_pause=none,none,Play/Pause
+prev_track=none,none,Previous track
+stop=none,none,Stop
+
 [kaccess]
 Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,切换屏幕阅读器开关
 _k_friendly_name=无障碍辅助
