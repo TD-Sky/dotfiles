@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "DreamMaoMao/searchjump"
-rev = "de54414"
-hash = "23e063e40a8dcded2a37c5433a627846"
+rev = "afdb098"
+hash = "55bbc93f23b543dee938cf35d18d2bc6"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
