@@ -1,5 +1,3 @@
-local utils = require("utils")
-
 return {
     {
         "nvimdev/guard.nvim",
@@ -163,5 +161,15 @@ return {
                 },
             },
         },
+    },
+    {
+        "nvim-neotest/neotest",
+        opts = function()
+            return {
+                adapters = {
+                    require("rustaceanvim.neotest"),
+                },
+            }
+        end,
     },
 }

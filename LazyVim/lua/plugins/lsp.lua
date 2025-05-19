@@ -168,9 +168,6 @@ return {
                 max_height = 0.8,
                 default = "ref",
             },
-            lightbulb = {
-                sign = false, -- 关掉状态列内的显示，否则会屏幕一直闪
-            },
         },
     },
 }
