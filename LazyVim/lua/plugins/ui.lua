@@ -40,38 +40,4 @@ return {
         "nvim-focus/focus.nvim",
         config = true,
     },
-    {
-        "folke/snacks.nvim",
-        keys = {
-            -- git
-            { "<leader>gb", false },
-            { "<leader>gl", false },
-            { "<leader>gL", false },
-            { "<leader>gs", false },
-            { "<leader>gS", false },
-            { "<leader>gd", false },
-        },
-        opts = function(_, opts)
-            -- scroll
-            opts.scroll = { enabled = false }
-
-            -- image
-            opts.image = { enabled = true }
-
-            -- dashboard
-            opts.dashboard.preset.keys[1].action = "<leader>ff"
-            opts.dashboard.preset.keys[3] = {
-                icon = " ",
-                key = "p",
-                desc = "Projects",
-                action = "<cmd>Telescope neovim-project history<CR>",
-            }
-            table.insert(opts.dashboard.preset.keys, 2, {
-                icon = "",
-                key = "F",
-                desc = "Find Files (Root dir)",
-                action = "<leader>fF",
-            })
-        end,
-    },
 }
