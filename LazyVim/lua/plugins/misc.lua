@@ -34,27 +34,86 @@ return {
     },
     { "lambdalisue/suda.vim" },
     {
-        "mistricky/codesnap.nvim",
-        build = "make build_generator",
+        "folke/snacks.nvim",
         keys = {
             {
-                "<leader>cs",
-                "<cmd>CodeSnap<cr>",
-                mode = { "x" },
-                desc = "Save selected code snapshot into clipboard",
+                "<leader>ff",
+                function()
+                    Snacks.picker.files()
+                end,
+                desc = "Find Files (cwd)",
             },
             {
-                "<leader>ca",
-                "<cmd>CodeSnapASCII<cr>",
-                mode = { "x" },
-                desc = "Save selected code ASCII snapshot into clipboard",
+                "<leader>fF",
+                function()
+                    Snacks.picker.files({ cwd = require("lazyvim.util").root.get() })
+                end,
+                desc = "Find Files (Root Dir)",
             },
+            {
+                "<leader>sg",
+                function()
+                    Snacks.picker.grep()
+                end,
+                desc = "Grep (cwd)",
+            },
+            {
+                "<leader>sG",
+                function()
+                    Snacks.picker.grep({ cwd = require("lazyvim.util").root.get() })
+                end,
+                desc = "Grep (Root Dir)",
+            },
+            {
+                "<leader>ft",
+                function()
+                    Snacks.terminal()
+                end,
+                desc = "Terminal (cwd)",
+            },
+            {
+                "<leader>fT",
+                function()
+                    Snacks.terminal(nil, { cwd = require("lazyvim.util").root.get() })
+                end,
+                desc = "Terminal (Root Dir)",
+            },
+            {
+                "<c-/>",
+                function()
+                    Snacks.terminal()
+                end,
+                desc = "Terminal (cwd)",
+            },
+            -- git
+            { "<leader>gb", false },
+            { "<leader>gl", false },
+            { "<leader>gL", false },
+            { "<leader>gs", false },
+            { "<leader>gS", false },
+            { "<leader>gd", false },
         },
-        opts = {
-            mac_window_bar = false,
-            bg_x_padding = 10,
-            bg_y_padding = 10,
-            has_line_number = true,
-        },
+        opts = function(_, opts)
+            -- scroll
+            opts.scroll = { enabled = false }
+
+            -- image
+            opts.image = { enabled = true }
+
+            -- dashboard
+            opts.dashboard.preset.keys[1].action = "<leader>ff"
+            opts.dashboard.preset.keys[3] = {
+                icon = " ",
+                key = "p",
+                desc = "Projects",
+                action = "<cmd>Telescope neovim-project history<CR>",
+            }
+            table.insert(opts.dashboard.preset.keys, 2, {
+                icon = "",
+                key = "F",
+                desc = "Find Files (Root dir)",
+                action = "<leader>fF",
+            })
+        end,
     },
 }
