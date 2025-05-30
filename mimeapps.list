@@ -49,7 +49,7 @@ x-scheme-handler/terminal=org.wezfurlong.wezterm.desktop;
 x-scheme-handler/tg=org.telegram.desktop.desktop;
 x-scheme-handler/unknown=zen-browser.desktop;
 application/xhtml+xml=zen-browser.desktop
-x-scheme-handler/cherrystudio=CherryStudio.desktop
+x-scheme-handler/cherrystudio=cherry-studio-electron.desktop
 x-scheme-handler/clash-nyanpasu=clash-nyanpasu-handler.desktop
 
 [Added Associations]
