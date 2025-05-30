@@ -114,6 +114,24 @@ return {
                 desc = "Find Files (Root dir)",
                 action = "<leader>fF",
             })
+
+            -- zen
+            opts.zen = {
+                toggles = {
+                    dim = false,
+                    git_signs = true,
+                },
+            }
+
+            -- styles
+            opts.styles = {
+                zen = {
+                    backdrop = {
+                        transparent = false,
+                        blend = 99,
+                    },
+                },
+            }
         end,
     },
 }
