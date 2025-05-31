@@ -62,6 +62,7 @@ const MANIFEST = {
     rustup: "管理rust工具链",
     tokei: "统计代码",
     gcc: "GNU的C/C++工具链",
+    ast-grep: "匹配搜索 tree-sitter",
     rescript: {
         manager: "npm",
         desc: "rescript工具链"

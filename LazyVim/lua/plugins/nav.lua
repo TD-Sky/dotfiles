@@ -1,4 +1,5 @@
 local LazyVim = require("lazyvim.util")
+local utils = require("utils")
 
 return {
     {
@@ -99,6 +100,28 @@ return {
             { "nvim-lua/plenary.nvim" },
             { "nvim-telescope/telescope.nvim" },
             { "Shatur/neovim-session-manager" },
+        },
+    },
+    {
+        "MagicDuck/grug-far.nvim",
+        keys = {
+            {
+                "gs",
+                function()
+                    local grug = require("grug-far")
+
+                    grug.open({
+                        engine = "astgrep",
+                        transient = true,
+                        prefills = {
+                            filesFilter = utils.path.filename(utils.vim.current_buffer_path()),
+                        },
+                        visualSelectionUsage = "operate-within-range",
+                    })
+                end,
+                mode = { "n", "v" },
+                desc = "Search and Replace AST",
+            },
         },
     },
 }
