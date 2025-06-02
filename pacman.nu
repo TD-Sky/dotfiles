@@ -26,11 +26,6 @@ const MANIFEST = {
         manager: "paru",
         desc: "飞书"
     },
-    dingtalk: {
-        packages: ["dingtalk-bin"],
-        manager: "paru",
-        desc: "钉钉"
-    },
 
     # OS
     QEMU: {
@@ -63,14 +58,6 @@ const MANIFEST = {
     tokei: "统计代码",
     gcc: "GNU的C/C++工具链",
     ast-grep: "匹配搜索 tree-sitter",
-    rescript: {
-        manager: "npm",
-        desc: "rescript工具链"
-    },
-    nrm: {
-        manager: "npm",
-        desc: "管理npm镜像源"
-    },
     cargo-binutils: {
         manager: "cargo",
         desc: "Rust二进制工具"
@@ -100,10 +87,6 @@ const MANIFEST = {
     mise: "管理语言工具链",
     bash-language-server: {
         manager: "npm"
-    },
-    mlc: {
-        manager: "cargo",
-        desc: "markdown linter"
     },
     sccache: "编译缓存",
     kondo: "扫除编译产物",
@@ -273,7 +256,6 @@ const MANIFEST = {
         desc: "LaTex渲染器"
     },
     kid3-qt: "编辑音乐标签",
-    # krita: "绘画",
     espeak: {
         packages: ["espeak-ng"],
         desc: "电子朗读"
@@ -287,6 +269,16 @@ const MANIFEST = {
     webp-pixbuf-loader: "GDK的webp支持",
     inkscape: "操作矢量图",
     poppler: "`pdftoppm -png`将PDF转成图片",
+    wps: {
+        packages: [
+            "wps-office-cn",
+            "wps-office-mui-zh-cn",
+            "ttf-wps-fonts",
+            "wps-office-fonts"
+        ],
+        manager: "paru",
+        desc: "WPS本体+中文语言包+符号字体+中文常用字体"
+    }
 
     # language
     pot-translation: "一站式翻译",
@@ -307,8 +299,8 @@ const MANIFEST = {
     light: "调节亮度",
     pamixer: "调节音量",
     procs: "查看进程",
-    pulsemixer: "音量面板",
-    duf: "统计分区大小",
+    wiremix: "音量面板",
+    dysk: "统计分区大小",
     erdtree: "体积伴随文件树",
     macchina: "系统信息",
 
@@ -346,10 +338,6 @@ const MANIFEST = {
     cargo-cache: {
         manager: "cargo",
         desc: "管理缓存"
-    },
-    cross: {
-        manager: "cargo",
-        desc: "交叉编译"
     },
     cargo-xwin: {
         manager: "cargo",
@@ -397,21 +385,7 @@ const MANIFEST = {
     },
 
     # unknown
-    # sea-orm-cli: {
-    #     manager: "cargo:src",
-    #     desc: "sea-orm工具"
-    # },
     genact: "Linux领域大神",
-    wps: {
-        packages: [
-            "wps-office-cn",
-            "wps-office-mui-zh-cn",
-            "ttf-wps-fonts",
-            "wps-office-fonts"
-        ],
-        manager: "paru",
-        desc: "WPS本体+中文语言包+符号字体+中文常用字体"
-    }
 }
 
 def main [] {
