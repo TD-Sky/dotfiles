@@ -3,6 +3,7 @@ local M = {
     vim = {},
     string = {},
     treesitter = {},
+    path = {},
 }
 
 -- 表扩充，浅拷贝，键冲突时采用other
@@ -15,8 +16,8 @@ function M.table.force_extend(self, ...)
     end
 end
 
--- 获取当前缓冲区的文件名
-function M.vim.current_buffer_name()
+-- 获取当前缓冲区的绝对路径
+function M.vim.current_buffer_path()
     return vim.api.nvim_buf_get_name(0)
 end
 
@@ -31,6 +32,11 @@ function M.treesitter.try_exec(f)
     if ok then
         f()
     end
+end
+
+-- 获取路径里的文件名
+function M.path.filename(path)
+    return string.match(path, "([^/]+)/?$")
 end
 
 return M
