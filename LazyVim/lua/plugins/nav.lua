@@ -137,7 +137,7 @@ return {
                     })
                 end,
                 mode = { "n", "v" },
-                desc = "Search and Replace",
+                desc = "Search and Replace AST",
             },
         },
     },
