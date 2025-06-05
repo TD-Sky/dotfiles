@@ -17,7 +17,7 @@ local function trim_end()
             return
         end
 
-        local escaped = vim.fn.escape(pattern, [[/\]])
+        local escaped = vim.fn.escape(pattern, "/")
         local cmd = string.format("%ss/%s$//g", range, escaped)
 
         local ok, err = pcall(vim.cmd, cmd)
