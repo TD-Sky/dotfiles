@@ -363,6 +363,7 @@ const MANIFEST = {
         manager: "cargo",
         desc: "一键收束工作空间下的依赖",
     },
+    cargo-bloat: "查看依赖的空间占用情况",
 
     # arch
     nvrs: {
