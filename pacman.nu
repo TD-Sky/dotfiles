@@ -19,6 +19,7 @@ const MANIFEST = {
     },
     ventoy: "制作镜像盘",
     podman: "容器运行时",
+    buildah: "批量删除外部镜像",
 
     # kernel
     linux-headers: "内核头文件",
@@ -173,6 +174,7 @@ const MANIFEST = {
         desc: "垃圾回收站"
     },
     kdiff3: "比较文件/目录",
+    squashfs-tools: "高压缩率只读文件系统",
 
     # utility
     man: {

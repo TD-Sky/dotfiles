@@ -8,16 +8,17 @@ def then [flag: string] {
 # 解压缩瑞士军刀
 def main [] {
     [
-        [format     archive     extract];
-        ['tar'      '✅'        '✅'   ]
-        ['tar.gz'   '✅'        '✅'   ]
-        ['tar.xz'   '✅'        '✅'   ]
-        ['tar.zst'  '✅'        '✅'   ]
-        ['7z'       '✅'        '✅'   ]
-        ['zip'      '✅'        '✅'   ]
-        ['rar'      '✅'        '✅'   ]
-        ['apk'      '❌'        '✅'   ]
-        ['deb'      '❌'        '✅'   ]
+        [format        archive     extract];
+        ['tar'          '✅'        '✅'  ]
+        ['tar.gz'       '✅'        '✅'  ]
+        ['tar.xz'       '✅'        '✅'  ]
+        ['tar.zst'      '✅'        '✅'  ]
+        ['7z'           '✅'        '✅'  ]
+        ['zip'          '✅'        '✅'  ]
+        ['rar'          '✅'        '✅'  ]
+        ['mksquashfs'   '✅'        '✅'  ]
+        ['apk'          '❌'        '✅'  ]
+        ['deb'          '❌'        '✅'  ]
     ]
 }
 
@@ -68,6 +69,12 @@ def "main rar" [item: string] {
     rar a $"($basename).rar" $item
 }
 
+# 压缩至 squashfs + zstd
+def "main squashfs" [item: string] {
+    let basename = $item | path basename
+    mksquashfs $item $"($basename).squashfs" -xattrs -comp zstd -Xcompression-level 22 -b 1M
+}
+
 # 解压
 def "main x" [...archives: string] {
     for archive in $archives {
@@ -78,6 +85,10 @@ def "main x" [...archives: string] {
             '7z' => { 7za x $archive },
             'rar' => { unrar x $archive },
             'deb' => { ar x $archive },
+            'squashfs' => {
+                let stem = $archive | path parse | get stem
+                unsquashfs -dest $stem $archive
+            }
         }
     }
 }
@@ -90,5 +101,9 @@ def "main ls" [archive: string] {
         },
         'rar' => { bsdtar -tf $archive | tac | tree -C --fromfile },
         'deb' => { ar t $archive },
+        'squashfs' => {
+            let stem = $archive | path parse | get stem
+            unsquashfs -dest $stem -ls $archive | tree -C --fromfile
+        },
     }
 }
