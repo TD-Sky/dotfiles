@@ -40,6 +40,7 @@ def pf [
     src: string,
     --target (-t),
     dest: string,
+    --hard,
 ] {
     let self = $in
 
@@ -48,10 +49,15 @@ def pf [
         src: $src,
         dest: $dest,
         place: $target,
+        hard: $hard,
     }
 }
 
-def pfs [srcs: list<string>, dest: string] {
+def pfs [
+    srcs: list<string>,
+    dest: string,
+    --hard,
+] {
     let self = $in
 
     $srcs
@@ -61,6 +67,7 @@ def pfs [srcs: list<string>, dest: string] {
             src: $src,
             dest: $dest,
             place: true,
+            hard: $hard,
         }
     }
 }
@@ -69,16 +76,23 @@ def deploy-item [it: record] {
     let dest = $it.dest | path expand
 
     match ($it.src | path type) {
-        file => { deploy-file $it.src $dest $it.place },
-        dir if $it.place => { place-dir $it.src $dest },
-        dir => { deploy-dir $it.src $dest },
+        file => {
+            deploy-file $it.src $dest --place=$it.place --hard=$it.hard
+        },
+        dir if $it.place => {
+            place-dir $it.src $dest --hard=$it.hard
+        },
+        dir => {
+            deploy-dir $it.src $dest --hard=$it.hard
+        },
     }
 }
 
 def deploy-file [
     src: string,
     dest: path,
-    place: bool,
+    --place,
+    --hard,
 ] {
     let dest = if $place {
         mkdir -v $dest
@@ -88,12 +102,13 @@ def deploy-file [
         $dest
     }
 
-    link $src $dest
+    link $src $dest --hard=$hard
 }
 
 def deploy-dir [
     src: string,
     dest: path,
+    --hard,
 ] {
     let dest_path = {|p|
         $dest
@@ -114,11 +129,15 @@ def deploy-dir [
     | each {|file|
         let dest = (do $dest_path $file)
         let file = $file | path strip (pwd)
-        link $file $dest
+        link $file $dest --hard=$hard
     }
 }
 
-def place-dir [src: string, dest: path] {
+def place-dir [
+    src: string,
+    dest: path,
+    --hard,
+] {
     let dest_path = {|p|
         $dest
         | path join (
@@ -136,22 +155,41 @@ def place-dir [src: string, dest: path] {
     | each {|file|
         let dest = (do $dest_path $file)
         let file = $file | path strip (pwd)
-        link $file $dest
+        link $file $dest --hard=$hard
     }
 }
 
-def link [src: string, dest: path] {
+def link [
+    src: string,
+    dest: path,
+    --hard,
+] {
     let srcp = pwd | path join $src
 
-    if not (is-linked $srcp $dest) {
+    if $hard {
+        if not (is-hard-linked $srcp $dest) {
+            log info $"($src) => ($dest)"
+            ln $srcp $dest
+        }
+    } else if not (is-linked $srcp $dest) {
         log info $"($src) => ($dest)"
         ln -s $srcp $dest
     }
+
 }
 
 def is-linked [src: path, dest: path]: nothing -> bool {
     try {
         $src == (realpath $dest)
+    } catch {
+        false
+    }
+}
+
+def is-hard-linked [src: path, dest: path]: nothing -> bool {
+    let f = {|p| stat --printf %i $p err> /dev/null }
+    try {
+        (do $f $src) == (do $f $dest)
     } catch {
         false
     }
