@@ -1,31 +1,27 @@
 return {
     {
         "neovim/nvim-lspconfig",
-        event = "LazyFile",
+        event = "BufReadPre",
         opts = {
             codelens = {
                 enabled = true,
             },
             -- LSP Server Settings
             servers = {
-                lua_ls = {},
-                texlab = {},
-                taplo = {},
-                gopls = {},
-                ts_ls = {},
-                volar = {},
-                tinymist = {},
-                bashls = {},
-                jsonls = {
-                    filetypes = { "json", "jsonc", "json5" },
-                },
-                slint_lsp = {
-                    root_dir = require("lspconfig").util.root_pattern(),
-                },
-                nushell = {},
-                clangd = {},
-                basedpyright = {},
-                astro = {},
+                "lua_ls",
+                "texlab",
+                "tombi",
+                "gopls",
+                "ts_ls",
+                "volar",
+                "tinymist",
+                "bashls",
+                "jsonls",
+                "slint_lsp",
+                "nushell",
+                "clangd",
+                "basedpyright",
+                "astro",
             },
         },
         config = function(_, opts)
@@ -67,18 +63,17 @@ return {
             -- 配置诊断
             vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
-            local capabilities = vim.tbl_deep_extend(
-                "force",
-                vim.lsp.protocol.make_client_capabilities(),
-                require("blink.cmp").get_lsp_capabilities(), -- 令 blink.cmp 连接服务器
-                opts.capabilities or {}
-            )
+            local default_lsp_config = {
+                capabilities = vim.tbl_deep_extend(
+                    "force",
+                    vim.lsp.protocol.make_client_capabilities(),
+                    require("blink.cmp").get_lsp_capabilities(), -- 令 blink.cmp 连接服务器
+                    opts.capabilities or {}
+                ),
+            }
+            vim.lsp.config("*", default_lsp_config)
 
-            for server, server_opts in pairs(opts.servers) do
-                server_opts.capabilities = vim.tbl_deep_extend("force", capabilities, server_opts.capabilities or {})
-                -- 如果语言服务器不支持语义化token，高亮就会fallback到treesitter
-                require("lspconfig")[server].setup(server_opts)
-            end
+            vim.lsp.enable(opts.servers)
         end,
     },
     {
