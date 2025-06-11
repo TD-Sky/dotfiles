@@ -33,7 +33,7 @@ const MANIFEST = {
     },
     ventoy: "制作镜像盘",
     podman: "容器运行时",
-    buildah: "批量删除外部镜像",
+    buildah: "清理所有外部死容器",
 
     # kernel
     linux-headers: "内核头文件",
