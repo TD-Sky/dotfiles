@@ -49,7 +49,7 @@ export def rec [
 
     let series = $btoc
         | get series
-        | filter {|it| $it | is-not-empty }
+        | where {|it| $it | is-not-empty }
         | uniq
         | prepend '<新建>'
         | pick --prompt '分类：' --ansi --cycle
@@ -69,7 +69,7 @@ export def rec [
         let choices = $btoc
             | where series == $series
             | get characters
-            | filter {|it| $it | is-not-empty }
+            | where {|it| $it | is-not-empty }
             | flatten
             | uniq
             | pickm --prompt '角色：' --ansi --cycle --bind 'ctrl-a:select-all,ctrl-r:toggle-all'
@@ -84,7 +84,7 @@ export def rec [
     mut tags = []
     let choices = $btoc
         | get tags
-        | filter {|it| $it | is-not-empty }
+        | where {|it| $it | is-not-empty }
         | flatten
         | uniq
         | pickm --prompt '要素：' --ansi --cycle --bind 'ctrl-a:select-all,ctrl-r:toggle-all'
@@ -164,7 +164,7 @@ def 'book fmt' [bk: record] {
         ($bk.tags | default [] | str join ',' | option map {|it| '要素：' + $it }),
         ("页数：" + $bk.pages),
     ]
-    | filter {|it| $it != null }
+    | where {|it| $it != null }
     | str join (char newline)
 }
 
@@ -193,7 +193,7 @@ def --wrapped 'pickm' [...rest]: list -> list {
     | str join (char newline)
     | fzf --multi ...$rest
     | split row (char newline)
-    | filter {|it| $it | is-not-empty }
+    | where {|it| $it | is-not-empty }
 }
 
 def 'str split-once' [delimiter: string]: string -> list {
