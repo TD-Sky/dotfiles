@@ -1,7 +1,6 @@
 [tools]
 usage = "latest"
 node = "23.4"
-java = "17"
 
 [settings]
 disable_tools = ["python"]
