@@ -8,7 +8,7 @@ nmcli radio wifi
 
 # 查看附近wifi
 nmcli device wifi list --rescan <N-Y>
-$ N-Y: printf '"no"\n"yes"'
+$ N-Y: printf 'no\nyes'
 
 # 以冒号分割，打印附近wifi的列表
 nmcli --terse device wifi
