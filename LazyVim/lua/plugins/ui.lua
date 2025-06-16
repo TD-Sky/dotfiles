@@ -1,6 +1,7 @@
 return {
     {
         "TD-Sky/neo-rhythm",
+        enabled = false,
         opts = {
             range = {
                 start = { 7, 0 },
