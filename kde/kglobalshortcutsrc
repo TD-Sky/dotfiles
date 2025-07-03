@@ -20,12 +20,6 @@ stop=none,none,Stop
 Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,切换屏幕阅读器开关
 _k_friendly_name=无障碍辅助
 
-[kcm_touchpad]
-Disable Touchpad=Touchpad Off,Touchpad Off,禁用触摸板
-Enable Touchpad=Touchpad On,Touchpad On,启用触摸板
-Toggle Touchpad=Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,Touchpad Toggle\tTouchpad Toggle\tMeta+Ctrl+Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku,切换触摸板开关
-_k_friendly_name=触摸板
-
 [kmix]
 _k_friendly_name=音量
 decrease_microphone_volume=Microphone Volume Down,Microphone Volume Down,降低麦克风音量
@@ -118,14 +112,14 @@ Switch to Screen to the Left=none,,切换到左侧屏幕
 Switch to Screen to the Right=none,,切换到右侧屏幕
 Toggle Night Color=none,none,暂停/继续夜间色温
 Toggle Window Raise/Lower=none,,提升/降低窗口
-Walk Through Windows=Alt+Tab,Alt+Tab,遍历窗口
-Walk Through Windows (Reverse)=Alt+Shift+Tab,Alt+Shift+Tab,遍历窗口 (反向)
-Walk Through Windows Alternative=none,,遍历窗口交替
-Walk Through Windows Alternative (Reverse)=none,,遍历窗口交替 (反向)
-Walk Through Windows of Current Application=Alt+`,Alt+`,遍历当前应用程序窗口
-Walk Through Windows of Current Application (Reverse)=Alt+~,Alt+~,遍历当前应用程序窗口 (反向)
-Walk Through Windows of Current Application Alternative=none,,遍历当前应用程序窗口交替
-Walk Through Windows of Current Application Alternative (Reverse)=none,,遍历当前应用程序窗口交替 (反向)
+Walk Through Windows=Alt+Tab,Meta+Tab\tAlt+Tab,遍历窗口
+Walk Through Windows (Reverse)=Alt+Shift+Tab,Meta+Shift+Tab\tAlt+Shift+Tab,遍历窗口 (反向)
+Walk Through Windows Alternative=none,none,遍历窗口交替
+Walk Through Windows Alternative (Reverse)=none,none,遍历窗口交替 (反向)
+Walk Through Windows of Current Application=Alt+`,Meta+`\tAlt+`,遍历当前应用程序窗口
+Walk Through Windows of Current Application (Reverse)=Alt+~,Meta+~\tAlt+~,遍历当前应用程序窗口 (反向)
+Walk Through Windows of Current Application Alternative=none,none,遍历当前应用程序窗口交替
+Walk Through Windows of Current Application Alternative (Reverse)=none,none,遍历当前应用程序窗口交替 (反向)
 Window Above Other Windows=none,,窗口置顶
 Window Below Other Windows=none,,窗口置底
 Window Close=Meta+Shift+C,Alt+F4,关闭窗口
@@ -260,6 +254,7 @@ clipboard_action=Meta+Ctrl+X,Meta+Ctrl+X,自动弹出操作菜单
 cycle-panels=Meta+Alt+P,Meta+Alt+P,在面板之间移动键盘焦点
 cycleNextAction=none,,下一条历史记录
 cyclePrevAction=none,,上一条历史记录
+edit_clipboard=none,,编辑内容(E)…
 manage activities=Meta+Q,Meta+Q,显示活动切换器
 next activity=Meta+A,none,遍历活动
 previous activity=Meta+Shift+A,none,遍历活动 (反向)
@@ -280,6 +275,9 @@ _launch=none
 
 [services][org.kde.spectacle.desktop]
 RecordWindow=none
+
+[services][org.kde.touchpadshortcuts.desktop]
+ToggleTouchpad=Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku
 
 [services][org.wezfurlong.wezterm.desktop]
 _launch=Meta+Return
