@@ -389,6 +389,7 @@ const MANIFEST = {
         manager: "uv",
         desc: "安卓控件树查看器",
     },
+    waydroid: "安卓模拟器",
 
     # unknown
     genact: "Linux领域大神",

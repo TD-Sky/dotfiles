@@ -33,14 +33,14 @@ mute=Volume Mute,Volume Mute,静音
 
 [ksmserver]
 Halt Without Confirmation=none,,关机 (无需确认)
-Lock Session=Meta+Esc\tScreensaver,Meta+L\tScreensaver,锁定会话
+Lock Session=Meta+Esc\tScreensaver,Meta+L\tScreensaver,Lock Session
 Log Out=Ctrl+Alt+Del,Ctrl+Alt+Del,显示注销屏幕
 Log Out Without Confirmation=none,,注销 (无需确认)
 LogOut=none,,注销
 Reboot=none,,重启
 Reboot Without Confirmation=none,,重启 (无需确认)
 Shut Down=none,,关机
-_k_friendly_name=会话管理
+_k_friendly_name=Session Management
 
 [kwin]
 Activate Window Demanding Attention=Meta+Ctrl+A,Meta+Ctrl+A,激活请求注意的窗口
