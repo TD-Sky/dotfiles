@@ -120,7 +120,6 @@ const MANIFEST = {
     },
 
     # desktop
-    xdg-user-dirs: "规范目录",
     qt-theme: {
         packages: ["qt6ct", "qt5ct", "kvantum"]
     },
@@ -138,6 +137,14 @@ const MANIFEST = {
         packages: ["fcitx5-im", "fcitx5-chinese-addons", "fcitx5-pinyin-zhwiki"],
         desc: "小企鹅输入法"
     },
+    zen-browser: {
+        packages: ["zen-browser", "zen-browser-i18n-zh-cn"]
+    },
+    chromium: "谷歌裸核浏览器",
+    dbeaver: "PostgreSQL客户端",
+    sqlitebrowser: "SQLite客户端",
+    keepassxc: "keepass客户端",
+    neovide: "丝滑neovim",
 
     # wayland
     wl-clipboard: "剪贴板",
@@ -153,16 +160,6 @@ const MANIFEST = {
         desc: "零豆腐块字体"
     },
 
-    # client
-    zen-browser: {
-        packages: ["zen-browser", "zen-browser-i18n-zh-cn"]
-    },
-    chromium: "谷歌裸核浏览器",
-    dbeaver: "PostgreSQL客户端",
-    sqlitebrowser: "SQLite客户端",
-    keepassxc: "keepass客户端",
-    neovide: "丝滑neovim",
-
     # shell
     nushell: "结构化shell",
     # mcfly: "历史命令",
@@ -177,6 +174,7 @@ const MANIFEST = {
     },
 
     # filesystem
+    xdg-user-dirs: "规范目录",
     eza: "高级ls",
     rsync: "超级复制",
     parallel-disk-usage: "磁盘空间统计",
@@ -227,16 +225,10 @@ const MANIFEST = {
 
     # git
     lazygit: "git TUI",
-    # stgit: {
-    #     manager: "paru",
-    #     packages: ["stgit", "xmlto"],
-    #     desc: "git的栈式补丁管理器"
-    # },
     difftastic: "语言diff",
     git-cliff: "变更日志生成器",
     gitoxide: "锈化git",
     git-filter-repo: "过滤git项目",
-    serie: "分支树",
 
     # data
     7zip: "7z",
@@ -249,7 +241,6 @@ const MANIFEST = {
     # media
     imagemagick: "图片瑞士军刀",
     mpv: "看视频",
-    viu: "终端看图",
     yt-dlp: "下载Youtube视频",
     dagtoc: {
         packages: ["dagtoc-bin"],
