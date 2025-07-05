@@ -239,7 +239,7 @@ const MANIFEST = {
     serie: "分支树",
 
     # data
-    p7zip: "7z",
+    7zip: "7z",
     unrar: "解压RAR",
     zip: {
         packages: ["zip", "unzip"]
@@ -302,7 +302,6 @@ const MANIFEST = {
     bandwhich: "监测网络带宽",
     bottom: "高级top",
     light: "调节亮度",
-    pamixer: "调节音量",
     procs: "查看进程",
     wiremix: "音量面板",
     dysk: "统计分区大小",
@@ -461,9 +460,11 @@ def main [] {
         }
     }
 
-    try {
-        if $uv != null {
-            uv tool install ...$tbl.uv
+    if $uv != null {
+        for p in $tbl.uv {
+            try {
+                uv tool install $p
+            }
         }
     }
 }
