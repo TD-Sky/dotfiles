@@ -5,8 +5,8 @@ hash = "b4c00ef6899a9563af8d577d0bb46998"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "e5f00e2"
-hash = "37ebed215c8742eada643fc2655b65e2"
+rev = "b886025"
+hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
@@ -20,12 +20,12 @@ hash = "a94dcbe9266512806c677138e8591ddb"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "e5f00e2"
+rev = "b886025"
 hash = "d6f60c24d8c0cf57a855bf46115b2502"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "e5f00e2"
+rev = "b886025"
 hash = "2143a53182dbbe935a1abd1623424aa5"
 
 [[plugin.deps]]
