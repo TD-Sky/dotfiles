@@ -2,6 +2,20 @@
 
 const MANIFEST = {
     # 社交
+    QQ: {
+        packages: ["linuxqq-nt-bwrap"],
+        manager: "paru"
+    },
+    telegram: {
+        packages: ["telegram-desktop"],
+        desc: "电报"
+    },
+    thunderbird: "电子邮件客户端",
+    wechat: {
+        packages: ["wechat-universal-bwrap"],
+        manager: "paru",
+        desc: "微信(沙盒)"
+    },
     wemeet: {
         packages: ["wemeet-bin"],
         manager: "paru",
@@ -106,7 +120,6 @@ const MANIFEST = {
     },
 
     # desktop
-    xdg-user-dirs: "规范目录",
     qt-theme: {
         packages: ["qt6ct", "qt5ct", "kvantum"]
     },
@@ -124,6 +137,14 @@ const MANIFEST = {
         packages: ["fcitx5-im", "fcitx5-chinese-addons", "fcitx5-pinyin-zhwiki"],
         desc: "小企鹅输入法"
     },
+    zen-browser: {
+        packages: ["zen-browser", "zen-browser-i18n-zh-cn"]
+    },
+    chromium: "谷歌裸核浏览器",
+    dbeaver: "PostgreSQL客户端",
+    sqlitebrowser: "SQLite客户端",
+    keepassxc: "keepass客户端",
+    neovide: "丝滑neovim",
 
     # wayland
     wl-clipboard: "剪贴板",
@@ -139,15 +160,6 @@ const MANIFEST = {
         desc: "零豆腐块字体"
     },
 
-    # client
-    zen-browser: {
-        packages: ["zen-browser", "zen-browser-i18n-zh-cn"]
-    },
-    chromium: "谷歌裸核浏览器",
-    dbeaver: "PostgreSQL客户端",
-    sqlitebrowser: "SQLite客户端",
-    neovide: "丝滑neovim",
-
     # shell
     nushell: "结构化shell",
     # mcfly: "历史命令",
@@ -162,6 +174,7 @@ const MANIFEST = {
     },
 
     # filesystem
+    xdg-user-dirs: "规范目录",
     eza: "高级ls",
     rsync: "超级复制",
     parallel-disk-usage: "磁盘空间统计",
@@ -212,19 +225,13 @@ const MANIFEST = {
 
     # git
     lazygit: "git TUI",
-    # stgit: {
-    #     manager: "paru",
-    #     packages: ["stgit", "xmlto"],
-    #     desc: "git的栈式补丁管理器"
-    # },
     difftastic: "语言diff",
     git-cliff: "变更日志生成器",
     gitoxide: "锈化git",
     git-filter-repo: "过滤git项目",
-    serie: "分支树",
 
     # data
-    p7zip: "7z",
+    7zip: "7z",
     unrar: "解压RAR",
     zip: {
         packages: ["zip", "unzip"]
@@ -234,7 +241,6 @@ const MANIFEST = {
     # media
     imagemagick: "图片瑞士军刀",
     mpv: "看视频",
-    viu: "终端看图",
     yt-dlp: "下载Youtube视频",
     dagtoc: {
         packages: ["dagtoc-bin"],
@@ -287,7 +293,6 @@ const MANIFEST = {
     bandwhich: "监测网络带宽",
     bottom: "高级top",
     light: "调节亮度",
-    pamixer: "调节音量",
     procs: "查看进程",
     wiremix: "音量面板",
     dysk: "统计分区大小",
@@ -353,6 +358,7 @@ const MANIFEST = {
         manager: "cargo",
         desc: "一键收束工作空间下的依赖",
     },
+    cargo-bloat: "查看依赖的空间占用情况",
 
     # arch
     nvrs: {
@@ -373,6 +379,7 @@ const MANIFEST = {
         manager: "uv",
         desc: "安卓控件树查看器",
     },
+    waydroid: "安卓模拟器",
 
     # unknown
     genact: "Linux领域大神",
@@ -444,9 +451,11 @@ def main [] {
         }
     }
 
-    try {
-        if $uv != null {
-            uv tool install ...$tbl.uv
+    if $uv != null {
+        for p in $tbl.uv {
+            try {
+                uv tool install $p
+            }
         }
     }
 }
