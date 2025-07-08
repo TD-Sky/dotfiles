@@ -60,6 +60,7 @@ keymap = [
   { on = "<Enter>", run = "open", desc = "Open selected files" },
   { on = "<S-Enter>", run = "open --interactive", desc = "Open selected files interactively" },
   { on = ["y", "y"], run = "yank", desc = "Yank selected files (copy)" },
+  { on = ["y", "s"], run = ['shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank"], desc = "copy to clipboard" },
   { on = "x", run = "yank --cut", desc = "Yank selected files (cut)" },
   { on = "Y", run = "unyank", desc = "Cancel the yank status" },
   { on = "X", run = "unyank", desc = "Cancel the yank status" },
