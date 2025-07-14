@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "DreamMaoMao/searchjump"
-rev = "fe884f4"
-hash = "b4c00ef6899a9563af8d577d0bb46998"
+rev = "7fafec3"
+hash = "5337bf545993d8c4dec2c229031f49d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
@@ -10,8 +10,8 @@ hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "6a0f3f7"
-hash = "d5a74d95c2e8194ac352c5e10e81e64f"
+rev = "a63550b"
+hash = "c2021386289a0cbb3e152a052f67c177"
 
 [[plugin.deps]]
 use = "TD-Sky/sudo"
