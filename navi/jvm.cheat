@@ -1,0 +1,4 @@
+% jvm
+
+# 给定类的路径，生成 JNI 头文件 (需要 java8)
+javah -classpath <directory> <class>

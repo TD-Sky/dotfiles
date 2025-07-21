@@ -146,3 +146,6 @@ ld --verbose | rg SEARCH_DIR | tr -s ' ;' \\012
 # 获取文件校验码
 sha256sum <file> | choose 0 | xs
 $ file: fd -c='always' -H -E='.git' -I --type file .
+
+# 添加用户到指定组
+sudo usermod -aG <group> <user>
