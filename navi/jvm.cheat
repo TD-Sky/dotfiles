@@ -2,3 +2,6 @@
 
 # 给定类的路径，生成 JNI 头文件 (需要 java8)
 javah -classpath <directory> <class>
+
+# 查看指定类的 JNI 签名
+javap -p -s <class>
