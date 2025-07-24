@@ -87,6 +87,16 @@ return {
                                 "tokio::test",
                             },
                         },
+                        completion = {
+                            autoimport = {
+                                exclude = {
+                                    {
+                                        path = "anyhow::Ok",
+                                        type = "always",
+                                    },
+                                },
+                            },
+                        },
                     },
                 },
             },
