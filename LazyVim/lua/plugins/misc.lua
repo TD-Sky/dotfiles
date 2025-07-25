@@ -80,11 +80,12 @@ return {
                 desc = "Projects",
                 action = "<cmd>Telescope neovim-project history<CR>",
             }
+            opts.dashboard.preset.keys[1].action = "<leader>fF"
             table.insert(opts.dashboard.preset.keys, 2, {
                 icon = "",
                 key = "F",
                 desc = "Find Files (Root dir)",
-                action = "<leader>fF",
+                action = "<leader>ff",
             })
 
             -- zen
