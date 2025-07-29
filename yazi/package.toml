@@ -5,7 +5,7 @@ hash = "5337bf545993d8c4dec2c229031f49d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "b886025"
+rev = "de53d90"
 hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[plugin.deps]]
@@ -20,12 +20,12 @@ hash = "a94dcbe9266512806c677138e8591ddb"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "b886025"
+rev = "de53d90"
 hash = "d6f60c24d8c0cf57a855bf46115b2502"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "b886025"
+rev = "de53d90"
 hash = "2143a53182dbbe935a1abd1623424aa5"
 
 [[plugin.deps]]
