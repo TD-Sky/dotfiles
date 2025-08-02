@@ -100,6 +100,9 @@ return {
         opts = {
             sources = {
                 providers = {
+                    lsp = {
+                        fallbacks = {},
+                    },
                     buffer = {
                         opts = {
                             -- get all buffers, even ones like neo-tree
