@@ -22,9 +22,9 @@ const MANIFEST = {
         desc: "腾讯会议(沙盒)"
     },
     feishu: {
-        packages: ["feishu-bin"],
+        packages: ["feishu-portable"],
         manager: "paru",
-        desc: "飞书"
+        desc: "飞书(沙盒)"
     },
 
     # OS

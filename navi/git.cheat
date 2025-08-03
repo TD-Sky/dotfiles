@@ -56,3 +56,6 @@ $ commit: git log --pretty=format:"%h %s" --- --column 1 --delimiter ' '
 # 格式：
 # <name> <新邮箱> <旧邮箱>
 git filter-repo --mailmap <mailmap>
+
+# 最小化拉取
+git clone --depth=1 --sparse --filter=blob:none
