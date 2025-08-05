@@ -58,4 +58,4 @@ $ commit: git log --pretty=format:"%h %s" --- --column 1 --delimiter ' '
 git filter-repo --mailmap <mailmap>
 
 # 最小化拉取
-git clone --depth=1 --sparse --filter=blob:none
+git clone --depth=1 --sparse --filter=blob:none <url>
