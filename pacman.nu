@@ -299,6 +299,7 @@ const MANIFEST = {
     dysk: "统计分区大小",
     erdtree: "体积伴随文件树",
     macchina: "系统信息",
+    cyme: "查看USB设备",
 
     # network
     gping: "图形化ping",
