@@ -65,10 +65,7 @@ const MANIFEST = {
     },
     lua-language-server: "",
     stylua: "lua格式化器",
-    tombi: {
-        manager: "uv",
-        desc: "toml语言工具"
-    },
+    tombi: "toml语言工具",
     shfmt: "bash/zsh格式化器",
     gopls: "Go语言服务器",
     yaml-language-server: {
