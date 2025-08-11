@@ -296,6 +296,7 @@ const MANIFEST = {
     erdtree: "体积伴随文件树",
     macchina: "系统信息",
     cyme: "查看USB设备",
+    qpwgraph: "音频设备拓补图",
 
     # network
     gping: "图形化ping",
