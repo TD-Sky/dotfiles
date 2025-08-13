@@ -15,7 +15,11 @@ return {
                     stdin = true,
                 },
                 python = "ruff",
-                toml = "taplo",
+                toml = {
+                    cmd = "tombi",
+                    args = { "format", "-" },
+                    stdin = true,
+                },
                 -- ocaml = {
                 --     cmd = "ocamlformat",
                 --     args = {
