@@ -370,9 +370,9 @@ const MANIFEST = {
 
     # android
     android-tools: "安卓调试桥",
-    android-studio: {
+    jetbrains-toolbox: {
         manager: "paru",
-        desc: "安卓IDE"
+        desc: "JB IDE 下载器"
     },
     uiautodev: {
         manager: "uv",
