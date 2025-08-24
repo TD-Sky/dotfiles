@@ -52,6 +52,7 @@ application/xhtml+xml=zen-browser.desktop
 x-scheme-handler/clash-nyanpasu=clash-nyanpasu-handler.desktop
 clash=clash-verge-handler.desktop
 clash-verge=clash-verge-handler.desktop
+x-scheme-handler/clash-verge=clash-verge-handler.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen-browser.desktop;
