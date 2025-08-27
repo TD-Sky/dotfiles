@@ -48,3 +48,6 @@ cargo package --list
 
 # 本地打开std文档
 rustup doc --std
+
+# 打开某个 crate 的文档
+cargo doc --open -p <crate>

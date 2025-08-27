@@ -149,3 +149,6 @@ $ file: fd -c='always' -H -E='.git' -I --type file .
 
 # 添加用户到指定组
 sudo usermod -aG <group> <user>
+
+# 启动 scrcpy 且不使用电脑音频输出
+scrcpy --no-audio
