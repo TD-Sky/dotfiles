@@ -2,6 +2,9 @@
 
 ; rust语言相关
 
+$ target: rustc --print target-list
+$ local-toolchain: rustup toolchain list
+
 # 列印所有目标平台
 rustc --print target-list
 
@@ -16,14 +19,12 @@ rustup override set nightly
 
 # 添加编译目标
 rustup target add <target>
-$ target: rustc --print target-list
 
 # 安装工具链
 rustup toolchain install <toolchain>
 
 # 卸载工具链
 rustup toolchain uninstall <local-toolchain>
-$ local-toolchain: rustup toolchain list
 
 # 以树状图追踪一个包为何存在
 cargo tree -i <crate>

@@ -1,5 +1,12 @@
 % git
 
+$ difftool: printf '\n--ext-diff'
+$ opt-name-only: printf '\n--name-only'
+$ opt-b: printf '\n-b'
+$ opt-f: printf '\n--force'
+$ worktree-path: git worktree list --- --column 1
+$ commit: git log --pretty=format:"%h %s" --- --column 1 --delimiter ' '
+
 # 追踪文件之树
 git ls-tree -r main --name-only | tree -Ca --fromfile
 
@@ -17,11 +24,9 @@ git log --stat
 
 # 历次提交的详细变化情况
 git log <difftool> --stat -p -W <path>
-$ difftool: printf '\n--ext-diff'
 
 # 查看某次提交的内容
 git show <opt-name-only> <commit>
-$ opt-name-only: printf '\n--name-only'
 
 # 历史树
 git log --graph --oneline --decorate --all
@@ -34,12 +39,9 @@ git submodule update --init
 
 # 开辟一个新的工作树
 git worktree add <path> <opt-b> <branch>
-$ opt-b: printf '\n-b'
 
 # 移除工作树
 git worktree remove <opt-f> <worktree-path>
-$ opt-f: printf '\n--force'
-$ worktree-path: git worktree list --- --column 1
 
 # 修改最新的提交消息
 git commit --amend
@@ -49,7 +51,6 @@ git describe --long --abbrev=7
 
 # 从<commit>到HEAD需要经历几次提交
 git rev-list --count <commit>..HEAD
-$ commit: git log --pretty=format:"%h %s" --- --column 1 --delimiter ' '
 
 # 使用mailmap文件替换邮箱
 #

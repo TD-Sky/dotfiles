@@ -5,7 +5,7 @@ hash = "5337bf545993d8c4dec2c229031f49d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "de53d90"
+rev = "d7588f6"
 hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[plugin.deps]]
@@ -20,18 +20,18 @@ hash = "a94dcbe9266512806c677138e8591ddb"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "de53d90"
+rev = "d7588f6"
 hash = "d6f60c24d8c0cf57a855bf46115b2502"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "de53d90"
+rev = "d7588f6"
 hash = "2143a53182dbbe935a1abd1623424aa5"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
-rev = "7a08a09"
-hash = "a1fa2b3e1826c3a34804ea8c548e9f80"
+rev = "8f37dc5"
+hash = "ee71543790f0ce3951161045a3787abd"
 
 [flavor]
 deps = []

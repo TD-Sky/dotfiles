@@ -1,19 +1,24 @@
 % ffmpeg
 
+$ audio: fd -c='always' -H -E='.git' -I -t file .
+$ video: fd -c='always' -H -E='.git' -I -t file .
+$ mp4: fd -c='always' -H -E='.git' -I -t file -e 'mp4' .
+$ m4a: fd -c='always' -H -E='.git' -I -t file -e 'm4a' .
+
 # 查看音频元信息
 ffprobe -v quiet -show_format -of json <audio>
-
-# 查看视频元信息
-ffprobe -v quiet -select_streams v -show_entries 'format=duration,size,bit_rate,filename' -show_streams -of json <video>
 
 # 查看音频比特率
 ffprobe -v quiet -select_streams 'a:0' -show_entries 'stream=bit_rate' -of 'compact=p=0:nk=1' <audio>
 
+# 查看视频元信息
+ffprobe -v quiet -select_streams v -show_entries 'format=duration,size,bit_rate,filename' -show_streams -of json <video>
+
 # 提取视频的音频到mp3
-ffmpeg -i <video> -vn -c:a mp3 -q:a 0 -map a <audio>
+ffmpeg -i <video> -vn -c:a mp3 -q:a 0 -map a <output>
 
 # 合并音视频
-ffmpeg -i <video>.mp4 -i <audio>.m4a -c copy <output>.mp4
+ffmpeg -i <mp4> -i <m4a> -c copy <output>.mp4
 
 # 以最小损失压缩视频
 ffmpeg -i <video> -c:v libx264 -crf 18 -preset slow -c:a copy <output>
