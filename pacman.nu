@@ -367,6 +367,7 @@ const MANIFEST = {
     },
     pacman-contrib: "打包工具箱",
     aurpublish: "打包钩子",
+    pacfiles: "搜索文件对应的包",
 
     # android
     android-tools: "安卓调试桥",
