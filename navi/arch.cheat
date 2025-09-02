@@ -1,5 +1,10 @@
 % arch
 
+$ local-package: pacman -Qq
+$ file: fd -c='always' -H -E='.git' -I --type file .
+
+
+
 ; 包查询 -Q/F
 
 # 查询命令所属的本地包
@@ -17,16 +22,20 @@ pactree -d 1 <local-package>
 # 本地包的供养树
 pactree -d 1 -r <local-package>
 
-$ local-package: pacman -Qq
-
 # 包的文件树
 pacman -Fl <package> | choose 1 | tree -C --fromfile | bat
 
-# 包的依赖树
+# 包的直接依赖树
 pactree -d 1 -s <package>
 
-# 包的供养树
+# 包的依赖树
+pactree -s <package> | bat
+
+# 包的直接供养树
 pactree -d 1 -s -r <package>
+
+# 包的供养树
+pactree -s -r <package> | bat
 
 # 列印无供养的包
 pacman -Qt

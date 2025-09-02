@@ -25,7 +25,6 @@ cache_dir = ""
 image_delay = 30
 image_filter = "triangle"
 image_quality = 90
-sixel_fraction = 15
 ueberzug_scale = 1
 ueberzug_offset = [0, 0, 0, 0]
 
@@ -35,31 +34,28 @@ edit = [
   { run = 'code %*', orphan = true, desc = "code", for = "windows" },
   { run = 'code -w %*', block = true, desc = "code (block)", for = "windows" },
 ]
-open = [
-  { run = 'xdg-open "$1"', desc = "Open", for = "linux" },
-  { run = 'open "$@"', desc = "Open", for = "macos" },
-  { run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
-]
+open = [{ run = 'xdg-open "$1"', desc = "Open", for = "linux" }, { run = 'open "$@"', desc = "Open", for = "macos" }, { run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" }]
 reveal = [
   { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
   { run = 'open -R "$1"', desc = "Reveal", for = "macos" },
   { run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
-  { run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+  { run = 'termux-open "$(dirname "$1")"', desc = "Reveal", for = "android" },
+  { run = '''clear; exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
 ]
-extract = [
-  { run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
-  { run = 'ya pub extract --list %*', desc = "Extract here", for = "windows" },
-]
+extract = [{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" }, { run = 'ya pub extract --list %*', desc = "Extract here", for = "windows" }]
 play = [
-  { run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
-  { run = 'mpv --force-window %*', orphan = true, for = "windows" },
+  { run = 'xdg-open "$1"', desc = "Play", for = "linux" },
+  { run = 'open "$@"', desc = "Play", for = "macos" },
+  { run = 'start "" "%1"', orphan = true, desc = "Play", for = "windows" },
+  { run = 'termux-open "$1"', desc = "Play", for = "android" },
   { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+  { run = 'mediainfo "%1" & pause', block = true, desc = "Show media info", for = "windows" },
 ]
 
 [open]
 rules = [
   # Folder
-  { name = "*/", use = ["edit", "open", "reveal"] },
+  { url = "*/", use = ["edit", "open", "reveal"] },
   # Text
   { mime = "text/html", use = ["open", "edit", "reveal"] },
   { mime = "text/*", use = ["edit", "reveal"] },
@@ -76,26 +72,26 @@ rules = [
   # Empty file
   { mime = "inode/empty", use = ["edit", "reveal"] },
   # Fallback
-  { name = "*", use = ["open", "reveal"] },
+  { url = "*", use = ["open", "reveal"] },
 ]
 
 [tasks]
 micro_workers = 10
-macro_workers = 25
-bizarre_retry = 5
-image_alloc = 536870912  # 512MB
-image_bound = [0, 0]
+macro_workers = 10
+bizarre_retry = 3
+image_alloc = 536870912      # 512MB
+image_bound = [10000, 10000]
 suppress_preload = false
 
 [plugin]
 fetchers = [
   # Mimetype
-  { id = "mime", name = "*", run = "mime", prio = "high" },
-  { id = "git", name = "*", run = "git" },
-  { id = "git", name = "*/", run = "git" },
+  { id = "mime", url = "*", run = "mime", prio = "high" },
+  { id = "git", url = "*", run = "git" },
+  { id = "git", url = "*/", run = "git" },
 ]
 spotters = [
-  { name = "*/", run = "folder" },
+  { url = "*/", run = "folder" },
   # Code
   { mime = "text/*", run = "code" },
   { mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
@@ -106,7 +102,7 @@ spotters = [
   # Video
   { mime = "video/*", run = "video" },
   # Fallback
-  { name = "*", run = "file" },
+  { url = "*", run = "file" },
 ]
 preloaders = [
   # Image
@@ -122,7 +118,7 @@ preloaders = [
   { mime = "application/ms-opentype", run = "font" },
 ]
 previewers = [
-  { name = "*/", run = "folder" },
+  { url = "*/", run = "folder" },
   # Code
   { mime = "text/*", run = "code" },
   { mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
@@ -137,22 +133,21 @@ previewers = [
   # PDF
   { mime = "application/pdf", run = "pdf" },
   # Archive
-  { mime = "application/{gzip,x-bzip*,xz,zstd}", run = 'piper -- bd ls "$1"' },
-  { mime = "application/{tar,7z-compressed,rar,iso9660-image,zip}", run = "archive" },
-  { mime = "application/{debian*-package,redhat-package-manager,rpm,android.package-archive}", run = "archive" },
-  { name = "*.{AppImage,appimage}", run = "archive" },
+  { url = "*.{rar,tar,tar.gz,tar.xz,tar.zst,tar.bz2,deb,zip,7z,squashfs}", run = 'piper -- bd ls "$1"' },
+  { mime = "application/iso9660-image", run = "archive" },
+  { mime = "application/{redhat-package-manager,rpm,android.package-archive}", run = "archive" },
+  { url = "*.{AppImage,appimage}", run = "archive" },
   # Virtual Disk / Disk Image
   { mime = "application/{iso9660-image,qemu-disk,ms-wim,apple-diskimage}", run = "archive" },
   { mime = "application/virtualbox-{vhd,vhdx}", run = "archive" },
-  { name = "*.squashfs", run = 'piper -- bd ls "$1"' },
-  { name = "*.{img,fat,ext,ext2,ext3,ext4,squashfs,ntfs,hfs,hfsx}", run = "archive" },
+  { url = "*.{img,fat,ext,ext2,ext3,ext4,squashfs,ntfs,hfs,hfsx}", run = "archive" },
   # Font
   { mime = "font/*", run = "font" },
   { mime = "application/ms-opentype", run = "font" },
   # Empty file
   { mime = "inode/empty", run = "empty" },
   # Fallback
-  { name = "*", run = "file" },
+  { url = "*", run = "file" },
 ]
 
 [input]
@@ -206,13 +201,13 @@ delete_offset = [0, 0, 70, 20]
 
 # overwrite
 overwrite_title = "Overwrite file?"
-overwrite_content = "Will overwrite the following file:"
+overwrite_body = "Will overwrite the following file:"
 overwrite_origin = "center"
 overwrite_offset = [0, 0, 50, 15]
 
 # quit
 quit_title = "Quit?"
-quit_content = "The following tasks are still running, are you sure you want to quit?"
+quit_body = "The following tasks are still running, are you sure you want to quit?"
 quit_origin = "center"
 quit_offset = [0, 0, 50, 15]
 

@@ -37,34 +37,6 @@ return {
         "folke/snacks.nvim",
         keys = {
             {
-                "<leader>ff",
-                function()
-                    Snacks.picker.files()
-                end,
-                desc = "Find Files (cwd)",
-            },
-            {
-                "<leader>fF",
-                function()
-                    Snacks.picker.files({ cwd = require("lazyvim.util").root.get() })
-                end,
-                desc = "Find Files (Root Dir)",
-            },
-            {
-                "<leader>sg",
-                function()
-                    Snacks.picker.grep()
-                end,
-                desc = "Grep (cwd)",
-            },
-            {
-                "<leader>sG",
-                function()
-                    Snacks.picker.grep({ cwd = require("lazyvim.util").root.get() })
-                end,
-                desc = "Grep (Root Dir)",
-            },
-            {
                 "<leader>ft",
                 function()
                     Snacks.terminal()
@@ -108,11 +80,12 @@ return {
                 desc = "Projects",
                 action = "<cmd>Telescope neovim-project history<CR>",
             }
+            opts.dashboard.preset.keys[1].action = "<leader>fF"
             table.insert(opts.dashboard.preset.keys, 2, {
                 icon = "",
                 key = "F",
                 desc = "Find Files (Root dir)",
-                action = "<leader>fF",
+                action = "<leader>ff",
             })
 
             -- zen

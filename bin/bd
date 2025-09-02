@@ -84,7 +84,11 @@ def "main x" [...archives: string] {
             },
             '7z' => { 7za x $archive },
             'rar' => { unrar x $archive },
-            'deb' => { ar x $archive },
+            'deb' => {
+                let stem = $archive | path parse | get stem
+                mkdir $stem
+                ar x $archive --output $stem
+            },
             'squashfs' => {
                 let stem = $archive | path parse | get stem
                 unsquashfs -dest $stem $archive

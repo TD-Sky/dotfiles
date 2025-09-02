@@ -1,3 +1,16 @@
+[Added Associations]
+application/x-extension-htm=zen-browser.desktop;
+application/x-extension-html=zen-browser.desktop;
+application/x-extension-shtml=zen-browser.desktop;
+application/x-extension-xht=zen-browser.desktop;
+application/x-extension-xhtml=zen-browser.desktop;
+application/xhtml+xml=zen-browser.desktop;
+text/html=zen-browser.desktop;
+video/mp4=mpv.desktop;vlc.desktop;
+x-scheme-handler/chrome=zen-browser.desktop;
+x-scheme-handler/http=zen-browser.desktop;
+x-scheme-handler/https=zen-browser.desktop;
+
 [Default Applications]
 application/json=lvide.desktop;
 application/msword=wps-office-wps.desktop;
@@ -30,6 +43,9 @@ application/x-extension-shtml=zen-browser.desktop
 application/x-extension-xht=zen-browser.desktop
 application/x-extension-xhtml=zen-browser.desktop
 application/x-yaml=lvide.desktop;
+application/xhtml+xml=zen-browser.desktop
+clash=clash-verge-handler.desktop
+clash-verge=clash-verge-handler.desktop
 image/jpg=org.kde.gwenview.desktop;
 image/png=org.kde.gwenview.desktop;
 image/webp=org.kde.gwenview.desktop;
@@ -38,30 +54,16 @@ text/html=zen-browser.desktop
 text/markdown=lvide.desktop;
 text/plain=lvide.desktop;
 text/x-cmake=lvide.desktop;
+video/mp4=mpv.desktop;
 x-scheme-handler/about=zen-browser.desktop;
 x-scheme-handler/chrome=zen-browser.desktop
 x-scheme-handler/clash=clash-verge.desktop
+x-scheme-handler/clash-nyanpasu=clash-nyanpasu-handler.desktop
+x-scheme-handler/clash-verge=clash-verge-handler.desktop
 x-scheme-handler/http=zen-browser.desktop
 x-scheme-handler/https=zen-browser.desktop
-x-scheme-handler/jetbrains=jetbrains-toolbox.desktop;
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
 x-scheme-handler/slack=slack.desktop;
 x-scheme-handler/terminal=org.wezfurlong.wezterm.desktop;
 x-scheme-handler/tg=org.telegram.desktop.desktop;
 x-scheme-handler/unknown=zen-browser.desktop;
-application/xhtml+xml=zen-browser.desktop
-x-scheme-handler/cherrystudio=cherry-studio-electron.desktop
-x-scheme-handler/clash-nyanpasu=clash-nyanpasu-handler.desktop
-clash=clash-verge-handler.desktop
-clash-verge=clash-verge-handler.desktop
-
-[Added Associations]
-x-scheme-handler/http=zen-browser.desktop;
-x-scheme-handler/https=zen-browser.desktop;
-x-scheme-handler/chrome=zen-browser.desktop;
-text/html=zen-browser.desktop;
-application/x-extension-htm=zen-browser.desktop;
-application/x-extension-html=zen-browser.desktop;
-application/x-extension-shtml=zen-browser.desktop;
-application/xhtml+xml=zen-browser.desktop;
-application/x-extension-xhtml=zen-browser.desktop;
-application/x-extension-xht=zen-browser.desktop;

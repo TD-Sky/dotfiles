@@ -59,7 +59,7 @@ return {
                 },
             },
             server = {
-                default_settings = {
+                settings = {
                     ["rust-analyzer"] = {
                         check = {
                             command = "clippy",
@@ -85,6 +85,16 @@ return {
                             ignored = {
                                 "async_trait::async_trait",
                                 "tokio::test",
+                            },
+                        },
+                        completion = {
+                            autoimport = {
+                                exclude = {
+                                    {
+                                        path = "anyhow::Ok",
+                                        type = "always",
+                                    },
+                                },
                             },
                         },
                     },

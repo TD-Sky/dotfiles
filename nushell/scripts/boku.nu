@@ -39,13 +39,11 @@ export def rec [
     let btoc = open $toc
 
     let title = (input '标题：')
-    let info = $title | parse '[{author}]{rest}' | first
+    let info = $title
+        | parse --regex '\[(?P<author>.+?)\] (?P<name>.+?)(?:[\(\[]|$)'
+        | first
     let author = $info.author | str trim
-    let name = $info.rest
-        | str split-once '('
-        | option or-else {|| $info.rest | str split-once '[' }
-        | option map {|p| $p.0 | str trim }
-        | default $info.rest
+    let name = $info.name | str trim
 
     let series = $btoc
         | get series
@@ -55,7 +53,7 @@ export def rec [
         | pick --prompt '分类：' --ansi --cycle
         | match $in {
             '<新建>' => {
-                input '分类：'
+                null | input '分类：'
             }
             '' => { null }
             $series => {
@@ -162,7 +160,7 @@ def 'book fmt' [bk: record] {
         ($bk.series | option map {|it| '系列：' + $it }),
         ($bk.characters | default [] | str join ', ' | option map {|it| '角色：' + $it }),
         ($bk.tags | default [] | str join ',' | option map {|it| '要素：' + $it }),
-        ("页数：" + $bk.pages),
+        $"页数：($bk.pages)",
     ]
     | where {|it| $it != null }
     | str join (char newline)

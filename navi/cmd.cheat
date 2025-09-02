@@ -1,5 +1,14 @@
 % cmd
 
+$ file: fd -c='always' -H -E='.git' -I --type file .
+$ group: groups | tr -s ' ' "\n"
+$ fd-opt-ignore: printf '\n-I'
+$ rg-opt-ignore: printf '\n--no-ignore'
+$ local-src: fd -c='always' -H -E='.git' -I .
+$ hashsum: printf 'sha256sum\nmd5sum'
+$ process: ps -A --no-headers | choose 3
+$ gdb-ip: printf '\nlocalhost'
+
 # 查看指定进程的状态
 cat /proc/<PID>/stat
 
@@ -53,23 +62,21 @@ sudo -iu <user>
 
 # 指定模式检索所有文件
 fd -c='always' -H -E='.git' <fd-opt-ignore> <pattern> <path>
-$ fd-opt-ignore: printf '\n-I'
 
 # 模糊搜索文本
 sk --ansi -i -c 'rg --color=always -n -. -g "!.git" <rg-opt-ignore> "{}"'
-$ rg-opt-ignore: printf '\n--no-ignore'
 
 # 本地向服务器推送文件
-rsync <src> <user>@<ip>:<dest>
+rsync <local-src> <user>@<ip>:<dest>
+
+# 保留时间戳（以便未来增量同步）的复制
+rsync -rthv --progress <local-src> <dest>
+
+# 保留所有元信息的复制
+rsync -ahv --progress <local-src> <dest>
 
 # 抓取服务器文件到本地
 rsync -chvzP --stats <user>@<ip>:<src> <dest>
-
-# 保留时间戳（以便未来增量同步）的复制
-rsync -rthv --progress <src> <dest>
-
-# 保留所有元信息的复制
-rsync -ahv --progress <src> <dest>
 
 # 查阅C标准库函数
 man 3 <function>
@@ -79,11 +86,9 @@ date --rfc-3339 seconds
 
 # 根据清单校验
 <hashsum> -c <sum-file>
-$ hashsum: printf 'sha256sum\nmd5sum'
 
 # 强制终结进程
 pkill -9 <process>
-$ process: ps -A --no-headers | choose 3
 
 # zsh下所有的键位绑定
 bindkey
@@ -132,7 +137,6 @@ gdbserver :<port> <program>
 
 # 连接GDB调试服务器
 gdb -q <program> -ex 'target remote <gdb-ip>:<port>'
-$ gdb-ip: printf '\nlocalhost'
 
 # 查看X和wayland应用的情况
 qdbus6 org.kde.KWin /KWin org.kde.KWin.showDebugConsole
@@ -145,4 +149,9 @@ ld --verbose | rg SEARCH_DIR | tr -s ' ;' \\012
 
 # 获取文件校验码
 sha256sum <file> | choose 0 | xs
-$ file: fd -c='always' -H -E='.git' -I --type file .
+
+# 添加用户到指定组
+sudo usermod -aG <group> <user>
+
+# 启动 scrcpy 且不使用电脑音频输出
+scrcpy --no-audio

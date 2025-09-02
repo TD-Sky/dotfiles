@@ -15,7 +15,7 @@ return {
                     stdin = true,
                 },
                 python = "ruff",
-                toml = "taplo",
+                toml = "tombi",
                 -- ocaml = {
                 --     cmd = "ocamlformat",
                 --     args = {
@@ -100,6 +100,9 @@ return {
         opts = {
             sources = {
                 providers = {
+                    lsp = {
+                        fallbacks = {},
+                    },
                     buffer = {
                         opts = {
                             -- get all buffers, even ones like neo-tree
