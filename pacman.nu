@@ -302,7 +302,6 @@ const MANIFEST = {
     gping: "图形化ping",
     traceroute: "路由显形",
     lsof: "监测端口",
-    v2raya: "飞越长城",
     openssh: "ssh",
     xh: "人类友好的http客户端",
     rustscan: "扫描端口",
