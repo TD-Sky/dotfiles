@@ -22,9 +22,9 @@ const MANIFEST = {
         desc: "腾讯会议(沙盒)"
     },
     feishu: {
-        packages: ["feishu-bin"],
+        packages: ["feishu-portable"],
         manager: "paru",
-        desc: "飞书"
+        desc: "飞书(沙盒)"
     },
 
     # OS
@@ -65,10 +65,7 @@ const MANIFEST = {
     },
     lua-language-server: "",
     stylua: "lua格式化器",
-    tombi: {
-        manager: "uv",
-        desc: "toml语言工具"
-    },
+    tombi: "toml语言工具",
     shfmt: "bash/zsh格式化器",
     gopls: "Go语言服务器",
     yaml-language-server: {
@@ -144,7 +141,6 @@ const MANIFEST = {
     dbeaver: "PostgreSQL客户端",
     sqlitebrowser: "SQLite客户端",
     keepassxc: "keepass客户端",
-    neovide: "丝滑neovim",
 
     # wayland
     wl-clipboard: "剪贴板",
@@ -299,6 +295,8 @@ const MANIFEST = {
     dysk: "统计分区大小",
     erdtree: "体积伴随文件树",
     macchina: "系统信息",
+    cyme: "查看USB设备",
+    qpwgraph: "音频设备拓补图",
 
     # network
     gping: "图形化ping",
@@ -369,12 +367,13 @@ const MANIFEST = {
     },
     pacman-contrib: "打包工具箱",
     aurpublish: "打包钩子",
+    pacfiles: "搜索文件对应的包",
 
     # android
     android-tools: "安卓调试桥",
-    android-studio: {
+    jetbrains-toolbox: {
         manager: "paru",
-        desc: "安卓IDE"
+        desc: "JB IDE 下载器"
     },
     uiautodev: {
         manager: "uv",
