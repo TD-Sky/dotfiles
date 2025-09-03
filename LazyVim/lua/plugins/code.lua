@@ -61,6 +61,11 @@ return {
                     args = { "--kotlinlang-style", "-" },
                     stdin = true,
                 },
+                d2 = {
+                    cmd = "d2",
+                    args = { "fmt", "-" },
+                    stdin = true,
+                },
             },
             lint = {
                 typos = "c,cpp,rust,go,python,lua",
