@@ -36,11 +36,9 @@ return {
         },
     },
     {
-        "rayliwell/tree-sitter-rstml",
-        enabled = false,
-        ft = "rust",
-        dependencies = { "nvim-treesitter" },
-        build = ":TSUpdate",
-        config = true,
+        "ravsii/tree-sitter-d2",
+        ft = "d2",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        build = "make nvim-install",
     },
 }

@@ -3,6 +3,7 @@ vim.filetype.add({
         slint = "slint",
         typ = "typst",
         nu = "nu",
+        d2 = "d2",
     },
     pattern = {
         [".*"] = {
