@@ -233,6 +233,7 @@ const MANIFEST = {
         packages: ["zip", "unzip"]
     },
     qbittorrent: "下载种子",
+    dufs: "文件服务器",
 
     # media
     imagemagick: "图片瑞士军刀",
