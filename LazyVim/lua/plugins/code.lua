@@ -103,6 +103,9 @@ return {
         dependencies = { "xzbdmw/colorful-menu.nvim" },
         event = "InsertEnter",
         opts = {
+            snippets = {
+                preset = "luasnip",
+            },
             sources = {
                 providers = {
                     lsp = {
@@ -203,5 +206,17 @@ return {
             bg_y_padding = 10,
             has_line_number = true,
         },
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load({
+                paths = { vim.fn.stdpath("config") .. "/snippets" },
+            })
+
+            local luasnip = require("luasnip")
+            luasnip.add_snippets("rust", require("plugins.snippets.rust"))
+        end,
     },
 }
