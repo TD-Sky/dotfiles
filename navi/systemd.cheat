@@ -3,4 +3,4 @@
 ; 系统服务
 
 # 查看指定单元的日志
-journalctl -u <unit>
+journalctl -xeu <unit>

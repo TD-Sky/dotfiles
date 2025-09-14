@@ -1,0 +1,9 @@
+% adb
+
+$ biset: printf '0 关\n1 开' --- --column 1 --delimiter '\s+'
+
+# 开关指针位置显形
+adb shell settings put system pointer_location <biset>
+
+# 开关触点显形
+adb shell settings put system show_touches <biset>
