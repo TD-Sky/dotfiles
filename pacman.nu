@@ -91,7 +91,6 @@ const MANIFEST = {
     },
     sccache: "编译缓存",
     kondo: "扫除编译产物",
-    cargo-flamegraph: "绘制火焰图及cargo配套插件",
     clang: {
         packages: ["clang", "llvm"],
         desc: "C/C++工具链"
@@ -233,6 +232,7 @@ const MANIFEST = {
         packages: ["zip", "unzip"]
     },
     qbittorrent: "下载种子",
+    dufs: "文件服务器",
 
     # media
     imagemagick: "图片瑞士军刀",
@@ -263,7 +263,7 @@ const MANIFEST = {
     poppler: "`pdftoppm -png`将PDF转成图片",
     wps: {
         packages: [
-            "wps-office-cn",
+            "wps-office-cn-bwrap",
             "wps-office-mui-zh-cn",
             "ttf-wps-fonts",
             "wps-office-fonts"
@@ -312,7 +312,6 @@ const MANIFEST = {
     obs-studio: "流录制",
 
     # cargo
-    cargo-generate: "项目模板",
     cargo-shear: {
         manager: "cargo",
         desc: "检查无用依赖",
@@ -328,19 +327,9 @@ const MANIFEST = {
     },
     cargo-depgraph: "依赖图",
     cargo-update: "更新cargo安装的应用",
-    cargo-cache: {
-        manager: "cargo",
-        desc: "管理缓存"
-    },
-    cargo-xwin: {
-        manager: "cargo",
-        desc: "交叉编译到Windows"
-    },
+    cargo-cache: "管理缓存",
     cargo-zigbuild: "无痛链接指定版本glibc",
-    cargo-wizard: {
-        manager: "cargo",
-        desc: "编译配置"
-    },
+    cargo-wizard: "编译配置",
     cargo-binstall: "下载crate的二进制",
     cargo-get: {
         manager: "cargo",

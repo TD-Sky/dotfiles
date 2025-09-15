@@ -33,6 +33,3 @@ ss --tcp --udp --listening --processes --numeric
 
 # 开通虚拟机的网桥
 sudo virsh net-start default
-
-# 捕获 TCP 连接
-sudo tcpdump -i any -s 0 -w <dump>.pcap port <port>

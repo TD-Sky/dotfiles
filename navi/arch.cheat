@@ -2,6 +2,7 @@
 
 $ local-package: pacman -Qq
 $ file: fd -c='always' -H -E='.git' -I --type file .
+$ d1: printf '\n-d 1'
 
 
 
@@ -17,25 +18,19 @@ pacman -F <command>
 pacman -Ql <local-package> | choose 1 | tree -C --fromfile | bat
 
 # 本地包的依赖树
-pactree -d 1 <local-package>
+pactree <d1> <local-package> | bat
 
 # 本地包的供养树
-pactree -d 1 -r <local-package>
+pactree <d1> -r <local-package> | bat
 
 # 包的文件树
 pacman -Fl <package> | choose 1 | tree -C --fromfile | bat
 
-# 包的直接依赖树
-pactree -d 1 -s <package>
-
 # 包的依赖树
-pactree -s <package> | bat
-
-# 包的直接供养树
-pactree -d 1 -s -r <package>
+pactree <d1> -s <package> | bat
 
 # 包的供养树
-pactree -s -r <package> | bat
+pactree <d1> -s -r <package> | bat
 
 # 列印无供养的包
 pacman -Qt
