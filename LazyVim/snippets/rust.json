@@ -1,6 +1,6 @@
 {
   "proxy-field": {
-    "prefix": "proxy-field",
+    "prefix": "proxy",
     "body": [
       "#[inline]",
       "pub fn ${1:field}(&mut self, $1: ${2:Type}) -> &mut Self {",
@@ -11,7 +11,7 @@
     "description": "self.field = val"
   },
   "build-field": {
-    "prefix": "build-field",
+    "prefix": "build",
     "body": [
       "#[inline]",
       "pub fn ${1:field}(self, $1: ${2:Type}) -> Self {",
@@ -44,7 +44,7 @@
     "description": "set_field"
   },
   "if-set": {
-    "prefix": "if-set",
+    "prefix": "ifset",
     "body": [
       "let ${1:field} = if $1.is_some() {",
       "    Set($1)",
@@ -55,22 +55,17 @@
     "description": "Set/NotSet"
   },
   "no_main": {
-    "prefix": "no_main",
+    "prefix": "nomain",
     "body": ["#![no_main]"],
     "description": "#![no_main]"
   },
   "no_mangle": {
-    "prefix": "no_mangle",
+    "prefix": "nomangle",
     "body": ["#[no_mangle]"],
     "description": "#[no_mangle]"
   },
-  "lifetime": {
-    "prefix": "lifetime",
-    "body": ["'${1:static}"],
-    "description": "'…"
-  },
   "lazy-static": {
-    "prefix": "lazy-static",
+    "prefix": "lazystatic",
     "body": ["static ref $1: $2 = $3;"],
     "description": "lazy static item"
   },
@@ -79,39 +74,18 @@
     "body": ["#[cfg(test)]", "mod tests {", "    $1", "}"],
     "description": "tests module"
   },
-  "poem-handler": {
-    "prefix": "poem-handler",
-    "body": ["#[handler]", "pub async fn $1() -> $2 {", "    $3", "}"],
-    "description": "poem handler"
-  },
   "rustfmt-skip": {
-    "prefix": "rustfmt-skip",
+    "prefix": "rustfmtskip",
     "body": ["#[rustfmt::skip]"],
     "description": "skip formatting"
   },
   "assert-matches": {
-    "prefix": "assert-matches",
+    "prefix": "assertmatches",
     "body": ["assert!(matches!($1,$2));"],
     "description": "assert the given expression matches the parttern"
   },
-  "table-column": {
-    "prefix": ".newcol",
-    "body": [".col(ColumnDef::new(Self::$1).$2)"],
-    "description": "define a new column in database table"
-  },
-  "create-foreign-key": {
-    "prefix": ".newfor",
-    "body": [
-      ".foreign_key(",
-      "    ForeignKey::create()",
-      "        .from(Self::Table, Self::$1)",
-      "        .to($2::Table, $2::$3),",
-      ")"
-    ],
-    "description": "create a new foreign key"
-  },
   "let-else": {
-    "prefix": "let-else",
+    "prefix": "letelse",
     "body": ["let Some($1) = $2 else {", "    return $3;", "};"],
     "description": "let-else"
   },
@@ -121,18 +95,402 @@
     "description": "attribute"
   },
   "impl-asref": {
-    "prefix": "impl-asref",
+    "prefix": "implasref",
     "body": ["impl AsRef<$1>"],
     "description": "impl AsRef"
   },
   "r-string": {
-    "prefix": "r-string",
+    "prefix": "rstring",
     "body": ["r\"$1\""],
     "description": "raw string"
   },
   "raw-string": {
-    "prefix": "raw-string",
+    "prefix": "rawstring",
     "body": ["r#\"$1\"#"],
     "description": "raw string (`\"` included)"
+  },
+  "allow": {
+    "prefix": "allow",
+    "body": ["#![allow(${1})]"],
+    "description": "#![allow(…)]"
+  },
+  "deny": {
+    "prefix": "deny",
+    "body": ["#![deny(${1})]"],
+    "description": "#![deny(…)]"
+  },
+  "warn": {
+    "prefix": "warn",
+    "body": ["#![warn(${1})]"],
+    "description": "#![warn(…)]"
+  },
+  "no_std": {
+    "prefix": "nostd",
+    "body": ["#![no_std]"],
+    "description": "#![no_std]"
+  },
+  "no_core": {
+    "prefix": "nocore",
+    "body": ["#![no_core]"],
+    "description": "#![no_core]"
+  },
+  "feature": {
+    "prefix": "feature",
+    "body": ["#![feature(${1})]"],
+    "description": "#![feature(…)]"
+  },
+  "macro_use": {
+    "prefix": "macrouse",
+    "body": ["#[macro_use(${1})]"],
+    "description": "#[macro_use(…)]"
+  },
+  "repr": {
+    "prefix": "repr",
+    "body": ["#[repr(${1})]"],
+    "description": "#[repr(…)]"
+  },
+  "cfg": {
+    "prefix": "cfg",
+    "body": ["#[cfg(${1})]"],
+    "description": "#[cfg(…)]"
+  },
+  "cfg_attr": {
+    "prefix": "cfgattr",
+    "body": ["#[cfg_attr(${1}, ${2})]"],
+    "description": "#[cfg_attr(…, …)]"
+  },
+  "cfg!": {
+    "prefix": "cfg!",
+    "body": ["cfg!(${1})"],
+    "description": "cfg!(…)"
+  },
+  "column": {
+    "prefix": "column",
+    "body": ["column!()"],
+    "description": "column!()"
+  },
+  "concat": {
+    "prefix": "concat",
+    "body": ["concat!(${1})"],
+    "description": "concat!(…)"
+  },
+  "concat_idents": {
+    "prefix": "concat_idents",
+    "body": ["concat_idents!(${1})"],
+    "description": "concat_idents!(…)"
+  },
+  "debug_assert": {
+    "prefix": "debugassert",
+    "body": ["debug_assert!(${1});"],
+    "description": "debug_assert!(…)"
+  },
+  "debug_assert_eq": {
+    "prefix": "debugasserteq",
+    "body": ["debug_assert_eq!(${1}, ${2});"],
+    "description": "debug_assert_eq!(…, …)"
+  },
+  "env": {
+    "prefix": "env",
+    "body": ["env!(\"${1}\")"],
+    "description": "env!(\"…\")"
+  },
+  "file": {
+    "prefix": "file",
+    "body": ["file!()"],
+    "description": "file!()"
+  },
+  "format": {
+    "prefix": "format",
+    "body": ["format!(\"${1}\")"],
+    "description": "format!(…)"
+  },
+  "format_args": {
+    "prefix": "formatargs",
+    "body": ["format_args!(\"${1}\")"],
+    "description": "format_args!(…)"
+  },
+  "include": {
+    "prefix": "include",
+    "body": ["include!(\"${1}\");"],
+    "description": "include!(\"…\");"
+  },
+  "include_bytes": {
+    "prefix": "includebytes",
+    "body": ["include_bytes!(\"${1}\")"],
+    "description": "include_bytes!(\"…\")"
+  },
+  "include_str": {
+    "prefix": "includestr",
+    "body": ["include_str!(\"${1}\")"],
+    "description": "include_str!(\"…\")"
+  },
+  "line": {
+    "prefix": "line",
+    "body": ["line!()"],
+    "description": "line!()"
+  },
+  "module_path": {
+    "prefix": "modulepath",
+    "body": ["module_path!()"],
+    "description": "module_path!()"
+  },
+  "option_env": {
+    "prefix": "optionenv",
+    "body": ["option_env!(\"${1}\")"],
+    "description": "option_env!(\"…\")"
+  },
+  "panic": {
+    "prefix": "panic",
+    "body": ["panic!(\"${1}\");"],
+    "description": "panic!(…);"
+  },
+  "print": {
+    "prefix": "print",
+    "body": ["print!(\"${1}\");"],
+    "description": "print!(…);"
+  },
+  "println": {
+    "prefix": "println",
+    "body": ["println!(\"${1}\");"],
+    "description": "println!(…);"
+  },
+  "stringify": {
+    "prefix": "stringify",
+    "body": ["stringify!(${1})"],
+    "description": "stringify!(…)"
+  },
+  "thread_local": {
+    "prefix": "threadlocal",
+    "body": ["thread_local!(static ${1:STATIC}: ${2:Type} = ${4:init});"],
+    "description": "thread_local!(static …: … = …);"
+  },
+  "try": {
+    "prefix": "try",
+    "body": ["try!(${1})"],
+    "description": "try!(…)"
+  },
+  "unimplemented": {
+    "prefix": "unimplemented",
+    "body": ["unimplemented!()"],
+    "description": "unimplemented!()"
+  },
+  "unreachable": {
+    "prefix": "unreachable",
+    "body": ["unreachable!(${1})"],
+    "description": "unreachable!(…)"
+  },
+  "vec": {
+    "prefix": "vec",
+    "body": ["vec![${1}]"],
+    "description": "vec![…]"
+  },
+  "write": {
+    "prefix": "write",
+    "body": ["write!(${1}, \"${2}\")"],
+    "description": "write!(…)"
+  },
+  "writeln": {
+    "prefix": "writeln",
+    "body": ["writeln!(${1}, \"${2}\")"],
+    "description": "writeln!(…, …)"
+  },
+  "assert": {
+    "prefix": "assert",
+    "body": ["assert!(${1});"],
+    "description": "assert!(…);"
+  },
+  "assert_eq": {
+    "prefix": "asserteq",
+    "body": ["assert_eq!(${1}, ${2});"],
+    "description": "assert_eq!(…, …);"
+  },
+  "bench": {
+    "prefix": "bench",
+    "body": [
+      "#[bench]",
+      "fn ${1:name}(b: &mut test::Bencher) {",
+      "    ${2:b.iter(|| ${3:/* benchmark code */})}",
+      "}"
+    ],
+    "description": "#[bench]"
+  },
+  "const": {
+    "prefix": "const",
+    "body": ["const ${1:CONST}: ${2:Type} = ${4:init};"],
+    "description": "const …: … = …;"
+  },
+  "derive": {
+    "prefix": "derive",
+    "body": ["#[derive(${1})]"],
+    "description": "#[derive(…)]"
+  },
+  "enum": {
+    "prefix": "enum",
+    "body": [
+      "#[derive(Debug)]",
+      "enum ${1:Name} {",
+      "    ${2:Variant1},",
+      "    ${3:Variant2},",
+      "}"
+    ],
+    "description": "enum … { … }"
+  },
+  "extern-fn": {
+    "prefix": "externfn",
+    "body": [
+      "extern \"C\" fn ${1:name}(${2:arg}: ${3:Type}) -> ${4:RetType} {",
+      "    ${5:// add code here}",
+      "}"
+    ],
+    "description": "extern \"C\" fn …(…) { … }"
+  },
+  "extern-mod": {
+    "prefix": "externmod",
+    "body": ["extern \"C\" {", "    ${2:// add code here}", "}"],
+    "description": "extern \"C\" { … }"
+  },
+  "pfn": {
+    "prefix": "pfn",
+    "body": [
+      "pub fn ${1:name}(${2:arg}: ${3:Type}) -> ${4:RetType} {",
+      "    ${5:todo!();}",
+      "}"
+    ],
+    "description": "pub fn …(…) { … }"
+  },
+  "fn": {
+    "prefix": "fn",
+    "body": [
+      "fn ${1:name}(${2:arg}: ${3:Type}) -> ${4:RetType} {",
+      "    ${5:todo!();}",
+      "}"
+    ],
+    "description": "fn …(…) { … }"
+  },
+  "for": {
+    "prefix": "for",
+    "body": ["for ${1:pat} in ${2:expr} {", "    ${3:todo!();}", "}"],
+    "description": "for … in … { … }"
+  },
+  "if-let": {
+    "prefix": "if-let",
+    "body": ["if let ${1:Some(pat)} = ${2:expr} {", "    ${0:todo!();}", "}"],
+    "description": "if let … = … { … }"
+  },
+  "if": {
+    "prefix": "if",
+    "body": ["if ${1:condition} {", "    ${2:todo!();}", "}"],
+    "description": "if … { … }"
+  },
+  "impl-trait": {
+    "prefix": "impltrait",
+    "body": [
+      "impl ${1:Trait} for ${2:Type} {",
+      "    ${3:// add code here}",
+      "}"
+    ],
+    "description": "impl … for … { … }"
+  },
+  "inline-fn": {
+    "prefix": "inlinefn",
+    "body": ["#[inline]", "pub fn ${1:name}() {", "    ${2:todo!();}", "}"],
+    "description": "inlined function"
+  },
+  "macro_rules": {
+    "prefix": "macrorules",
+    "body": ["macro_rules! ${1:name} {", "    (${2}) => (${3})", "}"],
+    "description": "macro_rules! … { … }"
+  },
+  "main": {
+    "prefix": "main",
+    "body": ["fn main() {", "    ${1:todo!();}", "}"],
+    "description": "fn main() { … }"
+  },
+  "match": {
+    "prefix": "match",
+    "body": ["match ${1:expr} {}"],
+    "description": "match … { … }"
+  },
+  "mod-block": {
+    "prefix": "mod",
+    "body": ["mod ${1:name} {", "    ${2:// add code here}", "}"],
+    "description": "mod … { … }"
+  },
+  "static": {
+    "prefix": "static",
+    "body": ["static ${1:STATIC}: ${2:Type} = ${4:init};"],
+    "description": "static …: … = …;"
+  },
+  "struct-tuple": {
+    "prefix": "structtuple",
+    "body": ["struct ${1:Name}(${2:Type});"],
+    "description": "struct …(…);"
+  },
+  "struct-unit": {
+    "prefix": "structunit",
+    "body": ["struct ${1:Name};"],
+    "description": "struct …;"
+  },
+  "struct": {
+    "prefix": "struct",
+    "body": [
+      "#[derive(Debug)]",
+      "struct ${1:Name} {",
+      "    ${2:field}: ${3:Type}",
+      "}"
+    ],
+    "description": "struct … { … }"
+  },
+  "test": {
+    "prefix": "test",
+    "body": ["#[test]", "fn ${1:name}() {", "    ${2:todo!();}", "}"],
+    "description": "#[test]"
+  },
+  "trait": {
+    "prefix": "trait",
+    "body": ["trait ${1:Name} {", "    ${2:// add code here}", "}", ""],
+    "description": "trait … { … }"
+  },
+  "type": {
+    "prefix": "type",
+    "body": ["type ${1:Alias} = ${2:Type};"],
+    "description": "type … = …;"
+  },
+  "while-let": {
+    "prefix": "while-let",
+    "body": [
+      "while let ${1:Some(pat)} = ${2:expr} {",
+      "    ${0:todo!();}",
+      "}"
+    ],
+    "description": "while let … = … { … }"
+  },
+  "while": {
+    "prefix": "while",
+    "body": ["while ${1:condition} {", "    ${2:todo!();}", "}"],
+    "description": "while … { … }"
+  },
+  "pafn": {
+    "prefix": "pafn",
+    "body": [
+      "pub async fn ${1:name}(${2:arg}: ${3:Type}) -> ${4:RetType} {",
+      "    ${5:todo!();}",
+      "}"
+    ],
+    "description": "pub async fn …(…) { … }"
+  },
+  "afn": {
+    "prefix": "afn",
+    "body": [
+      "async fn ${1:name}(${2:arg}: ${3:Type}) -> ${4:RetType} {",
+      "    ${5:todo!();}",
+      "}"
+    ],
+    "description": "async fn …(…) { … }"
+  },
+  "pub-use": {
+    "prefix": "pubuse",
+    "body": ["pub use ${1};"],
+    "description": "pub use …;"
   }
 }
