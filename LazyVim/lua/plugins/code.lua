@@ -52,10 +52,7 @@ return {
                     stdin = true,
                 },
                 ["vue,xml,yaml,html,astro"] = "prettier",
-                typst = {
-                    cmd = "typstyle",
-                    stdin = true,
-                },
+                typst = "typstyle",
                 kotlin = {
                     cmd = "ktfmt",
                     args = { "--kotlinlang-style", "-" },
