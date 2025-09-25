@@ -5,6 +5,10 @@
       {
         "language": "rust",
         "path": "./rust.json"
+      },
+      {
+        "language": "lua",
+        "path": "./lua.json"
       }
     ]
   }

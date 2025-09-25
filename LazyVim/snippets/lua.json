@@ -1,0 +1,7 @@
+{
+  "function": {
+    "prefix": "fun",
+    "body": ["function ${1:name}($2)", "\t${0}", "end"],
+    "description": "Define a function"
+  }
+}

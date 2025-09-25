@@ -1,30 +1,37 @@
-[source]
+[env]
+RUST_BACKTRACE = "1"
+RUST_LIB_BACKTRACE = "0"
 
-[source.crates-io]
-replace-with = "rsproxy-sparse"
+[profile.dev]
+debug = "line-tables-only"
+split-debuginfo = "unpacked"
 
-[source.rsproxy-sparse]
-registry = "sparse+https://rsproxy.cn/index/"
+[profile.dev.package."*"]
+debug = false
 
-[registries]
+[profile.bench]
+debug = "line-tables-only"
+split-debuginfo = "unpacked"
 
-[registries.crates-io]
-protocol = "sparse"
+[profile.debug]
+inherits = "dev"
+debug = "full"
 
-[registries.rsproxy]
-index = "https://rsproxy.cn/crates.io-index"
-
-[registries.rsproxy-sparse]
-index = "sparse+https://rsproxy.cn/index/"
-
-[net]
-git-fetch-with-cli = true
-
-[build]
-rustc-wrapper = "/usr/bin/sccache"
-
-# Applied through `cargo build --profile=product`
 [profile.product]
 inherits = "release"
 lto = "fat"
 codegen-units = 1
+
+[target.x86_64-unknown-linux-gnu]
+linker = "/usr/bin/clang"
+rustflags = ["-C", "link-arg=--ld-path=/usr/bin/mold"]
+
+[build]
+rustc-wrapper = "/usr/bin/sccache"
+
+[net]
+git-fetch-with-cli = true
+
+[source]
+crates-io = { replace-with = "rsproxy-sparse" }
+rsproxy-sparse = { registry = "sparse+https://rsproxy.cn/index/" }
