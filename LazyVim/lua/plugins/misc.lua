@@ -64,6 +64,36 @@ return {
             { "<leader>gs", false },
             { "<leader>gS", false },
             { "<leader>gd", false },
+            -- LSP
+            {
+                "gd",
+                function()
+                    Snacks.picker.lsp_definitions()
+                end,
+                desc = "Goto Definition",
+            },
+            {
+                "gr",
+                function()
+                    Snacks.picker.lsp_references()
+                end,
+                nowait = true,
+                desc = "References",
+            },
+            {
+                "gI",
+                function()
+                    Snacks.picker.lsp_implementations()
+                end,
+                desc = "Goto Implementation",
+            },
+            {
+                "gD",
+                function()
+                    Snacks.picker.lsp_type_definitions()
+                end,
+                desc = "Goto Type Definition",
+            },
         },
         opts = function(_, opts)
             -- scroll
@@ -78,7 +108,7 @@ return {
                 icon = " ",
                 key = "p",
                 desc = "Projects",
-                action = "<cmd>Telescope neovim-project history<CR>",
+                action = "<cmd>NeovimProjectHistory<CR>",
             }
             opts.dashboard.preset.keys[1].action = "<leader>fF"
             table.insert(opts.dashboard.preset.keys, 2, {
