@@ -27,10 +27,6 @@ return {
         config = function(_, opts)
             LazyVim.lsp.setup()
 
-            if vim.g.project_lspconfig ~= nil then
-                opts.servers = vim.tbl_deep_extend("force", opts.servers, vim.g.project_lspconfig)
-            end
-
             -- 指定诊断日志的图标
             for severity, icon in pairs(opts.diagnostics.signs.text) do
                 local name = vim.diagnostic.severity[severity]:lower():gsub("^%l", string.upper)
@@ -85,11 +81,6 @@ return {
         event = "LspAttach",
         keys = {
             -- 跳转
-            { "gD", "<cmd>Lspsaga goto_type_definition<cr>", desc = "Goto Type Definition" },
-            { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition" },
-            { "gI", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation" },
-            { "gR", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-            { "gr", "<cmd>Lspsaga finder ref<cr>", desc = "Saga References" },
             {
                 "[d",
                 "<cmd>Lspsaga diagnostic_jump_prev<cr>",
@@ -133,15 +124,6 @@ return {
                 "<cmd>Lspsaga code_action<cr>",
                 mode = { "n", "v" },
                 desc = "Code Action",
-            },
-            {
-                "<leader>lA",
-                function()
-                    vim.lsp.buf.code_action({
-                        context = { only = { "source" }, diagnostics = {} },
-                    })
-                end,
-                desc = "Source Action",
             },
             { "<leader>ls", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
             { "<leader>li", "<cmd>Lspsaga incoming_calls<cr>", desc = "Incoming calls tree" },

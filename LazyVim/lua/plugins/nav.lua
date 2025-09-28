@@ -1,4 +1,3 @@
-local LazyVim = require("lazyvim.util")
 local utils = require("utils")
 
 return {
@@ -16,50 +15,12 @@ return {
         },
     },
     {
-        "nvim-telescope/telescope.nvim",
-        opts = {
-            pickers = {
-                find_files = {
-                    previewer = false,
-                },
-                git_files = {
-                    previewer = false,
-                },
-                live_grep = {
-                    layout_config = {
-                        preview_width = 0.5,
-                    },
-                },
-            },
-        },
-    },
-    {
         "mbbill/undotree",
         keys = {
             { "<leader>uu", "<cmd>UndotreeToggle<cr>", desc = "Toggle Undotree" },
         },
         config = function()
             vim.g.undotree_WindowLayout = 4
-        end,
-    },
-    {
-        "crusj/bookmarks.nvim",
-        keys = {
-            { "<leader>B", remap = true, desc = "Bookmarks" },
-            { "<leader>m", remap = true, desc = "Make bookmark" },
-            { "<leader>sB", "<cmd>Telescope bookmarks<CR>", desc = "Bookmarks" },
-        },
-        branch = "main",
-        dependencies = { "nvim-web-devicons" },
-        opts = {
-            keymap = {
-                toggle = "<leader>B",
-                add = "<leader>m",
-            },
-        },
-        config = function(_, opts)
-            require("bookmarks").setup(opts)
-            require("telescope").load_extension("bookmarks")
         end,
     },
     {
@@ -88,9 +49,14 @@ return {
     },
     {
         "coffebar/neovim-project",
+        lazy = false,
+        priority = 100,
         opts = {
             projects = {},
             last_session_on_startup = false,
+            picker = {
+                type = "snacks",
+            },
         },
         init = function()
             -- enable saving the state of plugins in the session
@@ -98,7 +64,7 @@ return {
         end,
         dependencies = {
             { "nvim-lua/plenary.nvim" },
-            { "nvim-telescope/telescope.nvim" },
+            { "folke/snacks.nvim" },
             { "Shatur/neovim-session-manager" },
         },
     },
