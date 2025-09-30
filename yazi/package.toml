@@ -15,7 +15,7 @@ hash = "c2021386289a0cbb3e152a052f67c177"
 
 [[plugin.deps]]
 use = "TD-Sky/sudo"
-rev = "f35afcb"
+rev = "8148f91"
 hash = "5db5b16dc96e971f0560a31999271065"
 
 [[plugin.deps]]
