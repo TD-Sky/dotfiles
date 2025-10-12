@@ -489,7 +489,7 @@
     "description": "async fn …(…) { … }"
   },
   "pub-use": {
-    "prefix": "pubuse",
+    "prefix": "pus",
     "body": ["pub use ${1};"],
     "description": "pub use …;"
   }

@@ -270,6 +270,9 @@ toggle do not disturb=none,,切换勿扰模式
 [services][curl.desktop]
 _launch=Ctrl+Shift+W
 
+[services][kitty.desktop]
+_launch=Meta+Return
+
 [services][org.kde.plasma-systemmonitor.desktop]
 _launch=none
 
@@ -278,9 +281,6 @@ RecordWindow=none
 
 [services][org.kde.touchpadshortcuts.desktop]
 ToggleTouchpad=Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku
-
-[services][org.wezfurlong.wezterm.desktop]
-_launch=Meta+Return
 
 [strawberry]
 _k_friendly_name=strawberry
