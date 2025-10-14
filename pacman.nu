@@ -119,10 +119,7 @@ const MANIFEST = {
     qt-theme: {
         packages: ["qt6ct", "qt5ct", "kvantum"]
     },
-    wezterm: {
-        packages: ["wezterm-git"],
-        desc: "现代终端模拟器"
-    },
+    kitty: "最强终端模拟器",
     sddm: "会话管理器",
     dolphin: {
         packages: ["dolphin", "ffmpegthumbs", "kdegraphics-thumbnailers"],
