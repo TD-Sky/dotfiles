@@ -64,11 +64,6 @@
     "body": ["#[no_mangle]"],
     "description": "#[no_mangle]"
   },
-  "lazy-static": {
-    "prefix": "lazystatic",
-    "body": ["static ref $1: $2 = $3;"],
-    "description": "lazy static item"
-  },
   "tests": {
     "prefix": "tests",
     "body": ["#[cfg(test)]", "mod tests {", "    $1", "}"],
