@@ -61,6 +61,9 @@ return {
             server = {
                 settings = {
                     ["rust-analyzer"] = {
+                        diagnostics = {
+                            disabled = { "proc-macro-disabled" },
+                        },
                         check = {
                             command = "clippy",
                             extraArgs = {
@@ -86,8 +89,8 @@ return {
                         },
                         procMacro = {
                             ignored = {
-                                "async_trait::async_trait",
-                                "tokio::test",
+                                ["async-trait"] = { "async_trait" },
+                                ["tokio-macros"] = { "main", "test" },
                             },
                         },
                         completion = {

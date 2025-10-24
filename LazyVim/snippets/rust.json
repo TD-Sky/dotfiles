@@ -64,10 +64,10 @@
     "body": ["#[no_mangle]"],
     "description": "#[no_mangle]"
   },
-  "lazy-static": {
-    "prefix": "lazystatic",
-    "body": ["static ref $1: $2 = $3;"],
-    "description": "lazy static item"
+  "lazy-lock": {
+    "prefix": "lazylock",
+    "body": ["static ${1:STATIC}: LazyLock<${2:Type}> = LazyLock::new(|| {${3:init}});"],
+    "description": "static LazyLock"
   },
   "tests": {
     "prefix": "tests",
@@ -418,7 +418,7 @@
   },
   "static": {
     "prefix": "static",
-    "body": ["static ${1:STATIC}: ${2:Type} = ${4:init};"],
+    "body": ["static ${1:STATIC}: ${2:Type} = ${3:init};"],
     "description": "static …: … = …;"
   },
   "struct-tuple": {
