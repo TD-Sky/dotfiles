@@ -62,7 +62,7 @@ return {
                 settings = {
                     ["rust-analyzer"] = {
                         diagnostics = {
-                            disabled = { "unresolved-proc-macro" },
+                            disabled = { "proc-macro-disabled" },
                         },
                         check = {
                             command = "clippy",
