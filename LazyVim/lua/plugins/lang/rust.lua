@@ -86,8 +86,8 @@ return {
                         },
                         procMacro = {
                             ignored = {
-                                "async_trait::async_trait",
-                                "tokio::test",
+                                ["async-trait"] = { "async_trait" },
+                                ["tokio-macros"] = { "main", "test" },
                             },
                         },
                         completion = {
