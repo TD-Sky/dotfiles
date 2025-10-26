@@ -23,10 +23,16 @@ return {
                 "basedpyright",
                 "astro",
             },
+            capabilities = {
+                workspace = {
+                    fileOperations = {
+                        didRename = true,
+                        willRename = true,
+                    },
+                },
+            },
         },
-        config = function(_, opts)
-            LazyVim.lsp.setup()
-
+        config = vim.schedule_wrap(function(_, opts)
             -- 指定诊断日志的图标
             for severity, icon in pairs(opts.diagnostics.signs.text) do
                 local name = vim.diagnostic.severity[severity]:lower():gsub("^%l", string.upper)
@@ -34,8 +40,9 @@ return {
                 vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
             end
 
+            -- inlay hints
             if opts.inlay_hints.enabled then
-                LazyVim.lsp.on_supports_method("textDocument/inlayHint", function(_, buffer)
+                Snacks.util.lsp.on({ method = "textDocument/inlayHint" }, function(buffer)
                     if
                         vim.api.nvim_buf_is_valid(buffer)
                         and vim.bo[buffer].buftype == ""
@@ -46,8 +53,18 @@ return {
                 end)
             end
 
+            -- folds
+            if opts.folds.enabled then
+                Snacks.util.lsp.on({ method = "textDocument/foldingRange" }, function()
+                    if LazyVim.set_default("foldmethod", "expr") then
+                        LazyVim.set_default("foldexpr", "v:lua.vim.lsp.foldexpr()")
+                    end
+                end)
+            end
+
+            -- code lens
             if opts.codelens.enabled and vim.lsp.codelens then
-                LazyVim.lsp.on_supports_method("textDocument/codeLens", function(_, buffer)
+                Snacks.util.lsp.on({ method = "textDocument/codeLens" }, function(buffer)
                     vim.lsp.codelens.refresh()
                     vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
                         buffer = buffer,
@@ -56,7 +73,7 @@ return {
                 end)
             end
 
-            -- 配置诊断
+            -- diagnostics
             vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
             local default_lsp_config = {
@@ -70,7 +87,7 @@ return {
             vim.lsp.config("*", default_lsp_config)
 
             vim.lsp.enable(opts.servers)
-        end,
+        end),
     },
     {
         "nvimdev/lspsaga.nvim",
