@@ -142,6 +142,12 @@ return {
                 mode = { "n", "v" },
                 desc = "Code Action",
             },
+            {
+                "<leader>ll",
+                vim.lsp.codelens.run,
+                mode = "n",
+                desc = "Code Lens",
+            },
             { "<leader>ls", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
             { "<leader>li", "<cmd>Lspsaga incoming_calls<cr>", desc = "Incoming calls tree" },
             { "<leader>lo", "<cmd>Lspsaga outgoing_calls<cr>", desc = "Outgoing calls tree" },
