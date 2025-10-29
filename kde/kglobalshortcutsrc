@@ -225,7 +225,7 @@ _k_friendly_name=电源管理
 powerProfile=Battery\tMeta+B,Battery\tMeta+B,切换电源管理方案
 
 [plasmashell]
-Slideshow Wallpaper Next Image=,,下一张壁纸图像
+Slideshow Wallpaper Next Image=none,,下一张壁纸图像
 _k_friendly_name=plasmashell
 activate application launcher=Meta\tAlt+F1,Meta\tAlt+F1,激活应用程序启动器
 activate task manager entry 1=none,Meta+1,激活任务管理器条目 1
