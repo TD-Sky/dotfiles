@@ -129,12 +129,21 @@ return {
                 providers = {
                     lsp = {
                         fallbacks = {},
+                        score_offset = 0,
+                    },
+                    snippets = {
+                        score_offset = 0,
+                        fallbacks = {},
+                    },
+                    path = {
+                        score_offset = 3,
                     },
                     buffer = {
                         opts = {
                             -- get all buffers, even ones like neo-tree
                             get_bufnrs = vim.api.nvim_list_bufs,
                         },
+                        fallbacks = {},
                     },
                     ripgrep = {
                         module = "blink-ripgrep",
