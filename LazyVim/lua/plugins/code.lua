@@ -129,6 +129,14 @@ return {
                 providers = {
                     lsp = {
                         fallbacks = { "buffer", "dictionary" },
+                        score_offset = 0,
+                    },
+                    snippets = {
+                        score_offset = 0,
+                        fallbacks = { "buffer", "dictionary" },
+                    },
+                    path = {
+                        score_offset = 3,
                     },
                     buffer = {
                         opts = {
@@ -136,9 +144,6 @@ return {
                             get_bufnrs = vim.api.nvim_list_bufs,
                         },
                         fallbacks = { "ripgrep" },
-                    },
-                    snippets = {
-                        fallbacks = { "buffer", "dictionary" },
                     },
                     ripgrep = {
                         module = "blink-ripgrep",
