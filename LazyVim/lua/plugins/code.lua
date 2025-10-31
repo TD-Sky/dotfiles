@@ -128,12 +128,12 @@ return {
                 end,
                 providers = {
                     lsp = {
-                        fallbacks = { "buffer", "dictionary" },
+                        fallbacks = {},
                         score_offset = 0,
                     },
                     snippets = {
                         score_offset = 0,
-                        fallbacks = { "buffer", "dictionary" },
+                        fallbacks = {},
                     },
                     path = {
                         score_offset = 3,
@@ -143,7 +143,7 @@ return {
                             -- get all buffers, even ones like neo-tree
                             get_bufnrs = vim.api.nvim_list_bufs,
                         },
-                        fallbacks = { "ripgrep" },
+                        fallbacks = {},
                     },
                     ripgrep = {
                         module = "blink-ripgrep",
