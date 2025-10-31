@@ -14,6 +14,11 @@ return {
         dependencies = { "kkharji/sqlite.lua" },
         build = function()
             require("Trans").install()
+            local trans = vim.fn.stdpath("data") .. "/lazy/Trans.nvim"
+            os.execute(
+                string.format([[sqlite3 %s/ultimate.db 'select word from stardict' > %s/neovim.dict]], trans, trans)
+            )
+            vim.notify("gen dict", vim.log.levels.INFO)
         end,
         keys = {
             { "gl", "<cmd>Translate<cr>", mode = { "n", "x" }, desc = "翻译" },
