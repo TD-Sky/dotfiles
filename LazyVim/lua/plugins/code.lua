@@ -97,13 +97,35 @@ return {
     },
     {
         "saghen/blink.cmp",
-        dependencies = { "xzbdmw/colorful-menu.nvim" },
+        dependencies = {
+            "xzbdmw/colorful-menu.nvim",
+            {
+                "bydlw98/blink-cmp-env",
+                lazy = true,
+            },
+            {
+                "mikavilpas/blink-ripgrep.nvim",
+                lazy = true,
+            },
+            {
+                "Kaiser-Yang/blink-cmp-dictionary",
+                dependencies = { "nvim-lua/plenary.nvim" },
+                lazy = true,
+            },
+        },
         event = "InsertEnter",
         opts = {
             snippets = {
                 preset = "luasnip",
             },
             sources = {
+                default = function()
+                    local default = { "lsp", "path", "snippets", "buffer", "ripgrep", "dictionary" }
+                    if vim.tbl_contains({ "bash", "sh", "zsh", "nu" }, vim.bo.ft) then
+                        table.insert(default, "env")
+                    end
+                    return default
+                end,
                 providers = {
                     lsp = {
                         fallbacks = {},
@@ -113,6 +135,53 @@ return {
                             -- get all buffers, even ones like neo-tree
                             get_bufnrs = vim.api.nvim_list_bufs,
                         },
+                    },
+                    ripgrep = {
+                        module = "blink-ripgrep",
+                        name = "Ripgrep",
+                        min_keyword_length = 5,
+                        ---@module "blink-ripgrep"
+                        ---@type blink-ripgrep.Options
+                        opts = {
+                            prefix_min_len = 5,
+                            backend = {
+                                context_size = 5,
+                                ripgrep = {
+                                    max_filesize = "1M",
+                                    search_casing = "--smart-case",
+                                },
+                            },
+                        },
+                    },
+                    dictionary = {
+                        min_keyword_length = 4,
+                        name = "Dict",
+                        module = "blink-cmp-dictionary",
+                        ---@module "blink-cmp-dictionary"
+                        ---@type blink-cmp-dictionary.Options
+                        opts = {
+                            dictionary_files = {
+                                vim.fn.stdpath("data") .. "/lazy/Trans.nvim/neovim.dict",
+                            },
+                            get_documentation = function(item)
+                                return {
+                                    get_command = "sqlite3",
+                                    get_command_args = {
+                                        vim.fn.stdpath("data") .. "/lazy/Trans.nvim/ultimate.db",
+                                        "select translation from stardict where word = '" .. item .. "';",
+                                    },
+                                    ---@diagnostic disable-next-line: redefined-local
+                                    resolve_documentation = function(output)
+                                        return output
+                                    end,
+                                }
+                            end,
+                        },
+                    },
+                    env = {
+                        name = "Env",
+                        module = "blink-cmp-env",
+                        opts = {},
                     },
                 },
             },

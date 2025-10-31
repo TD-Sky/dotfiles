@@ -121,22 +121,23 @@ const MANIFEST = {
     },
     kitty: "最强终端模拟器",
     sddm: "会话管理器",
-    dolphin: {
-        packages: ["dolphin", "ffmpegthumbs", "kdegraphics-thumbnailers"],
-        desc: "KDE文件管理器"
-    },
-    spectacle: "KDE截图",
     fcitx: {
         packages: ["fcitx5-im", "fcitx5-chinese-addons", "fcitx5-pinyin-zhwiki"],
         desc: "小企鹅输入法"
     },
-    zen-browser: {
-        packages: ["zen-browser", "zen-browser-i18n-zh-cn"]
-    },
+    zen-browser: "浏览器",
     chromium: "谷歌裸核浏览器",
     dbeaver: "PostgreSQL客户端",
     sqlitebrowser: "SQLite客户端",
     keepassxc: "keepass客户端",
+
+    # kde
+    dolphin: {
+        packages: ["dolphin", "ffmpegthumbs", "kdegraphics-thumbnailers"],
+        desc: "文件管理器"
+    },
+    spectacle: "截图",
+    kcolorchooser: "颜色拾取",
 
     # wayland
     wl-clipboard: "剪贴板",
