@@ -74,6 +74,10 @@ return {
             for lang, opt in pairs(opts.fmt) do
                 local f = ft(lang):fmt(opt)
 
+                if vim.g.project_config ~= nil and vim.g.project_config.guard_on_fmt ~= nil then
+                    vim.g.project_config.guard_on_fmt(lang, f)
+                end
+
                 if opts.lint.typos:find(lang) then
                     f:lint("typos")
                 end
