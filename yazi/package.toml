@@ -38,5 +38,10 @@ use = "yazi-rs/plugins:types"
 rev = "8f1d971"
 hash = "1e047e1b13b5e3fc6ab1f5d0d04a14e2"
 
+[[plugin.deps]]
+use = "lpnh/fr"
+rev = "a60466e"
+hash = "ae6f2fb9ea03527e3a367a9faf2690ac"
+
 [flavor]
 deps = []
