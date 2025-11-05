@@ -169,6 +169,7 @@ keymap = [
   { on = ["R", "d"], run = "plugin sudo -- remove", desc = "sudo trash" },
   { on = ["R", "D"], run = "plugin sudo -- remove --permanently", desc = "sudo delete" },
   { on = ["R", "r"], run = "plugin sudo -- rename", desc = "sudo rename" },
+  { on = ["R", "m"], run = "plugin sudo -- chmod", desc = "sudo chmod" },
 ]
 
 [tasks]

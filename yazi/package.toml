@@ -15,8 +15,8 @@ hash = "c2021386289a0cbb3e152a052f67c177"
 
 [[plugin.deps]]
 use = "TD-Sky/sudo"
-rev = "8148f91"
-hash = "5db5b16dc96e971f0560a31999271065"
+rev = "86205aa"
+hash = "9628b660afb192d32f2ea5f6634d3e72"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"

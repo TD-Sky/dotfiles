@@ -54,6 +54,7 @@ const MANIFEST = {
     gdb: "GNU调试器",
     lldb: "LLVM调试器",
     mold: "现代链接器",
+    wild: "rust链接器",
     rust-script: "rust脚本解释器",
     rustup: "管理rust工具链",
     tokei: "统计代码",
