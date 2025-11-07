@@ -77,7 +77,7 @@ keymap = [
   { on = ":", run = "shell --block --interactive", desc = "Run a shell command (block until finishes)" },
   { on = ".", run = "hidden toggle", desc = "Toggle the visibility of hidden files" },
   { on = "s", run = "search --via=fd", desc = "Search files by name using fd" },
-  { on = "S", run = "search --via=rg", desc = "Search files by content using ripgrep" },
+  { on = "S", run = "plugin fr rg", desc = "Search file by content (rg)" },
   { on = "<C-c>", run = "escape --search", desc = "Cancel the ongoing search" },
   { on = "z", run = "plugin zoxide", desc = "Jump to a directory using zoxide" },
   { on = "Z", run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
@@ -169,6 +169,7 @@ keymap = [
   { on = ["R", "d"], run = "plugin sudo -- remove", desc = "sudo trash" },
   { on = ["R", "D"], run = "plugin sudo -- remove --permanently", desc = "sudo delete" },
   { on = ["R", "r"], run = "plugin sudo -- rename", desc = "sudo rename" },
+  { on = ["R", "m"], run = "plugin sudo -- chmod", desc = "sudo chmod" },
 ]
 
 [tasks]

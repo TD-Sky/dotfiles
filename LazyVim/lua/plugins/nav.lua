@@ -29,7 +29,7 @@ return {
         event = "VeryLazy",
         keys = {
             {
-                "<leader>e",
+                "<leader>fy",
                 function()
                     require("yazi").yazi()
                 end,
