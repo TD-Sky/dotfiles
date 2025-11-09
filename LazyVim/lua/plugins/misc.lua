@@ -51,7 +51,9 @@ return {
             {
                 "<leader>fT",
                 function()
-                    Snacks.terminal(nil, { cwd = require("lazyvim.util").root.get() })
+                    Snacks.terminal(nil, {
+                        cwd = LazyVim.root.get(),
+                    })
                 end,
                 desc = "Terminal (Root Dir)",
             },
