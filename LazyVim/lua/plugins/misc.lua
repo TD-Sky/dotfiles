@@ -101,6 +101,13 @@ return {
                 end,
                 desc = "Goto Type Definition",
             },
+            {
+                "<leader>fe",
+                function()
+                    Snacks.explorer.open()
+                end,
+                desc = "File Tree",
+            },
         },
         opts = function(_, opts)
             -- scroll
