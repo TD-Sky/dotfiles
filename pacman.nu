@@ -223,6 +223,8 @@ const MANIFEST = {
     git-cliff: "变更日志生成器",
     gitoxide: "锈化git",
     git-filter-repo: "过滤git项目",
+    jujutsu: "新一代VCS",
+    lazyjj: "jujutsu TUI",
 
     # data
     7zip: "7z",
