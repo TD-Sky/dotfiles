@@ -72,38 +72,48 @@ return {
         config = true,
     },
     {
-        "folke/flash.nvim",
-        vscode = true,
-        opts = {
-            modes = {
-                search = {
-                    enabled = false,
+        "rainzm/flash-zh.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            {
+                "folke/flash.nvim",
+                vscode = true,
+                opts = {
+                    modes = {
+                        search = {
+                            enabled = false,
+                        },
+                        char = {
+                            enabled = false,
+                        },
+                    },
                 },
-                char = {
-                    enabled = false,
-                },
+                keys = function()
+                    return {
+                        {
+                            "<leader><space>",
+                            mode = { "n", "x", "o" },
+                            function()
+                                require("utils").treesitter.try_exec(require("flash").treesitter)
+                            end,
+                            desc = "Flash Treesitter",
+                        },
+                    }
+                end,
             },
         },
-        keys = function()
-            return {
-                {
-                    "U",
-                    mode = { "n", "x", "o" },
-                    function()
-                        require("flash").jump()
-                    end,
-                    desc = "Flash Jump",
-                },
-                {
-                    "<leader><space>",
-                    mode = { "n", "x", "o" },
-                    function()
-                        require("utils").treesitter.try_exec(require("flash").treesitter)
-                    end,
-                    desc = "Flash Treesitter",
-                },
-            }
-        end,
+        keys = {
+            {
+                "U",
+                mode = { "n", "x", "o" },
+                function()
+                    require("flash-zh").jump({
+                        chinese_only = false,
+                    })
+                end,
+                desc = "Flash Jump",
+            },
+        },
     },
     {
         "nvimdev/indentmini.nvim",

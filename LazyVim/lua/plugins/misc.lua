@@ -51,7 +51,9 @@ return {
             {
                 "<leader>fT",
                 function()
-                    Snacks.terminal(nil, { cwd = require("lazyvim.util").root.get() })
+                    Snacks.terminal(nil, {
+                        cwd = LazyVim.root.get(),
+                    })
                 end,
                 desc = "Terminal (Root Dir)",
             },
@@ -98,6 +100,13 @@ return {
                     Snacks.picker.lsp_type_definitions()
                 end,
                 desc = "Goto Type Definition",
+            },
+            {
+                "<leader>fe",
+                function()
+                    Snacks.explorer.open()
+                end,
+                desc = "File Tree",
             },
         },
         opts = function(_, opts)

@@ -64,6 +64,7 @@ zcomet load tj/git-extras etc/git-extras-completion.zsh
 zcomet load QuarticCat/zsh-smartcache
 zcomet load chisui/zsh-nix-shell
 zcomet load romkatv/zsh-no-ps2
+zcomet load mafredri/zsh-async
 
 AUTOPAIR_SPC_WIDGET=magic-space
 AUTOPAIR_BKSPC_WIDGET=backward-delete-char
