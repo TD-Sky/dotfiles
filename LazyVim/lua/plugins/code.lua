@@ -85,6 +85,7 @@ return {
 
             vim.g.guard_config = {
                 fmt_on_save = false,
+                always_save = true,
             }
         end,
     },
