@@ -297,7 +297,12 @@ return {
                 {
                     "<Tab>",
                     function()
-                        ls.jump(1)
+                        if ls.expand_or_jumpable() then
+                            ls.jump(1)
+                        else
+                            local key = vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
+                            vim.api.nvim_feedkeys(key, "n", false)
+                        end
                     end,
                     mode = { "i", "s" },
                 },
