@@ -300,11 +300,11 @@ return {
                         if ls.expand_or_jumpable() then
                             ls.jump(1)
                         else
-                            local key = vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
-                            vim.api.nvim_feedkeys(key, "n", false)
+                            return "<Tab>"
                         end
                     end,
                     mode = { "i", "s" },
+                    expr = true,
                 },
                 {
                     "<S-Tab>",
