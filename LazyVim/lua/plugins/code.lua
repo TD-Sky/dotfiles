@@ -297,9 +297,14 @@ return {
                 {
                     "<Tab>",
                     function()
-                        ls.jump(1)
+                        if ls.expand_or_jumpable() then
+                            ls.jump(1)
+                        else
+                            return "<Tab>"
+                        end
                     end,
                     mode = { "i", "s" },
+                    expr = true,
                 },
                 {
                     "<S-Tab>",
