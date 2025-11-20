@@ -339,6 +339,7 @@ return {
             })
 
             local luasnip = require("luasnip")
+            luasnip.add_snippets("all", require("plugins.snippets.all"))
             luasnip.add_snippets("rust", require("plugins.snippets.rust"))
             luasnip.add_snippets("typescriptreact", require("plugins.snippets.tsx"))
         end,
