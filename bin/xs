@@ -1,8 +1,15 @@
 #!/usr/bin/env -S nu --stdin
 
-# 粘贴剪贴板内容至输出
-def main [] {
-    match $env.XDG_SESSION_TYPE? {
+# 复制输入内容至剪贴板
+def main [file?: string] {
+    let content = if $file != null {
+        open -r $file
+    } else {
+        $in
+    }
+
+    $content
+    | match $env.XDG_SESSION_TYPE? {
         'wayland' => { wl-copy },
         'x11' => { xclip -sel c },
         _ => { clip.exe },
