@@ -1,6 +1,6 @@
 #!/usr/bin/env -S nu --stdin
 
-# 复制输入内容至剪贴板
+# 粘贴剪贴板内容至输出
 def main [] {
     match $env.XDG_SESSION_TYPE? {
         'wayland' => { wl-paste -n },

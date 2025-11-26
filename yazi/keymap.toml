@@ -98,7 +98,7 @@ keymap = [
   { on = ["y", "d"], run = "copy dirname", desc = "Copy the directory path" },
   { on = ["y", "f"], run = "copy filename", desc = "Copy the filename" },
   { on = ["y", "n"], run = "copy name_without_ext", desc = "Copy the filename without extension" },
-  { on = ["y", "w"], run = "shell '[[ -r $1 ]] && xs < $1' --confirm", desc = "Copy file content" },
+  { on = ["y", "w"], run = 'shell -- xs "$1"', desc = "Copy file content" },
 
   # Filter
   { on = "f", run = "filter --smart", desc = "Filter files" },
