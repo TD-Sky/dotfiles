@@ -53,11 +53,11 @@ return {
                 },
                 ["vue,xml,yaml,html,astro"] = "prettier",
                 typst = "typstyle",
-                kotlin = {
-                    cmd = "ktfmt",
-                    args = { "--kotlinlang-style", "-" },
-                    stdin = true,
-                },
+                -- kotlin = {
+                --     cmd = "ktfmt",
+                --     args = { "--kotlinlang-style", "-" },
+                --     stdin = true,
+                -- },
                 d2 = {
                     cmd = "d2",
                     args = { "fmt", "-" },

@@ -68,3 +68,4 @@ x-scheme-handler/slack=slack.desktop;
 x-scheme-handler/terminal=org.wezfurlong.wezterm.desktop;
 x-scheme-handler/tg=org.telegram.desktop.desktop;
 x-scheme-handler/unknown=zen-browser.desktop;
+x-scheme-handler/cherrystudio=CherryStudio.desktop
