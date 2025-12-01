@@ -311,7 +311,7 @@ _cache-eval () {
 _cache-eval zoxide init zsh
 _cache-eval atuin init zsh
 _cache-eval navi widget zsh
-_cache-eval mise activate zsh
+eval "$(mise activate zsh)"
 
 _source-existent ~zdot/local.zsh
 

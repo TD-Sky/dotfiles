@@ -1,0 +1,12 @@
+#!/usr/bin/env -S nu --stdin
+
+def main [inpat: string, outpat: string] {
+    let lines = $in
+
+    $lines
+    | split row (char nl)
+    | par-each {|s|
+        $s | parse $inpat | format pattern $outpat
+    }
+    | str join (char nl)
+}
