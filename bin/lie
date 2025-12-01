@@ -5,8 +5,17 @@ def main [inpat: string, outpat: string] {
 
     $lines
     | split row (char nl)
-    | par-each {|s|
-        $s | parse $inpat | format pattern $outpat
+    | par-each -k {|s|
+        let v = $s
+            | str replace --all --regex '\s+' ' '
+            | parse $inpat
+            | into record
+
+        if ($v | is-empty) {
+            $s
+        } else {
+            $v | format pattern $outpat
+        }
     }
     | str join (char nl)
 }
