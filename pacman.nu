@@ -100,6 +100,10 @@ const MANIFEST = {
         manager: "npm",
         packages: ["typescript", "typescript-language-server"]
     },
+    oxfmt: {
+        manager: "npm",
+        packages: ["oxfmt"]
+    },
     typst: {
         packages: ["typst", "tinymist", "typstyle"],
     },
