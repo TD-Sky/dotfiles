@@ -24,6 +24,31 @@ return {
                     },
                 },
             },
+            adapters = {
+                http = {
+                    modelscope = function()
+                        return require("codecompanion.adapters").extend("openai_compatible", {
+                            env = {
+                                url = "https://api-inference.modelscope.cn/v1",
+                                api_key = "",
+                                chat_url = "/chat/completions",
+                            },
+                            handlers = {
+                                parse_message_meta = function(_, data)
+                                    local extra = data.extra
+                                    if extra and extra.reasoning then
+                                        data.output.reasoning = { content = extra.reasoning }
+                                        if data.output.content == "" then
+                                            data.output.content = nil
+                                        end
+                                    end
+                                    return data
+                                end,
+                            },
+                        })
+                    end,
+                },
+            },
             extensions = {
                 history = {
                     enabled = true,

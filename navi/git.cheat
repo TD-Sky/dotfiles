@@ -60,3 +60,9 @@ git filter-repo --mailmap <mailmap>
 
 # 最小化拉取
 git clone --depth=1 --sparse --filter=blob:none <url>
+
+# 查看忽略的文件
+git status --ignored
+
+# 查看忽略的文件的规则来源
+git check-ignore -v <path>
