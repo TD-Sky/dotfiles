@@ -45,7 +45,18 @@ return {
                     stdin = true,
                 },
                 go = "gofmt",
-                ["json,jsonc,json5,javascript,typescript,javascriptreact,typescriptreact,css"] = {
+                -- ["json,jsonc,json5,javascript,typescript,javascriptreact,typescriptreact,css"] = {
+                --     cmd = "biome",
+                --     args = { "format", "--indent-style=space", "--stdin-file-path" },
+                --     fname = true,
+                --     stdin = true,
+                -- },
+                ["javascript,typescript,javascriptreact,typescriptreact,css"] = {
+                    cmd = "oxfmt",
+                    fname = true,
+                    stdin = false,
+                },
+                ["json,jsonc,json5,css"] = {
                     cmd = "biome",
                     args = { "format", "--indent-style=space", "--stdin-file-path" },
                     fname = true,
