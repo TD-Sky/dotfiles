@@ -217,6 +217,10 @@ const MANIFEST = {
     hexyl: "hex查看器",
     libtree: "程序的库依赖树视图",
     halp: "命令行选项标准化检验",
+    ripdrag: {
+        packages: ["ripdrag-git"],
+        desc: "准备拖拽",
+    },
 
     # AI
     aichat: "LLM CLI",

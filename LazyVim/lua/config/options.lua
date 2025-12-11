@@ -64,6 +64,7 @@ local options = {
     cursorline = true,
     report = 0,
     scrolloff = 5,
+    statuscolumn = "",
 
     -- platform
     clipboard = "unnamedplus",

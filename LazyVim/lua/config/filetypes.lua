@@ -4,6 +4,7 @@ vim.filetype.add({
         typ = "typst",
         nu = "nu",
         d2 = "d2",
+        json = "jsonc",
     },
     pattern = {
         [".*"] = {

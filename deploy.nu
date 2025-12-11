@@ -21,7 +21,7 @@ def main [] {
         neovide wezterm zellij yazi git
         git-cliff gitui zathura mpv gdb
         pip ghc fontconfig macchina paru
-        uv mise atuin kitty jj
+        uv mise atuin kitty jj zed
     ] ~/.config
     | pfs [memo applications] ~/.local/share
     | each {|it| deploy-item $it }
