@@ -28,6 +28,7 @@
         "check": {
           "command": "clippy",
           "extraArgs": ["--no-deps"]
+          // "workspace": false
         },
         "cachePriming": {
           "enable": false
