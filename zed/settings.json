@@ -27,11 +27,7 @@
         },
         "check": {
           "command": "clippy",
-          "extraArgs": [
-            "--no-deps",
-            "--message-format=json-diagnostic-rendered-ansi"
-          ],
-          "workspace": false
+          "extraArgs": ["--no-deps"]
         },
         "cachePriming": {
           "enable": false
