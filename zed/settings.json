@@ -12,55 +12,57 @@
   "ui_font_size": 25.0,
   "buffer_font_size": 25.0,
   "theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark"
+    "dark": "Gruvbox Dark Soft"
   },
   "lsp": {
     "rust-analyzer": {
       "binary": {
         "ignore_system_version": false
       },
-      "diagnostics": {
-        "disabled": ["proc-macro-disabled"]
-      },
-      "check": {
-        "command": "clippy",
-        "extraArgs": [
-          "--no-deps",
-          "--message-format=json-diagnostic-rendered-ansi"
-        ],
-        "workspace": false
-      },
-      "cachePriming": {
-        "enable": false
-      },
-      "checkOnSave": false,
-      "inlayHints": {
-        "typeHints": {
+      "initialization_options": {
+        "diagnostics": {
+          "disabled": ["proc-macro-disabled"]
+        },
+        "check": {
+          "command": "clippy",
+          "extraArgs": [
+            "--no-deps",
+            "--message-format=json-diagnostic-rendered-ansi"
+          ],
+          "workspace": false
+        },
+        "cachePriming": {
           "enable": false
         },
-        "parameterHints": {
-          "enable": false
+        "checkOnSave": false,
+        "inlayHints": {
+          "typeHints": {
+            "enable": false
+          },
+          "parameterHints": {
+            "enable": false
+          },
+          "discriminantHints": {
+            "enable": "always"
+          }
         },
-        "discriminantHints": {
-          "enable": "always"
-        }
-      },
-      "procMacro": {
-        "ignored": {
-          "async-trait": ["async_trait"],
-          "tokio-macros": ["main", "test"]
-        }
-      },
-      "completion": {
-        "autoimport": {
-          "exclude": [
-            {
-              "path": "anyhow::Ok",
-              "type": "always"
-            }
-          ]
+        "procMacro": {
+          "ignored": {
+            "async-trait": ["async_trait"],
+            "tokio-macros": ["main", "test"]
+          }
+        },
+        "completion": {
+          "autoimport": {
+            "exclude": [
+              {
+                "path": "anyhow::Ok",
+                "type": "always"
+              }
+            ]
+          }
         }
       }
     }

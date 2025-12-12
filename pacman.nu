@@ -135,6 +135,7 @@ const MANIFEST = {
     dbeaver: "PostgreSQL客户端",
     sqlitebrowser: "SQLite客户端",
     keepassxc: "keepass客户端",
+    zed: "Zed编辑器",
 
     # kde
     dolphin: {
