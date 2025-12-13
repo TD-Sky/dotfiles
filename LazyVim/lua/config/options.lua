@@ -70,6 +70,7 @@ local options = {
     clipboard = "unnamedplus",
 
     exrc = true,
+    shell = "nu",
 }
 
 vim.opt.errorformat:append("[%f:%l] -> %m,[%f:%l]:%m")
