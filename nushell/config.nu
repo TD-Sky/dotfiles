@@ -15,6 +15,7 @@ source $"($nu.cache-dir)/carapace.nu"
 source $"($nu.cache-dir)/zoxide.nu"
 source $"($nu.cache-dir)/navi.nu"
 source $"($nu.cache-dir)/mise.nu"
+source $"($nu.cache-dir)/atuin.nu"
 
 # FUNCTION #
 

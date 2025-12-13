@@ -44,6 +44,7 @@ carapace _carapace nushell | save -f $"($nu.cache-dir)/carapace.nu"
 
 zoxide init nushell | save -f $"($nu.cache-dir)/zoxide.nu"
 navi widget nushell | save -f $"($nu.cache-dir)/navi.nu"
+atuin init nu | save -f $"($nu.cache-dir)/atuin.nu"
 # mise activate nu | save -f $"($nu.cache-dir)/mise.nu"
 
 # PROMPT #
