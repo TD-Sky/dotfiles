@@ -45,3 +45,82 @@ carapace _carapace nushell | save -f $"($nu.cache-dir)/carapace.nu"
 zoxide init nushell | save -f $"($nu.cache-dir)/zoxide.nu"
 navi widget nushell | save -f $"($nu.cache-dir)/navi.nu"
 # mise activate nu | save -f $"($nu.cache-dir)/mise.nu"
+
+# PROMPT #
+
+def render-modules []: list -> string {
+    $in
+    | par-each --keep-order {|it|
+        match ($it | describe) {
+            "closure" => {
+                try { do $it } catch { "" }
+            }
+            _ => { $it }
+        }
+    }
+    | where {|v| $v != "" }
+    | str join ' '
+}
+
+def 'map stdout' [f: closure]: record -> string {
+    match $in.stdout {
+        "" => { "" }
+        $v => { do $f ($v | str trim) }
+    }
+}
+
+load-env {
+    PROMPT_COMMAND: {
+        [
+            {
+                jj workspace root --ignore-working-copy
+                    | complete
+                    | match ($in.stdout | str trim) {
+                        "" => { pwd }
+                        $v => {
+                            ['...', ($v | path basename), (pwd | path relative-to $v)]
+                            | path join
+                            | str trim -r -c '/'
+                        }
+                    }
+            }
+            {
+                jj log --ignore-working-copy --no-graph --limit 1 --color always --revisions @ -T 'prompt'
+                | complete
+                | get stdout
+            }
+            {
+                jj log --ignore-working-copy --no-graph --limit 1 --color always -r "closest_bookmark(@)" -T 'bookmarks.join(" ")'
+                | complete
+                | get stdout
+            }
+            {
+                jj log --ignore-working-copy --no-graph --color never -r "closest_bookmark(@)..@" -T 'change_id ++ "\n"'
+                | complete
+                | map stdout {|v| $v | lines | length }
+            }
+            {
+                jj log --ignore-working-copy --no-graph --color never --revisions @ -T 'self.diff("root-glob:**/*").files().map(|f| f.status()).join("\n")'
+                | complete
+                | map stdout {|v|
+                    $v
+                    | lines
+                    | group-by
+                    | items {|status, s|
+                        $"($status)[($s | length)]"
+                    }
+                    | str join ' '
+                }
+            }
+            (char newline)
+        ]
+        | render-modules
+    },
+    PROMPT_COMMAND_RIGHT: {
+        [
+            { cargo get 'package.version' | complete | map stdout {|v| $"crate[($v)]" } },
+            $"(date now | format date '%Y-%m-%d %H:%M:%S')",
+        ]
+        | render-modules
+    }
+}

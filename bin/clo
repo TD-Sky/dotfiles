@@ -5,7 +5,7 @@ def main [dest: path = './'] {
     let items = (xp)
 
     if $items =~ (char newline) {
-        for src in ($items | split row (char newline)) {
+        for src in ($items | lines) {
             ^cp -ri $src -t $dest
         }
     } else {
