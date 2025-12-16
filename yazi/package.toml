@@ -5,13 +5,13 @@ hash = "5337bf545993d8c4dec2c229031f49d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "eaf6920"
+rev = "19dc890"
 hash = "94081eed9bc9fe176715c33b0db55d35"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "d7056e3"
-hash = "be8e1b31833e356cad14dcda9d8ad2d3"
+rev = "eca1861"
+hash = "e519d894e94ded741e06aae4d4775981"
 
 [[plugin.deps]]
 use = "TD-Sky/sudo"
@@ -20,13 +20,13 @@ hash = "9628b660afb192d32f2ea5f6634d3e72"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "eaf6920"
+rev = "19dc890"
 hash = "8a7c58225816a163a6e8730c0adafbc8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "eaf6920"
-hash = "64713dcd74daf9ec644883a5895e5d1"
+rev = "19dc890"
+hash = "b26d542e75151835d7bc885f6dda74cb"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
@@ -35,7 +35,7 @@ hash = "ee71543790f0ce3951161045a3787abd"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:types"
-rev = "eaf6920"
+rev = "19dc890"
 hash = "1e047e1b13b5e3fc6ab1f5d0d04a14e2"
 
 [[plugin.deps]]

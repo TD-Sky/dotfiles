@@ -1,10 +1,8 @@
 #!/usr/bin/env -S nu --stdin
 
 def main [inpat: string, outpat: string] {
-    let lines = $in
-
-    $lines
-    | split row (char nl)
+    $in
+    | lines
     | par-each -k {|s|
         let v = $s
             | str replace --all --regex '\s+' ' '

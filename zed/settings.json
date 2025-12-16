@@ -1,0 +1,67 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "vim_mode": true,
+  "icon_theme": "Zed (Default)",
+  "ui_font_size": 25.0,
+  "buffer_font_size": 25.0,
+  "theme": {
+    "mode": "dark",
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark Soft"
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "binary": {
+        "ignore_system_version": false
+      },
+      "initialization_options": {
+        "diagnostics": {
+          "disabled": ["proc-macro-disabled"]
+        },
+        "check": {
+          "command": "clippy",
+          "extraArgs": ["--no-deps"]
+          // "workspace": false
+        },
+        "cachePriming": {
+          "enable": false
+        },
+        "checkOnSave": false,
+        "inlayHints": {
+          "typeHints": {
+            "enable": false
+          },
+          "parameterHints": {
+            "enable": false
+          },
+          "discriminantHints": {
+            "enable": "always"
+          }
+        },
+        "procMacro": {
+          "ignored": {
+            "async-trait": ["async_trait"],
+            "tokio-macros": ["main", "test"]
+          }
+        },
+        "completion": {
+          "autoimport": {
+            "exclude": [
+              {
+                "path": "anyhow::Ok",
+                "type": "always"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

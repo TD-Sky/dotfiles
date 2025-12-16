@@ -64,11 +64,13 @@ local options = {
     cursorline = true,
     report = 0,
     scrolloff = 5,
+    statuscolumn = "",
 
     -- platform
     clipboard = "unnamedplus",
 
     exrc = true,
+    shell = "nu",
 }
 
 vim.opt.errorformat:append("[%f:%l] -> %m,[%f:%l]:%m")

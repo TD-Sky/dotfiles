@@ -122,14 +122,6 @@ return {
         },
     },
     {
-        "chrisgrieser/nvim-recorder",
-        event = "RecordingEnter",
-        keys = {
-            { "q", desc = "Start Recording" },
-            { "Q", desc = "Play Recording" },
-        },
-    },
-    {
         "tzachar/highlight-undo.nvim",
         event = "VeryLazy",
         opts = {
