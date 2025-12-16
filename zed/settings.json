@@ -7,6 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "show_edit_predictions": false,
+  "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "deepseek",
+      "model": "deepseek-chat"
+    },
+    "model_parameters": []
+  },
+  "disable_ai": false,
   "vim_mode": true,
   "icon_theme": "Zed (Default)",
   "ui_font_size": 25.0,
