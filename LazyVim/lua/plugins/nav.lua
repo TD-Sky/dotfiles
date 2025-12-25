@@ -121,9 +121,6 @@ return {
                 { "<leader>E", false },
                 { "<leader>e", false },
             },
-            opts = {
-                close_if_last_window = true,
-            },
         },
     },
 }
