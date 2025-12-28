@@ -35,6 +35,14 @@ load-env {
     XDG_STATE_HOME: $"($env.HOME)/.local/state",
 }
 
+ssh-agent -c
+    | lines
+    | first 2
+    | parse "setenv {name} {value};"
+    | transpose -r
+    | into record
+    | load-env
+
 # INTEGRATION #
 mkdir $"($nu.cache-dir)"
 
