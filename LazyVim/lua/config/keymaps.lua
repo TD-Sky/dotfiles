@@ -77,4 +77,19 @@ vim.keymap.set({ "n", "v" }, "gs", function()
         },
         visualSelectionUsage = "operate-within-range",
     })
-end)
+end, { desc = "AST search and replace" })
+
+vim.keymap.set({ "n", "v" }, "<leader>sA", function()
+    local grug = require("grug-far")
+
+    local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+    grug.open({
+        engine = "astgrep",
+        transient = true,
+        prefills = {
+            filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+        },
+    })
+end, { desc = "AST search and replace" })
+
+vim.keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, { desc = "LSP code action" })

@@ -97,51 +97,11 @@ return {
         },
         event = "LspAttach",
         keys = {
-            -- 跳转
-            {
-                "[d",
-                "<cmd>Lspsaga diagnostic_jump_prev<cr>",
-                mode = { "n", "v" },
-                desc = "Prev Diagnostic",
-            },
-            {
-                "]d",
-                "<cmd>Lspsaga diagnostic_jump_next<cr>",
-                mode = { "n", "v" },
-                desc = "Next Diagnostic",
-            },
-            {
-                "[e",
-                function()
-                    require("lspsaga.diagnostic"):goto_prev({
-                        severity = vim.diagnostic.severity.ERROR,
-                    })
-                end,
-                mode = { "n", "v" },
-                desc = "Prev Error",
-            },
-            {
-                "]e",
-                function()
-                    require("lspsaga.diagnostic"):goto_next({
-                        severity = vim.diagnostic.severity.ERROR,
-                    })
-                end,
-                mode = { "n", "v" },
-                desc = "Next Error",
-            },
             -- 审视
             { "<S-k>", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover" },
-            { "<leader>ld", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Line Diagnostics" },
             { "<leader>lI", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
             -- 更改
             { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
-            {
-                "<leader>la",
-                "<cmd>Lspsaga code_action<cr>",
-                mode = { "n", "v" },
-                desc = "Code Action",
-            },
             {
                 "<leader>ll",
                 vim.lsp.codelens.run,
