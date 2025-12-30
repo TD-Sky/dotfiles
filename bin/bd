@@ -16,9 +16,10 @@ def main [] {
         ['7z'           '✅'        '✅'  ]
         ['zip'          '✅'        '✅'  ]
         ['rar'          '✅'        '✅'  ]
-        ['mksquashfs'   '✅'        '✅'  ]
+        ['squashfs'     '✅'        '✅'  ]
         ['apk'          '❌'        '✅'  ]
         ['deb'          '❌'        '✅'  ]
+        ['a'            '❌'        '✅'  ]
     ]
 }
 
@@ -84,7 +85,7 @@ def "main x" [...archives: string] {
             },
             '7z' => { 7za x $archive },
             'rar' => { unrar x $archive },
-            'deb' => {
+            'deb' | 'a' => {
                 let stem = $archive | path parse | get stem
                 mkdir $stem
                 ar x $archive --output $stem
@@ -104,7 +105,7 @@ def "main ls" [archive: string] {
             bsdtar -tf $archive | tree -C --fromfile
         },
         'rar' => { bsdtar -tf $archive | tac | tree -C --fromfile },
-        'deb' => { ar t $archive },
+        'deb' | 'a' => { ar t $archive },
         'squashfs' => {
             let stem = $archive | path parse | get stem
             unsquashfs -dest $stem -ls $archive | tree -C --fromfile
