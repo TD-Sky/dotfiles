@@ -35,6 +35,14 @@ load-env {
     XDG_STATE_HOME: $"($env.HOME)/.local/state",
 }
 
+ssh-agent -c
+    | lines
+    | first 2
+    | parse "setenv {name} {value};"
+    | transpose -r
+    | into record
+    | load-env
+
 # INTEGRATION #
 mkdir $"($nu.cache-dir)"
 
@@ -45,7 +53,7 @@ carapace _carapace nushell | save -f $"($nu.cache-dir)/carapace.nu"
 zoxide init nushell | save -f $"($nu.cache-dir)/zoxide.nu"
 navi widget nushell | save -f $"($nu.cache-dir)/navi.nu"
 atuin init nu | save -f $"($nu.cache-dir)/atuin.nu"
-mise activate nu | save -f $"($nu.cache-dir)/mise.nu"
+# mise activate nu | save -f $"($nu.cache-dir)/mise.nu"
 
 # PROMPT #
 

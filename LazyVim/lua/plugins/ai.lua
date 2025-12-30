@@ -14,6 +14,7 @@ return {
             strategies = {
                 chat = {
                     adapter = "deepseek",
+                    model = "deepseek-chat",
                     keymaps = {
                         send = {
                             modes = {

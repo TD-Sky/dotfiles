@@ -2,6 +2,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+local utils = require("utils")
+
 local wk = require("which-key")
 local map = {
     n = function(mapping)
@@ -63,3 +65,31 @@ map.v({
     ["ak"] = "0o$", -- include end
 })
 vim.keymap.set("o", "ik", "<cmd>normal vik<cr>")
+
+vim.keymap.set({ "n", "v" }, "gs", function()
+    local grug = require("grug-far")
+
+    grug.open({
+        engine = "astgrep",
+        transient = true,
+        prefills = {
+            filesFilter = utils.path.filename(utils.vim.current_buffer_path()),
+        },
+        visualSelectionUsage = "operate-within-range",
+    })
+end, { desc = "AST search and replace" })
+
+vim.keymap.set({ "n", "v" }, "<leader>sA", function()
+    local grug = require("grug-far")
+
+    local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+    grug.open({
+        engine = "astgrep",
+        transient = true,
+        prefills = {
+            filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+        },
+    })
+end, { desc = "AST search and replace" })
+
+vim.keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, { desc = "LSP code action" })

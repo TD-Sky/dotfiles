@@ -45,24 +45,12 @@ return {
                     stdin = true,
                 },
                 go = "gofmt",
-                -- ["json,jsonc,json5,javascript,typescript,javascriptreact,typescriptreact,css"] = {
-                --     cmd = "biome",
-                --     args = { "format", "--indent-style=space", "--stdin-file-path" },
-                --     fname = true,
-                --     stdin = true,
-                -- },
-                ["javascript,typescript,javascriptreact,typescriptreact,css"] = {
+                ["javascript,typescript,javascriptreact,typescriptreact,css,json,jsonc,json5,markdown,vue,html,yaml"] = {
                     cmd = "oxfmt",
                     fname = true,
                     stdin = false,
                 },
-                ["json,jsonc,json5,css"] = {
-                    cmd = "biome",
-                    args = { "format", "--indent-style=space", "--stdin-file-path" },
-                    fname = true,
-                    stdin = true,
-                },
-                ["vue,xml,yaml,html,astro"] = "prettier",
+                ["xml,astro"] = "prettier",
                 typst = "typstyle",
                 -- kotlin = {
                 --     cmd = "ktfmt",
