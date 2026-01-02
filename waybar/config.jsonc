@@ -43,7 +43,7 @@
     "format-icons": ["", ""]
   },
   "battery": {
-    "bat": "BAT0",
+    "bat": "BAT1",
     "interval": 5,
     "states": {
       "warning": 30,
