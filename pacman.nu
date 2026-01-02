@@ -147,7 +147,6 @@ const MANIFEST = {
 
     # wayland
     wl-clipboard: "剪贴板",
-    cliphist: "剪贴板历史",
     nerd-fonts: "书呆子字体",
     noto-fonts: {
         packages: [
@@ -158,6 +157,7 @@ const MANIFEST = {
         ],
         desc: "零豆腐块字体"
     },
+    wqy-zenhei: "文泉驿雅黑",
 
     # shell
     nushell: "结构化shell",
@@ -379,6 +379,26 @@ const MANIFEST = {
         desc: "安卓控件树查看器",
     },
     waydroid: "安卓模拟器",
+
+    # niri
+    niri: "卷轴桌面",
+    xwayland-satellite: "新一代wayland到X11的适配器",
+    fuzzel: "软件启动器",
+    libnotify: "通知",
+    mako: "通知回显",
+    swaylock-effects: "锁屏",
+    swayidle: "后台定时任务",
+    blueman: "蓝牙面板",
+    satty: "编辑图片",
+    alsa-ucm-conf: "ALSA接线图",
+    alsa-firmware: "ALSA固件",
+    brightnessctl: "亮度调节",
+    swww: "壁纸上屏",
+    waypaper: {
+        manager: "uv",
+        desc: "壁纸管理"
+    },
+    cliphist: "剪贴板历史",
 
     # unknown
     genact: "Linux领域大神",

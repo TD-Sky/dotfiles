@@ -22,6 +22,7 @@ def main [] {
         git-cliff gitui zathura mpv gdb
         pip ghc fontconfig macchina paru
         uv mise atuin kitty jj zed opencode
+        niri mako
     ] ~/.config
     | pfs [memo applications] ~/.local/share
     | each {|it| deploy-item $it }
