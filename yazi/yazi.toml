@@ -62,6 +62,9 @@ download = [
   { run = "ya emit download --open %S", desc = "Download and open" },
   { run = "ya emit download %S", desc = "Download" },
 ]
+set-wallpaper = [
+  { run = "swww img %s1", for = "linux", desc = "Set as wallpaper", orphan = true }
+]
 
 [open]
 rules = [
@@ -71,7 +74,7 @@ rules = [
   { mime = "text/html", use = ["open", "edit", "reveal"] },
   { mime = "text/*", use = ["edit", "reveal"] },
   # Image
-  { mime = "image/*", use = ["open", "reveal"] },
+  { mime = "image/*", use = ["open", "reveal", "set-wallpaper"] },
   # Media
   { mime = "{audio,video}/*", use = ["play", "reveal"] },
   # Archive

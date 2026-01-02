@@ -394,10 +394,6 @@ const MANIFEST = {
     alsa-firmware: "ALSA固件",
     brightnessctl: "亮度调节",
     swww: "壁纸上屏",
-    waypaper: {
-        manager: "uv",
-        desc: "壁纸管理"
-    },
     cliphist: "剪贴板历史",
 
     # unknown
