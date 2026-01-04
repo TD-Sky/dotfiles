@@ -357,6 +357,7 @@ window-rule {
     match app-id="com.gabm.satty"
     match app-id="com.follow.clash"
     match app-id="xwaylandvideobridge"
+    match app-id="Feishu" title="图片"
     open-floating true
 }
 
