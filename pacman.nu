@@ -393,8 +393,15 @@ const MANIFEST = {
     alsa-ucm-conf: "ALSA接线图",
     alsa-firmware: "ALSA固件",
     brightnessctl: "亮度调节",
-    swww: "壁纸上屏",
+    awww: "壁纸上屏",
     cliphist: "剪贴板历史",
+    matugen: "材料设计颜色生成",
+    dgop: "资源信息监控",
+    dms-shell: {
+        manager: "paru",
+        packages: ["dms-shell-bin"],
+        desc: "极致quickshell"
+    },
 
     # unknown
     genact: "Linux领域大神",

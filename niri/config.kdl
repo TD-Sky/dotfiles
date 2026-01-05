@@ -107,9 +107,7 @@ overview {
     }
 }
 
-spawn-at-startup "swww-daemon"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
-spawn-at-startup "mako"
 spawn-at-startup "fcitx5"
 spawn-at-startup "~/.config/niri/scripts/swayidle.sh"
 
