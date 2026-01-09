@@ -94,7 +94,7 @@ spawn-at-startup "~/.config/niri/scripts/swayidle.sh"
 
 spawn-sh-at-startup "wl-paste -t text --watch cliphist store -max-items 300"
 spawn-sh-at-startup "wl-paste -t image --watch cliphist store -max-items 30"
-spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri & /usr/lib/xdg-desktop-portal-kde"
+spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri & /usr/lib/xdg-desktop-portal-hyprland"
 
 hotkey-overlay {
     skip-at-startup
@@ -197,6 +197,7 @@ window-rule {
     match app-id="com.follow.clash"
     match app-id="xwaylandvideobridge"
     match app-id="Feishu" title="图片"
+    match title="飞书会议"
     open-floating true
 }
 window-rule {

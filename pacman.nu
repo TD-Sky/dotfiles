@@ -402,6 +402,7 @@ const MANIFEST = {
         packages: ["dms-shell-bin"],
         desc: "极致quickshell"
     },
+    xdg-desktop-portal-hyprland: "屏幕共享经过此门户",
 
     # unknown
     genact: "Linux领域大神",

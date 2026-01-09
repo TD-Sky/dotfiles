@@ -22,7 +22,7 @@ def main [] {
         git-cliff gitui zathura mpv gdb
         pip ghc fontconfig macchina paru
         uv mise atuin kitty jj zed opencode
-        niri mako
+        niri mako xdg-desktop-portal
     ] ~/.config
     | pfs [memo applications] ~/.local/share
     | each {|it| deploy-item $it }
@@ -174,7 +174,11 @@ def link [
         }
     } else if not (is-linked $srcp $dest) {
         log info $"($src) => ($dest)"
-        ln -s $srcp $dest
+        try {
+            ln -s $srcp $dest
+        } catch {|err|
+            log error "link failed"
+        }
     }
 
 }
