@@ -197,7 +197,7 @@ window-rule {
     match app-id="com.follow.clash"
     match app-id="xwaylandvideobridge"
     match app-id="Feishu" title="图片"
-    match title="飞书会议"
+    match app-id="" title="飞书会议"
     open-floating true
 }
 window-rule {
