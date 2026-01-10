@@ -48,6 +48,7 @@ application/xhtml+xml=zen-browser.desktop
 clash=clash-verge-handler.desktop
 clash-verge=clash-verge-handler.desktop
 image/jpg=org.kde.gwenview.desktop;
+image/jpeg=org.kde.gwenview.desktop;
 image/png=org.kde.gwenview.desktop;
 image/webp=org.kde.gwenview.desktop;
 inode/directory=thunar.desktop
