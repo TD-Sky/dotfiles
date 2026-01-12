@@ -49,8 +49,8 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 output "eDP-1" {
-    mode "3840x2160@60.001"
-    scale 1.70
+    mode "3840x2160@60.000"
+    scale 1.5
     transform "normal"
     position x=0 y=0
     focus-at-startup
