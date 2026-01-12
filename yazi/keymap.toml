@@ -137,7 +137,6 @@ keymap = [
   { on = "~", run = "help", desc = "Open help" },
   { on = "<F1>", run = "help", desc = "Open help" },
   # Plugin
-  { on = "U", run = "plugin searchjump -- autocd", desc = "Search Jump" },
   { on = "<A-h>", run = "plugin toggle-pane min-preview", desc = "Hide/show preview" },
   { on = "<A-m>", run = "plugin toggle-pane max-preview", desc = "Max/minimize preview" },
   { on = ["R", "p", "p"], run = "plugin sudo -- paste", desc = "sudo paste" },
@@ -150,6 +149,7 @@ keymap = [
   { on = ["R", "D"], run = "plugin sudo -- remove --permanently", desc = "sudo delete" },
   { on = ["R", "r"], run = "plugin sudo -- rename", desc = "sudo rename" },
   { on = ["R", "m"], run = "plugin sudo -- chmod", desc = "sudo chmod" },
+  { on = ["c", "m"], run = "plugin chmod", desc = "chmod" },
 ]
 
 [tasks]

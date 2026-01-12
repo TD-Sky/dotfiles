@@ -1,26 +1,26 @@
 #!/usr/bin/env -S nu --stdin
 
 const MANIFEST = {
-    # 社交
-    QQ: {
-        packages: ["linuxqq-nt-bwrap"],
-        manager: "paru"
-    },
-    telegram: {
-        packages: ["telegram-desktop"],
-        desc: "电报"
-    },
-    thunderbird: "电子邮件客户端",
-    wechat: {
-        packages: ["wechat-universal-bwrap"],
-        manager: "paru",
-        desc: "微信(沙盒)"
-    },
-    wemeet: {
-        packages: ["wemeet-bin"],
-        manager: "paru",
-        desc: "腾讯会议(沙盒)"
-    },
+    # # 社交
+    # QQ: {
+    #     packages: ["linuxqq-nt-bwrap"],
+    #     manager: "paru"
+    # },
+    # telegram: {
+    #     packages: ["telegram-desktop"],
+    #     desc: "电报"
+    # },
+    # thunderbird: "电子邮件客户端",
+    # wechat: {
+    #     packages: ["wechat-universal-bwrap"],
+    #     manager: "paru",
+    #     desc: "微信(沙盒)"
+    # },
+    # wemeet: {
+    #     packages: ["wemeet-bin"],
+    #     manager: "paru",
+    #     desc: "腾讯会议(沙盒)"
+    # },
     feishu: {
         packages: ["feishu-portable"],
         manager: "paru",
@@ -31,7 +31,11 @@ const MANIFEST = {
     QEMU: {
         packages: ["qemu-full"]
     },
-    ventoy: "制作镜像盘",
+    ventoy: {
+        packages: ["ventoy-bin"],
+        manager: "paru",
+        desc: "制作镜像盘",
+    },
     podman: "容器运行时",
     buildah: "清理所有外部死容器",
 
@@ -60,10 +64,10 @@ const MANIFEST = {
     tokei: "统计代码",
     gcc: "GNU的C/C++工具链",
     ast-grep: "匹配搜索 tree-sitter",
-    cargo-binutils: {
-        manager: "cargo",
-        desc: "Rust二进制工具"
-    },
+    # cargo-binutils: {
+    #     manager: "cargo",
+    #     desc: "Rust二进制工具"
+    # },
     lua-language-server: "",
     stylua: "lua格式化器",
     tombi: "toml语言工具",
@@ -100,6 +104,10 @@ const MANIFEST = {
         manager: "npm",
         packages: ["typescript", "typescript-language-server"]
     },
+    oxfmt: {
+        manager: "npm",
+        packages: ["oxfmt"]
+    },
     typst: {
         packages: ["typst", "tinymist", "typstyle"],
     },
@@ -131,6 +139,7 @@ const MANIFEST = {
     dbeaver: "PostgreSQL客户端",
     sqlitebrowser: "SQLite客户端",
     keepassxc: "keepass客户端",
+    zed: "Zed编辑器",
 
     # kde
     dolphin: {
@@ -142,7 +151,6 @@ const MANIFEST = {
 
     # wayland
     wl-clipboard: "剪贴板",
-    cliphist: "剪贴板历史",
     nerd-fonts: "书呆子字体",
     noto-fonts: {
         packages: [
@@ -153,6 +161,7 @@ const MANIFEST = {
         ],
         desc: "零豆腐块字体"
     },
+    wqy-zenhei: "文泉驿雅黑",
 
     # shell
     nushell: "结构化shell",
@@ -213,9 +222,12 @@ const MANIFEST = {
     hexyl: "hex查看器",
     libtree: "程序的库依赖树视图",
     halp: "命令行选项标准化检验",
+    ripdrag: {
+        packages: ["ripdrag-git"],
+        desc: "准备拖拽",
+    },
 
     # AI
-    aichat: "LLM CLI",
 
     # git
     lazygit: "git TUI",
@@ -263,16 +275,16 @@ const MANIFEST = {
     webp-pixbuf-loader: "GDK的webp支持",
     inkscape: "操作矢量图",
     poppler: "`pdftoppm -png`将PDF转成图片",
-    wps: {
-        packages: [
-            "wps-office-cn-bwrap",
-            "wps-office-mui-zh-cn",
-            "ttf-wps-fonts",
-            "wps-office-fonts"
-        ],
-        manager: "paru",
-        desc: "WPS本体+中文语言包+符号字体+中文常用字体"
-    },
+    # wps: {
+    #     packages: [
+    #         "wps-office-cn-bwrap",
+    #         "wps-office-mui-zh-cn",
+    #         "ttf-wps-fonts",
+    #         "wps-office-fonts"
+    #     ],
+    #     manager: "paru",
+    #     desc: "WPS本体+中文语言包+符号字体+中文常用字体"
+    # },
     viu: "终端看图",
 
     # language
@@ -291,7 +303,6 @@ const MANIFEST = {
     acpi: "电池信息",
     bandwhich: "监测网络带宽",
     bottom: "高级top",
-    light: "调节亮度",
     procs: "查看进程",
     wiremix: "音量面板",
     dysk: "统计分区大小",
@@ -369,7 +380,31 @@ const MANIFEST = {
         manager: "uv",
         desc: "安卓控件树查看器",
     },
-    waydroid: "安卓模拟器",
+    # waydroid: "安卓模拟器",
+
+    # niri
+    niri: "卷轴桌面",
+    xwayland-satellite: "新一代wayland到X11的适配器",
+    fuzzel: "软件启动器",
+    libnotify: "通知",
+    mako: "通知回显",
+    swaylock-effects: "锁屏",
+    swayidle: "后台定时任务",
+    blueman: "蓝牙面板",
+    satty: "编辑图片",
+    alsa-ucm-conf: "ALSA接线图",
+    alsa-firmware: "ALSA固件",
+    brightnessctl: "亮度调节",
+    # awww: "壁纸上屏",
+    cliphist: "剪贴板历史",
+    matugen: "材料设计颜色生成",
+    dgop: "资源信息监控",
+    dms-shell: {
+        manager: "paru",
+        packages: ["dms-shell-bin"],
+        desc: "极致quickshell"
+    },
+    xdg-desktop-portal-hyprland: "屏幕共享经过此门户",
 
     # unknown
     genact: "Linux领域大神",

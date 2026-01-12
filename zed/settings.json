@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "calls": {
+    "mute_on_join": true
+  },
   "show_edit_predictions": false,
   "agent": {
     "default_profile": "write",

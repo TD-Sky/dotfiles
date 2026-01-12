@@ -1,12 +1,7 @@
 [[plugin.deps]]
-use = "DreamMaoMao/searchjump"
-rev = "7fafec3"
-hash = "5337bf545993d8c4dec2c229031f49d"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "19dc890"
-hash = "94081eed9bc9fe176715c33b0db55d35"
+rev = "68f7d48"
+hash = "36a484acf6a0a0219c543ccb4cee218f"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
@@ -20,33 +15,38 @@ hash = "9628b660afb192d32f2ea5f6634d3e72"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "19dc890"
+rev = "68f7d48"
 hash = "8a7c58225816a163a6e8730c0adafbc8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "19dc890"
-hash = "b26d542e75151835d7bc885f6dda74cb"
+rev = "68f7d48"
+hash = "2dd68af59418b631b9703a03f606b31f"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
-rev = "8f37dc5"
-hash = "ee71543790f0ce3951161045a3787abd"
+rev = "0e56060"
+hash = "ab2e66065a94cca4886b303518e44bd8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:types"
-rev = "19dc890"
-hash = "1e047e1b13b5e3fc6ab1f5d0d04a14e2"
+rev = "68f7d48"
+hash = "a3564fe0d051557df2a191ca0b212c2d"
 
 [[plugin.deps]]
 use = "lpnh/fr"
-rev = "a60466e"
-hash = "ae6f2fb9ea03527e3a367a9faf2690ac"
+rev = "aa88cd4"
+hash = "8b0e87c3176e0d44f79a8656f79f0fa"
 
 [[plugin.deps]]
 use = "simla33/ucp"
 rev = "96f54af"
 hash = "2011ef145f7d4aaa23cbc64c05cd6a7f"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "68f7d48"
+hash = "8da0b15a97b5dfd13941d1ecc617ac7c"
 
 [flavor]
 deps = []
