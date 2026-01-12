@@ -31,7 +31,11 @@ const MANIFEST = {
     QEMU: {
         packages: ["qemu-full"]
     },
-    ventoy: "制作镜像盘",
+    ventoy: {
+        packages: ["ventoy-bin"],
+        manager: "paru",
+        desc: "制作镜像盘",
+    },
     podman: "容器运行时",
     buildah: "清理所有外部死容器",
 
@@ -224,7 +228,6 @@ const MANIFEST = {
     },
 
     # AI
-    aichat: "LLM CLI",
 
     # git
     lazygit: "git TUI",
@@ -272,16 +275,16 @@ const MANIFEST = {
     webp-pixbuf-loader: "GDK的webp支持",
     inkscape: "操作矢量图",
     poppler: "`pdftoppm -png`将PDF转成图片",
-    wps: {
-        packages: [
-            "wps-office-cn-bwrap",
-            "wps-office-mui-zh-cn",
-            "ttf-wps-fonts",
-            "wps-office-fonts"
-        ],
-        manager: "paru",
-        desc: "WPS本体+中文语言包+符号字体+中文常用字体"
-    },
+    # wps: {
+    #     packages: [
+    #         "wps-office-cn-bwrap",
+    #         "wps-office-mui-zh-cn",
+    #         "ttf-wps-fonts",
+    #         "wps-office-fonts"
+    #     ],
+    #     manager: "paru",
+    #     desc: "WPS本体+中文语言包+符号字体+中文常用字体"
+    # },
     viu: "终端看图",
 
     # language
@@ -377,7 +380,7 @@ const MANIFEST = {
         manager: "uv",
         desc: "安卓控件树查看器",
     },
-    waydroid: "安卓模拟器",
+    # waydroid: "安卓模拟器",
 
     # niri
     niri: "卷轴桌面",
