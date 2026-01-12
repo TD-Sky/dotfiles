@@ -201,6 +201,10 @@ window-rule {
     open-floating true
 }
 window-rule {
+    match app-id="Meeting" title="飞书会议"
+    open-floating false
+}
+window-rule {
     match app-id=r#"^org\.gnome\."#
     draw-border-with-background false
     geometry-corner-radius 12

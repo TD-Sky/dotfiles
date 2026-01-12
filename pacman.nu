@@ -300,7 +300,6 @@ const MANIFEST = {
     acpi: "电池信息",
     bandwhich: "监测网络带宽",
     bottom: "高级top",
-    light: "调节亮度",
     procs: "查看进程",
     wiremix: "音量面板",
     dysk: "统计分区大小",
