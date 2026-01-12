@@ -286,6 +286,7 @@ const MANIFEST = {
     #     desc: "WPS本体+中文语言包+符号字体+中文常用字体"
     # },
     viu: "终端看图",
+    doxx: "docx TUI",
 
     # language
     pot-translation: "一站式翻译",
