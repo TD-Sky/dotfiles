@@ -20,6 +20,7 @@ def main [] {
         ['apk'          '❌'        '✅'  ]
         ['deb'          '❌'        '✅'  ]
         ['a'            '❌'        '✅'  ]
+        ['crate'        '❌'        '✅'  ]
     ]
 }
 
@@ -80,7 +81,7 @@ def "main squashfs" [item: string] {
 def "main x" [...archives: string] {
     for archive in $archives {
         match ($archive | path parse | get extension) {
-            'tar' | 'gz' | 'xz' | 'zst' | 'zip' | 'apk' => {
+            'tar' | 'gz' | 'xz' | 'zst' | 'zip' | 'apk' | 'crate' => {
                 bsdtar -xvf $archive
             },
             '7z' => { 7za x $archive },
@@ -101,7 +102,7 @@ def "main x" [...archives: string] {
 # 窥视
 def "main ls" [archive: string] {
     match ($archive | path parse | get extension) {
-        'tar' | 'gz' | 'xz' | 'zst' | 'zip' | 'apk' | '7z'  => {
+        'tar' | 'gz' | 'xz' | 'zst' | 'zip' | 'apk' | '7z' | 'crate' => {
             bsdtar -tf $archive | tree -C --fromfile
         },
         'rar' => { bsdtar -tf $archive | tac | tree -C --fromfile },
