@@ -1,26 +1,26 @@
 #!/usr/bin/env -S nu --stdin
 
 const MANIFEST = {
-    # # 社交
-    # QQ: {
-    #     packages: ["linuxqq-nt-bwrap"],
-    #     manager: "paru"
-    # },
-    # telegram: {
-    #     packages: ["telegram-desktop"],
-    #     desc: "电报"
-    # },
-    # thunderbird: "电子邮件客户端",
-    # wechat: {
-    #     packages: ["wechat-universal-bwrap"],
-    #     manager: "paru",
-    #     desc: "微信(沙盒)"
-    # },
-    # wemeet: {
-    #     packages: ["wemeet-bin"],
-    #     manager: "paru",
-    #     desc: "腾讯会议(沙盒)"
-    # },
+    # 社交
+    QQ: {
+        packages: ["linuxqq-nt-bwrap"],
+        manager: "paru"
+    },
+    telegram: {
+        packages: ["telegram-desktop"],
+        desc: "电报"
+    },
+    thunderbird: "电子邮件客户端",
+    wechat: {
+        packages: ["wechat-universal-bwrap"],
+        manager: "paru",
+        desc: "微信(沙盒)"
+    },
+    wemeet: {
+        packages: ["wemeet-bin"],
+        manager: "paru",
+        desc: "腾讯会议(沙盒)"
+    },
     feishu: {
         packages: ["feishu-portable"],
         manager: "paru",
@@ -64,10 +64,10 @@ const MANIFEST = {
     tokei: "统计代码",
     gcc: "GNU的C/C++工具链",
     ast-grep: "匹配搜索 tree-sitter",
-    # cargo-binutils: {
-    #     manager: "cargo",
-    #     desc: "Rust二进制工具"
-    # },
+    cargo-binutils: {
+        manager: "cargo",
+        desc: "Rust二进制工具"
+    },
     lua-language-server: "",
     stylua: "lua格式化器",
     tombi: "toml语言工具",
@@ -396,7 +396,7 @@ const MANIFEST = {
     alsa-ucm-conf: "ALSA接线图",
     alsa-firmware: "ALSA固件",
     brightnessctl: "亮度调节",
-    # awww: "壁纸上屏",
+    awww: "壁纸上屏",
     cliphist: "剪贴板历史",
     matugen: "材料设计颜色生成",
     dgop: "资源信息监控",

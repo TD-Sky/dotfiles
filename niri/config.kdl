@@ -49,11 +49,17 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 output "eDP-1" {
-    mode "3840x2160@60.000"
-    scale 1.5
+    mode "3200x2000@165.002"
+    scale 1.75
     transform "normal"
     position x=0 y=0
     focus-at-startup
+}
+output "HDMI-A-1" {
+    mode "3840x2160@60.000"
+    scale 1.5
+    transform "normal"
+    position x=0 y=1145
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -84,7 +90,6 @@ overview {
 
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "fcitx5"
-spawn-at-startup "~/.config/niri/scripts/swayidle.sh"
 
 spawn-sh-at-startup "wl-paste -t text --watch cliphist store -max-items 300"
 spawn-sh-at-startup "wl-paste -t image --watch cliphist store -max-items 30"
@@ -195,6 +200,10 @@ window-rule {
     open-floating true
 }
 window-rule {
+    match app-id="Meeting" title="飞书会议"
+    open-floating false
+}
+window-rule {
     match app-id=r#"^org\.gnome\."#
     draw-border-with-background false
     geometry-corner-radius 12
@@ -236,8 +245,8 @@ binds {
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
+    Mod+J     { focus-window-or-workspace-down; }
+    Mod+K     { focus-window-or-workspace-up; }
     Mod+L     { focus-column-right; }
 
     Mod+Ctrl+Left  { move-column-left; }
@@ -259,8 +268,6 @@ binds {
     Mod+Shift+Up    { focus-monitor-up; }
     Mod+Shift+Right { focus-monitor-right; }
     Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
     Mod+Shift+L     { focus-monitor-right; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
@@ -274,17 +281,13 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
     Mod+Ctrl+I         { move-column-to-workspace-up; }
 
-    Mod+Shift+Page_Down { move-workspace-down; }
-    Mod+Shift+Page_Up   { move-workspace-up; }
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
+    Mod+Shift+J { move-workspace-down; }
+    Mod+Shift+K { move-workspace-up; }
 
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }

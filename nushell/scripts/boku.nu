@@ -72,11 +72,10 @@ export def rec [
             | uniq
             | pickm --prompt '角色：' --ansi --cycle --bind 'ctrl-a:select-all,ctrl-r:toggle-all'
         $chars = $chars | append $choices
+        print $"角色：($chars | str join ', ')"
 
         let extra = (input '新角色：' | split words)
         $chars =  $chars | append $extra
-
-        print $"角色：($chars | str join ', ')"
     }
 
     mut tags = []
@@ -87,11 +86,10 @@ export def rec [
         | uniq
         | pickm --prompt '要素：' --ansi --cycle --bind 'ctrl-a:select-all,ctrl-r:toggle-all'
     $tags = $tags | append $choices
+    print $"要素：($tags | str join ', ')"
 
     let extra = (input '新要素：' | split words)
     $tags =  $tags | append $extra
-
-    print $"要素：($tags | str join ', ')"
 
     (rec-impl
         --toc $toc
