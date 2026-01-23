@@ -365,8 +365,7 @@ binds {
 
     // Mine
     Mod+F1 { spawn-sh "pkill fcitx5 || fcitx5"; } // 重启输入法以解决弹不出来的问题
-    Mod+F2 { spawn-sh "pkill waybar || true && waybar"; } // 重启waybar
-    Mod+F3 { spawn-sh "wl-paste | satty -f -"; } // 编辑刚刚的截图
+    Mod+F2 { spawn-sh "wl-paste | satty -f -"; } // 编辑刚刚的截图
 }
 
 // Include dms files
