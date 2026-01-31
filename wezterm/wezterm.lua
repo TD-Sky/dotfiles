@@ -1,6 +1,8 @@
 local wezterm = require("wezterm")
 
 return {
+    default_prog = { "/usr/bin/nu", "--login", "--interactive" },
+    max_fps = 165,
     enable_scroll_bar = true,
     hide_tab_bar_if_only_one_tab = true,
     tab_bar_at_bottom = true,

@@ -86,6 +86,13 @@ return {
             }
             vim.lsp.config("*", default_lsp_config)
 
+            vim.lsp.config("clangd", {
+                cmd = {
+                    "clangd",
+                    "--clang-tidy",
+                },
+            })
+
             vim.lsp.enable(opts.servers)
         end),
     },

@@ -57,7 +57,7 @@ output "eDP-1" {
 }
 output "HDMI-A-1" {
     mode "3840x2160@60.000"
-    scale 1.5
+    scale 1.0
     transform "normal"
     position x=0 y=1145
 }
@@ -162,6 +162,9 @@ window-rule {
     match app-id=r#"^gnome-control-center$"#
     match app-id=r#"^pavucontrol$"#
     match app-id=r#"^nm-connection-editor$"#
+    match app-id="DesktopEditors"
+    match app-id=r#"^Xdg-desktop-portal-.+$"#
+    match app-id=r#"^xdg-desktop-portal-.+$"#
     default-column-width { proportion 0.5; }
     open-floating false
 }
@@ -171,7 +174,6 @@ window-rule {
     match app-id=r#"^blueman-manager$"#
     match app-id=r#"^org\.gnome\.Nautilus$"#
     match app-id=r#"^steam$"#
-    match app-id=r#"^xdg-desktop-portal$"#
     open-floating true
 }
 window-rule {
@@ -229,7 +231,7 @@ recent-windows {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "wezterm-gui"; }
 
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }

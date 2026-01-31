@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "de33976"
-hash = "36a484acf6a0a0219c543ccb4cee218f"
+rev = "557684b"
+hash = "270915fa8282a19908449530ff66f7e2"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
@@ -15,23 +15,18 @@ hash = "9628b660afb192d32f2ea5f6634d3e72"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "de33976"
+rev = "557684b"
 hash = "8a7c58225816a163a6e8730c0adafbc8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "de33976"
-hash = "76ea4ff62db6ebe62e4653c2de95cbd"
-
-[[plugin.deps]]
-use = "Lil-Dank/lazygit"
-rev = "0e56060"
-hash = "ab2e66065a94cca4886b303518e44bd8"
+rev = "557684b"
+hash = "25aee698dd1081001008ce0cb1cc4da3"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:types"
-rev = "de33976"
-hash = "6c4759ffad7b1caef81fafed85b4a132"
+rev = "557684b"
+hash = "83b5b82b595c39a660bf2b170987e5e7"
 
 [[plugin.deps]]
 use = "lpnh/fr"
@@ -39,19 +34,14 @@ rev = "aa88cd4"
 hash = "8b0e87c3176e0d44f79a8656f79f0fa"
 
 [[plugin.deps]]
-use = "simla33/ucp"
-rev = "96f54af"
-hash = "2011ef145f7d4aaa23cbc64c05cd6a7f"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "de33976"
+rev = "557684b"
 hash = "8da0b15a97b5dfd13941d1ecc617ac7c"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "de33976"
-hash = "e2d4bfccf31e5ab05f46fee4797c5215"
+rev = "557684b"
+hash = "bf75a487d1d3b0f9e93a118e30714e09"
 
 [flavor]
 deps = []
