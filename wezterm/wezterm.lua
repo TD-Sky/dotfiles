@@ -38,5 +38,10 @@ return {
             mods = "SHIFT|ALT",
             action = wezterm.action.MoveTabRelative(1),
         },
+        {
+            key = "V",
+            mods = "CTRL|SHIFT",
+            action = wezterm.action.PasteFrom("Clipboard"),
+        },
     },
 }
