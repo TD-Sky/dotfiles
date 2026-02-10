@@ -48,18 +48,11 @@ input {
 // The built-in laptop monitor is usually called "eDP-1".
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
-output "eDP-1" {
-    mode "3200x2000@165.002"
-    scale 1.75
-    transform "normal"
-    position x=0 y=0
-    focus-at-startup
-}
 output "HDMI-A-1" {
     mode "3840x2160@60.000"
-    scale 1.0
+    scale 1.5
     transform "normal"
-    position x=0 y=1145
+    position x=0 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -283,6 +276,8 @@ binds {
     Mod+Page_Up        { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+    Mod+U              { focus-workspace-down; }
+    Mod+I              { focus-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
     Mod+Ctrl+I         { move-column-to-workspace-up; }
 
