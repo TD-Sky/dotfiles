@@ -53,7 +53,7 @@ carapace _carapace nushell | save -f $"($nu.cache-dir)/carapace.nu"
 zoxide init nushell | save -f $"($nu.cache-dir)/zoxide.nu"
 navi widget nushell | save -f $"($nu.cache-dir)/navi.nu"
 atuin init nu | save -f $"($nu.cache-dir)/atuin.nu"
-# mise activate nu | save -f $"($nu.cache-dir)/mise.nu"
+mise activate nu | save -f $"($nu.cache-dir)/mise.nu"
 
 # PROMPT #
 
@@ -71,6 +71,13 @@ def render-modules []: list -> string {
     | str join ' '
 }
 
+def 'option map' [f: closure] {
+    match $in {
+        null => { null }
+        $v => { do $f $v }
+    }
+}
+
 def 'map stdout' [f: closure]: record -> string {
     match $in.stdout {
         "" => { "" }
@@ -82,44 +89,76 @@ load-env {
     PROMPT_COMMAND: {
         [
             {
-                jj workspace root --ignore-working-copy
+                let v = jj workspace root --ignore-working-copy
                     | complete
                     | match ($in.stdout | str trim) {
-                        "" => { pwd }
+                        "" => { pwd | str replace -r $"^($env.HOME)" '~' }
                         $v => {
-                            ['...', ($v | path basename), (pwd | path relative-to $v)]
+                            [($v | path basename), (pwd | path relative-to $v)]
                             | path join
                             | str trim -r -c '/'
                         }
                     }
+
+                let c1 = {
+                    fg: 'black',
+                }
+                let c2 = {
+                    fg: '#FFBF00',
+                    bg: 'black',
+                }
+                let c3 = {
+                    fg: 'black',
+                    bg: '#FFBF00',
+                }
+                let c4 = {
+                    fg: '#FFBF00',
+                }
+
+                $"(ansi -e $c1)(ansi -e $c2)  ($v) (ansi -e $c3)(ansi reset)(ansi -e $c4)▓▒░(ansi reset)"
+            }
+            {
+                jj log --ignore-working-copy --no-graph --limit 1 --color always --revisions @ -T 'format_short_change_id_with_change_offset(self)'
+                | complete
+                | get stdout
+            }
+            {
+                jj log --ignore-working-copy --no-graph --limit 1 --color always --revisions @ -T 'commit_id.shortest(8)'
+                | complete
+                | map stdout {|v| $" ($v)" }
+            }
+            {
+                jj log --ignore-working-copy --no-graph --limit 1 --color always -r "closest_bookmark(@)" -T 'bookmarks.join(" ")'
+                | complete
+                | map stdout {|v| $"󰘬 ($v)" }
+            }
+            {
+                jj log --ignore-working-copy --no-graph --color never -r "closest_bookmark(@)..@" -T 'change_id ++ "\n"'
+                | complete
+                | map stdout {|v| $" ($v | lines | length)" }
+            }
+            {
+                jj log --ignore-working-copy --no-graph --color never --revisions @ -T 'self.diff("root-glob:**/*").files().map(|f| f.status())'
+                | complete
+                | map stdout {|v|
+                    let v = $v
+                        | split words
+                        | group-by
+
+                    [
+                        ($v.modified? | option map {|v| $"󰤌 ($v | length)"}),
+                        ($v.added? | option map {|v| $" ($v | length)"}),
+                        ($v.removed? | option map {|v| $"󰗨 ($v | length)"}),
+                        ($v.renamed? | option map {|v| $" ($v | length)"}),
+                    ]
+                    | where {|v| $v | is-not-empty }
+                    | str join ' '
+                }
             }
             {
                 jj log --ignore-working-copy --no-graph --limit 1 --color always --revisions @ -T 'prompt'
                 | complete
                 | get stdout
-            }
-            {
-                jj log --ignore-working-copy --no-graph --limit 1 --color always -r "closest_bookmark(@)" -T 'bookmarks.join(" ")'
-                | complete
-                | get stdout
-            }
-            {
-                jj log --ignore-working-copy --no-graph --color never -r "closest_bookmark(@)..@" -T 'change_id ++ "\n"'
-                | complete
-                | map stdout {|v| $v | lines | length }
-            }
-            {
-                jj log --ignore-working-copy --no-graph --color never --revisions @ -T 'self.diff("root-glob:**/*").files().map(|f| f.status()).join("\n")'
-                | complete
-                | map stdout {|v|
-                    $v
-                    | lines
-                    | group-by
-                    | items {|status, s|
-                        $"($status)[($s | length)]"
-                    }
-                    | str join ' '
-                }
             }
             (char newline)
         ]
@@ -127,8 +166,18 @@ load-env {
     },
     PROMPT_COMMAND_RIGHT: {
         [
-            { cargo get 'package.version' | complete | map stdout {|v| $"crate[($v)]" } },
-            $"(date now | format date '%Y-%m-%d %H:%M:%S')",
+            { cargo get 'package.version' | complete | map stdout {|v| $"󰏗 ($v)" } }
+            {
+                let c1 = {
+                    fg: 'white',
+                }
+                let c2 = {
+                    fg: 'black',
+                    bg: 'white',
+                }
+
+                $"(ansi -e $c1)░▒▓(ansi -e $c2) (date now | format date '%Y-%m-%d %H:%M:%S') (ansi reset)"
+            }
         ]
         | render-modules
     }
