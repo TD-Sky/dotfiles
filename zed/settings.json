@@ -9,11 +9,12 @@
 {
   "show_edit_predictions": false,
   "agent": {
-    "default_profile": "write",
     "default_model": {
-      "provider": "Zai",
-      "model": "glm-4.7"
+      "provider": "Modelscope",
+      "model": "ZhipuAI/GLM-5",
+      "enable_thinking": false
     },
+    "default_profile": "write",
     "model_parameters": []
   },
   "disable_ai": false,
@@ -90,6 +91,23 @@
               "images": false,
               "parallel_tool_calls": true,
               "prompt_cache_key": true
+            }
+          }
+        ]
+      },
+      "Modelscope": {
+        "api_url": "https://api-inference.modelscope.cn/v1",
+        "available_models": [
+          {
+            "name": "ZhipuAI/GLM-5",
+            "max_tokens": 128000,
+            "max_output_tokens": 16000,
+            "max_completion_tokens": 128000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false
             }
           }
         ]
