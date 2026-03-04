@@ -83,6 +83,7 @@ overview {
 
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "fcitx5"
+spawn-at-startup "feishu"
 
 spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri & /usr/lib/xdg-desktop-portal-hyprland"
 
@@ -224,7 +225,7 @@ recent-windows {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "wezterm-gui"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
 
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
