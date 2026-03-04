@@ -70,7 +70,7 @@ local options = {
     clipboard = "unnamedplus",
 
     exrc = true,
-    shell = "nu",
+    shell = "bash",
 }
 
 vim.opt.errorformat:append("[%f:%l] -> %m,[%f:%l]:%m")
