@@ -228,6 +228,14 @@ const MANIFEST = {
     },
 
     # AI
+    codex: {
+        packages: ["openai-codex"],
+        desc: "Codex",
+    },
+    llmfit: {
+        packages: ["llmfit-bin"],
+        desc: "根据需求找模型",
+    },
 
     # git
     lazygit: "git TUI",
@@ -287,6 +295,7 @@ const MANIFEST = {
     # },
     viu: "终端看图",
     doxx: "docx TUI",
+    tabiew: "查看表",
 
     # language
     pot-translation: "一站式翻译",
@@ -360,6 +369,7 @@ const MANIFEST = {
         desc: "一键收束工作空间下的依赖",
     },
     cargo-bloat: "查看依赖的空间占用情况",
+    cargo-license: "查看依赖的许可证",
 
     # arch
     nvrs: {
