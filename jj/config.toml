@@ -19,10 +19,13 @@ separate(" ",
 '''
 
 [revset-aliases]
-'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+'closest_bookmark(to)' = "heads(::to & bookmarks())"
 
 [colors]
 wip = "yellow"
 todo = "blue"
 vibe = "cyan"
 mega = "red"
+
+[ui]
+diff-formatter = ["difft", "--color=always", "--context=10", "$left", "$right"]
