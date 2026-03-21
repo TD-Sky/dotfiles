@@ -3,6 +3,7 @@ vim.filetype.add({
         slint = "slint",
         typ = "typst",
         nu = "nu",
+        nuon = "nuon",
         d2 = "d2",
         json = "jsonc",
     },

@@ -36,7 +36,10 @@ const MANIFEST = {
         manager: "paru",
         desc: "制作镜像盘",
     },
-    podman: "容器运行时",
+    podman: {
+        packages: ["podman", "podman-compose"],
+        desc: "容器运行时",
+    },
     buildah: "清理所有外部死容器",
 
     # kernel
@@ -122,6 +125,11 @@ const MANIFEST = {
         manager: "npm",
         packages: ["@astrojs/language-server"]
         desc: "AstroJS的语言服务器",
+    },
+    nufmt: {
+        packages: ["https://github.com/nushell/nufmt.git"],
+        manager: "cargo:src",
+        desc: "格式化nushell",
     },
 
     # desktop
