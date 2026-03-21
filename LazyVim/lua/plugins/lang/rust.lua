@@ -100,6 +100,10 @@ return {
                                         path = "anyhow::Ok",
                                         type = "always",
                                     },
+                                    {
+                                        path = "boxcar::Vec",
+                                        type = "always",
+                                    },
                                 },
                             },
                         },

@@ -4,7 +4,11 @@
 
 local utils = require("utils")
 
-local wk = require("which-key")
+if not vim.g.vscode then
+    local wk = require("which-key")
+    wk.add({ "<leader>l", group = "language" })
+end
+
 local map = {
     n = function(mapping)
         for _, m in ipairs(mapping) do
@@ -27,8 +31,6 @@ local map = {
 vim.keymap.del("n", "<Leader>l")
 vim.keymap.del("n", "<Leader>cd")
 vim.keymap.del({ "n", "i", "v" }, "<C-s>")
-
-wk.add({ "<leader>l", group = "language" })
 
 -- 切换标签页
 map.n({
