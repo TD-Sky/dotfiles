@@ -57,12 +57,39 @@ mise activate nu | save -f $"($nu.cache-dir)/mise.nu"
 
 # PROMPT #
 
+def with-timeout [
+    --timeout (-t): duration,
+    task: closure,
+]: any -> any {
+	let input = $in
+	let parent_id = job id
+	let task_id = job spawn {
+		$input | do $task | job send --tag (job id) $parent_id
+	}
+	try {
+		job recv --tag $task_id --timeout $timeout
+	} catch {
+		job kill $task_id
+		error make {
+			msg: "Task timed out."
+			label: {
+				text: "timed out"
+				span: (metadata $task).span
+			}
+		}
+	}
+}
+
 def render-modules []: list -> string {
     $in
     | par-each --keep-order {|it|
         match ($it | describe) {
             "closure" => {
-                try { do $it } catch { "" }
+                try {
+                    with-timeout -t 50ms $it
+                } catch {
+                    ""
+                }
             }
             _ => { $it }
         }
