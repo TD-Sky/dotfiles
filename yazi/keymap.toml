@@ -151,6 +151,7 @@ keymap = [
   { on = ["R", "m"], run = "plugin sudo -- chmod", desc = "sudo chmod" },
   { on = ["c", "m"], run = "plugin chmod", desc = "chmod" },
   { on = ["M"], run = "plugin mount", desc = "mount" },
+  { on = ["<A-/>"], run = 'shell "zellij action new-pane -fc --cwd $PWD -- nu"', desc = "terminal" }
 ]
 
 [tasks]
