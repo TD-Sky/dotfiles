@@ -2,14 +2,16 @@
 
 def main [] {
     zellij delete-all-sessions -y
-    let sessions = (zellij list-sessions)
-    if ($sessions | is-empty) {
+
+    let result = zellij list-sessions | complete
+
+    if ($result.stdout | is-empty) or $result.exit_code != 0 {
         zellij
         return
     }
 
-    let session = $"($sessions)(char nl)new"
-        | fzf --ansi --tac
+    let session = $"($result.stdout)new"
+        | fzf --ansi --tac --reverse
         | split row ' '
         | first
 
