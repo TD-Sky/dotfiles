@@ -9,6 +9,8 @@ keybinds clear-defaults=true {
         bind "Ctrl Shift t" { NewTab; }
         bind "Alt h" { MoveFocusOrTab "Left"; }
         bind "Alt l" { MoveFocusOrTab "Right"; }
+        bind "Alt i" { MoveFocus "Up"; }
+        bind "Alt u" { MoveFocus "Down"; }
     }
     resize {
         bind "Ctrl n" { SwitchToMode "Normal"; }
