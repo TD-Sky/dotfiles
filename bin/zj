@@ -2,14 +2,14 @@
 
 def main [] {
     zellij delete-all-sessions -y
-    let sessions = (zellij list-sessions)
+    let sessions = zellij list-sessions
     if ($sessions | is-empty) {
         zellij
         return
     }
 
     let session = $"($sessions)(char nl)new"
-        | fzf --ansi --tac
+        | fzf --ansi --tac --reverse
         | split row ' '
         | first
 
