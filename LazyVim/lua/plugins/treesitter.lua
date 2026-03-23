@@ -14,7 +14,7 @@ return {
                 "css", "scss",
                 "javascript", "typescript",
                 "java", "kotlin", "groovy",
-                "json", "json5", "jsonc",
+                "json", "json5",
                 "latex", "bibtex",
                 "markdown", "markdown_inline",
                 "typst", "dot",

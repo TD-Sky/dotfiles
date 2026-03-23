@@ -23,7 +23,7 @@ def main [] {
         pip ghc fontconfig macchina paru
         uv mise atuin kitty jj zed opencode
         niri mako xdg-desktop-portal DankMaterialShell
-        tombi
+        tombi alacritty
     ] ~/.config
     | pfs [memo applications] ~/.local/share
     | each {|it| deploy-item $it }
@@ -74,18 +74,18 @@ def pfs [
     }
 }
 
-def deploy-item [it: record] {
-    let dest = $it.dest | path expand
+def deploy-item [item: record] {
+    let dest = $item.dest | path expand
 
-    match ($it.src | path type) {
+    match ($item.src | path type) {
         file => {
-            deploy-file $it.src $dest --place=$it.place --hard=$it.hard
+            deploy-file $item.src $dest --place=$item.place --hard=$item.hard
         },
-        dir if $it.place => {
-            place-dir $it.src $dest --hard=$it.hard
+        dir if $item.place => {
+            place-dir $item.src $dest --hard=$item.hard
         },
         dir => {
-            deploy-dir $it.src $dest --hard=$it.hard
+            deploy-dir $item.src $dest --hard=$item.hard
         },
     }
 }

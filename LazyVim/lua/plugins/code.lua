@@ -62,6 +62,11 @@ return {
                     args = { "fmt", "-" },
                     stdin = true,
                 },
+                ["nuon"] = {
+                    cmd = "nufmt",
+                    args = { "--stdin" },
+                    stdin = true,
+                },
             },
             lint = {
                 typos = "c,cpp,rust,go,python,lua",
