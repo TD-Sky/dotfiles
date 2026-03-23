@@ -3,7 +3,7 @@ opacity = 0.8
 blur = true
 
 [terminal]
-shell = { program = "zellij" }
+shell = { program = "zj" }
 
 [font]
 size = 16.5
