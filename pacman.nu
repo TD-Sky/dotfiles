@@ -304,6 +304,7 @@ const MANIFEST = {
     viu: "终端看图",
     doxx: "docx TUI",
     tabiew: "查看表",
+    bluetui: "bluez TUI",
 
     # language
     pot-translation: "一站式翻译",
@@ -334,8 +335,8 @@ const MANIFEST = {
     traceroute: "路由显形",
     lsof: "监测端口",
     openssh: "ssh",
-    xh: "人类友好的http客户端",
     rustscan: "扫描端口",
+    impala: "iwd TUI",
 
     # show
     asciinema: "录制命令行视频",
@@ -404,18 +405,12 @@ const MANIFEST = {
     # niri
     niri: "卷轴桌面",
     xwayland-satellite: "新一代wayland到X11的适配器",
-    fuzzel: "软件启动器",
     libnotify: "通知",
-    mako: "通知回显",
-    swaylock-effects: "锁屏",
-    swayidle: "后台定时任务",
-    blueman: "蓝牙面板",
     satty: "编辑图片",
     alsa-ucm-conf: "ALSA接线图",
     alsa-firmware: "ALSA固件",
     brightnessctl: "亮度调节",
     awww: "壁纸上屏",
-    cliphist: "剪贴板历史",
     matugen: "材料设计颜色生成",
     dgop: "资源信息监控",
     dms-shell: {
