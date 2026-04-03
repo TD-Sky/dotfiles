@@ -129,7 +129,7 @@ def deploy-dir [
 
     glob $"($src)/**/*" --no-dir
     | each {|file|
-        let dest = (do $dest_path $file)
+        let dest = do $dest_path $file
         let file = $file | path strip (pwd)
         link $file $dest --hard=$hard
     }
@@ -155,7 +155,7 @@ def place-dir [
 
     glob $"($src)/**/*" --no-dir
     | each {|file|
-        let dest = (do $dest_path $file)
+        let dest = do $dest_path $file
         let file = $file | path strip (pwd)
         link $file $dest --hard=$hard
     }
