@@ -414,8 +414,7 @@ const MANIFEST = {
     matugen: "材料设计颜色生成",
     dgop: "资源信息监控",
     dms-shell: {
-        manager: "paru",
-        packages: ["dms-shell-bin"],
+        packages: ["dms-shell-niri"],
         desc: "极致quickshell"
     },
     xdg-desktop-portal-hyprland: "屏幕共享经过此门户",
