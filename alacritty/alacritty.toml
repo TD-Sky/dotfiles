@@ -1,6 +1,6 @@
 [window]
-opacity = 0.8
-blur = true
+opacity = 0.5
+blur = false
 
 [terminal]
 shell = { program = "zj" }
