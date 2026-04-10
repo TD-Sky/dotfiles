@@ -377,7 +377,10 @@ const MANIFEST = {
         manager: "cargo",
         desc: "一键收束工作空间下的依赖",
     },
-    cargo-bloat: "查看依赖的空间占用情况",
+    cargo-bloated: {
+        manager: "cargo",
+        desc: "查看依赖的空间占用情况",
+    },
     cargo-license: "查看依赖的许可证",
 
     # arch
