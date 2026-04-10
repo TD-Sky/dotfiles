@@ -51,6 +51,42 @@ def --env yazi-nav [...args] {
 	rm -fp $tmp
 }
 
+# 检查文件编码
+def cke [...items: string] {
+    $items
+    | default --empty { ls | get name }
+    | where {|f| ($f | path type) == 'file'}
+    | par-each {|path|
+        {
+            file: $path,
+            encoding: (enca -i -L zh $path),
+        }
+    }
+}
+
+# 查看文件的平台
+def plf [...texts: string] {
+    $texts
+    | default --empty { ls | get name }
+    | where {|t| ($t | path type) == 'file' }
+    | par-each {|text|
+        let platform = (
+            if (file $text) !~ 'text' {
+                '???'
+            } else if (open -r $text) =~ (char crlf) {
+                'dos'
+            } else {
+                'unix'
+            }
+        )
+
+        {
+            file: $text,
+            platform: $platform,
+        }
+    }
+}
+
 # KEYMAP #
 
 $env.config.keybindings ++= [
