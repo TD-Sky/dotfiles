@@ -51,6 +51,19 @@ def --env yazi-nav [...args] {
 	rm -fp $tmp
 }
 
+# 检查文件编码
+def cke [...items: string] {
+    $items
+    | default --empty { ls | get name }
+    | where {|f| ($f | path type) == 'file'}
+    | par-each {|path|
+        {
+            file: $path,
+            encoding: (enca -i -L zh $path),
+        }
+    }
+}
+
 # 查看文件的平台
 def plf [...texts: string] {
     $texts

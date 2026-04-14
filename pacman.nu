@@ -377,7 +377,10 @@ const MANIFEST = {
         manager: "cargo",
         desc: "一键收束工作空间下的依赖",
     },
-    cargo-bloat: "查看依赖的空间占用情况",
+    cargo-bloated: {
+        manager: "cargo",
+        desc: "查看依赖的空间占用情况",
+    },
     cargo-license: "查看依赖的许可证",
 
     # arch
@@ -414,8 +417,7 @@ const MANIFEST = {
     matugen: "材料设计颜色生成",
     dgop: "资源信息监控",
     dms-shell: {
-        manager: "paru",
-        packages: ["dms-shell-bin"],
+        packages: ["dms-shell-niri"],
         desc: "极致quickshell"
     },
     xdg-desktop-portal-hyprland: "屏幕共享经过此门户",
