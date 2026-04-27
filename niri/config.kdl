@@ -83,7 +83,6 @@ overview {
 
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "fcitx5"
-spawn-at-startup "feishu"
 
 spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri & /usr/lib/xdg-desktop-portal-hyprland"
 
@@ -177,6 +176,9 @@ window-rule {
     match app-id="com.mitchellh.ghostty"
     match app-id="kitty"
     draw-border-with-background false
+    background-effect {
+        blur true
+    }
 }
 window-rule {
     match is-active=false
