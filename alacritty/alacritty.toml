@@ -1,5 +1,11 @@
+[general]
+import = [
+    # "~/.config/alacritty/themes/themes/gruvbox_material_medium_light.toml",
+    "~/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml",
+]
+
 [window]
-opacity = 0.8
+opacity = 0.6
 blur = true
 
 [terminal]
