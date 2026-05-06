@@ -274,7 +274,8 @@ return {
     },
     {
         "mistricky/codesnap.nvim",
-        build = "make build_generator",
+        tag = "v2.0.1",
+        cmd = { "CodeSnap", "CodeSnapSave", "CodeSnapASCII" },
         keys = {
             {
                 "<leader>cs",
@@ -290,10 +291,14 @@ return {
             },
         },
         opts = {
-            mac_window_bar = false,
-            bg_x_padding = 10,
-            bg_y_padding = 10,
-            has_line_number = true,
+            window = {
+                mac_window_bar = true,
+            },
+            show_line_number = true,
+            margin = {
+                x = 10,
+                y = 10,
+            },
         },
     },
     {
