@@ -32,6 +32,7 @@ require("lazy").setup({
         { import = "lazyvim.plugins.extras.coding.blink" },
         { import = "lazyvim.plugins.extras.test.core" },
         { import = "lazyvim.plugins.extras.ai.sidekick" },
+        { import = "lazyvim.plugins.extras.dap.core" },
         -- import/override with your plugins
         { import = "plugins" },
         { import = "plugins.lang" },
