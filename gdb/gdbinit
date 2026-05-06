@@ -4,6 +4,7 @@ handle 13 pass print nostop
 handle 14 nopass noprint nostop
 handle 15 pass print nostop
 
+set debuginfod enabled on
 set disassembly-flavor intel
 set print asm-demangle off
 set print static-members off

@@ -8,4 +8,5 @@ return {
     { "mfussenegger/nvim-lint", enabled = false },
     { "stevearc/conform.nvim", enabled = false },
     { "rafamadriz/friendly-snippets", enabled = false },
+    { "jay-babu/mason-nvim-dap.nvim", enabled = false },
 }
