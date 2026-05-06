@@ -141,7 +141,8 @@ return {
                         score_offset = 200,
                     },
                     snippets = {
-                        score_offset = 90,
+                        score_offset = 300,
+                        max_items = 2,
                     },
                     path = {
                         score_offset = 80,
