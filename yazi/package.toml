@@ -1,32 +1,32 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "6f50636"
-hash = "270915fa8282a19908449530ff66f7e2"
+rev = "1db18bb"
+hash = "c8d30a70659f1b880407e61c564ab4e8"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "eca1861"
-hash = "e519d894e94ded741e06aae4d4775981"
+rev = "a837101"
+hash = "635b0feb9215772d22020eb0abf0bb34"
 
 [[plugin.deps]]
 use = "TD-Sky/sudo"
-rev = "86205aa"
-hash = "9628b660afb192d32f2ea5f6634d3e72"
+rev = "afd61ce"
+hash = "d390cd2d8b996939a695411b446f58d0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "6f50636"
-hash = "8a7c58225816a163a6e8730c0adafbc8"
+rev = "1db18bb"
+hash = "9c7987da2d2a2120dac33abb64132004"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "6f50636"
-hash = "25aee698dd1081001008ce0cb1cc4da3"
+rev = "1db18bb"
+hash = "384464b6df8cb807425c521f8cd790f3"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:types"
-rev = "6f50636"
-hash = "83b5b82b595c39a660bf2b170987e5e7"
+rev = "1db18bb"
+hash = "9105494e98299f392aee95340066da9f"
 
 [[plugin.deps]]
 use = "lpnh/fr"
@@ -35,13 +35,13 @@ hash = "8b0e87c3176e0d44f79a8656f79f0fa"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "6f50636"
-hash = "8da0b15a97b5dfd13941d1ecc617ac7c"
+rev = "1db18bb"
+hash = "f0c8c378184d5f8abd1b095a443d336d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "6f50636"
-hash = "563e4068979d1466d3dfc2e70a296947"
+rev = "1db18bb"
+hash = "e3260d0b1feded8c8e3ae3afa1169e30"
 
 [flavor]
 deps = []

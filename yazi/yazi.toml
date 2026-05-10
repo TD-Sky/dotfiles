@@ -1,6 +1,7 @@
-# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
+# A TOML linter such as https://github.com/tombi-toml/tombi can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+
+#:schema https://yazi-rs.github.io/schemas/yazi.json
 
 [mgr]
 ratio = [1, 3, 4]
@@ -9,12 +10,12 @@ sort_sensitive = true
 sort_reverse = false
 sort_dir_first = true
 sort_translit = false
+sort_fallback = "alphabetical"
 linemode = "size"
 show_hidden = true
 show_symlink = true
 scrolloff = 5
-mouse_events = ["click", "scroll"]
-title_format = "Yazi: {cwd}"
+mouse_events = ["click", "scroll", "drag"]
 
 [preview]
 wrap = "no"
@@ -30,17 +31,37 @@ ueberzug_offset = [0, 0, 0, 0]
 
 [opener]
 edit = [
-  { run = "${EDITOR:-vi} %s", desc = "$EDITOR", for = "unix", block = true },
+  {
+    run = "${EDITOR:-vi} %s",
+    desc = "$EDITOR",
+    for = "unix",
+    block = true
+  },
   { run = "code %s", desc = "code", for = "windows", orphan = true },
-  { run = "code -w %s", desc = "code (block)", for = "windows", block = true },
+  {
+    run = "code -w %s",
+    desc = "code (block)",
+    for = "windows",
+    block = true
+  },
 ]
 play = [
-  { run = "xdg-open %s1", desc = "Play", for = "linux" },
+  { run = "xdg-open %s1", desc = "Play", for = "linux", orphan = true },
   { run = "open %s", desc = "Play", for = "macos" },
-  { run = 'start "" %s1', orphan = true, desc = "Play", for = "windows" },
+  { run = 'start "" %s1', desc = "Play", for = "windows", orphan = true },
   { run = "termux-open %s1", desc = "Play", for = "android" },
-  { run = "mediainfo %s1; echo 'Press enter to exit'; read _", block = true, desc = "Show media info", for = "unix" },
-  { run = "mediainfo %s1 & pause", block = true, desc = "Show media info", for = "windows" },
+  {
+    run = "mediainfo %s1; echo 'Press enter to exit'; read _",
+    block = true,
+    desc = "Show media info",
+    for = "unix"
+  },
+  {
+    run = "mediainfo %s1 & pause",
+    block = true,
+    desc = "Show media info",
+    for = "windows"
+  },
 ]
 open = [
   { run = "xdg-open %s1", desc = "Open", for = "linux" },
@@ -51,9 +72,19 @@ open = [
 reveal = [
   { run = "xdg-open %d1", desc = "Reveal", for = "linux" },
   { run = "open -R %s1", desc = "Reveal", for = "macos" },
-  { run = "explorer /select,%s1", desc = "Reveal", for = "windows", orphan = true },
+  {
+    run = "explorer /select,%s1",
+    desc = "Reveal",
+    for = "windows",
+    orphan = true
+  },
   { run = "termux-open %d1", desc = "Reveal", for = "android" },
-  { run = "clear; exiftool %s1; echo 'Press enter to exit'; read _", desc = "Show EXIF", for = "unix", block = true },
+  {
+    run = "clear; exiftool %s1; echo 'Press enter to exit'; read _",
+    desc = "Show EXIF",
+    for = "unix",
+    block = true
+  },
 ]
 extract = [
   { run = "ya pub extract --list %s", desc = "Extract here" },
@@ -61,9 +92,6 @@ extract = [
 download = [
   { run = "ya emit download --open %S", desc = "Download and open" },
   { run = "ya emit download %S", desc = "Download" },
-]
-set-wallpaper = [
-  { run = "swww img %s1", for = "linux", desc = "Set as wallpaper", orphan = true }
 ]
 
 [open]
@@ -74,14 +102,14 @@ rules = [
   { mime = "text/html", use = ["open", "edit", "reveal"] },
   { mime = "text/*", use = ["edit", "reveal"] },
   # Image
-  { mime = "image/*", use = ["open", "reveal", "set-wallpaper"] },
+  { mime = "image/*", use = ["open", "reveal"] },
   # Media
   { mime = "{audio,video}/*", use = ["play", "reveal"] },
   # Archive
-  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = [
-    "extract",
-    "reveal",
-  ] },
+  {
+    mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}",
+    use = ["extract", "reveal"]
+  },
   # JSON
   { mime = "application/{json,ndjson}", use = ["edit", "reveal"] },
   { mime = "*/javascript", use = ["edit", "reveal"] },
@@ -94,8 +122,11 @@ rules = [
 ]
 
 [tasks]
-micro_workers = 10
-macro_workers = 10
+file_workers = 3
+plugin_workers = 5
+fetch_workers = 5
+preload_workers = 2
+process_workers = 5
 bizarre_retry = 3
 image_alloc = 536870912  # 512MB
 image_bound = [10000, 10000]
@@ -103,13 +134,21 @@ suppress_preload = false
 
 [plugin]
 fetchers = [
-  # Mimetype
-  { id = "mime", url = "*/", run = "mime.dir", prio = "high" },
-  { id = "mime", url = "local://*", run = "mime.local", prio = "high" },
-  { id = "mime", url = "remote://*", run = "mime.remote", prio = "high" },
-  { id = "git", url = "*/", run = "git" },
+  # MIME-type
+  { url = "*/", run = "mime.dir", prio = "high", group = "mime" },
+  { url = "local://*", run = "mime.local", prio = "high", group = "mime" },
+  {
+    url = "remote://*",
+    run = "mime.remote",
+    prio = "high",
+    group = "mime"
+  },
+  { url = "*/", run = "git", group = "git" },
 ]
 spotters = [
+  # Multi-file
+  { mime = "multi/*", run = "multi" },
+  # Folder
   { url = "*/", run = "folder" },
   # Code
   { mime = "text/*", run = "code" },
@@ -122,6 +161,8 @@ spotters = [
   { mime = "video/*", run = "video" },
   # Virtual file system
   { mime = "vfs/*", run = "vfs" },
+  # Error
+  { mime = "null/*", run = "null" },
   # Fallback
   { url = "*", run = "file" },
 ]
@@ -154,14 +195,26 @@ previewers = [
   # PDF
   { mime = "application/pdf", run = "pdf" },
   # Archive
-  { url = "*.{rar,tar,tar.gz,tar.xz,tar.zst,tar.bz2,deb,zip,7z,squashfs,a}", run = 'piper -- bd ls "$1"' },
+  {
+    url = "*.{rar,tar,tar.gz,tar.xz,tar.zst,tar.bz2,deb,zip,7z,squashfs,a}",
+    run = 'piper -- bd ls "$1"'
+  },
   { mime = "application/iso9660-image", run = "archive" },
-  { mime = "application/{debian*-package,redhat-package-manager,rpm,android.package-archive}", run = "archive" },
+  {
+    mime = "application/{debian*-package,redhat-package-manager,rpm,android.package-archive}",
+    run = "archive"
+  },
   { url = "*.{AppImage,appimage}", run = "archive" },
   # Virtual Disk / Disk Image
-  { mime = "application/{iso9660-image,qemu-disk,ms-wim,apple-diskimage}", run = "archive" },
+  {
+    mime = "application/{iso9660-image,qemu-disk,ms-wim,apple-diskimage}",
+    run = "archive"
+  },
   { mime = "application/virtualbox-{vhd,vhdx}", run = "archive" },
-  { url = "*.{img,fat,ext,ext2,ext3,ext4,squashfs,ntfs,hfs,hfsx}", run = "archive" },
+  {
+    url = "*.{img,fat,ext,ext2,ext3,ext4,squashfs,ntfs,hfs,hfsx}",
+    run = "archive"
+  },
   # Font
   { mime = "font/*", run = "font" },
   { mime = "application/ms-opentype", run = "font" },
@@ -169,36 +222,45 @@ previewers = [
   { mime = "inode/empty", run = "empty" },
   # Virtual file system
   { mime = "vfs/*", run = "vfs" },
+  # Error
+  { mime = "null/*", run = "null" },
   # Fallback
   { url = "*", run = "file" },
 ]
 
 [input]
 cursor_blink = true
+
 # cd
 cd_title = "Change directory:"
 cd_origin = "top-center"
 cd_offset = [0, 2, 50, 3]
+
 # create
 create_title = ["Create:", "Create (dir):"]
 create_origin = "top-center"
 create_offset = [0, 2, 50, 3]
+
 # rename
 rename_title = "Rename:"
 rename_origin = "hovered"
 rename_offset = [0, 1, 50, 3]
+
 # filter
 filter_title = "Filter:"
 filter_origin = "top-center"
 filter_offset = [0, 2, 50, 3]
+
 # find
 find_title = ["Find next:", "Find previous:"]
 find_origin = "top-center"
 find_offset = [0, 2, 50, 3]
+
 # search
 search_title = "Search via {n}:"
 search_origin = "top-center"
 search_offset = [0, 2, 50, 3]
+
 # shell
 shell_title = ["Shell:", "Shell (block):"]
 shell_origin = "top-center"
@@ -209,18 +271,21 @@ shell_offset = [0, 2, 50, 3]
 trash_title = "Trash {n} selected file{s}?"
 trash_origin = "center"
 trash_offset = [0, 0, 70, 20]
+
 # delete
 delete_title = "Permanently delete {n} selected file{s}?"
 delete_origin = "center"
 delete_offset = [0, 0, 70, 20]
+
 # overwrite
 overwrite_title = "Overwrite file?"
 overwrite_body = "Will overwrite the following file:"
 overwrite_origin = "center"
 overwrite_offset = [0, 0, 50, 15]
+
 # quit
 quit_title = "Quit?"
-quit_body = "The following tasks are still running, are you sure you want to quit?"
+quit_body = "There are unfinished tasks, quit anyway?\n(Open task manager with default key 'w')"
 quit_origin = "center"
 quit_offset = [0, 0, 50, 15]
 
