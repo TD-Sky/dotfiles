@@ -22,6 +22,7 @@ return {
                 "clangd",
                 "basedpyright",
                 "astro",
+                "phpantom_lsp",
             },
             capabilities = {
                 workspace = {
