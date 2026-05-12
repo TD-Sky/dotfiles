@@ -1,21 +1,17 @@
 vim.filetype.add({
     extension = {
-        slint = "slint",
-        typ = "typst",
-        nu = "nu",
-        nuon = "nuon",
         d2 = "d2",
         json = "jsonc",
     },
-    pattern = {
-        [".*"] = {
-            priority = -math.huge,
-            function(_, bufnr)
-                local shebang = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1]
-                if vim.regex([[^#!.*\<nu\>]]):match_str(shebang) then
-                    return "nu"
-                end
-            end,
-        },
-    },
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "nu" },
+    callback = function()
+        vim.opt_local.shiftwidth = 4
+        vim.opt_local.tabstop = 4
+        vim.opt_local.expandtab = true
+        vim.opt_local.softtabstop = 4
+    end,
+    desc = "默认的 nushell 缩进是2，官方设为4",
 })
