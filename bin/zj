@@ -10,13 +10,15 @@ def main [] {
         return
     }
 
-    let session = $"($result.stdout)new"
+    let session = $"($result.stdout)new(char nl)no"
         | fzf --ansi --tac --reverse
         | split row ' '
         | first
 
     if $session == 'new' {
         zellij
+    } else if $session == 'no' {
+        nu -i -l
     } else if ($session | is-not-empty) {
         zellij attach $session
     }
