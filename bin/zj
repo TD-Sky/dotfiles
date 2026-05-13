@@ -10,8 +10,8 @@ def main [] {
         return
     }
 
-    let session = $"($result.stdout)new(char nl)no"
-        | fzf --ansi --tac --reverse
+    let session = $"no(char nl)($result.stdout)new"
+        | fzf --ansi --tac --reverse --cycle
         | split row ' '
         | first
 
