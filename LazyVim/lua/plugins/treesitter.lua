@@ -20,6 +20,7 @@ return {
                 "typst", "dot",
                 "toml", "yaml", "kdl", "ron",
                 "vim", "comment",
+                "php",
             },
             highlight = {
                 enable = true,
