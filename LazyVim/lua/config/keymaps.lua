@@ -45,7 +45,6 @@ map.n({
         end,
         desc = "Open Wezterm here",
     },
-    { "<leader>lc", "<cmd>LspConfig<cr>", desc = "Lsp Config" },
 })
 
 -- emacs keymaps
