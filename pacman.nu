@@ -340,6 +340,11 @@ const MANIFEST = {
 
     # show
     asciinema: "录制命令行视频",
+    agg: {
+        manager: "paru",
+        packages: ["asciinema-agg-bin"],
+        desc: "转换asciinema到gif",
+    },
     screenkey: "按键回显",
     obs-studio: "流录制",
 
