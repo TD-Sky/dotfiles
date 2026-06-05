@@ -4,11 +4,6 @@ $env.config.show_banner = false
 
 # VARIABLE #
 
-$env.path ++= [
-    "~/.cargo/bin",
-    "~/.local/bin",
-]
-
 load-env {
     EDITOR: 'lvim',
     VISUAL: 'lvim',
@@ -33,7 +28,15 @@ load-env {
     XDG_CACHE_HOME: $"($env.HOME)/.cache",
     XDG_DATA_HOME: $"($env.HOME)/.local/share",
     XDG_STATE_HOME: $"($env.HOME)/.local/state",
+
+    PNPM_HOME: $"($env.HOME)/.local/share/pnpm",
 }
+
+$env.path ++= [
+    "~/.cargo/bin",
+    "~/.local/bin",
+    ($env.PNPM_HOME | path join "bin"),
+]
 
 ssh-agent -c
     | lines

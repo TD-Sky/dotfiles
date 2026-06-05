@@ -15,6 +15,7 @@ def main [] {
     | pf bin -t ~/.local
     | pf cargo ~/.cargo
     | pf Templates -t ~
+    | pf pi ~/.pi
     | pfs [
         starship.toml fish nushell rofi mimeapps.list
         awesome swaylock plasma-workspace LazyVim
