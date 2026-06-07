@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/gotgenes/pi-permission-system/main/schemas/permissions.schema.json",
+
+  "permission": {
+    "*": "ask",
+    "read": "allow",
+    "grep": "allow",
+    "find": "allow",
+    "write": "ask",
+    "edit": "ask",
+    "bash": {
+      "rm -rf *": "deny"
+    },
+    "external_directory": "ask"
+  }
+}
