@@ -244,8 +244,24 @@ const MANIFEST = {
         packages: ["llmfit-bin"],
         desc: "根据需求找模型",
     },
+    pi: {
+        packages: ["@earendil-works/pi-coding-agent"],
+        manager: "pnpm",
+        desc: "agent核",
+    },
+    pi-packages: {
+        packages: [
+            "npm:pi-web-access",
+            "npm:@gotgenes/pi-permission-system",
+            "npm:@ff-labs/pi-fff",
+            "npm:pi-cursor-sdk",
+            "npm:@spences10/pi-skills",
+        ],
+        manager: "pi",
+        desc: "pi扩展包"
+    },
 
-    # git
+    # vcs
     lazygit: "git TUI",
     difftastic: "语言diff",
     git-cliff: "变更日志生成器",
@@ -254,6 +270,10 @@ const MANIFEST = {
     jujutsu: "新一代VCS",
     lazyjj: "jujutsu TUI",
     gitlogue: "git重现动画",
+    weave: {
+        packages: ["weave-bin"],
+        desc: "语义化的代码合并工具",
+    },
 
     # data
     7zip: "7z",
@@ -341,6 +361,11 @@ const MANIFEST = {
 
     # show
     asciinema: "录制命令行视频",
+    agg: {
+        manager: "paru",
+        packages: ["asciinema-agg-bin"],
+        desc: "转换asciinema到gif",
+    },
     screenkey: "按键回显",
     obs-studio: "流录制",
 
@@ -448,6 +473,8 @@ def main [] {
     let cargo_bin = try { which cargo-binstall | get 0 | get path }
     let npm = try { which npm | get 0 | get path }
     let uv = try { which uv | get 0 | get path }
+    let pnpm = try { which pnpm | get 0 | get path }
+    let pi = try { which pi | get 0 | get path }
 
     mut tbl = {
         pacman: [],
@@ -456,6 +483,8 @@ def main [] {
         'cargo:src': [],
         npm: [],
         uv: [],
+        pnpm: [],
+        pi: [],
     }
     for it in $manifest {
         let packages = $it.packages? | default [$it.name]
@@ -473,14 +502,14 @@ def main [] {
         }
     }
 
-    try {
-        if $npm != null {
+    if $npm != null {
+        try {
             npm install -g ...$tbl.npm
         }
     }
 
-    try {
-        if $cargo_bin != null {
+    if $cargo_bin != null {
+        try {
             cargo binstall ...$tbl.cargo
         }
     }
@@ -497,6 +526,22 @@ def main [] {
         for p in $tbl.uv {
             try {
                 uv tool install $p
+            }
+        }
+    }
+
+    if $pnpm != null {
+        for p in $tbl.pnpm {
+            try {
+                pnpm add -g --ignore-scripts $p
+            }
+        }
+    }
+
+    if $pi != null {
+        for p in $tbl.pi {
+            try {
+                pi install $p
             }
         }
     }
