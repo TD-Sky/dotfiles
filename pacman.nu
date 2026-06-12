@@ -327,7 +327,6 @@ const MANIFEST = {
     bluetui: "bluez TUI",
 
     # language
-    pot-translation: "一站式翻译",
     didyoumean: {
         packages: ["didyoumean-bin"],
         manager: "paru",
