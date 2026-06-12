@@ -11,6 +11,10 @@
     "bash": {
       "rm -rf *": "deny"
     },
-    "external_directory": "ask"
+    "fffind": "allow",
+    "ffgrep": "allow",
+    "fff-multi-grep": "allow",
+    "external_directory": "ask",
+    "cursor_ask_question": "allow"
   }
 }
