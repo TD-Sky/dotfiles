@@ -21,6 +21,7 @@ def main [] {
         ['deb'          '❌'        '✅'  ]
         ['a'            '❌'        '✅'  ]
         ['crate'        '❌'        '✅'  ]
+        ['AppImage'     '❌'        '✅'  ]
     ]
 }
 
@@ -94,6 +95,10 @@ def "main x" [...archives: string] {
             'squashfs' => {
                 let stem = $archive | path parse | get stem
                 unsquashfs -dest $stem $archive
+            }
+            'AppImage' => {
+                chmod +x $archive
+                run-external ($archive | path expand) '--appimage-extract'
             }
         }
     }

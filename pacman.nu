@@ -256,6 +256,7 @@ const MANIFEST = {
             "npm:@ff-labs/pi-fff",
             "npm:pi-cursor-sdk",
             "npm:@spences10/pi-skills",
+            "npm:pi-tool-display",
         ],
         manager: "pi",
         desc: "pi扩展包"
