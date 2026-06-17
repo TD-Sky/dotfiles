@@ -87,6 +87,13 @@ def plf [...texts: string] {
     }
 }
 
+# 卸载 git 子模块
+def rm-submodule [path: string] {
+    git submodule deinit --force $path
+    git rm --force $path
+    git commit -m $"untrack submodule `($path)`"
+}
+
 # KEYMAP #
 
 $env.config.keybindings ++= [
