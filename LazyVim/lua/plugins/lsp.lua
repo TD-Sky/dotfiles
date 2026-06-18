@@ -12,7 +12,7 @@ return {
                 "texlab",
                 "tombi",
                 "gopls",
-                "ts_ls",
+                "vtsls",
                 "volar",
                 "tinymist",
                 "bashls",
