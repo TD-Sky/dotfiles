@@ -2,7 +2,14 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+vim.g.autoformat = false
 vim.g.lazyvim_picker = "snacks"
+vim.g.lazyvim_cmp = "blink.cmp"
+vim.g.root_spec = {
+    "lsp",
+    { ".git", ".jj", "lua" },
+    "cwd",
+}
 
 local options = {
     -- basic
@@ -71,6 +78,7 @@ local options = {
 
     exrc = true,
     shell = "bash",
+    autowrite = true,
 }
 
 vim.opt.errorformat:append("[%f:%l] -> %m,[%f:%l]:%m")
