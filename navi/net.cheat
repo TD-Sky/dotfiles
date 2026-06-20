@@ -33,3 +33,17 @@ ss --tcp --udp --listening --processes --numeric
 
 # 开通虚拟机的网桥
 sudo virsh net-start default
+
+# 注册证书签发挂名的邮箱
+acme.sh --register-account -m <email>
+
+# 为域名签发TLS证书
+with-env {
+    Tencent_SecretId: '',
+    Tencent_SecretKey: '',
+} {
+    acme.sh --issue --dns dns_tencent -d <origin>
+}
+
+# 通过 TLS 协议，测试指定域名的证书是否齐全
+openssl s_client -connect <origin>:<port> -servername <origin> -showcerts

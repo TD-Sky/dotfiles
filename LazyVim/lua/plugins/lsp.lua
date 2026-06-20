@@ -12,7 +12,8 @@ return {
                 "texlab",
                 "tombi",
                 "gopls",
-                "ts_ls",
+                "vtsls",
+                "tailwindcss",
                 "volar",
                 "tinymist",
                 "bashls",
@@ -107,6 +108,7 @@ return {
         keys = {
             -- 审视
             { "<S-k>", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover" },
+            { "<leader>lI", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
             -- 更改
             { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
             {

@@ -195,7 +195,6 @@ window-rule {
     match app-id="zoom"
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     match app-id="blueman-manager"
-    match app-id="com.gabm.satty"
     match app-id="com.follow.clash"
     match app-id="xwaylandvideobridge"
     match app-id="Feishu" title="图片"
