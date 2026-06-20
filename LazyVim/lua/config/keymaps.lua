@@ -27,24 +27,15 @@ local map = {
     end,
 }
 
--- 删除LazyVim映射的键位
+-- 删除预设映射的键位
 vim.keymap.del("n", "<Leader>l")
-vim.keymap.del("n", "<Leader>cd")
 vim.keymap.del({ "n", "i", "v" }, "<C-s>")
 
 -- 切换标签页
 map.n({
-    { "[t", "<cmd>tabNext<cr>", desc = "Prev tab" },
-    { "]t", "<cmd>tabnext<cr>", desc = "Next tab" },
+    { "[t",    "<cmd>tabNext<cr>",   desc = "Prev tab" },
+    { "]t",    "<cmd>tabnext<cr>",   desc = "Next tab" },
     { "<C-s>", "<cmd>SudaWrite<cr>", desc = "sudo write" },
-    -- My commands
-    {
-        "<leader><CR>",
-        function()
-            vim.system({ "open-wezterm-here" })
-        end,
-        desc = "Open Wezterm here",
-    },
 })
 
 -- emacs keymaps
@@ -63,7 +54,7 @@ map.i({
 -- line text object
 map.v({
     ["ik"] = "0o$h", -- exclude end
-    ["ak"] = "0o$", -- include end
+    ["ak"] = "0o$",  -- include end
 })
 vim.keymap.set("o", "ik", "<cmd>normal vik<cr>")
 
@@ -92,5 +83,3 @@ vim.keymap.set({ "n", "v" }, "<leader>sA", function()
         },
     })
 end, { desc = "AST search and replace" })
-
-vim.keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, { desc = "LSP code action" })
