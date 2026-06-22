@@ -103,9 +103,15 @@ const MANIFEST = {
         packages: ["clang", "llvm"],
         desc: "C/C++工具链"
     },
-    typescript: {
+    vtsls: {
         manager: "npm",
-        packages: ["typescript", "typescript-language-server"]
+        packages: ["@vtsls/language-server"],
+        desc: "typescript语言服务器",
+    },
+    tailwindcss: {
+        manager: "npm",
+        packages: ["@tailwindcss/language-server"],
+        desc: "tailwindcss语言服务器",
     },
     oxfmt: {
         manager: "npm",
@@ -533,7 +539,7 @@ def main [] {
     if $pnpm != null {
         for p in $tbl.pnpm {
             try {
-                pnpm add -g --ignore-scripts $p
+                pnpm install -g --ignore-scripts $p
             }
         }
     }

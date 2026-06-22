@@ -1,101 +1,172 @@
 return {
     {
         "neovim/nvim-lspconfig",
-        event = "BufReadPre",
-        opts = {
-            codelens = {
-                enabled = true,
-            },
-            -- LSP Server Settings
-            servers = {
-                "lua_ls",
-                "texlab",
-                "tombi",
-                "gopls",
-                "vtsls",
-                "volar",
-                "tinymist",
-                "bashls",
-                "jsonls",
-                "slint_lsp",
-                "nushell",
-                "clangd",
-                "basedpyright",
-                "astro",
-                "phpantom_lsp",
-            },
-            capabilities = {
-                workspace = {
-                    fileOperations = {
-                        didRename = true,
-                        willRename = true,
+        opts = function(_, opts)
+            local opts_ext = {
+                servers = {
+                    ["*"] = {
+                        keys = {
+                            {
+                                "<leader>lI",
+                                function()
+                                    Snacks.picker.lsp_config()
+                                end,
+                                desc = "Lsp Info",
+                            },
+                            { "gy", vim.lsp.buf.declaration, desc = "Goto Declaration" },
+                            {
+                                "gd",
+                                function()
+                                    Snacks.picker.lsp_definitions()
+                                end,
+                                desc = "Goto Definition",
+                            },
+                            {
+                                "gr",
+                                function()
+                                    Snacks.picker.lsp_references()
+                                end,
+                                nowait = true,
+                                desc = "References",
+                            },
+                            {
+                                "gI",
+                                function()
+                                    Snacks.picker.lsp_implementations()
+                                end,
+                                desc = "Goto Implementation",
+                            },
+                            {
+                                "gD",
+                                function()
+                                    Snacks.picker.lsp_type_definitions()
+                                end,
+                                desc = "Goto Type Definition",
+                            },
+                            { "K", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover" },
+                            {
+                                "gK",
+                                vim.lsp.buf.signature_help,
+                                desc = "Signature Help",
+                                has = "signatureHelp",
+                            },
+                            {
+                                "<c-k>",
+                                vim.lsp.buf.signature_help,
+                                mode = "i",
+                                desc = "Signature Help",
+                                has = "signatureHelp",
+                            },
+                            {
+                                "<leader>la",
+                                vim.lsp.buf.code_action,
+                                desc = "Code Action",
+                                mode = { "n", "x" },
+                                has = "codeAction",
+                            },
+                            {
+                                "<leader>lc",
+                                vim.lsp.codelens.run,
+                                desc = "Run Codelens",
+                                mode = { "n", "x" },
+                                has = "codeLens",
+                            },
+                            {
+                                "<leader>lC",
+                                vim.lsp.codelens.refresh,
+                                desc = "Refresh & Display Codelens",
+                                mode = { "n" },
+                                has = "codeLens",
+                            },
+                            {
+                                "<leader>lR",
+                                function()
+                                    Snacks.rename.rename_file()
+                                end,
+                                desc = "Rename File",
+                                mode = { "n" },
+                                has = { "workspace/didRenameFiles", "workspace/willRenameFiles" },
+                            },
+                            { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
+                            { "<leader>lA", LazyVim.lsp.action.source, desc = "Source Action", has = "codeAction" },
+                            {
+                                "]]",
+                                function()
+                                    Snacks.words.jump(vim.v.count1)
+                                end,
+                                has = "documentHighlight",
+                                desc = "Next Reference",
+                                enabled = function()
+                                    return Snacks.words.is_enabled()
+                                end,
+                            },
+                            {
+                                "[[",
+                                function()
+                                    Snacks.words.jump(-vim.v.count1)
+                                end,
+                                has = "documentHighlight",
+                                desc = "Prev Reference",
+                                enabled = function()
+                                    return Snacks.words.is_enabled()
+                                end,
+                            },
+                            {
+                                "<a-n>",
+                                function()
+                                    Snacks.words.jump(vim.v.count1, true)
+                                end,
+                                has = "documentHighlight",
+                                desc = "Next Reference",
+                                enabled = function()
+                                    return Snacks.words.is_enabled()
+                                end,
+                            },
+                            {
+                                "<a-p>",
+                                function()
+                                    Snacks.words.jump(-vim.v.count1, true)
+                                end,
+                                has = "documentHighlight",
+                                desc = "Prev Reference",
+                                enabled = function()
+                                    return Snacks.words.is_enabled()
+                                end,
+                            },
+                            {
+                                "<leader>co",
+                                LazyVim.lsp.action["source.organizeImports"],
+                                desc = "Organize Imports",
+                                has = "codeAction",
+                                enabled = function(buf)
+                                    local code_actions = vim.tbl_filter(function(action)
+                                        return action:find("^source%.organizeImports%.?$")
+                                    end, LazyVim.lsp.code_actions({ bufnr = buf }))
+                                    return #code_actions > 0
+                                end,
+                            },
+                        },
                     },
+                    lua_ls = { enable = true },
+                    texlab = { enable = true },
+                    tombi = { enable = true },
+                    gopls = { enable = true },
+                    vtsls = { enable = true },
+                    tailwindcss = { enable = true },
+                    volar = { enable = true },
+                    tinymist = { enable = true },
+                    bashls = { enable = true },
+                    jsonls = { enable = true },
+                    slint_lsp = { enable = true },
+                    nushell = { enable = true },
+                    clangd = { enable = true },
+                    basedpyright = { enable = true },
+                    astro = { enable = true },
+                    phpantom_lsp = { enable = true },
                 },
-            },
-        },
-        config = vim.schedule_wrap(function(_, opts)
-            -- 指定诊断日志的图标
-            for severity, icon in pairs(opts.diagnostics.signs.text) do
-                local name = vim.diagnostic.severity[severity]:lower():gsub("^%l", string.upper)
-                name = "DiagnosticSign" .. name
-                vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
-            end
-
-            -- inlay hints
-            if opts.inlay_hints.enabled then
-                Snacks.util.lsp.on({ method = "textDocument/inlayHint" }, function(buffer)
-                    if
-                        vim.api.nvim_buf_is_valid(buffer)
-                        and vim.bo[buffer].buftype == ""
-                        and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[buffer].filetype)
-                    then
-                        vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
-                    end
-                end)
-            end
-
-            -- folds
-            if opts.folds.enabled then
-                Snacks.util.lsp.on({ method = "textDocument/foldingRange" }, function()
-                    if LazyVim.set_default("foldmethod", "expr") then
-                        LazyVim.set_default("foldexpr", "v:lua.vim.lsp.foldexpr()")
-                    end
-                end)
-            end
-
-            -- code lens
-            if opts.codelens.enabled and vim.lsp.codelens then
-                Snacks.util.lsp.on({ method = "textDocument/codeLens" }, function(buffer)
-                    vim.lsp.codelens.refresh()
-                    vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-                        buffer = buffer,
-                        callback = vim.lsp.codelens.refresh,
-                    })
-                end)
-            end
-
-            -- diagnostics
-            vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
-
-            local default_lsp_config = {
-                capabilities = vim.tbl_deep_extend(
-                    "force",
-                    vim.lsp.protocol.make_client_capabilities(),
-                    require("blink.cmp").get_lsp_capabilities(), -- 令 blink.cmp 连接服务器
-                    opts.capabilities or {}
-                ),
             }
-            vim.lsp.config("*", default_lsp_config)
-
-            vim.lsp.config("clangd", {
-                cmd = {
-                    "clangd",
-                    "--clang-tidy",
-                },
-            })
-
-            vim.lsp.enable(opts.servers)
-        end),
+            return vim.tbl_deep_extend("force", opts, opts_ext)
+        end,
     },
     {
         "nvimdev/lspsaga.nvim",
@@ -105,11 +176,6 @@ return {
         },
         event = "LspAttach",
         keys = {
-            -- 审视
-            { "<S-k>", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover" },
-            { "<leader>lI", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
-            -- 更改
-            { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
             {
                 "<leader>ll",
                 vim.lsp.codelens.run,
