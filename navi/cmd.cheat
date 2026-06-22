@@ -66,17 +66,17 @@ fd -c='always' -H -E='.git' <fd-opt-ignore> <pattern> <path>
 # 模糊搜索文本
 sk --ansi -i -c 'rg --color=always -n -. -g "!.git" <rg-opt-ignore> "{}"'
 
+# 抓取服务器文件到本地
+rsync -chvzP --stats --progress <user>@<host>:<src> <dest>
+
 # 本地向服务器推送文件
-rsync <local-src> <user>@<ip>:<dest>
+rsync -rahv --progress <local-src> <user>@<host>:<dest>
 
 # 保留时间戳（以便未来增量同步）的复制
 rsync -rthv --progress <local-src> <dest>
 
 # 保留所有元信息的复制
 rsync -ahv --progress <local-src> <dest>
-
-# 抓取服务器文件到本地
-rsync -chvzP --stats <user>@<ip>:<src> <dest>
 
 # 查阅C标准库函数
 man 3 <function>
@@ -155,3 +155,12 @@ sudo usermod -aG <group> <user>
 
 # 启动 scrcpy 且不使用电脑音频输出
 scrcpy --no-audio
+
+# 生成 RSA 密钥对
+ssh-keygen -t rsa -b 4096 -C <email>
+
+# 生成 ED25519 密钥对
+ssh-keygen -t ed25519 -C <email>
+
+# 将目标 host 的公钥发往服务器
+ssh-copy-id <user>@<host>
