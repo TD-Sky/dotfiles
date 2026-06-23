@@ -67,16 +67,16 @@ fd -c='always' -H -E='.git' <fd-opt-ignore> <pattern> <path>
 sk --ansi -i -c 'rg --color=always -n -. -g "!.git" <rg-opt-ignore> "{}"'
 
 # 抓取服务器文件到本地
-rsync -chvzP --stats --progress <user>@<host>:<src> <dest>
+rsync --recursive --checksum --human-readable --verbose --compress --partial --progress --stats <user>@<host>:<src> <dest>
 
 # 本地向服务器推送文件
-rsync -rahv --progress <local-src> <user>@<host>:<dest>
+rsync --recursive --checksum --human-readable --verbose --compress --partial --progress --stats <local-src> <user>@<host>:<dest>
 
 # 保留时间戳（以便未来增量同步）的复制
-rsync -rthv --progress <local-src> <dest>
+rsync --recursive --times --human-readable --verbose --progress <local-src> <dest>
 
 # 保留所有元信息的复制
-rsync -ahv --progress <local-src> <dest>
+rsync --archive --human-readable --verbose --progress <local-src> <dest>
 
 # 查阅C标准库函数
 man 3 <function>
