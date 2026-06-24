@@ -22,9 +22,9 @@ const MANIFEST = {
         desc: "腾讯会议(沙盒)"
     },
     feishu: {
-        packages: ["feishu-portable"],
+        packages: ["feishu-bin"],
         manager: "paru",
-        desc: "飞书(沙盒)"
+        desc: "飞书"
     },
 
     # OS
@@ -87,7 +87,6 @@ const MANIFEST = {
         manager: "npm",
         packages: ["@vue/language-server"]
     },
-    biome: "前端格式化器",
     prettier: {
         manager: "npm",
         packages: ["prettier", "@prettier/plugin-xml"],
@@ -155,14 +154,6 @@ const MANIFEST = {
     keepassxc: "keepass客户端",
     zed: "Zed编辑器",
 
-    # kde
-    dolphin: {
-        packages: ["dolphin", "ffmpegthumbs", "kdegraphics-thumbnailers"],
-        desc: "文件管理器"
-    },
-    spectacle: "截图",
-    kcolorchooser: "颜色拾取",
-
     # wayland
     wl-clipboard: "剪贴板",
     nerd-fonts: "书呆子字体",
@@ -196,7 +187,7 @@ const MANIFEST = {
     rsync: "超级复制",
     parallel-disk-usage: "磁盘空间统计",
     yazi: {
-        packages: ["yazi-git", "jq", "ffmpegthumbnailer", "unarchiver"],
+        packages: ["jq", "ffmpegthumbnailer"],
         desc: "终端文件管理器"
     },
     gparted: "分区GUI",
@@ -250,23 +241,67 @@ const MANIFEST = {
         packages: ["llmfit-bin"],
         desc: "根据需求找模型",
     },
+    ## pi
     pi: {
         packages: ["@earendil-works/pi-coding-agent"],
         manager: "pnpm",
         desc: "agent核",
     },
-    pi-packages: {
-        packages: [
-            "npm:pi-web-access",
-            "npm:@gotgenes/pi-permission-system",
-            "npm:@ff-labs/pi-fff",
-            "npm:pi-cursor-sdk",
-            "npm:@spences10/pi-skills",
-            "npm:pi-tool-display",
-        ],
+    pi-web-access: {
+        packages: ["npm:pi-web-access"],
         manager: "pi",
-        desc: "pi扩展包"
+        desc: "上网工具",
     },
+    pi-permission-system: {
+        packages: ["npm:@gotgenes/pi-permission-system"],
+        manager: "pi",
+        desc: "权限管理",
+    },
+    pi-fff: {
+        packages: ["npm:@ff-labs/pi-fff"],
+        manager: "pi",
+        desc: "搜索工具",
+    },
+    pi-skills: {
+        packages: ["npm:@spences10/pi-skills"],
+        manager: "pi",
+        desc: "技能管理",
+    },
+    pi-tool-display: {
+        packages: ["npm:pi-tool-display"],
+        manager: "pi",
+        desc: "美化工具输出",
+    },
+    pi-anycopy: {
+        packages: ["npm:pi-anycopy"],
+        manager: "pi",
+        desc: "复制会话历史",
+    },
+    pi-btw: {
+        packages: ["npm:@narumitw/pi-btw"],
+        manager: "pi",
+        desc: "临时提问",
+    },
+    rpiv-ask-user-question: {
+        packages: ["npm:@juicesharp/rpiv-ask-user-question"],
+        manager: "pi",
+        desc: "结构化问卷",
+    },
+    pi-codex-conversion: {
+        packages: ["npm:@howaboua/pi-codex-conversion"],
+        manager: "pi",
+        desc: "pi的codex实现",
+    },
+    plannotator: {
+        packages: ["npm:@plannotator/pi-extension"],
+        manager: "pi",
+        desc: "review代码",
+    },
+    # pi-cursor-sdk: {
+    #     packages: ["npm:pi-cursor-sdk"],
+    #     manager: "pi",
+    #     desc: "Cursor桥接层",
+    # },
 
     # vcs
     lazygit: "git TUI",
@@ -275,7 +310,6 @@ const MANIFEST = {
     gitoxide: "锈化git",
     git-filter-repo: "过滤git项目",
     jujutsu: "新一代VCS",
-    lazyjj: "jujutsu TUI",
     gitlogue: "git重现动画",
     weave: {
         packages: ["weave-bin"],
@@ -458,7 +492,11 @@ const MANIFEST = {
     genact: "Linux领域大神",
 }
 
-def main [] {
+def main [
+    --managers (-M): string = '',
+] {
+    let managers = $managers | split row ','
+
     let manifest = $MANIFEST
         | items {|k, v|
             if ($v | describe) == 'string' {
@@ -474,13 +512,13 @@ def main [] {
             }
         }
 
-    let paru = try { which paru | get 0 | get path }
-    let cargo = try { which cargo | get 0 | get path }
-    let cargo_bin = try { which cargo-binstall | get 0 | get path }
-    let npm = try { which npm | get 0 | get path }
-    let uv = try { which uv | get 0 | get path }
-    let pnpm = try { which pnpm | get 0 | get path }
-    let pi = try { which pi | get 0 | get path }
+    let paru = which paru | get -o 0.path
+    let cargo = which cargo | get -o 0.path
+    let cargo_bin = which cargo | get -o 0.path
+    let npm = which npm | get -o 0.path
+    let uv = which uv | get -o 0.path
+    let pnpm = which pnpm | get -o 0.path
+    let pi = which pi | get -o 0.path
 
     mut tbl = {
         pacman: [],
@@ -501,26 +539,26 @@ def main [] {
     }
 
     try {
-        if $paru != null {
+        if 'paru' in $managers and $paru != null {
             paru -Sy --needed ...$tbl.pacman ...$tbl.paru
         } else {
             pacman -Sy --needed ...$tbl.pacman
         }
     }
 
-    if $npm != null {
+    if 'npm' in $managers and $npm != null {
         try {
             npm install -g ...$tbl.npm
         }
     }
 
-    if $cargo_bin != null {
+    if 'cargo-binstall' in $managers and $cargo_bin != null {
         try {
             cargo binstall ...$tbl.cargo
         }
     }
 
-    if $cargo != null {
+    if 'cargo' in $managers and $cargo != null {
         for p in $tbl.'cargo:src' {
             try {
                 cargo install --git $p
@@ -528,7 +566,7 @@ def main [] {
         }
     }
 
-    if $uv != null {
+    if 'uv' in $managers and $uv != null {
         for p in $tbl.uv {
             try {
                 uv tool install $p
@@ -536,7 +574,7 @@ def main [] {
         }
     }
 
-    if $pnpm != null {
+    if 'pnpm' in $managers and $pnpm != null {
         for p in $tbl.pnpm {
             try {
                 pnpm install -g --ignore-scripts $p
@@ -544,7 +582,7 @@ def main [] {
         }
     }
 
-    if $pi != null {
+    if 'pi' in $managers and $pi != null {
         for p in $tbl.pi {
             try {
                 pi install $p
