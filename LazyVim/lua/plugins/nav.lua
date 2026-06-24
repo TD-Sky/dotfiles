@@ -31,6 +31,11 @@ return {
         event = "VeryLazy",
         keys = {
             {
+                "<leader>y",
+                "<cmd>Yazi cwd<cr>",
+                desc = "Open the file manager (pwd)",
+            },
+            {
                 "<leader>e",
                 function()
                     require("yazi").yazi()

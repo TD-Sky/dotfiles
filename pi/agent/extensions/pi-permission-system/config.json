@@ -15,6 +15,7 @@
     "ffgrep": "allow",
     "fff-multi-grep": "allow",
     "external_directory": "ask",
-    "cursor_ask_question": "allow"
+    "cursor_ask_question": "allow",
+    "exec_command": "allow"
   }
 }
