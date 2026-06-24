@@ -262,11 +262,6 @@ const MANIFEST = {
         manager: "pi",
         desc: "搜索工具",
     },
-    pi-cursor-sdk: {
-        packages: ["npm:pi-cursor-sdk"],
-        manager: "pi",
-        desc: "Cursor桥接层",
-    },
     pi-skills: {
         packages: ["npm:@spences10/pi-skills"],
         manager: "pi",
@@ -302,6 +297,11 @@ const MANIFEST = {
         manager: "pi",
         desc: "review代码",
     },
+    # pi-cursor-sdk: {
+    #     packages: ["npm:pi-cursor-sdk"],
+    #     manager: "pi",
+    #     desc: "Cursor桥接层",
+    # },
 
     # vcs
     lazygit: "git TUI",
