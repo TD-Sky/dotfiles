@@ -292,8 +292,6 @@ _launch=Ctrl+Shift+W
 _launch=none
 
 [services][org.kde.spectacle.desktop]
-CurrentMonitorScreenShot=none
-OpenWithoutScreenshot=none
 RecordWindow=none
 
 [services][org.kde.touchpadshortcuts.desktop]
