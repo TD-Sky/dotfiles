@@ -164,3 +164,6 @@ ssh-keygen -t ed25519 -C <email>
 
 # 将目标 host 的公钥发往服务器
 ssh-copy-id <user>@<host>
+
+# 解除蓝牙异常占用
+sudo rfkill unblock bluetooth
