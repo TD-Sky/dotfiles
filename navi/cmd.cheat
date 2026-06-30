@@ -57,7 +57,7 @@ wezterm ls-fonts --text <string>
 # 模糊查词
 dym -y -n 20 <word>
 
-# 用户登陆
+# 用户登录
 sudo -iu <user>
 
 # 指定模式检索所有文件
@@ -67,7 +67,7 @@ fd -c='always' -H -E='.git' <fd-opt-ignore> <pattern> <path>
 sk --ansi -i -c 'rg --color=always -n -. -g "!.git" <rg-opt-ignore> "{}"'
 
 # 抓取服务器文件到本地
-rsync --recursive --checksum --human-readable --verbose --compress --partial --progress --stats <user>@<host>:<src> <dest>
+rsync --recursive --checksum --human-readable --verbose --compress --partial --progress --stats <user>@<host>:<src> <local-dest>
 
 # 本地向服务器推送文件
 rsync --recursive --checksum --human-readable --verbose --compress --partial --progress --stats <local-src> <user>@<host>:<dest>
@@ -167,3 +167,6 @@ ssh-copy-id <user>@<host>
 
 # 解除蓝牙异常占用
 sudo rfkill unblock bluetooth
+
+# 通过 ssh 挂载远程目录到本地
+sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 -o cache=yes,kernel_cache -o Compression=no,Cipher=aes128-ctr <user>@<host>:<src> <local-dest>
