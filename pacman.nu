@@ -398,6 +398,7 @@ const MANIFEST = {
     rustscan: "扫描端口",
     impala: "iwd TUI",
     mkcert: "本地创建TLS证书",
+    sshfs: "ssh文件系统",
 
     # show
     asciinema: "录制命令行视频",
