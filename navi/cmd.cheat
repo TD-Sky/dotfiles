@@ -67,7 +67,7 @@ fd -c='always' -H -E='.git' <fd-opt-ignore> <pattern> <path>
 sk --ansi -i -c 'rg --color=always -n -. -g "!.git" <rg-opt-ignore> "{}"'
 
 # 抓取服务器文件到本地
-rsync --recursive --checksum --human-readable --verbose --compress --partial --progress --stats <user>@<host>:<src> <dest>
+rsync --recursive --checksum --human-readable --verbose --compress --partial --progress --stats <user>@<host>:<src> <local-dest>
 
 # 本地向服务器推送文件
 rsync --recursive --checksum --human-readable --verbose --compress --partial --progress --stats <local-src> <user>@<host>:<dest>
@@ -167,3 +167,6 @@ ssh-copy-id <user>@<host>
 
 # 解除蓝牙异常占用
 sudo rfkill unblock bluetooth
+
+# 通过 ssh 挂载远程目录到本地
+sshfs <user>@<host>:<src> <local-dest>
