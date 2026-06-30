@@ -57,7 +57,7 @@ wezterm ls-fonts --text <string>
 # 模糊查词
 dym -y -n 20 <word>
 
-# 用户登陆
+# 用户登录
 sudo -iu <user>
 
 # 指定模式检索所有文件
