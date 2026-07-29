@@ -21,11 +21,6 @@ const MANIFEST = {
         manager: "paru",
         desc: "腾讯会议(沙盒)"
     },
-    feishu: {
-        packages: ["feishu-bin"],
-        manager: "paru",
-        desc: "飞书"
-    },
 
     # OS
     QEMU: {
