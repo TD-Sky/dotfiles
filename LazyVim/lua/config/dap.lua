@@ -1,6 +1,10 @@
 -- 摘自
 -- https://blog.cryptomilk.org/2024/01/02/neovim-dap-and-gdb-14-1/
 
+if vim.g.vscode then
+    return
+end
+
 local dap = require("dap")
 
 -- See

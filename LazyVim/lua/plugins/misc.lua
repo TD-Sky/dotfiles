@@ -80,20 +80,18 @@ return {
             opts.image = { enabled = true }
 
             -- dashboard
-            opts.dashboard.preset.keys[1].action = "<leader>ff"
+            opts.dashboard.preset.keys[1].action = function()
+                require("fff").find_files()
+            end
             opts.dashboard.preset.keys[3] = {
                 icon = " ",
                 key = "p",
                 desc = "Projects",
                 action = "<cmd>NeovimProjectHistory<CR>",
             }
-            opts.dashboard.preset.keys[1].action = "<leader>fF"
-            table.insert(opts.dashboard.preset.keys, 2, {
-                icon = "",
-                key = "F",
-                desc = "Find Files (Root dir)",
-                action = "<leader>ff",
-            })
+            opts.dashboard.preset.keys[4].action = function()
+                require("fff").live_grep()
+            end
 
             -- zen
             opts.zen = {
