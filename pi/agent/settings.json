@@ -11,102 +11,10 @@
     "npm:@howaboua/pi-codex-conversion",
     "npm:@plannotator/pi-extension",
     "git:github.com/xz-dev/i-read-the-code-skill",
-    "npm:pi-notify",
-    "npm:@pi-lab/permissions"
+    "npm:@gotgenes/pi-permission-system"
   ],
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-terra",
   "defaultThinkingLevel": "high",
-  "theme": "dark",
-  "permissions": {
-    "rules": [
-      {
-        "message": "Blocked by policy: rm -rf",
-        "priority": 100,
-        "match": {
-          "tool": "bash",
-          "params": {
-            "command": "^rm\\s+-rf(?:\\s+.*)?$"
-          }
-        },
-        "action": "deny"
-      },
-      {
-        "priority": 10,
-        "match": {
-          "tool": "read"
-        },
-        "action": "allow"
-      },
-      {
-        "priority": 10,
-        "match": {
-          "tool": "grep"
-        },
-        "action": "allow"
-      },
-      {
-        "priority": 10,
-        "match": {
-          "tool": "find"
-        },
-        "action": "allow"
-      },
-      {
-        "priority": 10,
-        "match": {
-          "tool": "write"
-        },
-        "action": "ask"
-      },
-      {
-        "priority": 10,
-        "match": {
-          "tool": "edit"
-        },
-        "action": "ask"
-      },
-      {
-        "priority": 10,
-        "match": {
-          "tool": "fffind"
-        },
-        "action": "allow"
-      },
-      {
-        "priority": 10,
-        "match": {
-          "tool": "ffgrep"
-        },
-        "action": "allow"
-      },
-      {
-        "priority": 10,
-        "match": {
-          "tool": "fff-multi-grep"
-        },
-        "action": "allow"
-      },
-      {
-        "priority": 10,
-        "match": {
-          "tool": "exec_command"
-        },
-        "action": "allow"
-      },
-      {
-        "priority": 10,
-        "match": {
-          "tool": "ask_user_question"
-        },
-        "action": "allow"
-      },
-      {
-        "match": {
-          "tool": "*"
-        },
-        "action": "ask"
-      }
-    ]
-  }
+  "theme": "dark"
 }
