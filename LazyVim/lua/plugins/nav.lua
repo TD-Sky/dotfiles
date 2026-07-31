@@ -135,6 +135,8 @@ return {
             require("fff.download").download_or_build_binary()
         end,
         opts = {
+            base_path = LazyVim.root.get(),
+            follow_symlinks = true,
             debug = {
                 enabled = true,
                 show_scores = true,
