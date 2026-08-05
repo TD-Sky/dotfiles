@@ -232,10 +232,7 @@ const MANIFEST = {
         packages: ["openai-codex"],
         desc: "Codex",
     },
-    llmfit: {
-        packages: ["llmfit-bin"],
-        desc: "根据需求找模型",
-    },
+    llmfit: "根据需求找模型",
     ## pi
     pi: {
         packages: ["@earendil-works/pi-coding-agent"],

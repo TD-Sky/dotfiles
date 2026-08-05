@@ -135,6 +135,8 @@ return {
             require("fff.download").download_or_build_binary()
         end,
         opts = {
+            base_path = LazyVim.root.get(),
+            follow_symlinks = true,
             debug = {
                 enabled = true,
                 show_scores = true,
@@ -147,7 +149,14 @@ return {
                 function()
                     require("fff").find_files()
                 end,
-                desc = "FFFind files",
+                desc = "FFFind files (cwd)",
+            },
+            {
+                "<leader>fF",
+                function()
+                    require("fff").find_files_in_dir(LazyVim.root.get())
+                end,
+                desc = "FFFind files (Root Dir)",
             },
             {
                 "<leader>sg",

@@ -94,6 +94,15 @@ def rm-submodule [path: string] {
     git commit -m $"untrack submodule `($path)`"
 }
 
+# `sudo` for nu
+def nudo [command: closure] {
+    let inp = $in | to nuon
+    let str_closure = $command | to nuon --serialize | from nuon
+    let wrapped = $"from nuon | do ($str_closure) | to nuon"
+    let res = $inp | ^sudo nu --stdin --commands $wrapped
+    $res | from nuon
+}
+
 # KEYMAP #
 
 $env.config.keybindings ++= [
