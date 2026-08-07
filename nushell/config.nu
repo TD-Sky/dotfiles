@@ -19,15 +19,6 @@ source $"($nu.cache-dir)/atuin.nu"
 
 # FUNCTION #
 
-def --env zd [] {
-    let p = fd -c 'always' -H -I -E '.git' . | fzf --ansi --cycle
-    if ($p | path type) == 'dir' {
-        z $p
-    } else {
-        z ($p | path dirname)
-    }
-}
-
 # 快速提交，内容为当前时区的时间戳
 def t-git [] {
 	git commit -m $"(date now | format date '%Y-%m-%d %H:%M:%S')"
