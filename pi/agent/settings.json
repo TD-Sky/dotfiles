@@ -1,0 +1,20 @@
+{
+  "packages": [
+    "npm:pi-web-access",
+    "npm:@gotgenes/pi-permission-system",
+    "npm:@ff-labs/pi-fff",
+    "npm:@spences10/pi-skills",
+    "npm:pi-tool-display",
+    "npm:pi-anycopy",
+    "npm:@narumitw/pi-btw",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@howaboua/pi-codex-conversion",
+    "npm:@plannotator/pi-extension",
+    "npm:pi-subagents"
+  ],
+  "lastChangelogVersion": "0.84.1",
+  "theme": "dark",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "high"
+}

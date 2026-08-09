@@ -17,6 +17,7 @@
     "external_directory": "ask",
     "cursor_ask_question": "allow",
     "exec_command": "allow",
-    "ask_user_question": "allow"
+    "ask_user_question": "allow",
+    "subagent": "allow"
   }
 }
