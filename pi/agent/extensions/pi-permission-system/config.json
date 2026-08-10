@@ -19,6 +19,7 @@
     "exec_command": "allow",
     "ask_user_question": "allow",
     "subagent": "allow",
-    "write_stdin": "allow"
+    "write_stdin": "allow",
+    "subagent_wait": "allow"
   }
 }
