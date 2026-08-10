@@ -8,7 +8,6 @@ alias rsi = rust-script
 alias v = lvim
 alias la = lazygit
 alias lj = lazyjj
-alias pi = mise exec node@latest -- pi
 
 # INTEGRATION #
 
