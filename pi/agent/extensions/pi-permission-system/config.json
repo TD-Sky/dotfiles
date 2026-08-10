@@ -18,6 +18,7 @@
     "cursor_ask_question": "allow",
     "exec_command": "allow",
     "ask_user_question": "allow",
-    "subagent": "allow"
+    "subagent": "allow",
+    "write_stdin": "allow"
   }
 }
