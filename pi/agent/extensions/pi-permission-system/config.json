@@ -20,6 +20,7 @@
     "ask_user_question": "allow",
     "subagent": "allow",
     "write_stdin": "allow",
-    "subagent_wait": "allow"
+    "subagent_wait": "allow",
+    "subagent_supervisor": "allow"
   }
 }
