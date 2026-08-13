@@ -21,6 +21,7 @@
     "subagent": "allow",
     "write_stdin": "allow",
     "subagent_wait": "allow",
-    "subagent_supervisor": "allow"
+    "subagent_supervisor": "allow",
+    "todo": "allow"
   }
 }
