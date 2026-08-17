@@ -87,7 +87,7 @@ return {
                                 mode = { "n" },
                                 has = { "workspace/didRenameFiles", "workspace/willRenameFiles" },
                             },
-                            { "<leader>lr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
+                            { "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },
                             { "<leader>lA", LazyVim.lsp.action.source, desc = "Source Action", has = "codeAction" },
                             {
                                 "]]",

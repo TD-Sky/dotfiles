@@ -5,6 +5,7 @@ filter_mode = "directory"
 ## Defaults to true. If enabled, upon hitting enter Atuin will immediately execute the command. Press tab to return to the shell and edit.
 # This applies for new installs. Old installs will keep the old behaviour unless configured otherwise.
 enter_accept = true
+search_mode = "daemon-fuzzy"
 
 [stats]
 
@@ -16,3 +17,8 @@ records = true
 [preview]
 
 [daemon]
+enabled = true
+autostart = true
+
+[ai]
+enabled = true
