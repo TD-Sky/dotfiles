@@ -117,8 +117,9 @@ progress_error = { fg = "yellow", bg = "red" }
 # : Which {{{
 
 [which]
+border = { fg = "blue" }
 cols = 3
-mask = { bg = "black" }
+mask = {}
 cand = { fg = "lightcyan" }
 rest = { fg = "darkgray" }
 desc = { fg = "lightmagenta" }
@@ -211,11 +212,10 @@ hovered = { fg = "magenta", bold = true }
 # : Help menu {{{
 
 [help]
-on = { fg = "cyan" }
-run = { fg = "magenta" }
-desc = {}
+border = { fg = "blue" }
+chord = { fg = "cyan" }
+action = {}
 hovered = { reversed = true, bold = true }
-footer = { fg = "black", bg = "white" }
 
 # : }}}
 
@@ -224,16 +224,13 @@ footer = { fg = "black", bg = "white" }
 [filetype]
 rules = [
   # Image
-  { mime = "image/*", fg = "yellow" },
+  { mime = "**/image/*", fg = "yellow" },
   # Media
-  { mime = "{audio,video}/*", fg = "magenta" },
+  { mime = "**/{audio,video}/*", fg = "magenta" },
   # Archive
-  {
-    mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}",
-    fg = "red"
-  },
+  { mime = "**/application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "red" },
   # Document
-  { mime = "application/{pdf,doc,rtf}", fg = "cyan" },
+  { mime = "**/application/{pdf,doc,rtf}", fg = "cyan" },
   # Virtual file system
   { mime = "vfs/{absent,stale}", fg = "gray" },
   # Special file

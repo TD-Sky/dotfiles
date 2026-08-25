@@ -31,37 +31,17 @@ ueberzug_offset = [0, 0, 0, 0]
 
 [opener]
 edit = [
-  {
-    run = "${EDITOR:-vi} %s",
-    desc = "$EDITOR",
-    for = "unix",
-    block = true
-  },
+  { run = "${EDITOR:-vi} %s", desc = "$EDITOR", for = "unix", block = true },
   { run = "code %s", desc = "code", for = "windows", orphan = true },
-  {
-    run = "code -w %s",
-    desc = "code (block)",
-    for = "windows",
-    block = true
-  },
+  { run = "code -w %s", desc = "code (block)", for = "windows", block = true },
 ]
 play = [
   { run = "xdg-open %s1", desc = "Play", for = "linux", orphan = true },
   { run = "open %s", desc = "Play", for = "macos" },
   { run = 'start "" %s1', desc = "Play", for = "windows", orphan = true },
   { run = "termux-open %s1", desc = "Play", for = "android" },
-  {
-    run = "mediainfo %s1; echo 'Press enter to exit'; read _",
-    block = true,
-    desc = "Show media info",
-    for = "unix"
-  },
-  {
-    run = "mediainfo %s1 & pause",
-    block = true,
-    desc = "Show media info",
-    for = "windows"
-  },
+  { run = "mediainfo %s1; echo 'Press enter to exit'; read _", block = true, desc = "Show media info", for = "unix" },
+  { run = "mediainfo %s1 & pause", block = true, desc = "Show media info", for = "windows" },
 ]
 open = [
   { run = "xdg-open %s1", desc = "Open", for = "linux" },
@@ -72,19 +52,9 @@ open = [
 reveal = [
   { run = "xdg-open %d1", desc = "Reveal", for = "linux" },
   { run = "open -R %s1", desc = "Reveal", for = "macos" },
-  {
-    run = "explorer /select,%s1",
-    desc = "Reveal",
-    for = "windows",
-    orphan = true
-  },
+  { run = "explorer /select,%s1", desc = "Reveal", for = "windows", orphan = true },
   { run = "termux-open %d1", desc = "Reveal", for = "android" },
-  {
-    run = "clear; exiftool %s1; echo 'Press enter to exit'; read _",
-    desc = "Show EXIF",
-    for = "unix",
-    block = true
-  },
+  { run = "clear; exiftool %s1; echo 'Press enter to exit'; read _", desc = "Show EXIF", for = "unix", block = true },
 ]
 extract = [
   { run = "ya pub extract --list %s", desc = "Extract here" },
@@ -93,11 +63,15 @@ download = [
   { run = "ya emit download --open %S", desc = "Download and open" },
   { run = "ya emit download %S", desc = "Download" },
 ]
+trash = [
+  { run = "ya pub trash-restore --list %S", desc = "Restore selected files" },
+  { run = "ya pub trash-empty --list %S", desc = "Empty trash bin" },
+]
 
 [open]
 rules = [
   # Folder
-  { url = "*/", use = ["edit", "open", "reveal"] },
+  { mime = "folder/*", use = ["edit", "open", "reveal"] },
   # Text
   { mime = "text/html", use = ["open", "edit", "reveal"] },
   { mime = "text/*", use = ["edit", "reveal"] },
@@ -105,18 +79,16 @@ rules = [
   { mime = "image/*", use = ["open", "reveal"] },
   # Media
   { mime = "{audio,video}/*", use = ["play", "reveal"] },
+  # Code
+  { mime = "application/{json,ndjson,javascript,wine-extension-ini}", use = ["edit", "reveal"] },
   # Archive
-  {
-    mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}",
-    use = ["extract", "reveal"]
-  },
-  # JSON
-  { mime = "application/{json,ndjson}", use = ["edit", "reveal"] },
-  { mime = "*/javascript", use = ["edit", "reveal"] },
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = ["extract", "reveal"] },
   # Empty file
   { mime = "inode/empty", use = ["edit", "reveal"] },
   # Virtual file system
   { mime = "vfs/{absent,stale}", use = "download" },
+  # Trash
+  { mime = "trash/**", use = ["open", "trash"] },
   # Fallback
   { url = "*", use = ["open", "reveal"] },
 ]
@@ -137,19 +109,14 @@ fetchers = [
   # MIME-type
   { url = "*/", run = "mime.dir", prio = "high", group = "mime" },
   { url = "local://*", run = "mime.local", prio = "high", group = "mime" },
-  {
-    url = "remote://*",
-    run = "mime.remote",
-    prio = "high",
-    group = "mime"
-  },
-  { url = "*/", run = "git", group = "git" },
+  { url = "trash://*", run = "mime.trash", prio = "high", group = "mime" },
+  { url = "remote://*", run = "mime.remote", prio = "high", group = "mime" },
 ]
 spotters = [
   # Multi-file
   { mime = "multi/*", run = "multi" },
   # Folder
-  { url = "*/", run = "folder" },
+  { mime = "folder/*", run = "folder" },
   # Code
   { mime = "text/*", run = "code" },
   { mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
@@ -161,6 +128,8 @@ spotters = [
   { mime = "video/*", run = "video" },
   # Virtual file system
   { mime = "vfs/*", run = "vfs" },
+  # Trash
+  { mime = "trash/**", run = "trash" },
   # Error
   { mime = "null/*", run = "null" },
   # Fallback
@@ -178,9 +147,11 @@ preloaders = [
   # Font
   { mime = "font/*", run = "font" },
   { mime = "application/ms-opentype", run = "font" },
+  # Trash
+  { mime = "trash/**", run = "trash" },
 ]
 previewers = [
-  { url = "*/", run = "folder" },
+  { mime = "folder/*", run = "folder" },
   # Code
   { mime = "text/*", run = "code" },
   { mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
@@ -195,26 +166,14 @@ previewers = [
   # PDF
   { mime = "application/pdf", run = "pdf" },
   # Archive
-  {
-    url = "*.{rar,tar,tar.gz,tar.xz,tar.zst,tar.bz2,deb,zip,7z,squashfs,a}",
-    run = 'piper -- bd ls "$1"'
-  },
+  { url = "*.{rar,tar,tar.gz,tar.xz,tar.zst,tar.bz2,deb,zip,7z,squashfs,a}", run = 'piper -- bd ls "$1"' },
   { mime = "application/iso9660-image", run = "archive" },
-  {
-    mime = "application/{debian*-package,redhat-package-manager,rpm,android.package-archive}",
-    run = "archive"
-  },
+  { mime = "application/{debian*-package,redhat-package-manager,rpm,android.package-archive}", run = "archive" },
   { url = "*.{AppImage,appimage}", run = "archive" },
   # Virtual Disk / Disk Image
-  {
-    mime = "application/{iso9660-image,qemu-disk,ms-wim,apple-diskimage}",
-    run = "archive"
-  },
+  { mime = "application/{iso9660-image,qemu-disk,ms-wim,apple-diskimage}", run = "archive" },
   { mime = "application/virtualbox-{vhd,vhdx}", run = "archive" },
-  {
-    url = "*.{img,fat,ext,ext2,ext3,ext4,squashfs,ntfs,hfs,hfsx}",
-    run = "archive"
-  },
+  { url = "*.{img,fat,ext,ext2,ext3,ext4,squashfs,ntfs,hfs,hfsx}", run = "archive" },
   # Font
   { mime = "font/*", run = "font" },
   { mime = "application/ms-opentype", run = "font" },
@@ -222,6 +181,8 @@ previewers = [
   { mime = "inode/empty", run = "empty" },
   # Virtual file system
   { mime = "vfs/*", run = "vfs" },
+  # Trash
+  { mime = "trash/**", run = "trash" },
   # Error
   { mime = "null/*", run = "null" },
   # Fallback
