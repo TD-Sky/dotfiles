@@ -10,8 +10,8 @@ hash = "9776f378459072b6c2875eae5addc49d"
 
 [[plugin.deps]]
 use = "TD-Sky/sudo"
-rev = "74e17fe"
-hash = "781dab984cea0fdba1162cacf78c2533"
+rev = "e70796a"
+hash = "74129f78c811cfe7c694d86c3f634c26"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
