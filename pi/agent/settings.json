@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.84.1",
+  "lastChangelogVersion": "0.84.2",
   "packages": [
     "npm:pi-web-access",
     "npm:@ff-labs/pi-fff",
@@ -11,11 +11,52 @@
     "npm:@howaboua/pi-codex-conversion",
     "npm:@plannotator/pi-extension",
     "npm:@gotgenes/pi-permission-system",
-    "npm:pi-subagents",
-    "npm:pi-condense"
+    {
+      "source": "npm:pi-subagents",
+      "extensions": [
+        "-index.ts"
+      ]
+    },
+    "npm:pi-condense",
+    "npm:pi-dynamic-workflows",
+    "npm:pi-extmgr"
   ],
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "high",
-  "theme": "dark"
+  "theme": "dark",
+  "contextPrune": {
+    "enabled": true,
+    "showPruneStatusLine": true,
+    "summarizerModel": "default",
+    "summarizerThinking": "default",
+    "pruneOn": "agent-message",
+    "batchingMode": "turn",
+    "quietOversizedSkips": false,
+    "minBatchChars": 1000,
+    "recoveryGraceTurns": 3,
+    "summarizerIdleTimeoutMs": 20000,
+    "summarizerMaxTimeoutMs": 180000,
+    "protectedTools": [],
+    "protectedPaths": [
+      "**/skills/**/*.md"
+    ],
+    "chainCompression": {
+      "enabled": true,
+      "rollingWindow": 3,
+      "stripFinalAssistantThinking": true,
+      "fuseRangeSummary": true
+    },
+    "purgeErrors": {
+      "enabled": true,
+      "cooldownTurns": 2,
+      "minArgChars": 500
+    },
+    "dedupByContentHash": true,
+    "autoBudgetThreshold": null,
+    "spillThreshold": 65536,
+    "spillPreviewBytes": 2048,
+    "budgetTurnDelta": null
+  },
+  "hideThinkingBlock": true
 }
