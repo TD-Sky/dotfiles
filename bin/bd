@@ -2,7 +2,7 @@
 
 # 原地张成布尔选项
 def then [flag: string] {
-    if $in { $flag } else { '' }
+    if $in { [$flag] } else { [] }
 }
 
 # 解压缩瑞士军刀
@@ -12,6 +12,7 @@ def main [] {
         ['tar'          '✅'        '✅'  ]
         ['tar.gz'       '✅'        '✅'  ]
         ['tar.xz'       '✅'        '✅'  ]
+        ['tar.bz2'      '✅'        '✅'  ]
         ['tar.zst'      '✅'        '✅'  ]
         ['7z'           '✅'        '✅'  ]
         ['zip'          '✅'        '✅'  ]
@@ -45,6 +46,12 @@ def "main xz" [item: string] {
     tar -Jcvf $"($basename).tar.xz" $item
 }
 
+# 压缩至tar.bz2
+def "main bz2" [item: string] {
+    let basename = $item | path basename
+    tar -jcvf $"($basename).tar.bz2" $item
+}
+
 # 压缩至tar.zst
 def "main zst" [item: string] {
     let basename = $item | path basename
@@ -63,7 +70,7 @@ def "main 7z" [
     --password (-p),
 ] {
     let basename = $item | path basename
-    7za a -t7z ($password | then '-p') ($basename + '.7z') $item
+    7za a -t7z ...($password | then '-p') ($basename + '.7z') $item
 }
 
 # 压缩至rar
@@ -82,7 +89,7 @@ def "main squashfs" [item: string] {
 def "main x" [...archives: string] {
     for archive in $archives {
         match ($archive | path parse | get extension) {
-            'tar' | 'gz' | 'xz' | 'zst' | 'zip' | 'apk' | 'crate' => {
+            'tar' | 'gz' | 'xz' | 'bz2' | 'zst' | 'zip' | 'apk' | 'crate' => {
                 bsdtar -xvf $archive
             },
             '7z' => { 7za x $archive },
