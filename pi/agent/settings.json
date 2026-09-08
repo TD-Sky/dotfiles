@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.84.1",
+  "lastChangelogVersion": "0.85.1",
   "packages": [
     "npm:pi-web-access",
     "npm:@ff-labs/pi-fff",
@@ -11,15 +11,15 @@
     "npm:@howaboua/pi-codex-conversion",
     "npm:@plannotator/pi-extension",
     "npm:@gotgenes/pi-permission-system",
-    {
-      "source": "npm:pi-subagents",
-      "extensions": [
-        "-index.ts"
-      ]
-    },
+    "npm:pi-subagents",
     "npm:pi-condense",
     "npm:@juicesharp/rpiv-todo",
-    "npm:pi-dynamic-workflows",
+    {
+      "source": "npm:pi-dynamic-workflows",
+      "extensions": [
+        "-extensions/workflow.ts"
+      ]
+    },
     "npm:pi-extmgr"
   ],
   "defaultProvider": "openai-codex",
