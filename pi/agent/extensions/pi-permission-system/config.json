@@ -22,6 +22,13 @@
     "write_stdin": "allow",
     "subagent_wait": "allow",
     "subagent_supervisor": "allow",
-    "todo": "allow"
+    "todo": "allow",
+    "context_tree_query": "allow",
+    "memory_add": "allow",
+    "memory_replace": "allow",
+    "memory_remove": "allow",
+    "skill_manage": "allow",
+    "session_search": "allow",
+    "memory_search": "allow"
   }
 }
