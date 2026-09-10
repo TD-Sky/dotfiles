@@ -20,7 +20,8 @@
         "-extensions/workflow.ts"
       ]
     },
-    "npm:pi-extmgr"
+    "npm:pi-extmgr",
+    "npm:pi-hermes-memory"
   ],
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
