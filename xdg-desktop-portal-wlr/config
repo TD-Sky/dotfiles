@@ -1,0 +1,5 @@
+[screencast]
+chooser_type=simple
+chooser_cmd=slurp -f %o -s "#00000000"
+max_fps=30
+format=shm

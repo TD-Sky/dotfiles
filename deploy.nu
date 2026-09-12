@@ -23,7 +23,7 @@ def main [] {
         git-cliff gitui zathura mpv gdb
         pip ghc fontconfig macchina paru
         uv mise atuin kitty jj zed opencode
-        niri mako xdg-desktop-portal DankMaterialShell
+        niri mako xdg-desktop-portal xdg-desktop-portal-wlr DankMaterialShell
         tombi alacritty
     ] ~/.config
     | pfs [memo applications] ~/.local/share
