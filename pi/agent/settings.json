@@ -10,7 +10,12 @@
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@howaboua/pi-codex-conversion",
     "npm:@plannotator/pi-extension",
-    "npm:@gotgenes/pi-permission-system",
+    {
+      "source": "npm:@gotgenes/pi-permission-system",
+      "extensions": [
+        "-src/index.ts"
+      ]
+    },
     "npm:pi-subagents",
     "npm:pi-condense",
     "npm:@juicesharp/rpiv-todo",

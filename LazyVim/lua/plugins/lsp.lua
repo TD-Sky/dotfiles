@@ -165,6 +165,12 @@ return {
                     phpantom_lsp = { enable = true },
                 },
             }
+
+            if vim.g.project_config ~= nil and vim.g.project_config.tinymist ~= nil then
+                opts_ext.servers.tinymist =
+                    vim.tbl_deep_extend("force", opts_ext.servers.tinymist, vim.g.project_config.tinymist)
+            end
+
             return vim.tbl_deep_extend("force", opts, opts_ext)
         end,
     },
