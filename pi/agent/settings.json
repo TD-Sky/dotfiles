@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.85.1",
+  "lastChangelogVersion": "0.87.1",
   "packages": [
     "npm:pi-web-access",
     "npm:@ff-labs/pi-fff",
@@ -12,24 +12,20 @@
     "npm:@plannotator/pi-extension",
     {
       "source": "npm:@gotgenes/pi-permission-system",
-      "extensions": [
-        "-src/index.ts"
-      ]
+      "extensions": ["-src/index.ts"]
     },
     "npm:pi-subagents",
     "npm:pi-condense",
     "npm:@juicesharp/rpiv-todo",
     {
       "source": "npm:pi-dynamic-workflows",
-      "extensions": [
-        "-extensions/workflow.ts"
-      ]
+      "extensions": ["-extensions/workflow.ts"]
     },
     "npm:pi-extmgr",
     "npm:pi-hermes-memory"
   ],
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-sol",
+  "defaultModel": "gpt-6-sol",
   "defaultThinkingLevel": "high",
   "theme": "dark",
   "contextPrune": {
@@ -45,9 +41,7 @@
     "summarizerIdleTimeoutMs": 20000,
     "summarizerMaxTimeoutMs": 180000,
     "protectedTools": [],
-    "protectedPaths": [
-      "**/skills/**/*.md"
-    ],
+    "protectedPaths": ["**/skills/**/*.md"],
     "chainCompression": {
       "enabled": true,
       "rollingWindow": 3,
