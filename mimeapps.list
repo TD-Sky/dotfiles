@@ -62,6 +62,7 @@ image/jpg=org.kde.gwenview.desktop;
 image/jpeg=org.kde.gwenview.desktop;
 image/png=org.kde.gwenview.desktop;
 image/webp=org.kde.gwenview.desktop;
+image/gif=org.kde.gwenview.desktop;
 inode/directory=thunar.desktop
 text/html=userapp-Firefox-QWEPR3.desktop
 text/markdown=lvide.desktop;
