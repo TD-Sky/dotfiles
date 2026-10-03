@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "c591a36"
-hash = "5bb0bfab901d3601c370eafdd66edd31"
+rev = "6229767"
+hash = "347cc6b190eb0c2fd60513cc7ae37412"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
@@ -15,18 +15,18 @@ hash = "74129f78c811cfe7c694d86c3f634c26"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "c591a36"
+rev = "6229767"
 hash = "5b2fbef7d1513ce38ff72623a071a5e"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "c591a36"
-hash = "45a533508a9840cc5a10cf6129f63e6a"
+rev = "6229767"
+hash = "d1e0499cae5f3aeb628c267616d4b682"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:types"
-rev = "c591a36"
-hash = "ff056b5acd05d915dc3a3936cb0cfd3e"
+rev = "6229767"
+hash = "d368d5a6a72657e1c0e7ee7340dcea8c"
 
 [[plugin.deps]]
 use = "lpnh/fr"
@@ -35,12 +35,12 @@ hash = "8b0e87c3176e0d44f79a8656f79f0fa"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "c591a36"
+rev = "6229767"
 hash = "87472b05a8c420100f6a2b9cde1e7746"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "c591a36"
+rev = "6229767"
 hash = "b95f898e6dc60b52edbc415952e14395"
 
 [flavor]
