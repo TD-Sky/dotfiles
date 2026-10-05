@@ -294,6 +294,10 @@ const MANIFEST = {
     #     manager: "pi",
     #     desc: "Cursor桥接层",
     # },
+    nono: {
+        packages: ["nono-ai-bin"],
+        desc: "开箱即用沙盒",
+    },
 
     # vcs
     lazygit: "git TUI",
@@ -475,10 +479,7 @@ const MANIFEST = {
     awww: "壁纸上屏",
     matugen: "材料设计颜色生成",
     dgop: "资源信息监控",
-    dms-shell: {
-        packages: ["dms-shell-niri"],
-        desc: "极致quickshell"
-    },
+    dms-shell: "极致quickshell",
     xdg-desktop-portal-hyprland: "屏幕共享经过此门户",
 
     # unknown

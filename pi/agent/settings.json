@@ -10,12 +10,6 @@
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@howaboua/pi-codex-conversion",
     "npm:@plannotator/pi-extension",
-    {
-      "source": "npm:@gotgenes/pi-permission-system",
-      "extensions": [
-        "-src/index.ts"
-      ]
-    },
     "npm:pi-subagents",
     "npm:pi-condense",
     "npm:@juicesharp/rpiv-todo",
@@ -26,16 +20,19 @@
       ]
     },
     "npm:pi-extmgr",
-    "npm:pi-hermes-memory"
+    "npm:pi-hermes-memory",
+    {
+      "source": "~/.config/nono/packages/nolabs-ai/pi"
+    }
   ],
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-6-sol",
+  "defaultModel": "openai-codex/gpt-6.1-luna",
   "defaultThinkingLevel": "high",
   "theme": "dark",
   "contextPrune": {
     "enabled": true,
     "showPruneStatusLine": true,
-    "summarizerModel": "openai-codex/gpt-5.6-luna",
+    "summarizerModel": "openai-codex/gpt-6-luna",
     "summarizerThinking": "default",
     "pruneOn": "agent-message",
     "batchingMode": "turn",
