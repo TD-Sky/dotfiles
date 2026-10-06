@@ -5,11 +5,6 @@ def main [] {
 
     let result = zellij list-sessions | complete
 
-    if ($result.stdout | is-empty) or $result.exit_code != 0 {
-        zellij
-        return
-    }
-
     let session = $"no(char nl)($result.stdout)new"
         | fzf --ansi --tac --reverse --cycle
         | split row ' '

@@ -2,7 +2,6 @@
 usage = "latest"
 node = "26.7.0"
 herdr = "latest"
-pnpm = "latest"
 
 [settings]
 disable_tools = ["python"]
