@@ -30,6 +30,9 @@ load-env {
     XDG_STATE_HOME: $"($env.HOME)/.local/state",
 
     PNPM_HOME: $"($env.HOME)/.local/share/pnpm",
+
+    # difft
+    DFT_PARSE_ERROR_LIMIT: 500,
 }
 
 $env.path ++= [

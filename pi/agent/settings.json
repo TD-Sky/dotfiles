@@ -13,12 +13,6 @@
     "npm:pi-subagents",
     "npm:pi-condense",
     "npm:@juicesharp/rpiv-todo",
-    {
-      "source": "npm:pi-dynamic-workflows",
-      "extensions": [
-        "-extensions/workflow.ts"
-      ]
-    },
     "npm:pi-extmgr",
     "npm:pi-hermes-memory",
     {
