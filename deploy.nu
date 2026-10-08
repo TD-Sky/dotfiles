@@ -6,25 +6,20 @@ use std/iter
 def main [] {
     []
     | pf navi ~/.local/share/navi/cheats
-    | pf zsh/zshenv ~/.zshenv
-    | pf zsh/zshrc ~/.config/zsh/.zshrc
-    | pf zsh/p10k.zsh -t ~/.config/zsh
-    | pf waybar/config.jsonc ~/.config/waybar/config
-    | pf waybar/style.css -t ~/.config/waybar
     | pf kde ~/.config
     | pf bin -t ~/.local
     | pf cargo ~/.cargo
     | pf Templates -t ~
     | pf pi ~/.pi
     | pfs [
-        starship.toml fish nushell rofi mimeapps.list
-        awesome swaylock plasma-workspace LazyVim
+        starship.toml fish nushell mimeapps.list
+        plasma-workspace LazyVim
         neovide wezterm zellij yazi git
         git-cliff gitui zathura mpv gdb
         pip ghc fontconfig macchina paru
         uv mise atuin kitty jj zed opencode
-        niri mako xdg-desktop-portal DankMaterialShell
-        tombi alacritty
+        niri xdg-desktop-portal xdg-desktop-portal-wlr DankMaterialShell
+        tombi alacritty nono
     ] ~/.config
     | pfs [memo applications] ~/.local/share
     | each {|it| deploy-item $it }

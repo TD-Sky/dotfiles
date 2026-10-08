@@ -48,11 +48,18 @@ input {
 // The built-in laptop monitor is usually called "eDP-1".
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
+output "eDP-1" {
+    mode "3200x2000@165.002"
+    scale 1.75
+    transform "normal"
+    position x=0 y=0
+    focus-at-startup
+}
 output "HDMI-A-1" {
     mode "3840x2160@60.000"
     scale 1.5
     transform "normal"
-    position x=0 y=0
+    position x=0 y=1145
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -225,7 +232,7 @@ recent-windows {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "alacritty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
 
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }

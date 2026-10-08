@@ -7,8 +7,21 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "show_edit_predictions": false,
   "agent": {
+    "dock": "right",
     "default_model": {
       "provider": "Modelscope",
       "model": "ZhipuAI/GLM-5",
@@ -23,9 +36,9 @@
   "ui_font_size": 25.0,
   "buffer_font_size": 25.0,
   "theme": {
-    "mode": "dark",
-    "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark Soft"
+    "mode": "light",
+    "light": "Catppuccin Latte",
+    "dark": "Gruvbox Material"
   },
   "lsp": {
     "rust-analyzer": {
