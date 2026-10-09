@@ -5,7 +5,7 @@ return {
             cli = {
                 tools = {
                     pi = {
-                        cmd = { "nono", "--profile", "work", "--", "pi" },
+                        cmd = { "nono", "run", "--profile", "work", "--", "pi" },
                     },
                 },
             },
