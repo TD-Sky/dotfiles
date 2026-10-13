@@ -10,7 +10,7 @@ def main [] {
     | pf bin -t ~/.local
     | pf cargo ~/.cargo
     | pf Templates -t ~
-    | pf pi ~/.pi
+    | pf pi-agent ~/.pi
     | pfs [
         starship.toml fish nushell mimeapps.list
         plasma-workspace LazyVim
@@ -19,7 +19,7 @@ def main [] {
         pip ghc fontconfig macchina paru
         uv mise atuin kitty jj zed opencode
         niri xdg-desktop-portal xdg-desktop-portal-wlr DankMaterialShell
-        tombi alacritty nono
+        tombi alacritty nono pi
     ] ~/.config
     | pfs [memo applications] ~/.local/share
     | each {|it| deploy-item $it }
