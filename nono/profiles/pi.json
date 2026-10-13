@@ -25,7 +25,13 @@
   },
   "filesystem": {
     "allow": ["~/.pi", "~/.cargo", "~/.cache/sccache", "/tmp"],
-    "read": ["~/.dotfiles/pi", "~/.dotfiles/cargo", "~/.local/share/mise/installs"],
+    "read": [
+      "~/.dotfiles/pi-agent",
+      "~/.dotfiles/pi",
+      "~/.config/pi",
+      "~/.dotfiles/cargo",
+      "~/.local/share/mise/installs"
+    ],
     "write": [],
     "allow_file": [],
     "read_file": [],
