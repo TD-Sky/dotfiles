@@ -38,6 +38,7 @@ load-env {
 $env.path ++= [
     "~/.cargo/bin",
     "~/.local/bin",
+    "~/.pi/agent/bin",
     ($env.PNPM_HOME | path join "bin"),
 ]
 
