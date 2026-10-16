@@ -31,7 +31,9 @@
       "~/.config/pi",
       "~/.dotfiles/cargo",
       "~/.local/share/mise/installs",
-      "/usr/include"
+      "/usr/include",
+      "~/.dotfiles/mise",
+      "~/.config/mise"
     ],
     "write": [],
     "allow_file": [],
