@@ -19,7 +19,7 @@
     }
   ],
   "defaultProvider": "openai-codex",
-  "defaultModel": "openai-codex/gpt-6.1-luna",
+  "defaultModel": "openai-codex/gpt-6.1-sol",
   "defaultThinkingLevel": "high",
   "theme": "dark",
   "contextPrune": {
@@ -35,9 +35,7 @@
     "summarizerIdleTimeoutMs": 20000,
     "summarizerMaxTimeoutMs": 180000,
     "protectedTools": [],
-    "protectedPaths": [
-      "**/skills/**/*.md"
-    ],
+    "protectedPaths": ["**/skills/**/*.md"],
     "chainCompression": {
       "enabled": true,
       "rollingWindow": 3,

@@ -1,4 +1,7 @@
 {
+  "provider": "exa",
+  "workflow": "auto-summary",
+  "summaryModel": "openai-codex/gpt-6-luna",
   "ssrf": {
     "allowRanges": ["198.18.0.0/15"]
   }
