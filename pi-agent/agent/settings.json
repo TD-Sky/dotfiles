@@ -25,7 +25,7 @@
   "contextPrune": {
     "enabled": true,
     "showPruneStatusLine": true,
-    "summarizerModel": "openai-codex/gpt-6-luna",
+    "summarizerModel": "deepseek/deepseek-flash",
     "summarizerThinking": "default",
     "pruneOn": "agent-message",
     "batchingMode": "turn",
