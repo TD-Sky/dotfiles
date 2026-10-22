@@ -1,5 +1,5 @@
 {
-  "extends": ["nolabs-ai/pi"],
+  "extends": ["nolabs-ai/pi", "mise"],
   "meta": {
     "name": "pi",
     "version": "",
@@ -30,10 +30,9 @@
       "~/.dotfiles/pi",
       "~/.config/pi",
       "~/.dotfiles/cargo",
-      "~/.local/share/mise/installs",
       "/usr/include",
-      "~/.dotfiles/mise",
-      "~/.config/mise"
+      "~/.config/gh",
+      "~/.config/wireshark"
     ],
     "write": [],
     "allow_file": [],

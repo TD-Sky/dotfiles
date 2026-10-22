@@ -1,6 +1,6 @@
 [tools]
 usage = "latest"
-node = "26.7.0"
+node = "26.12.1"
 herdr = "latest"
 
 [settings]
