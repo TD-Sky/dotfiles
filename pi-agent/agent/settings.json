@@ -9,11 +9,24 @@
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@howaboua/pi-codex-conversion",
     "npm:@plannotator/pi-extension",
-    "npm:pi-subagents",
+    {
+      "source": "npm:pi-subagents",
+      "piExtmgrDisabled": {
+        "version": 1,
+        "originalForm": "string",
+        "fields": {}
+      },
+      "extensions": [],
+      "skills": [],
+      "prompts": [],
+      "themes": [],
+      "autoload": true
+    },
     "npm:pi-condense",
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-extmgr",
     "npm:pi-hermes-memory",
+    "npm:pi-fabric",
     {
       "source": "~/.config/nono/packages/nolabs-ai/pi"
     }
@@ -52,5 +65,6 @@
     "spillThreshold": 65536,
     "spillPreviewBytes": 2048,
     "budgetTurnDelta": null
-  }
+  },
+  "lastChangelogVersion": "1.4.0"
 }
