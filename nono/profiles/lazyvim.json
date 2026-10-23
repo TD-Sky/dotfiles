@@ -1,5 +1,5 @@
 {
-  "extends": [],
+  "extends": ["mise"],
   "meta": {
     "name": "lazyvim",
     "version": "",
@@ -24,19 +24,8 @@
     "deny": []
   },
   "filesystem": {
-    "allow": [
-      "/tmp",
-      "~/.local/share/LazyVim",
-      "~/.local/state/LazyVim",
-      "~/.cache/LazyVim"
-    ],
-    "read": [
-      "~/.local/share/mise/installs",
-      "~/.dotfiles/bin",
-      "~/.local/bin/lvim",
-      "~/.dotfiles/LazyVim",
-      "~/.config/LazyVim"
-    ],
+    "allow": ["/tmp", "~/.local/share/LazyVim", "~/.local/state/LazyVim", "~/.cache/LazyVim"],
+    "read": ["~/.dotfiles/bin", "~/.local/bin/lvim", "~/.dotfiles/LazyVim", "~/.config/LazyVim"],
     "write": [],
     "allow_file": [],
     "read_file": [],
