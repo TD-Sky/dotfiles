@@ -8,20 +8,6 @@
     "npm:@narumitw/pi-btw",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@howaboua/pi-codex-conversion",
-    "npm:@plannotator/pi-extension",
-    {
-      "source": "npm:pi-subagents",
-      "piExtmgrDisabled": {
-        "version": 1,
-        "originalForm": "string",
-        "fields": {}
-      },
-      "extensions": [],
-      "skills": [],
-      "prompts": [],
-      "themes": [],
-      "autoload": true
-    },
     "npm:pi-condense",
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-extmgr",
@@ -48,7 +34,9 @@
     "summarizerIdleTimeoutMs": 20000,
     "summarizerMaxTimeoutMs": 180000,
     "protectedTools": [],
-    "protectedPaths": ["**/skills/**/*.md"],
+    "protectedPaths": [
+      "**/skills/**/*.md"
+    ],
     "chainCompression": {
       "enabled": true,
       "rollingWindow": 3,

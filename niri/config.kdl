@@ -56,8 +56,8 @@ output "eDP-1" {
     focus-at-startup
 }
 output "HDMI-A-1" {
-    mode "3840x2160@60.000"
-    scale 1.5
+    mode "2560x1440@59.951"
+    scale 1.0
     transform "normal"
     position x=0 y=1145
 }

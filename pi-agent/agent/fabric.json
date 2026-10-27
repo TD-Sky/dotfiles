@@ -1,0 +1,55 @@
+{
+  "agents": {
+    "defaultTools": [
+      "apply_patch",
+      "ask_user_question",
+      "bash",
+      "change_reasoning",
+      "context_tree_query",
+      "edit",
+      "exec",
+      "exec_command",
+      "fabric_exec",
+      "fetch_content",
+      "fffind",
+      "ffgrep",
+      "find",
+      "get_context_remaining",
+      "get_search_content",
+      "grep",
+      "history",
+      "ls",
+      "memory_add",
+      "memory_remove",
+      "memory_replace",
+      "memory_search",
+      "new_context",
+      "notebook",
+      "notes",
+      "read",
+      "session_search",
+      "skill_manage",
+      "source_check",
+      "todo",
+      "view_image",
+      "wait",
+      "web_enable",
+      "web_search",
+      "write",
+      "write_stdin"
+    ]
+  },
+  "models": {
+    "aliases": {
+      "deep": {
+        "model": "openai-codex/gpt-6.1-sol",
+        "thinking": "high"
+      },
+      "fast": {
+        "model": "deepseek/deepseek-flash",
+        "thinking": "high"
+      }
+    }
+  },
+  "configVersion": 4
+}
