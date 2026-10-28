@@ -16,10 +16,6 @@ play_pause=none,none,Play/Pause
 prev_track=none,none,Previous track
 stop=none,none,Stop
 
-[kaccess]
-Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,切换屏幕阅读器开关
-_k_friendly_name=无障碍辅助
-
 [kmix]
 _k_friendly_name=音量
 decrease_microphone_volume=Microphone Volume Down,Microphone Volume Down,降低麦克风音量
@@ -58,8 +54,8 @@ Increase Opacity=none,none,提高活动窗口不透明度 5%
 Kill Window=Meta+Ctrl+Esc,Meta+Ctrl+Esc,强制终止窗口
 Move Tablet to Next LogicalOutput=none,none,移动数位板到下一个输出设备
 Move Tablet to Next Output=none,none,移动数位板到下一个输出设备
-MoveMouseToCenter=Meta+F6,Meta+F6,移动鼠标到中央
-MoveMouseToFocus=Meta+F5,Meta+F5,移动鼠标到焦点
+MoveMouseToCenter=Meta+F6,Meta+F6,指针移至屏幕中心
+MoveMouseToFocus=Meta+F5,Meta+F5,指针移至焦点窗口中心
 MoveZoomDown=none,none,将缩放区域向下移动
 MoveZoomLeft=none,none,将缩放区域向左移动
 MoveZoomRight=none,none,将缩放区域向右移动
@@ -118,6 +114,7 @@ Switch to Screen Below=none,none,切换到下方屏幕
 Switch to Screen to the Left=none,none,切换到左侧屏幕
 Switch to Screen to the Right=none,none,切换到右侧屏幕
 Toggle Night Color=none,none,暂停/继续夜间色温
+Toggle Show Compositing=none,none,开启/关闭显示特效合成活动指示器效果
 Toggle Window Raise/Lower=none,none,提升/降低窗口
 Walk Through Windows=Alt+Tab,Alt+Tab\tMeta+Tab,遍历窗口
 Walk Through Windows (Reverse)=Alt+Shift+Tab,Alt+Shift+Tab\tMeta+Shift+Tab,遍历窗口 (反向)
@@ -216,6 +213,36 @@ view_actual_size=Meta+0,Meta+0,缩放为实际大小(A)
 view_zoom_in=Meta++\tMeta+=,Meta++\tMeta+=,放大(I)
 view_zoom_out=Meta+-,Meta+-,缩小(O)
 
+[kwin][$InverseAction]
+Cycle Overview=Cycle Overview Opposite
+Decrease Opacity=Increase Opacity
+MoveZoomRight=MoveZoomLeft
+MoveZoomUp=MoveZoomDown
+Switch One Desktop Up=Switch One Desktop Down
+Switch One Desktop to the Left=Switch One Desktop to the Right
+Switch Window Right=Switch Window Left
+Switch Window Up=Switch Window Down
+Switch to Previous Desktop=Switch to Next Desktop
+Switch to Previous Screen=Switch to Next Screen
+Switch to Screen Below=Switch to Screen Above
+Switch to Screen to the Right=Switch to Screen to the Left
+Walk Through Windows (Reverse)=Walk Through Windows
+Walk Through Windows Alternative (Reverse)=Walk Through Windows Alternative
+Walk Through Windows of Current Application (Reverse)=Walk Through Windows of Current Application
+Walk Through Windows of Current Application Alternative=Walk Through Windows of Current Application Alternative (Reverse)
+Window Grow Horizontal=Window Shrink Horizontal
+Window Grow Vertical=Window Shrink Vertical
+Window One Desktop Up=Window One Desktop Down
+Window One Desktop to the Left=Window One Desktop to the Right
+Window One Screen Down=Window One Screen Up
+Window One Screen to the Left=Window One Screen to the Right
+Window Pack Left=Window Pack Right
+Window Pack Up=Window Pack Down
+Window Raise=Window Lower
+Window to Next Desktop=Window to Previous Desktop
+Window to Previous Screen=Window to Next Screen
+view_zoom_in=view_zoom_out
+
 [mediacontrol]
 _k_friendly_name=媒体控制器
 mediavolumedown=none,none,媒体音量降低
@@ -251,6 +278,8 @@ powerProfile=Battery\tMeta+B,Battery\tMeta+B,切换电源管理方案
 Slideshow Wallpaper Next Image=none,none,下一张壁纸图像
 _k_friendly_name=plasmashell
 activate application launcher=Meta,Meta\tAlt+F1,激活应用程序启动器
+activate next task manager entry=Meta+Ctrl+PgDown,Meta+Ctrl+PgDown,激活下一个任务管理器条目
+activate previous task manager entry=Meta+Ctrl+PgUp,Meta+Ctrl+PgUp,激活上一个任务管理器条目
 activate task manager entry 1=none,Meta+1,激活任务管理器条目 1
 activate task manager entry 10=none,none,激活任务管理器条目 10
 activate task manager entry 2=none,Meta+2,激活任务管理器条目 2
@@ -269,12 +298,14 @@ activate widget 55=none,none,激活 应用程序启动器 挂件
 activate widget 82=none,none,激活 应用程序启动器 挂件
 clear history=none,none,清除通知历史记录
 clear-history=none,none,清除剪贴板历史(L)
-clipboard_action=Meta+Ctrl+X,Meta+Ctrl+X,自动弹出操作菜单
+clipboard_action=Meta+Ctrl+X,none,Toggle Automatic Popping Up of Action Menu
 cycle-panels=Meta+Alt+P,Meta+Alt+P,在面板之间移动键盘焦点
 cycleNextAction=none,none,下一条历史记录
 cyclePrevAction=none,none,上一条历史记录
 edit_clipboard=none,none,编辑内容(E)…
 manage activities=Meta+Q,Meta+Q,显示活动切换器
+move active task to left=Meta+Ctrl+Shift+PgUp,Meta+Ctrl+Shift+PgUp,向后移动活动任务管理器条目
+move active task to right=Meta+Ctrl+Shift+PgDown,Meta+Ctrl+Shift+PgDown,向前移动活动任务管理器条目
 next activity=Meta+A,none,遍历活动
 previous activity=Meta+Shift+A,none,遍历活动 (反向)
 repeat_action=Meta+Ctrl+R,none,在当前剪贴板上手动执行操作

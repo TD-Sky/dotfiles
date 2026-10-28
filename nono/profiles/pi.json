@@ -24,7 +24,7 @@
     "deny": []
   },
   "filesystem": {
-    "allow": ["~/.pi", "~/.cargo", "~/.cache/sccache", "/tmp"],
+    "allow": ["~/.pi", "~/.cargo", "~/.cache/sccache", "~/.config/jj", "/tmp"],
     "read": [
       "~/.dotfiles/pi-agent",
       "~/.dotfiles/pi",
@@ -32,7 +32,8 @@
       "~/.dotfiles/cargo",
       "/usr/include",
       "~/.config/gh",
-      "~/.config/wireshark"
+      "~/.config/wireshark",
+      "~/.dotfiles/jj"
     ],
     "write": [],
     "allow_file": [],
