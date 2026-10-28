@@ -92,6 +92,7 @@ spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "fcitx5"
 
 spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri & /usr/lib/xdg-desktop-portal-hyprland"
+spawn-sh-at-startup "neru launch"
 
 hotkey-overlay {
     skip-at-startup
@@ -372,6 +373,11 @@ binds {
     Mod+F1 { spawn-sh "pkill fcitx5 || fcitx5"; } // 重启输入法以解决弹不出来的问题
     Mod+F2 { spawn-sh "wl-paste | satty -f -"; } // 编辑刚刚的截图
     Mod+F3 { spawn-sh "systemctl --user restart dms"; } // 卡顿时重启dms
+
+    // Neru
+    Mod+Ctrl+N { spawn-sh "neru hints --strategy segment --action left_click"; }
+    Mod+Ctrl+M { spawn-sh "neru grid --action left_click"; }
+    Mod+S { spawn-sh "neru scroll"; }
 }
 
 // Include dms files
