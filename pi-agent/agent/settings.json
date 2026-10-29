@@ -25,7 +25,7 @@
     "enabled": true,
     "showPruneStatusLine": true,
     "summarizerModel": "deepseek/deepseek-flash",
-    "summarizerThinking": "default",
+    "summarizerThinking": "low",
     "pruneOn": "agent-message",
     "batchingMode": "turn",
     "quietOversizedSkips": false,
