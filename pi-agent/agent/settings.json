@@ -13,6 +13,7 @@
     "npm:pi-extmgr",
     "npm:pi-hermes-memory",
     "npm:pi-fabric",
+    "npm:@howaboua/pi-notes-compaction",
     {
       "source": "~/.config/nono/packages/nolabs-ai/pi"
     }
@@ -34,9 +35,7 @@
     "summarizerIdleTimeoutMs": 20000,
     "summarizerMaxTimeoutMs": 180000,
     "protectedTools": [],
-    "protectedPaths": [
-      "**/skills/**/*.md"
-    ],
+    "protectedPaths": ["**/skills/**/*.md"],
     "chainCompression": {
       "enabled": true,
       "rollingWindow": 3,
