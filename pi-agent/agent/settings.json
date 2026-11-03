@@ -14,6 +14,7 @@
     "npm:pi-hermes-memory",
     "npm:pi-fabric",
     "npm:@howaboua/pi-notes-compaction",
+    "npm:pi-context-view",
     {
       "source": "~/.config/nono/packages/nolabs-ai/pi"
     }
@@ -27,7 +28,9 @@
     "showPruneStatusLine": true,
     "summarizerModel": "deepseek/deepseek-flash",
     "summarizerThinking": "low",
-    "pruneOn": "agent-message",
+    "pruneOn": "on-demand",
+    "frontierGapThresholdTokens": 200000,
+    "autoBudgetThreshold": 0.6,
     "batchingMode": "turn",
     "quietOversizedSkips": false,
     "minBatchChars": 1000,
@@ -35,7 +38,9 @@
     "summarizerIdleTimeoutMs": 20000,
     "summarizerMaxTimeoutMs": 180000,
     "protectedTools": [],
-    "protectedPaths": ["**/skills/**/*.md"],
+    "protectedPaths": [
+      "**/skills/**/*.md"
+    ],
     "chainCompression": {
       "enabled": true,
       "rollingWindow": 3,
@@ -48,10 +53,18 @@
       "minArgChars": 500
     },
     "dedupByContentHash": true,
-    "autoBudgetThreshold": null,
     "spillThreshold": 65536,
     "spillPreviewBytes": 2048,
     "budgetTurnDelta": null
   },
-  "lastChangelogVersion": "1.4.0"
+  "lastChangelogVersion": "1.5.0",
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.46.0",
+    "{\"source\":\"npm:pi-tool-display\",\"scope\":\"user\"}": "0.5.0",
+    "{\"source\":\"npm:pi-anycopy\",\"scope\":\"user\"}": "0.3.6",
+    "{\"source\":\"npm:@howaboua/pi-codex-conversion\",\"scope\":\"user\"}": "4.0.7",
+    "{\"source\":\"npm:pi-condense\",\"scope\":\"user\"}": "2.13.1",
+    "{\"source\":\"npm:pi-extmgr\",\"scope\":\"user\"}": "0.4.2",
+    "{\"source\":\"npm:@howaboua/pi-notes-compaction\",\"scope\":\"user\"}": "0.0.13"
+  }
 }

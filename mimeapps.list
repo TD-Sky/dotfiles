@@ -100,3 +100,4 @@ x-scheme-handler/mailto=userapp-Thunderbird-YNH2W3.desktop
 x-scheme-handler/mid=userapp-Thunderbird-YNH2W3.desktop
 message/rfc822=userapp-Thunderbird-YNH2W3.desktop
 x-scheme-handler/net.thunderbird=userapp-Thunderbird-GFJ2W3.desktop
+x-scheme-handler/tern=so.stencil.tern.url.desktop
