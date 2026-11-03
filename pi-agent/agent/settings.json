@@ -8,28 +8,16 @@
     "npm:@narumitw/pi-btw",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@howaboua/pi-codex-conversion",
-    "npm:@plannotator/pi-extension",
-    {
-      "source": "npm:pi-subagents",
-      "piExtmgrDisabled": {
-        "version": 1,
-        "originalForm": "string",
-        "fields": {}
-      },
-      "extensions": [],
-      "skills": [],
-      "prompts": [],
-      "themes": [],
-      "autoload": true
-    },
     "npm:pi-condense",
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-extmgr",
     "npm:pi-hermes-memory",
+    "npm:pi-fabric",
+    "npm:@howaboua/pi-notes-compaction",
+    "npm:pi-context-view",
     {
       "source": "~/.config/nono/packages/nolabs-ai/pi"
-    },
-    "npm:pi-fabric"
+    }
   ],
   "defaultProvider": "openai-codex",
   "defaultModel": "openai-codex/gpt-6.1-sol",
@@ -39,8 +27,10 @@
     "enabled": true,
     "showPruneStatusLine": true,
     "summarizerModel": "deepseek/deepseek-flash",
-    "summarizerThinking": "default",
-    "pruneOn": "agent-message",
+    "summarizerThinking": "low",
+    "pruneOn": "on-demand",
+    "frontierGapThresholdTokens": 200000,
+    "autoBudgetThreshold": 0.6,
     "batchingMode": "turn",
     "quietOversizedSkips": false,
     "minBatchChars": 1000,
@@ -48,9 +38,7 @@
     "summarizerIdleTimeoutMs": 20000,
     "summarizerMaxTimeoutMs": 180000,
     "protectedTools": [],
-    "protectedPaths": [
-      "**/skills/**/*.md"
-    ],
+    "protectedPaths": ["**/skills/**/*.md"],
     "chainCompression": {
       "enabled": true,
       "rollingWindow": 3,
@@ -63,10 +51,8 @@
       "minArgChars": 500
     },
     "dedupByContentHash": true,
-    "autoBudgetThreshold": null,
     "spillThreshold": 65536,
     "spillPreviewBytes": 2048,
     "budgetTurnDelta": null
-  },
-  "lastChangelogVersion": "1.4.0"
+  }
 }
