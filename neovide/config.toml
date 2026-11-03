@@ -1,7 +1,0 @@
-idle = false
-tabs = false
-vsync = true
-
-[font]
-normal = []
-size = 18

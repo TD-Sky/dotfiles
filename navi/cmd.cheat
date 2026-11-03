@@ -170,3 +170,6 @@ sudo rfkill unblock bluetooth
 
 # 通过 ssh 挂载远程目录到本地
 sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 -o cache=yes,kernel_cache -o Compression=no,Cipher=aes128-ctr <user>@<host>:<src> <local-dest>
+
+查看拥有显示通知能力的程序
+busctl --user status org.freedesktop.Notifications
