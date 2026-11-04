@@ -12,16 +12,18 @@ def main [] {
     | pf Templates -t ~
     | pf pi-agent ~/.pi
     | pfs [
-        starship.toml fish nushell mimeapps.list
+        starship.toml nushell mimeapps.list
         plasma-workspace LazyVim
-        neovide wezterm zellij yazi git
-        git-cliff gitui zathura mpv gdb
+        wezterm zellij yazi git
+        git-cliff zathura mpv gdb
         pip ghc fontconfig macchina paru
-        uv mise atuin kitty jj zed opencode
-        niri xdg-desktop-portal xdg-desktop-portal-wlr DankMaterialShell
+        uv mise atuin kitty jj jj-bond zed opencode
+        niri xdg-desktop-portal xdg-desktop-portal-wlr dms
         tombi alacritty nono pi
     ] ~/.config
-    | pfs [memo applications] ~/.local/share
+    | pfs [
+        memo
+    ] ~/.local/share
     | each {|it| deploy-item $it }
 
     return

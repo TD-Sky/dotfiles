@@ -66,7 +66,7 @@ const MANIFEST = {
         manager: "cargo",
         desc: "Rust二进制工具"
     },
-    lua-language-server: "",
+    lua-language-server: "lua语言服务器",
     stylua: "lua格式化器",
     tombi: "toml语言工具",
     shfmt: "bash/zsh格式化器",
@@ -80,16 +80,13 @@ const MANIFEST = {
     },
     volar: {
         manager: "npm",
-        packages: ["@vue/language-server"]
-    },
-    prettier: {
-        manager: "npm",
-        packages: ["prettier", "@prettier/plugin-xml"],
-        desc: "前端格式化器"
+        packages: ["@vue/language-server"],
+        desc: "vue语言服务器",
     },
     mise: "管理语言工具链",
     bash-language-server: {
-        manager: "npm"
+        manager: "npm",
+        desc: "bash语言服务器",
     },
     sccache: "编译缓存",
     kondo: "扫除编译产物",
@@ -147,7 +144,6 @@ const MANIFEST = {
     dbeaver: "PostgreSQL客户端",
     sqlitebrowser: "SQLite客户端",
     keepassxc: "keepass客户端",
-    zed: "Zed编辑器",
 
     # wayland
     wl-clipboard: "剪贴板",
@@ -165,7 +161,6 @@ const MANIFEST = {
 
     # shell
     nushell: "结构化shell",
-    # mcfly: "历史命令",
     atuin: "历史命令",
     starship: "装饰提示符",
     zoxide: "瞬移",
@@ -174,6 +169,11 @@ const MANIFEST = {
     zsh: {
         packages: ["zsh", "zsh-completions"],
         desc: "zsh及额外补全包"
+    },
+    carapace: {
+        packages: ["carapace-bin"],
+        manager: "paru",
+        desc: "外部补全器",
     },
 
     # filesystem
@@ -233,69 +233,9 @@ const MANIFEST = {
         desc: "Codex",
     },
     llmfit: "根据需求找模型",
-    ## pi
-    pi: {
-        packages: ["@earendil-works/pi-coding-agent"],
-        manager: "pnpm",
-        desc: "agent核",
-    },
-    pi-web-access: {
-        packages: ["npm:pi-web-access"],
-        manager: "pi",
-        desc: "上网工具",
-    },
-    pi-permission-system: {
-        packages: ["npm:@gotgenes/pi-permission-system"],
-        manager: "pi",
-        desc: "权限管理",
-    },
-    pi-fff: {
-        packages: ["npm:@ff-labs/pi-fff"],
-        manager: "pi",
-        desc: "搜索工具",
-    },
-    pi-skills: {
-        packages: ["npm:@spences10/pi-skills"],
-        manager: "pi",
-        desc: "技能管理",
-    },
-    pi-tool-display: {
-        packages: ["npm:pi-tool-display"],
-        manager: "pi",
-        desc: "美化工具输出",
-    },
-    pi-anycopy: {
-        packages: ["npm:pi-anycopy"],
-        manager: "pi",
-        desc: "复制会话历史",
-    },
-    pi-btw: {
-        packages: ["npm:@narumitw/pi-btw"],
-        manager: "pi",
-        desc: "临时提问",
-    },
-    rpiv-ask-user-question: {
-        packages: ["npm:@juicesharp/rpiv-ask-user-question"],
-        manager: "pi",
-        desc: "结构化问卷",
-    },
-    pi-codex-conversion: {
-        packages: ["npm:@howaboua/pi-codex-conversion"],
-        manager: "pi",
-        desc: "pi的codex实现",
-    },
-    plannotator: {
-        packages: ["npm:@plannotator/pi-extension"],
-        manager: "pi",
-        desc: "review代码",
-    },
-    # pi-cursor-sdk: {
-    #     packages: ["npm:pi-cursor-sdk"],
-    #     manager: "pi",
-    #     desc: "Cursor桥接层",
-    # },
     nono: {
         packages: ["nono-ai-bin"],
+        manager: "paru",
         desc: "开箱即用沙盒",
     },
 
@@ -307,9 +247,10 @@ const MANIFEST = {
     git-filter-repo: "过滤git项目",
     jujutsu: "新一代VCS",
     gitlogue: "git重现动画",
-    weave: {
-        packages: ["weave-bin"],
-        desc: "语义化的代码合并工具",
+    jj-bond: {
+        packages: ["jj-bond-bin"],
+        manager: "paru",
+        desc: "JJ TUI",
     },
 
     # data
@@ -348,6 +289,10 @@ const MANIFEST = {
     webp-pixbuf-loader: "GDK的webp支持",
     inkscape: "操作矢量图",
     poppler: "`pdftoppm -png`将PDF转成图片",
+    viu: "终端看图",
+    doxx: "docx TUI",
+    tabiew: "查看表",
+    bluetui: "bluez TUI",
     # wps: {
     #     packages: [
     #         "wps-office-cn-bwrap",
@@ -358,10 +303,6 @@ const MANIFEST = {
     #     manager: "paru",
     #     desc: "WPS本体+中文语言包+符号字体+中文常用字体"
     # },
-    viu: "终端看图",
-    doxx: "docx TUI",
-    tabiew: "查看表",
-    bluetui: "bluez TUI",
 
     # language
     didyoumean: {
@@ -395,6 +336,12 @@ const MANIFEST = {
     impala: "iwd TUI",
     mkcert: "本地创建TLS证书",
     sshfs: "ssh文件系统",
+    tcpdump: "网络抓包",
+    wireshark: {
+        packages: ["wireshark-cli", "wireshark-qt"],
+        desc: "查看网络抓包",
+    },
+    tcpreplay: "重放网络抓包",
 
     # show
     asciinema: "录制命令行视频",
@@ -475,11 +422,10 @@ const MANIFEST = {
     satty: "编辑图片",
     alsa-ucm-conf: "ALSA接线图",
     alsa-firmware: "ALSA固件",
-    brightnessctl: "亮度调节",
     awww: "壁纸上屏",
     matugen: "材料设计颜色生成",
-    dgop: "资源信息监控",
-    dms-shell: "极致quickshell",
+    dux-shell: "极致quickshell",
+    dux-gop: "资源信息监控",
     xdg-desktop-portal-hyprland: "屏幕共享经过此门户",
 
     # unknown
@@ -572,14 +518,6 @@ def main [
         for p in $tbl.pnpm {
             try {
                 pnpm install -g --ignore-scripts $p
-            }
-        }
-    }
-
-    if 'pi' in $managers and $pi != null {
-        for p in $tbl.pi {
-            try {
-                pi install $p
             }
         }
     }
