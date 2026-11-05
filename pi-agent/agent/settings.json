@@ -8,16 +8,54 @@
     "npm:@narumitw/pi-btw",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@howaboua/pi-codex-conversion",
-    "npm:pi-condense",
+    {
+      "source": "npm:pi-condense",
+      "piExtmgrDisabled": {
+        "version": 1,
+        "originalForm": "string",
+        "fields": {}
+      },
+      "extensions": [],
+      "skills": [],
+      "prompts": [],
+      "themes": [],
+      "autoload": true
+    },
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-extmgr",
-    "npm:pi-hermes-memory",
+    {
+      "source": "npm:pi-hermes-memory",
+      "piExtmgrDisabled": {
+        "version": 1,
+        "originalForm": "string",
+        "fields": {}
+      },
+      "extensions": [],
+      "skills": [],
+      "prompts": [],
+      "themes": [],
+      "autoload": true
+    },
     "npm:pi-fabric",
-    "npm:@howaboua/pi-notes-compaction",
+    {
+      "source": "npm:@howaboua/pi-notes-compaction",
+      "piExtmgrDisabled": {
+        "version": 1,
+        "originalForm": "string",
+        "fields": {}
+      },
+      "extensions": [],
+      "skills": [],
+      "prompts": [],
+      "themes": [],
+      "autoload": true
+    },
     "npm:pi-context-view",
     {
       "source": "~/.config/nono/packages/nolabs-ai/pi"
-    }
+    },
+    "npm:@cortexkit/pi-magic-context",
+    "npm:@plannotator/pi-extension"
   ],
   "defaultProvider": "openai-codex",
   "defaultModel": "openai-codex/gpt-6.1-sol",
@@ -65,6 +103,7 @@
     "{\"source\":\"npm:@howaboua/pi-codex-conversion\",\"scope\":\"user\"}": "4.0.7",
     "{\"source\":\"npm:pi-condense\",\"scope\":\"user\"}": "2.13.1",
     "{\"source\":\"npm:pi-extmgr\",\"scope\":\"user\"}": "0.4.2",
-    "{\"source\":\"npm:@howaboua/pi-notes-compaction\",\"scope\":\"user\"}": "0.0.13"
+    "{\"source\":\"npm:@howaboua/pi-notes-compaction\",\"scope\":\"user\"}": "0.0.13",
+    "{\"source\":\"npm:@narumitw/pi-btw\",\"scope\":\"user\"}": "0.63.4"
   }
 }

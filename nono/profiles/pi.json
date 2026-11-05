@@ -1,5 +1,5 @@
 {
-  "extends": ["nolabs-ai/pi", "mise"],
+  "extends": ["nolabs-ai/pi", "mise", "plannotator"],
   "meta": {
     "name": "pi",
     "version": "",
@@ -24,7 +24,14 @@
     "deny": []
   },
   "filesystem": {
-    "allow": ["~/.pi", "~/.cargo", "~/.cache/sccache", "~/.config/jj", "/tmp"],
+    "allow": [
+      "~/.pi",
+      "~/.cargo",
+      "~/.cache/sccache",
+      "~/.config/jj",
+      "~/.local/share/cortexkit",
+      "/tmp"
+    ],
     "read": [
       "~/.dotfiles/pi-agent",
       "~/.dotfiles/pi",
@@ -33,7 +40,11 @@
       "/usr/include",
       "~/.config/gh",
       "~/.config/wireshark",
-      "~/.dotfiles/jj"
+      "~/.dotfiles/jj",
+      "~/.config/cortexkit",
+      "~/.dotfiles/cortexkit",
+      "~/.agents",
+      "~/.dotfiles/agents"
     ],
     "write": [],
     "allow_file": [],
