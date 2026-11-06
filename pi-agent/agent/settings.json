@@ -97,13 +97,15 @@
   },
   "lastChangelogVersion": "1.5.0",
   "extensionChangelogVersions": {
-    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.46.0",
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0",
     "{\"source\":\"npm:pi-tool-display\",\"scope\":\"user\"}": "0.5.0",
     "{\"source\":\"npm:pi-anycopy\",\"scope\":\"user\"}": "0.3.6",
     "{\"source\":\"npm:@howaboua/pi-codex-conversion\",\"scope\":\"user\"}": "4.0.7",
     "{\"source\":\"npm:pi-condense\",\"scope\":\"user\"}": "2.13.1",
     "{\"source\":\"npm:pi-extmgr\",\"scope\":\"user\"}": "0.4.2",
     "{\"source\":\"npm:@howaboua/pi-notes-compaction\",\"scope\":\"user\"}": "0.0.13",
-    "{\"source\":\"npm:@narumitw/pi-btw\",\"scope\":\"user\"}": "0.63.4"
-  }
+    "{\"source\":\"npm:@narumitw/pi-btw\",\"scope\":\"user\"}": "0.63.4",
+    "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.3"
+  },
+  "hideThinkingBlock": true
 }

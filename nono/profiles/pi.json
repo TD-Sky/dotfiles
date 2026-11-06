@@ -30,6 +30,7 @@
       "~/.cache/sccache",
       "~/.config/jj",
       "~/.local/share/cortexkit",
+      "~/.npm",
       "/tmp"
     ],
     "read": [
