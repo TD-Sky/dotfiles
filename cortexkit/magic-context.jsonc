@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cortexkit/magic-context/master/assets/magic-context.schema.json",
+  "historian": {
+    "pi": {
+      "model": "deepseek/deepseek-flash",
+    },
+  },
+  "dreamer": {
+    "pi": {
+      "model": "deepseek/deepseek-flash",
+    },
+  },
+  "embedding": {
+    "provider": "local",
+    "model": "Xenova/all-MiniLM-L6-v2",
+  },
+  "execute_threshold_tokens": {
+    "default": 300000,
+  },
+}

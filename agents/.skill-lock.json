@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "skills": {
+    "slidev": {
+      "source": "slidevjs/slidev",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/slidevjs/slidev.git",
+      "skillPath": "skills/slidev/SKILL.md",
+      "skillFolderHash": "15d0e7596290e1b568adf04be0466e6622b69bc8",
+      "installedAt": "2026-06-28T07:49:33Z",
+      "updatedAt": "2026-06-28T07:49:33Z"
+    }
+  }
+}

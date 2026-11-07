@@ -11,6 +11,7 @@ def main [] {
     | pf cargo ~/.cargo
     | pf Templates -t ~
     | pf pi-agent ~/.pi
+    | pf agents ~/.agents
     | pfs [
         starship.toml nushell mimeapps.list
         plasma-workspace LazyVim
@@ -19,7 +20,7 @@ def main [] {
         pip ghc fontconfig macchina paru
         uv mise atuin kitty jj jj-bond zed opencode
         niri xdg-desktop-portal xdg-desktop-portal-wlr dms
-        tombi alacritty nono pi
+        tombi alacritty nono pi cortexkit
     ] ~/.config
     | pfs [
         memo

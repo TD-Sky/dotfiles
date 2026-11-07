@@ -6,15 +6,12 @@
     "npm:pi-tool-display",
     "npm:pi-anycopy",
     "npm:@narumitw/pi-btw",
-    "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@howaboua/pi-codex-conversion",
-    "npm:pi-condense",
-    "npm:@juicesharp/rpiv-todo",
     "npm:pi-extmgr",
-    "npm:pi-hermes-memory",
     "npm:pi-fabric",
-    "npm:@howaboua/pi-notes-compaction",
     "npm:pi-context-view",
+    "npm:@plannotator/pi-extension",
+    "npm:@cortexkit/pi-magic-context",
     {
       "source": "~/.config/nono/packages/nolabs-ai/pi"
     }
@@ -23,36 +20,14 @@
   "defaultModel": "openai-codex/gpt-6.1-sol",
   "defaultThinkingLevel": "high",
   "theme": "dark",
-  "contextPrune": {
-    "enabled": true,
-    "showPruneStatusLine": true,
-    "summarizerModel": "deepseek/deepseek-flash",
-    "summarizerThinking": "low",
-    "pruneOn": "on-demand",
-    "frontierGapThresholdTokens": 200000,
-    "autoBudgetThreshold": 0.6,
-    "batchingMode": "turn",
-    "quietOversizedSkips": false,
-    "minBatchChars": 1000,
-    "recoveryGraceTurns": 3,
-    "summarizerIdleTimeoutMs": 20000,
-    "summarizerMaxTimeoutMs": 180000,
-    "protectedTools": [],
-    "protectedPaths": ["**/skills/**/*.md"],
-    "chainCompression": {
-      "enabled": true,
-      "rollingWindow": 3,
-      "stripFinalAssistantThinking": true,
-      "fuseRangeSummary": true
-    },
-    "purgeErrors": {
-      "enabled": true,
-      "cooldownTurns": 2,
-      "minArgChars": 500
-    },
-    "dedupByContentHash": true,
-    "spillThreshold": 65536,
-    "spillPreviewBytes": 2048,
-    "budgetTurnDelta": null
+  "lastChangelogVersion": "1.5.0",
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0",
+    "{\"source\":\"npm:pi-tool-display\",\"scope\":\"user\"}": "0.5.0",
+    "{\"source\":\"npm:pi-anycopy\",\"scope\":\"user\"}": "0.3.6",
+    "{\"source\":\"npm:@narumitw/pi-btw\",\"scope\":\"user\"}": "0.63.5",
+    "{\"source\":\"npm:@howaboua/pi-codex-conversion\",\"scope\":\"user\"}": "4.0.9",
+    "{\"source\":\"npm:pi-extmgr\",\"scope\":\"user\"}": "0.4.2",
+    "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.3"
   }
 }
