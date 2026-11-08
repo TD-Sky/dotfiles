@@ -5,6 +5,4 @@ require("config.lazy")
 
 require("config.dap")
 
-require("config.neovide")
-
 vim.cmd.highlight("CursorWord guifg=#FF6868")

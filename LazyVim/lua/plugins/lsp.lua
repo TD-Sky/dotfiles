@@ -162,7 +162,11 @@ return {
                     clangd = { enable = true },
                     basedpyright = { enable = true },
                     astro = { enable = true },
-                    phpantom_lsp = { enable = true },
+                    -- rumoca = {
+                    --     enable = true,
+                    --     cmd = { "rumoca-lsp" },
+                    --     filetypes = { "modelica" },
+                    -- },
                 },
             }
 
