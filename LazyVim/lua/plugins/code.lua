@@ -45,12 +45,11 @@ return {
                     stdin = true,
                 },
                 go = "gofmt",
-                ["javascript,typescript,javascriptreact,typescriptreact,css,json,jsonc,json5,markdown,vue,html,yaml"] = {
+                ["javascript,typescript,javascriptreact,typescriptreact,css,json,jsonc,json5,markdown,vue,html,yaml,svg,xml,astro"] = {
                     cmd = "oxfmt",
                     fname = true,
                     stdin = false,
                 },
-                ["xml,astro"] = "prettier",
                 typst = "typstyle",
                 -- kotlin = {
                 --     cmd = "ktfmt",

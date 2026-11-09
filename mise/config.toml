@@ -2,6 +2,7 @@
 usage = "latest"
 node = "26.12.1"
 herdr = "latest"
+oxfmt = "latest"
 
 [settings]
 disable_tools = ["python"]

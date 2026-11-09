@@ -30,7 +30,7 @@
   "notificationShowTimeoutBar": true,
   "notificationPopupPosition": 5,
   "screenPreferences": {
-    "wallpaper": []
+    "wallpaper": ["all"]
   },
   "barConfigs": [
     {
@@ -38,9 +38,7 @@
       "name": "Main Bar",
       "enabled": true,
       "position": 1,
-      "screenPreferences": [
-        "all"
-      ],
+      "screenPreferences": ["all"],
       "showOnLastDisplay": true,
       "leftWidgets": [
         {
@@ -122,9 +120,7 @@
       "id": "dock",
       "name": "Dock",
       "enabled": false,
-      "screenPreferences": [
-        "all"
-      ],
+      "screenPreferences": ["all"],
       "showOnLastDisplay": true,
       "position": 1,
       "mode": "compact",
@@ -190,18 +186,14 @@
       ]
     }
   ],
-  "dmsWindowsFloatingSeeded": [
-    "niri"
-  ],
+  "dmsWindowsFloatingSeeded": ["niri"],
   "lockScreenWidgetInstances": [
     {
       "id": "lock_clock",
       "widgetType": "desktopClock",
       "enabled": true,
       "config": {
-        "displayPreferences": [
-          "all"
-        ],
+        "displayPreferences": ["all"],
         "syncPositionAcrossScreens": true,
         "style": "expressive",
         "transparency": 0,
@@ -221,9 +213,7 @@
       "widgetType": "lockDate",
       "enabled": false,
       "config": {
-        "displayPreferences": [
-          "all"
-        ],
+        "displayPreferences": ["all"],
         "syncPositionAcrossScreens": true,
         "format": "short",
         "colorMode": "default",
@@ -235,9 +225,7 @@
       "widgetType": "lockAuth",
       "enabled": true,
       "config": {
-        "displayPreferences": [
-          "all"
-        ],
+        "displayPreferences": ["all"],
         "syncPositionAcrossScreens": true,
         "style": "expressive",
         "profileVisibility": "always",
@@ -249,9 +237,7 @@
       "widgetType": "lockNotifications",
       "enabled": true,
       "config": {
-        "displayPreferences": [
-          "all"
-        ],
+        "displayPreferences": ["all"],
         "syncPositionAcrossScreens": true,
         "mode": 2
       }
@@ -261,9 +247,7 @@
       "widgetType": "lockStatus",
       "enabled": true,
       "config": {
-        "displayPreferences": [
-          "all"
-        ],
+        "displayPreferences": ["all"],
         "syncPositionAcrossScreens": true,
         "showMediaPlayer": true,
         "showWeather": true,
@@ -275,9 +259,7 @@
       "widgetType": "lockPower",
       "enabled": true,
       "config": {
-        "displayPreferences": [
-          "all"
-        ],
+        "displayPreferences": ["all"],
         "syncPositionAcrossScreens": true,
         "shape": "round"
       }
@@ -289,9 +271,7 @@
       "widgetType": "desktopClock",
       "enabled": true,
       "config": {
-        "displayPreferences": [
-          "all"
-        ],
+        "displayPreferences": ["all"],
         "syncPositionAcrossScreens": true,
         "style": "expressive",
         "transparency": 0,
@@ -311,9 +291,7 @@
       "widgetType": "lockDate",
       "enabled": false,
       "config": {
-        "displayPreferences": [
-          "all"
-        ],
+        "displayPreferences": ["all"],
         "syncPositionAcrossScreens": true,
         "format": "short",
         "colorMode": "default",
@@ -325,9 +303,7 @@
       "widgetType": "lockAuth",
       "enabled": true,
       "config": {
-        "displayPreferences": [
-          "all"
-        ],
+        "displayPreferences": ["all"],
         "syncPositionAcrossScreens": true,
         "style": "expressive",
         "profileVisibility": "always",
@@ -339,9 +315,7 @@
       "widgetType": "lockStatus",
       "enabled": true,
       "config": {
-        "displayPreferences": [
-          "all"
-        ],
+        "displayPreferences": ["all"],
         "syncPositionAcrossScreens": true,
         "showMediaPlayer": true,
         "showWeather": true,
@@ -353,9 +327,7 @@
       "widgetType": "lockPower",
       "enabled": true,
       "config": {
-        "displayPreferences": [
-          "all"
-        ],
+        "displayPreferences": ["all"],
         "syncPositionAcrossScreens": true,
         "shape": "round"
       }
@@ -365,9 +337,7 @@
       "widgetType": "greeterSession",
       "enabled": true,
       "config": {
-        "displayPreferences": [
-          "all"
-        ],
+        "displayPreferences": ["all"],
         "syncPositionAcrossScreens": true
       }
     }
