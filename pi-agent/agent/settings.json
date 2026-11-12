@@ -16,20 +16,19 @@
       "source": "~/.config/nono/packages/nolabs-ai/pi"
     }
   ],
-  "defaultProvider": "openai-codex",
-  "defaultModel": "openai-codex/gpt-6.1-sol",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "deepseek-v4.1-flash",
   "defaultThinkingLevel": "high",
-  "theme": "dark",
   "lastChangelogVersion": "1.5.2",
   "extensionChangelogVersions": {
     "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0",
     "{\"source\":\"npm:pi-tool-display\",\"scope\":\"user\"}": "0.5.0",
     "{\"source\":\"npm:pi-anycopy\",\"scope\":\"user\"}": "0.3.6",
-    "{\"source\":\"npm:@howaboua/pi-codex-conversion\",\"scope\":\"user\"}": "4.0.9",
+    "{\"source\":\"npm:@howaboua/pi-codex-conversion\",\"scope\":\"user\"}": "4.0.10",
     "{\"source\":\"npm:pi-condense\",\"scope\":\"user\"}": "2.13.1",
     "{\"source\":\"npm:pi-extmgr\",\"scope\":\"user\"}": "0.4.2",
     "{\"source\":\"npm:@howaboua/pi-notes-compaction\",\"scope\":\"user\"}": "0.0.13",
-    "{\"source\":\"npm:@narumitw/pi-btw\",\"scope\":\"user\"}": "0.63.7",
+    "{\"source\":\"npm:@narumitw/pi-btw\",\"scope\":\"user\"}": "0.63.8",
     "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.4"
   },
   "hideThinkingBlock": true
