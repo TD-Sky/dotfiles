@@ -2,12 +2,14 @@
   "$schema": "https://raw.githubusercontent.com/cortexkit/magic-context/master/assets/magic-context.schema.json",
   "historian": {
     "pi": {
-      "model": "deepseek/deepseek-flash",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "thinking_level": "high",
     },
   },
   "dreamer": {
     "pi": {
-      "model": "deepseek/deepseek-flash",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "thinking_level": "high",
     },
   },
   "embedding": {

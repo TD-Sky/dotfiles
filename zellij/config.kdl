@@ -651,8 +651,8 @@ show_startup_tips false
 
 terminal {
     font_size 17
-    cursor_style "bar"
-    cursor_blink true
+    cursor_style "block"
+    cursor_blink false
     opacity 0.8
     blur true
     font "JetBrainsMono Nerd Font Mono"
