@@ -653,7 +653,7 @@ terminal {
     font_size 17
     cursor_style "block"
     cursor_blink false
-    opacity 0.8
+    opacity 0.85
     blur true
     font "JetBrainsMono Nerd Font Mono"
 }
