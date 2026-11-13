@@ -24,7 +24,7 @@
     "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0",
     "{\"source\":\"npm:pi-tool-display\",\"scope\":\"user\"}": "0.5.0",
     "{\"source\":\"npm:pi-anycopy\",\"scope\":\"user\"}": "0.3.6",
-    "{\"source\":\"npm:@howaboua/pi-codex-conversion\",\"scope\":\"user\"}": "4.0.10",
+    "{\"source\":\"npm:@howaboua/pi-codex-conversion\",\"scope\":\"user\"}": "5.0.0",
     "{\"source\":\"npm:pi-condense\",\"scope\":\"user\"}": "2.13.1",
     "{\"source\":\"npm:pi-extmgr\",\"scope\":\"user\"}": "0.4.2",
     "{\"source\":\"npm:@howaboua/pi-notes-compaction\",\"scope\":\"user\"}": "0.0.13",
