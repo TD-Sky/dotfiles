@@ -648,10 +648,12 @@ show_startup_tips false
 //   - "off" (do not forward notifications to the host terminal)
 // 
 // host_notification_protocol "auto"
+
 terminal {
-    font_size 16
-    cursor_style "bar"
-    cursor_blink true
+    font_size 17
+    cursor_style "block"
+    cursor_blink false
     opacity 0.8
     blur true
+    font "JetBrainsMono Nerd Font Mono"
 }
