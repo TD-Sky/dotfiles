@@ -18,5 +18,6 @@
   },
   "execute_threshold_tokens": {
     "default": 300000,
+    "opencode-go/deepseek-v4.1-flash": 500000,
   },
 }
