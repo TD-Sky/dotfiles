@@ -30,7 +30,9 @@
   "notificationShowTimeoutBar": true,
   "notificationPopupPosition": 5,
   "screenPreferences": {
-    "wallpaper": ["all"]
+    "wallpaper": [
+      "all"
+    ]
   },
   "barConfigs": [
     {
@@ -38,7 +40,9 @@
       "name": "Main Bar",
       "enabled": true,
       "position": 1,
-      "screenPreferences": ["all"],
+      "screenPreferences": [
+        "all"
+      ],
       "showOnLastDisplay": true,
       "leftWidgets": [
         {
@@ -120,7 +124,9 @@
       "id": "dock",
       "name": "Dock",
       "enabled": false,
-      "screenPreferences": ["all"],
+      "screenPreferences": [
+        "all"
+      ],
       "showOnLastDisplay": true,
       "position": 1,
       "mode": "compact",
@@ -186,14 +192,18 @@
       ]
     }
   ],
-  "dmsWindowsFloatingSeeded": ["niri"],
+  "dmsWindowsFloatingSeeded": [
+    "niri"
+  ],
   "lockScreenWidgetInstances": [
     {
       "id": "lock_clock",
       "widgetType": "desktopClock",
       "enabled": true,
       "config": {
-        "displayPreferences": ["all"],
+        "displayPreferences": [
+          "all"
+        ],
         "syncPositionAcrossScreens": true,
         "style": "expressive",
         "transparency": 0,
@@ -213,7 +223,9 @@
       "widgetType": "lockDate",
       "enabled": false,
       "config": {
-        "displayPreferences": ["all"],
+        "displayPreferences": [
+          "all"
+        ],
         "syncPositionAcrossScreens": true,
         "format": "short",
         "colorMode": "default",
@@ -225,7 +237,9 @@
       "widgetType": "lockAuth",
       "enabled": true,
       "config": {
-        "displayPreferences": ["all"],
+        "displayPreferences": [
+          "all"
+        ],
         "syncPositionAcrossScreens": true,
         "style": "expressive",
         "profileVisibility": "always",
@@ -237,7 +251,9 @@
       "widgetType": "lockNotifications",
       "enabled": true,
       "config": {
-        "displayPreferences": ["all"],
+        "displayPreferences": [
+          "all"
+        ],
         "syncPositionAcrossScreens": true,
         "mode": 2
       }
@@ -247,7 +263,9 @@
       "widgetType": "lockStatus",
       "enabled": true,
       "config": {
-        "displayPreferences": ["all"],
+        "displayPreferences": [
+          "all"
+        ],
         "syncPositionAcrossScreens": true,
         "showMediaPlayer": true,
         "showWeather": true,
@@ -259,7 +277,9 @@
       "widgetType": "lockPower",
       "enabled": true,
       "config": {
-        "displayPreferences": ["all"],
+        "displayPreferences": [
+          "all"
+        ],
         "syncPositionAcrossScreens": true,
         "shape": "round"
       }
@@ -271,7 +291,9 @@
       "widgetType": "desktopClock",
       "enabled": true,
       "config": {
-        "displayPreferences": ["all"],
+        "displayPreferences": [
+          "all"
+        ],
         "syncPositionAcrossScreens": true,
         "style": "expressive",
         "transparency": 0,
@@ -291,7 +313,9 @@
       "widgetType": "lockDate",
       "enabled": false,
       "config": {
-        "displayPreferences": ["all"],
+        "displayPreferences": [
+          "all"
+        ],
         "syncPositionAcrossScreens": true,
         "format": "short",
         "colorMode": "default",
@@ -303,7 +327,9 @@
       "widgetType": "lockAuth",
       "enabled": true,
       "config": {
-        "displayPreferences": ["all"],
+        "displayPreferences": [
+          "all"
+        ],
         "syncPositionAcrossScreens": true,
         "style": "expressive",
         "profileVisibility": "always",
@@ -315,7 +341,9 @@
       "widgetType": "lockStatus",
       "enabled": true,
       "config": {
-        "displayPreferences": ["all"],
+        "displayPreferences": [
+          "all"
+        ],
         "syncPositionAcrossScreens": true,
         "showMediaPlayer": true,
         "showWeather": true,
@@ -327,7 +355,9 @@
       "widgetType": "lockPower",
       "enabled": true,
       "config": {
-        "displayPreferences": ["all"],
+        "displayPreferences": [
+          "all"
+        ],
         "syncPositionAcrossScreens": true,
         "shape": "round"
       }
@@ -337,11 +367,131 @@
       "widgetType": "greeterSession",
       "enabled": true,
       "config": {
-        "displayPreferences": ["all"],
+        "displayPreferences": [
+          "all"
+        ],
         "syncPositionAcrossScreens": true
       }
     }
   ],
   "lockScreenShowPowerActions": true,
-  "osdInputMethodEnabled": false
+  "osdInputMethodEnabled": false,
+  "controlCenterWidgets": [
+    {
+      "id": "user",
+      "enabled": true,
+      "w": 5,
+      "h": 1
+    },
+    {
+      "id": "settings",
+      "enabled": true,
+      "w": 1,
+      "h": 1,
+      "small": true
+    },
+    {
+      "id": "lock",
+      "enabled": true,
+      "w": 1,
+      "h": 1,
+      "small": true
+    },
+    {
+      "id": "power",
+      "enabled": true,
+      "w": 1,
+      "h": 1,
+      "small": true
+    },
+    {
+      "id": "brightnessSlider",
+      "enabled": true,
+      "w": 4,
+      "h": 1,
+      "small": true,
+      "deviceName": "software:HDMI-A-1"
+    },
+    {
+      "id": "volumeSlider",
+      "enabled": true,
+      "w": 4,
+      "h": 1,
+      "small": true
+    },
+    {
+      "id": "wifi",
+      "enabled": true,
+      "w": 4,
+      "h": 1
+    },
+    {
+      "id": "bluetooth",
+      "enabled": true,
+      "w": 4,
+      "h": 1
+    },
+    {
+      "id": "audioOutput",
+      "enabled": true,
+      "w": 4,
+      "h": 1
+    },
+    {
+      "id": "audioInput",
+      "enabled": true,
+      "w": 4,
+      "h": 1
+    },
+    {
+      "id": "darkMode",
+      "enabled": true,
+      "w": 2,
+      "h": 1
+    },
+    {
+      "id": "nightMode",
+      "enabled": true,
+      "w": 2,
+      "h": 1
+    },
+    {
+      "id": "doNotDisturb",
+      "enabled": true,
+      "w": 2,
+      "h": 1
+    },
+    {
+      "id": "idleInhibitor",
+      "enabled": true,
+      "w": 2,
+      "h": 1
+    },
+    {
+      "id": "battery",
+      "enabled": true,
+      "w": 4,
+      "h": 1
+    },
+    {
+      "id": "diskUsage",
+      "enabled": true,
+      "w": 4,
+      "h": 1
+    },
+    {
+      "id": "runningApps",
+      "enabled": true,
+      "w": 7,
+      "h": 1,
+      "small": true
+    },
+    {
+      "id": "edit",
+      "enabled": true,
+      "w": 1,
+      "h": 1,
+      "small": true
+    }
+  ]
 }
