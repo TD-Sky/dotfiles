@@ -657,3 +657,6 @@ terminal {
     blur true
     font "JetBrainsMono Nerd Font Mono"
 }
+attention {
+    startup_card "never"
+}
