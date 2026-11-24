@@ -1,6 +1,7 @@
 # MISC #
 
 $env.config.show_banner = false
+$env.config.completions.algorithm = "fuzzy"
 
 # VARIABLE #
 
