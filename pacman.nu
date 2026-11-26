@@ -88,7 +88,6 @@ const MANIFEST = {
         manager: "npm",
         desc: "bash语言服务器",
     },
-    sccache: "编译缓存",
     kondo: "扫除编译产物",
     clang: {
         packages: ["clang", "llvm"],

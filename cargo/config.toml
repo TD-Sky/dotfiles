@@ -26,9 +26,6 @@ codegen-units = 1
 linker = "clang"
 rustflags = ["-C", "link-arg=--ld-path=wild"]
 
-[build]
-rustc-wrapper = "/usr/bin/sccache"
-
 [net]
 git-fetch-with-cli = true
 

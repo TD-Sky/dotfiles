@@ -52,7 +52,6 @@ ssh-agent -c
     | load-env
 
 # INTEGRATION #
-mkdir $"($nu.cache-dir)"
 
 # carapace
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'

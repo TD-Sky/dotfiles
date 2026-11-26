@@ -65,9 +65,13 @@ return {
                             disabled = { "proc-macro-disabled" },
                         },
                         check = {
-                            command = "clippy",
-                            extraArgs = {
+                            overrideCommand = {
+                                vim.fs.joinpath(vim.uv.os_homedir(), ".local/share/mbx/bin/cargo"),
+                                "clippy",
                                 "--no-deps",
+                                "--all-targets",
+                                "--target-dir",
+                                "target/rust-analyzer",
                                 "--message-format=json-diagnostic-rendered-ansi",
                             },
                             workspace = false,
