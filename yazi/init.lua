@@ -22,5 +22,7 @@ Status:children_add(function()
         ":",
         ui.Span(ya.group_name(h.cha.gid) or tostring(h.cha.gid)):fg("magenta"),
         " ",
+        ui.Span(h.cha.mtime ~= nil and os.date("%Y-%m-%d %H:%M:%S", math.floor(h.cha.mtime)) or "UNKNOWN"):fg("blue"),
+        " ",
     })
 end, 500, Status.RIGHT)
